@@ -1,6 +1,6 @@
 import TensorFlow
 
-// Definindo parâmetros do modelo
+// Definindo parâmetros do modelo para SEA HIC CLEAR
 struct ModelArgs {
     var dim: Int = 4096
     var nLayers: Int = 32
@@ -16,12 +16,12 @@ struct RMSNorm: Layer {
     var weight: Tensor<Float>
 
     init(dim: Int, eps: Float = 1e-6) {
-        self.weight = Tensor<Float>(ones: [dim])
+        self.weight = Tensor<Float>(ones: [dim]) * (1.0 / sqrt(Float(dim)))
     }
 
     @differentiable
     func callAsFunction(_ x: Tensor<Float>) -> Tensor<Float> {
-        let normed = x * rsqrt(pow(x, 2).mean(alongAxes: -1, keepdims: true) + 1e-6)
+        let normed = x * rsqrt(pow(x, 2).mean(alongAxes: -1, keepdims: true) + eps)
         return normed * weight
     }
 }
@@ -61,7 +61,7 @@ struct Attention: Layer {
     }
 }
 
-// Classe principal do Transformer
+// Classe principal do Transformer para SEA HIC CLEAR
 struct Transformer: Layer {
     var layers: [Attention]
     var norm: RMSNorm

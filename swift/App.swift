@@ -1,11 +1,10 @@
 import SwiftUI
 
 @main
-struct Tesla5001App: App {
+struct BunnyDataApp: App {
     var body: some Scene {
         WindowGroup {
-            IonControlView()
+            IonControlView() // A view principal do aplicativo
         }
     }
 }
-

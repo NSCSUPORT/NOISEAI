@@ -1,68 +1,59 @@
 import Foundation
 
-let compileCommand = "gcc" // Compile command
-let outputName = "output_program" // Name of the final program
-let terminalCommand = "./" // Command to execute the program
+let compileCommand = "gcc" // Comando de compilação
+let outputName = "output_program" // Nome do programa final
+let terminalCommand = "./" // Comando para executar o programa
 
-// Function to compile all .c files in the current directory
-func compileAllCFiles() {
-    var compileCmd = "\(compileCommand) -o \(outputName) " // Buffer for the compile command
+// Função única para compilar e executar todos os arquivos .c
+func lakeStation() {
+    var compileCmd = "\(compileCommand) -o \(outputName) " // Buffer para o comando de compilação
 
-    // Get the current directory
+    // Obtendo o diretório atual
     let fileManager = FileManager.default
     do {
         let currentPath = fileManager.currentDirectoryPath
         let items = try fileManager.contentsOfDirectory(atPath: currentPath)
 
-        // List all files in the current directory
+        // Listar todos os arquivos no diretório atual
         for item in items {
-            // Check for .c files
+            // Verificar arquivos .c
             if item.hasSuffix(".c") {
                 compileCmd += "\(item) "
             }
         }
 
-        // Check if there are files to compile
+        // Verificar se há arquivos para compilar
         if compileCmd == "\(compileCommand) -o \(outputName) " {
             print("Nenhum arquivo .c encontrado para compilar.")
             return
         }
 
-        // Execute the compile command
-        print("Compiling with command: \(compileCmd)")
+        // Executar o comando de compilação
+        print("Compilando com o comando: \(compileCmd)")
         let compileResult = system(compileCmd)
 
         if compileResult != 0 {
-            print("Compilation failed.")
+            print("Falha na compilação.")
             return
         }
 
-        print("Compilation successful!")
+        print("Compilação bem-sucedida!")
+
+        // Executar o programa compilado
+        let runCmd = "\(terminalCommand)\(outputName)"
+        print("Executando o programa: \(runCmd)")
+        let runResult = system(runCmd)
+
+        if runResult != 0 {
+            print("Falha na execução.")
+        } else {
+            print("Programa executado com sucesso.")
+        }
+
     } catch {
-        print("Error accessing directory: \(error)")
+        print("Erro ao acessar o diretório: \(error)")
     }
 }
 
-// Function to execute the compiled program
-func runProgram() {
-    let runCmd = "\(terminalCommand)\(outputName)"
-    
-    // Execute the program
-    print("Executing the program: \(runCmd)")
-    let runResult = system(runCmd)
-
-    if runResult != 0 {
-        print("Execution failed.")
-    } else {
-        print("Program executed successfully.")
-    }
-}
-
-// Main function
-func main() {
-    compileAllCFiles()  // Compile all .c files
-    runProgram()        // Execute the compiled program
-}
-
-// Call the main function
-main()
+// Chamar a função lakeStation
+lakeStation()

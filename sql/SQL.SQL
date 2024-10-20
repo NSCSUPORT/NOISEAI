@@ -1,50 +1,30 @@
--- Criar a tabela de usuários
+-- Criação de um banco de dados
+CREATE DATABASE ExampleDB;
+
+-- Selecionar o banco de dados
+USE ExampleDB; -- Para Azure SQL Database
+
+-- Criar uma tabela de usuários
 CREATE TABLE Users (
-    user_id SERIAL PRIMARY KEY,
-    username VARCHAR(50) NOT NULL UNIQUE,
-    password VARCHAR(100) NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    UserID INT PRIMARY KEY IDENTITY(1,1), -- Azure
+    UserName NVARCHAR(50) NOT NULL,
+    Email NVARCHAR(100) NOT NULL UNIQUE,
+    CreatedAt DATETIME DEFAULT GETDATE() -- Azure
+    -- Para PostgreSQL, você usaria: CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Criar a tabela de sessões SSH
-CREATE TABLE SSHSessions (
-    session_id SERIAL PRIMARY KEY,
-    user_id INT REFERENCES Users(user_id),
-    ip_address VARCHAR(45) NOT NULL,
-    session_start TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    session_end TIMESTAMP,
-    status VARCHAR(20) DEFAULT 'active'
-);
+-- Inserir dados na tabela de usuários
+INSERT INTO Users (UserName, Email)
+VALUES 
+    ('Lucas', 'lucas@example.com'),
+    ('Ana', 'ana@example.com'),
+    ('João', 'joao@example.com');
 
--- Criar a tabela de kernels
-CREATE TABLE Kernels (
-    kernel_id SERIAL PRIMARY KEY,
-    kernel_name VARCHAR(50) NOT NULL,
-    kernel_version VARCHAR(20) NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    status VARCHAR(20) DEFAULT 'active'
-);
+-- Consultar os dados da tabela
+SELECT * FROM Users;
 
--- Criar a tabela de lakes
-CREATE TABLE Lakes (
-    lake_id SERIAL PRIMARY KEY,
-    lake_name VARCHAR(50) NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+-- Para Azure SQL Database, você pode usar:
+-- EXEC sp_spaceused; -- Para verificar o espaço utilizado
 
--- Criar a tabela de objetos dentro de cada lake
-CREATE TABLE HoloFiObjects (
-    object_id SERIAL PRIMARY KEY,
-    lake_id INT REFERENCES Lakes(lake_id),
-    object_name VARCHAR(50) NOT NULL,
-    attribute FLOAT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
--- Criar a tabela para armazenar logs de ações
-CREATE TABLE ActionLogs (
-    log_id SERIAL PRIMARY KEY,
-    user_id INT REFERENCES Users(user_id),
-    action VARCHAR(255),
-    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+-- Para Amazon RDS, você pode usar:
+-- SELECT pg_size_pretty(pg_database_size('ExampleDB')); -- Para verificar o tamanho do banco de dados
