@@ -8,12 +8,13 @@
     <!-- Fonte Estilo Minecraft -->
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- FontAwesome para ícones -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script> <!-- Biblioteca XLSX -->
     <style>
         /* Estilos Gerais */
         body {
-            background-color: #121212; /* Fundo escuro */
+            background-color: #121212;
             color: #fff;
-            font-family: 'Courier New', Courier, monospace; /* Fonte padrão */
+            font-family: 'Courier New', Courier, monospace;
             margin: 0;
             padding: 0;
             display: flex;
@@ -25,10 +26,10 @@
 
         /* Título com fonte Minecraft */
         h1 {
-            font-family: 'Press Start 2P', cursive; /* Fonte estilo Minecraft */
+            font-family: 'Press Start 2P', cursive;
             font-size: 36px;
             font-weight: bold;
-            color: #4CAF50; /* Verde para destaque */
+            color: #4CAF50;
             margin-bottom: 20px;
         }
 
@@ -41,9 +42,9 @@
             width: 100%;
             max-width: 450px;
             padding: 20px;
-            border: 2px solid #4CAF50; /* Contorno verde */
+            border: 2px solid #4CAF50;
             border-radius: 10px;
-            background-color: #1c1c1c; /* Escuro com tom mais suave */
+            background-color: #1c1c1c;
         }
 
         .chat-box {
@@ -53,7 +54,7 @@
             background-color: #333;
             border-radius: 10px;
             padding: 10px;
-            font-size: 14px; /* Fonte pixel */
+            font-size: 14px;
         }
 
         .message {
@@ -115,8 +116,8 @@
             background-color: #FFC107;
             color: #000;
             position: relative;
-            width: 40px; /* Tamanho do botão */
-            height: 40px; /* Tamanho do botão */
+            width: 40px;
+            height: 40px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -147,37 +148,10 @@
             background-color: #d32f2f;
         }
 
-        /* Botões de Perguntas */
-        .question-btn {
-            background-color: #2196F3;
-            margin: 5px;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 18px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-        }
-
-        .question-btn:hover {
-            background-color: #0b79c2;
-        }
-
-        /* Estilos dos Ícones */
-        .fa {
-            font-size: 20px;
-        }
-
-        .question-btn i {
-            margin-right: 8px; /* Espaçamento entre ícone e texto */
-        }
-
         /* Responsividade */
         @media screen and (max-width: 768px) {
             h1 {
-                font-size: 28px; /* Ajuste de tamanho no mobile */
+                font-size: 28px;
             }
 
             .chat-container {
@@ -224,20 +198,13 @@
 <div class="chat-container">
     <div class="chat-box" id="chat-box">
         <div class="message received">👋 Olá! O que você deseja fazer na fornalha de dados?</div>
-        <div class="message received" id="question-list">
-            <button class="question-btn" onclick="askQuestion('consultar')"><i class="fas fa-search"></i>Consultar Dados</button>
-            <button class="question-btn" onclick="askQuestion('deletar')"><i class="fas fa-trash-alt"></i>Deletar Dados</button>
-            <button class="question-btn" onclick="askQuestion('copiar')"><i class="fas fa-copy"></i>Copiar Dados</button>
-            <button class="question-btn" onclick="askQuestion('manipular')"><i class="fas fa-cogs"></i>Funções Simples</button>
-            <button class="question-btn" onclick="askQuestion('exportar')"><i class="fas fa-file-export"></i>Exportar para Google Docs</button>
-        </div>
     </div>
     <div class="input-container">
         <input type="text" id="chat-input" placeholder="Digite sua mensagem...">
         <button class="button send-btn" id="send-btn"><i class="fas fa-paper-plane"></i></button>
         <div class="button attach-btn">
             <input type="file" id="file-input" />
-            <i class="fas fa-paperclip"></i> <!-- Apenas o ícone -->
+            <i class="fas fa-paperclip"></i>
         </div>
         <button class="button clear-btn" id="clear-btn"><i class="fas fa-trash-alt"></i></button>
     </div>
@@ -250,6 +217,7 @@
     <button class="button send-btn" id="analyze-btn">Analisar Dados</button>
 </div>
 
+<!-- Funções Javascript -->
 <script>
     // Função para enviar mensagem
     document.getElementById('send-btn').addEventListener('click', function() {
@@ -277,31 +245,33 @@
         }
     });
 
-    // Função para perguntar e mostrar respostas
-    function askQuestion(type) {
-        let message = document.createElement('div');
-        message.classList.add('message', 'sent');
-        switch (type) {
-            case 'consultar':
-                message.textContent = 'Você escolheu consultar dados. Informe o nome da tabela e o dado que deseja consultar.';
-                break;
-            case 'deletar':
-                message.textContent = 'Você escolheu deletar dados. Informe o dado a ser deletado.';
-                break;
-            case 'copiar':
-                message.textContent = 'Você escolheu copiar dados. Informe o dado que deseja copiar.';
-                break;
-            case 'manipular':
-                message.textContent = 'Você escolheu manipular dados. Informe as funções a serem aplicadas.';
-                break;
-            case 'exportar':
-                message.textContent = 'Você escolheu exportar para Google Docs. Informe os dados para exportar.';
-                break;
-            default:
-                message.textContent = 'Escolha uma opção válida.';
-                break;
+    // Função para analisar os dados e gerar uma função
+    document.getElementById('analyze-btn').addEventListener('click', function() {
+        let data = document.getElementById('data-input').value;
+        if (data) {
+            alert('Analisando dados: ' + data);
+            // Processar os dados e gerar a função desejada aqui
+            processAndExportData(data);
         }
+    });
+
+    // Função para processar e exportar os dados
+    function processAndExportData(data) {
+        let processedData = `Dados Processados: ${data}`;
+        
+        // Exibir no Dashboard (simples)
+        let message = document.createElement('div');
+        message.classList.add('message', 'received');
+        message.textContent = processedData;
         document.getElementById('chat-box').appendChild(message);
+        
+        // Criar uma planilha Excel com os dados processados
+        const wb = XLSX.utils.book_new();
+        const ws = XLSX.utils.aoa_to_sheet([[processedData]]);
+        XLSX.utils.book_append_sheet(wb, ws, "Resultado");
+        
+        // Exportar como arquivo Excel
+        XLSX.writeFile(wb, "dados_processados.xlsx");
     }
 </script>
 
