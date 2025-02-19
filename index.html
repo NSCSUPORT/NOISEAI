@@ -231,6 +231,8 @@
             // Verifica se a mensagem é o comando !GUIA
             if(input.value.trim() === '!GUIA') {
                 displayGuide();
+            } else if(input.value.trim() === '!SERVIÇOS') {
+                displayServices();
             } else {
                 document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
             }
@@ -285,15 +287,29 @@
         let file = this.files[0];
         if (file) {
             alert('Arquivo ' + file.name + ' anexado!');
+            processFile(file);
         }
     });
+
+    // Função para processar o arquivo
+    function processFile(file) {
+        let reader = new FileReader();
+        reader.onload = function(e) {
+            let data = e.target.result;
+            let wb = XLSX.read(data, {type: 'binary'});
+            let ws = wb.Sheets[wb.SheetNames[0]];
+            let json = XLSX.utils.sheet_to_json(ws);
+            console.log(json);
+            alert('Arquivo processado com sucesso!');
+        };
+        reader.readAsBinaryString(file);
+    }
 
     // Função para analisar os dados e gerar uma função
     document.getElementById('analyze-btn').addEventListener('click', function() {
         let data = document.getElementById('data-input').value;
         if (data) {
             alert('Analisando dados: ' + data);
-            // Processar os dados e gerar a função desejada aqui
             processAndExportData(data);
         }
     });
