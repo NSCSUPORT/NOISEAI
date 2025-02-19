@@ -142,10 +142,6 @@
             background-color: #d32f2f;
         }
 
-        /* Remover input de arquivo invisível */
-        .attach-btn input[type="file"] {
-            display: none;
-        }
     </style>
 </head>
 <body>
@@ -160,8 +156,10 @@
         <input type="text" id="chat-input" placeholder="Digite sua mensagem...">
         <button class="button send-btn" id="send-btn"><i class="fas fa-paper-plane"></i></button>
         <div class="button attach-btn">
-            <i class="fas fa-paperclip"></i>
-            <input type="file" id="file-input" />
+            <label for="file-input">
+                <i class="fas fa-paperclip"></i>
+            </label>
+            <input type="file" id="file-input" style="display:none;" />
         </div>
         <button class="button clear-btn" id="clear-btn"><i class="fas fa-trash-alt"></i></button>
     </div>
@@ -189,89 +187,60 @@
             message.textContent = input.value;
             document.getElementById('chat-box').appendChild(message);
 
-            // Verifica o comando de serviço solicitado
-            if(input.value.trim() === '!GUIA') {
-                displayGuide();
-            } else if(input.value.trim() === '!SERVIÇOS') {
-                displayServices();
-            } else if(input.value.trim() === '!PIADAS') {
-                displayGeekJokes();
-            } else if(input.value.trim() === '1') {
-                displayGameRecommendations();
-            } else if(input.value.trim() === '2') {
-                displayOfflineGameRecommendations();
-            } else if(input.value.trim() === '3') {
-                displayMathPuzzles();
-            } else if(input.value.trim() === '99') {
-                displayPowerBI();
-            } else {
-                document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
-            }
+            // Gerar resposta de forma generativa
+            generateResponse(input.value);
+
             input.value = '';
         }
     }
 
-    // Função para exibir a lista de comandos
-    function displayGuide() {
-        let guide = `Comandos disponíveis:
-        1. !GUIA - Exibe esta lista de comandos.
-        2. !SERVIÇOS - Exibe a lista de serviços que você pode oferecer.
-        3. !PIADAS - Exibe uma piada geek/nerd.
-        4. Analisar Dados - Insira dados para análise, que serão processados.
-        5. Consultoria - Ofereça consultoria para implementação de IA ou Blockchain.
-        6. Criação de Dashboards - Crie dashboards em tempo real usando JavaScript.
-        7. Análise Financeira - Análise do mercado e recomendações de investimentos.
-        8. Automação de Processos - Automatize processos usando IA.
-        9. Análise de Sentimentos - Análise de dados em tempo real de redes sociais e outros.`;
+    // Função para gerar uma resposta generativa (simulação)
+    function generateResponse(userMessage) {
+        let response = '';
+        
+        // Simulação de uma resposta generativa
+        if (userMessage.toLowerCase().includes('oi')) {
+            response = "Olá! Como posso ajudar você hoje?";
+        } else if (userMessage.toLowerCase().includes('dados')) {
+            response = "Você quer analisar dados? Envie os dados ou escolha uma opção!";
+        } else if (userMessage.toLowerCase().includes('jogo')) {
+            response = "Você gosta de jogos? Tenho algumas recomendações de jogos multiplayer. Deseja ver?";
+        } else if (userMessage.trim() === "!GUIA") {
+            response = `Comandos disponíveis:
+            1. !GUIA - Exibe esta lista de comandos.
+            2. !SERVIÇOS - Exibe a lista de serviços que você pode oferecer.`;
+        } else {
+            response = "Desculpe, não entendi sua mensagem. Tente novamente!";
+        }
 
         let message = document.createElement('div');
         message.classList.add('message', 'received');
-        message.innerHTML = `<i class="fas fa-list"></i> ${guide}`;
+        message.innerHTML = `<i class="fas fa-robot"></i> ${response}`;
         document.getElementById('chat-box').appendChild(message);
         document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
     }
 
-    // Função para exibir os serviços disponíveis
-    function displayServices() {
-        let services = `Serviços disponíveis:
-        1. Recomendação de Jogos Multiplayer.
-        2. Recomendação de Jogos Offline.
-        3. Piadas sobre Jogos e Enigmas Matemáticos.`;
+    // Função para processar arquivo
+    document.getElementById('file-input').addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const content = e.target.result;
+                const message = document.createElement('div');
+                message.classList.add('message', 'received');
+                message.innerHTML = `<i class="fas fa-robot"></i> Arquivo recebido! Você pode processá-lo para análise.`;
+                document.getElementById('chat-box').appendChild(message);
+                document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
+            };
+            reader.readAsText(file);
+        }
+    });
 
-        let message = document.createElement('div');
-        message.classList.add('message', 'received');
-        message.innerHTML = `<i class="fas fa-cogs"></i> ${services}`;
-        document.getElementById('chat-box').appendChild(message);
-        document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
-    }
-
-    // Função para exibir recomendações de jogos multiplayer
-    function displayGameRecommendations() {
-        let games = `Recomendações de Jogos Multiplayer:
-        1. Among Us - Jogo de dedução social.
-        2. Fortnite - Battle Royale.
-        3. Apex Legends - FPS competitivo.
-        4. Rocket League - Futebol com carros.
-        5. Minecraft - Criação e exploração em mundo aberto.`;
-
-        let message = document.createElement('div');
-        message.classList.add('message', 'received');
-        message.innerHTML = `<i class="fas fa-gamepad"></i> ${games}`;
-        document.getElementById('chat-box').appendChild(message);
-        document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
-    }
-
-    // Função para exibir Power BI (número 99)
-    function displayPowerBI() {
-        let powerBIMessage = "Aqui está o Power BI gerado a partir do encoder de Python para JS. Este modelo exibe os dados de análise em gráficos interativos. Você pode adicionar mais dados conforme necessário.";
-        let message = document.createElement('div');
-        message.classList.add('message', 'received');
-        message.innerHTML = `<i class="fas fa-chart-bar"></i> ${powerBIMessage}`;
-        document.getElementById('chat-box').appendChild(message);
-        document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
-
-        // Aqui você pode adicionar a lógica para gerar e exibir gráficos interativos usando a biblioteca de gráficos JS
-    }
+    // Função para limpar o chat
+    document.getElementById('clear-btn').addEventListener('click', function() {
+        document.getElementById('chat-box').innerHTML = '';
+    });
 </script>
 
 </body>
