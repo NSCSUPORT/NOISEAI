@@ -71,7 +71,7 @@
 
         .message.received {
             background-color: #007BFF; /* Fundo azul */
-            color: #fff;
+            color: #000; /* Fonte preta */
             display: flex;
             align-items: center;
         }
@@ -216,13 +216,6 @@
     </div>
 </div>
 
-<!-- Painel de Input para Inserir Dados e Analisar (Dentro do Chat) -->
-<div id="input-panel" style="display:none; background-color:#333; padding:20px; border-radius:10px; max-width: 400px; margin-top:20px;">
-    <h2>Insira os Dados para Análise</h2>
-    <input type="text" id="data-input" placeholder="Digite os dados...">
-    <button class="button send-btn" id="analyze-btn">Analisar Dados</button>
-</div>
-
 <!-- Funções Javascript -->
 <script>
     // Função para enviar mensagem
@@ -252,31 +245,21 @@
         2. !SERVIÇOS - Exibe a lista de serviços que você pode oferecer.
         3. Analisar Dados - Insira dados para análise, que serão processados.
         4. Enviar Arquivo - Anexe um arquivo para análise.
+        5. Consultoria - Ofereça consultoria para implementação de IA ou Blockchain.
+        6. Análise Financeira - Análise do mercado e recomendações de investimentos.
+        7. Automação de Processos - Automatize processos usando IA.
+        8. Análise de Sentimentos - Análise de dados em tempo real de redes sociais e outros.
+        9. Soluções Customizadas - Desenvolvimento de soluções sob demanda.
+        10. Criação de Dashboards - Desenvolvimento de dashboards para visualização de dados.
+        11. Inteligência Artificial em Tempo Real - Análises rápidas e precisas com IA.
+        12. Análise de Arquivos Excel - Carregamento e análise de dados em planilhas.
+        13. Processamento de Dados em Lote - Tratamento de grandes volumes de dados.
+        14. Consultoria em Blockchain - Estratégias para implementar soluções de blockchain.
         `;
 
         let message = document.createElement('div');
         message.classList.add('message', 'received');
         message.innerHTML = `<i class="fas fa-list"></i> ${guide}`;
-        document.getElementById('chat-box').appendChild(message);
-        document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
-    }
-
-    // Função para exibir os serviços disponíveis
-    function displayServices() {
-        let services = `
-        Serviços que podemos oferecer:
-        1. Análise de Dados em Tempo Real.
-        2. Consultoria em Inteligência Artificial.
-        3. Processamento de Arquivos Excel.
-        4. Análise Financeira e de Mercado.
-        5. Soluções em Automação e Machine Learning.
-        6. Criação de Dashboards Personalizados.
-        7. Consultoria para Implementação de Blockchain.
-        `;
-
-        let message = document.createElement('div');
-        message.classList.add('message', 'received');
-        message.innerHTML = `<i class="fas fa-cogs"></i> ${services}`;
         document.getElementById('chat-box').appendChild(message);
         document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
     }
@@ -293,26 +276,6 @@
             alert('Arquivo ' + file.name + ' anexado!');
         }
     });
-
-    // Função para analisar os dados e gerar uma função
-    document.getElementById('analyze-btn').addEventListener('click', function() {
-        let data = document.getElementById('data-input').value;
-        if (data) {
-            alert('Analisando dados: ' + data);
-            // Processar os dados e gerar a função desejada aqui
-            processAndExportData(data);
-        }
-    });
-
-    function processAndExportData(data) {
-        // Lógica de análise
-        console.log("Processando dados: " + data);
-        // Exemplo de exportação para Excel
-        const ws = XLSX.utils.aoa_to_sheet([['Data', data]]);
-        const wb = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(wb, ws, "Análise");
-        XLSX.writeFile(wb, "Analise_Dados.xlsx");
-    }
 </script>
 
 </body>
