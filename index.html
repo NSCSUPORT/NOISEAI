@@ -142,6 +142,10 @@
             background-color: #d32f2f;
         }
 
+        /* Remover input de arquivo invisível */
+        .attach-btn input[type="file"] {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -156,8 +160,8 @@
         <input type="text" id="chat-input" placeholder="Digite sua mensagem...">
         <button class="button send-btn" id="send-btn"><i class="fas fa-paper-plane"></i></button>
         <div class="button attach-btn">
-            <input type="file" id="file-input" />
             <i class="fas fa-paperclip"></i>
+            <input type="file" id="file-input" />
         </div>
         <button class="button clear-btn" id="clear-btn"><i class="fas fa-trash-alt"></i></button>
     </div>
