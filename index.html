@@ -242,6 +242,8 @@
             // Verifica se a mensagem é o comando !GUIA
             if(input.value.trim() === '!GUIA') {
                 displayGuide();
+            } else if(input.value.trim() === '!PIADAS') {
+                displayGeekJokes();
             } else {
                 document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
             }
@@ -254,22 +256,35 @@
         let guide = `Comandos disponíveis:
         1. !GUIA - Exibe esta lista de comandos.
         2. !SERVIÇOS - Exibe a lista de serviços que você pode oferecer.
-        3. Analisar Dados - Insira dados para análise, que serão processados.
-        4. Enviar Arquivo - Anexe um arquivo para análise.
+        3. !PIADAS - Exibe uma piada geek/nerd.
+        4. Analisar Dados - Insira dados para análise, que serão processados.
         5. Consultoria - Ofereça consultoria para implementação de IA ou Blockchain.
-        6. Análise Financeira - Análise do mercado e recomendações de investimentos.
-        7. Automação de Processos - Automatize processos usando IA.
-        8. Análise de Sentimentos - Análise de dados em tempo real de redes sociais e outros.
-        9. Soluções Customizadas - Desenvolvimento de soluções sob demanda.
-        10. Criação de Dashboards - Desenvolvimento de dashboards para visualização de dados.
-        11. Inteligência Artificial em Tempo Real - Análises rápidas e precisas com IA.
-        12. Análise de Arquivos Excel - Carregamento e análise de dados em planilhas.
-        13. Processamento de Dados em Lote - Tratamento de grandes volumes de dados.
-        14. Consultoria em Blockchain - Estratégias para implementar soluções de blockchain.`;
+        6. Criação de Dashboards - Crie dashboards em tempo real usando JavaScript.
+        7. Análise Financeira - Análise do mercado e recomendações de investimentos.
+        8. Automação de Processos - Automatize processos usando IA.
+        9. Análise de Sentimentos - Análise de dados em tempo real de redes sociais e outros.`;
 
         let message = document.createElement('div');
         message.classList.add('message', 'received');
         message.innerHTML = `<i class="fas fa-list"></i> ${guide}`;
+        document.getElementById('chat-box').appendChild(message);
+        document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
+    }
+
+    // Função para exibir piadas geek
+    function displayGeekJokes() {
+        const jokes = [
+            "Como um programador chama um bom café? Java!",
+            "Por que o computador foi ao médico? Porque estava com um vírus!",
+            "O que o JavaScript falou para o HTML? Você está me deixando louco!",
+            "Um zero e um estão indo para o bar. O zero diz: 'Eu não posso ir, tenho um problema com a divisão.'",
+            "Como o Python se sente quando ele encontra um bug? Ele fica 'listando' os problemas!"
+        ];
+
+        let joke = jokes[Math.floor(Math.random() * jokes.length)];
+        let message = document.createElement('div');
+        message.classList.add('message', 'received');
+        message.innerHTML = `<i class="fas fa-laugh"></i> ${joke}`;
         document.getElementById('chat-box').appendChild(message);
         document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
     }
