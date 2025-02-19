@@ -3,215 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NOISE BOT</title>
+    <title>Chat Bot</title>
     <style>
-        /* Estilos Gerais */
         body {
-            background-color: #000; /* Fundo preto */
-            color: #fff; /* Texto branco */
             font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
             margin: 0;
             padding: 0;
+        }
+        .chat-container {
             display: flex;
-            justify-content: center;
-            align-items: center;
+            flex-direction: column;
+            justify-content: flex-end;
             height: 100vh;
-            flex-direction: column;
-        }
-
-        /* Cabeçalho */
-        header {
-            background-color: #4285F4; /* Azul Google */
-            padding: 10px 20px;
-            width: 100%;
-            text-align: center;
-            position: fixed;
-            top: 0;
-        }
-
-        header h1 {
-            color: #fff;
-            font-size: 24px;
-        }
-
-        /* Estilo da Caixa do Chat */
-        .chatbox {
-            background-color: #222; /* Caixa do chat */
-            border-radius: 10px;
-            width: 350px;
             padding: 20px;
-            margin-top: 70px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            border: 2px solid yellow;
+            border-radius: 10px;
         }
-
-        .chatbox h2 {
-            color: #F4B400; /* Amarelo Google */
-            font-size: 20px;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .chatbox .messages {
-            height: 200px;
+        .chat-box {
+            flex-grow: 1;
             overflow-y: auto;
             margin-bottom: 10px;
-            padding: 10px;
+        }
+        .message {
             background-color: #333;
-            border-radius: 5px;
-        }
-
-        .chatbox input {
-            padding: 10px;
-            background-color: #444;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            width: 100%;
-        }
-
-        .chatbox input:focus {
-            outline: none;
-            border: 2px solid #4285F4;
-        }
-
-        .chatbox button {
-            background-color: #4285F4; /* Azul Google */
-            color: #fff;
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 100%;
-            font-size: 16px;
-        }
-
-        .chatbox button:hover {
-            background-color: #357AE8; /* Hover azul */
-        }
-
-        .clear-cache {
-            background-color: #f44336; /* Vermelho */
-            color: #fff;
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 100%;
-            font-size: 16px;
-        }
-
-        .clear-cache:hover {
-            background-color: #d32f2f; /* Hover vermelho */
-        }
-
-        .footer {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            background-color: #222;
-            text-align: center;
-            padding: 10px;
-            color: #fff;
-        }
-
-        /* Estilos dos ícones */
-        .pacman {
-            font-size: 50px;
-            color: #F4B400;
-            animation: pacman 0.5s infinite alternate;
-        }
-
-        @keyframes pacman {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(30deg); }
-        }
-
-        /* Contorno Azul nas Mensagens */
-        .user-message, .bot-message {
-            border: 2px solid #4285F4; /* Contorno azul */
             padding: 10px;
             border-radius: 5px;
             margin-bottom: 10px;
+            max-width: 70%;
+        }
+        .message.sent {
+            background-color: #4CAF50;
+            align-self: flex-end;
+        }
+        .message.received {
+            background-color: #444;
+        }
+        .input-container {
+            display: flex;
+            align-items: center;
+        }
+        input[type="text"] {
+            flex-grow: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+            background-color: #333;
+            color: #fff;
+        }
+        .button {
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .send-btn {
+            background-color: #4CAF50;
+            color: #fff;
+        }
+        .send-btn:hover {
+            background-color: #45a049;
+        }
+        .attach-btn {
+            background-color: #FFC107;
+            color: #000;
+        }
+        .attach-btn:hover {
+            background-color: #ffb300;
+        }
+        .clear-btn {
+            background-color: #f44336;
+            color: #fff;
+        }
+        .clear-btn:hover {
+            background-color: #d32f2f;
+        }
+        .question-btn {
+            background-color: #FFC107;
+            margin: 5px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #000;
+        }
+        .question-btn:hover {
+            background-color: #ffb300;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>NOISE</h1>
-    </header>
-    
-    <div class="chatbox">
-        <h2><span class="pacman">C</span> ChatBot</h2>
-        <div class="messages" id="messages"></div>
-        <input type="file" id="fileInput" />
-        <input type="text" id="userInput" placeholder="Digite sua mensagem..." />
-        <button onclick="sendMessage()">Enviar</button>
-        <button class="clear-cache" onclick="clearCache()">Limpar Cache</button>
+
+<div class="chat-container">
+    <div class="chat-box" id="chat-box">
+        <div class="message received">Olá! Como posso ajudar você?</div>
+        <div class="message received" id="question-list">
+            <button class="question-btn" onclick="askQuestion('Qual é o horário de funcionamento?')">Qual é o horário de funcionamento?</button>
+            <button class="question-btn" onclick="askQuestion('Como faço para entrar em contato?')">Como faço para entrar em contato?</button>
+            <button class="question-btn" onclick="askQuestion('Quais são os planos disponíveis?')">Quais são os planos disponíveis?</button>
+            <button class="question-btn" onclick="askQuestion('Onde fica a empresa?')">Onde fica a empresa?</button>
+        </div>
     </div>
+    <div class="input-container">
+        <input type="text" id="chat-input" placeholder="Digite sua mensagem...">
+        <button class="button send-btn" id="send-btn">Enviar</button>
+        <button class="button attach-btn" id="attach-btn">Anexar Arquivo</button>
+        <button class="button clear-btn" id="clear-btn">Limpar Chat</button>
+    </div>
+</div>
 
-    <footer class="footer">
-        <p>&copy; 2025 ChatBot -BRNC INC =  Todos os direitos reservados</p>
-    </footer>
+<script>
+    document.getElementById('send-btn').addEventListener('click', function() {
+        let input = document.getElementById('chat-input');
+        if (input.value) {
+            let message = document.createElement('div');
+            message.classList.add('message', 'sent');
+            message.textContent = input.value;
+            document.getElementById('chat-box').appendChild(message);
+            input.value = '';
+            document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
+        }
+    });
 
-    <script>
-        // Função para processar o arquivo SSP
-        function processSSPFile(file) {
-            const reader = new FileReader();
-            reader.onload = function(event) {
-                const content = event.target.result;
-                const messages = content.split('\n');
-                messages.forEach(message => {
-                    const botMessage = document.createElement('div');
-                    botMessage.textContent = `ChatBot: ${message}`;
-                    botMessage.style.color = '#F4B400';
-                    botMessage.classList.add('bot-message');
-                    document.getElementById('messages').appendChild(botMessage);
-                });
-            };
-            reader.readAsText(file);
+    document.getElementById('clear-btn').addEventListener('click', function() {
+        document.getElementById('chat-box').innerHTML = '';
+    });
+
+    document.getElementById('attach-btn').addEventListener('click', function() {
+        alert('Arquivo anexado!');
+    });
+
+    function askQuestion(question) {
+        let message = document.createElement('div');
+        message.classList.add('message', 'sent');
+        message.textContent = question;
+        document.getElementById('chat-box').appendChild(message);
+
+        let response = document.createElement('div');
+        response.classList.add('message', 'received');
+        switch (question) {
+            case 'Qual é o horário de funcionamento?':
+                response.textContent = 'Nosso horário de funcionamento é de segunda a sexta, das 9h às 18h.';
+                break;
+            case 'Como faço para entrar em contato?':
+                response.textContent = 'Você pode entrar em contato através do nosso e-mail: contato@exemplo.com';
+                break;
+            case 'Quais são os planos disponíveis?':
+                response.textContent = 'Temos planos mensais, anuais e personalizados. Para mais detalhes, entre em contato.';
+                break;
+            case 'Onde fica a empresa?':
+                response.textContent = 'Estamos localizados em São Paulo, na Av. Paulista, 1000.';
+                break;
+            default:
+                response.textContent = 'Desculpe, não entendi a sua pergunta.';
         }
 
-        // Função para enviar mensagem
-        function sendMessage() {
-            const userInput = document.getElementById('userInput').value;
-            const messages = document.getElementById('messages');
-            
-            if (userInput.trim()) {
-                const userMessage = document.createElement('div');
-                userMessage.textContent = `Você: ${userInput}`;
-                userMessage.classList.add('user-message');
-                messages.appendChild(userMessage);
+        document.getElementById('chat-box').appendChild(response);
+        document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
+    }
+</script>
 
-                // Simulando a resposta do ChatBot
-                const botMessage = document.createElement('div');
-                botMessage.textContent = `ChatBot: Estou aqui para ajudar!`;
-                botMessage.style.color = '#F4B400';
-                botMessage.classList.add('bot-message');
-                messages.appendChild(botMessage);
-
-                // Limpar campo de entrada
-                document.getElementById('userInput').value = '';
-                
-                // Rolando a tela para o final
-                messages.scrollTop = messages.scrollHeight;
-            }
-        }
-
-        // Função para limpar o cache (mensagens)
-        function clearCache() {
-            document.getElementById('messages').innerHTML = '';
-        }
-
-        // Detectar arquivo SSP
-        document.getElementById('fileInput').addEventListener('change', function(event) {
-            const file = event.target.files[0];
-            if (file) {
-                processSSPFile(file);  // Processa o arquivo SSP
-            }
-        });
-    </script>
 </body>
 </html>
