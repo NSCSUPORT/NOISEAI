@@ -45,8 +45,6 @@
             border: 2px solid #4CAF50;
             border-radius: 10px;
             background-color: #1c1c1c;
-            position: relative;
-            overflow: hidden;
         }
 
         .chat-box {
@@ -57,22 +55,6 @@
             border-radius: 10px;
             padding: 10px;
             font-size: 14px;
-            max-height: 100%;
-            scrollbar-width: thin;
-            scrollbar-color: #4CAF50 #1c1c1c; /* Barra de rolagem verde */
-        }
-
-        .chat-box::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        .chat-box::-webkit-scrollbar-track {
-            background: #1c1c1c;
-        }
-
-        .chat-box::-webkit-scrollbar-thumb {
-            background-color: #4CAF50;
-            border-radius: 10px;
         }
 
         .message {
@@ -201,39 +183,17 @@
                 width: 100%;
                 text-align: center;
             }
-        }
 
-        /* Estilos para as listas de serviços */
-        .service-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .service-column {
-            width: 48%;
-            background-color: #333;
-            padding: 10px;
-            border-radius: 5px;
-            margin-top: 20px;
-        }
-
-        .service-column ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .service-column li {
-            background-color: #444;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            color: #fff;
-        }
-
-        .service-column h3 {
-            color: #4CAF50;
-            margin-bottom: 10px;
+            .attach-btn input[type="file"] {
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                cursor: pointer;
+            }
         }
     </style>
 </head>
@@ -253,30 +213,6 @@
             <i class="fas fa-paperclip"></i>
         </div>
         <button class="button clear-btn" id="clear-btn"><i class="fas fa-trash-alt"></i></button>
-    </div>
-</div>
-
-<div class="service-list">
-    <div class="service-column">
-        <h3>Serviços de Consultoria</h3>
-        <ul>
-            <li>Consultoria em IA</li>
-            <li>Consultoria em Blockchain</li>
-            <li>Consultoria em Automação de Processos</li>
-            <li>Consultoria em Análise de Sentimentos</li>
-            <li>Consultoria para Implementação de Soluções Sob Demanda</li>
-        </ul>
-    </div>
-
-    <div class="service-column">
-        <h3>Serviços de Análise de Dados</h3>
-        <ul>
-            <li>Análise de Dados Financeiros</li>
-            <li>Análise de Dados em Tempo Real</li>
-            <li>Criação de Dashboards</li>
-            <li>Processamento de Dados em Lote</li>
-            <li>Análise de Arquivos Excel</li>
-        </ul>
     </div>
 </div>
 
