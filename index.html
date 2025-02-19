@@ -211,6 +211,13 @@
     </div>
 </div>
 
+<!-- Painel de Input para Inserir Dados e Analisar -->
+<div id="input-panel" style="display:none; background-color:#333; padding:20px; border-radius:10px; max-width: 400px; margin-top:20px;">
+    <h2>Insira os Dados para Análise</h2>
+    <input type="text" id="data-input" placeholder="Digite os dados...">
+    <button class="button send-btn" id="analyze-btn">Analisar Dados</button>
+</div>
+
 <script>
     // Função para enviar mensagem
     document.getElementById('send-btn').addEventListener('click', function() {
@@ -266,6 +273,9 @@
         response.textContent = 'Aguarde enquanto processamos sua solicitação...';
         document.getElementById('chat-box').appendChild(response);
         document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
+
+        // Exibe o painel de input
+        document.getElementById('input-panel').style.display = 'block';
     }
 
     // Função para exibir o link de exportação para Google Docs
@@ -273,6 +283,25 @@
         let exportOption = document.createElement('div');
         exportOption.innerHTML = '<a class="button send-btn" href="https://docs.google.com/spreadsheets/u/0/" target="_blank"><i class="fas fa-file-export"></i> Exportar para Google Docs</a>';
         document.getElementById('chat-box').appendChild(exportOption);
+    }
+
+    // Função para Analisar Dados
+    document.getElementById('analyze-btn').addEventListener('click', function() {
+        let dataInput = document.getElementById('data-input').value;
+        if (dataInput) {
+            // Simulação de análise SSP (Processamento Simples de Dados)
+            let analyzedData = analyzeData(dataInput);
+            let resultMessage = document.createElement('div');
+            resultMessage.classList.add('message', 'received');
+            resultMessage.textContent = `Análise concluída: ${analyzedData}`;
+            document.getElementById('chat-box').appendChild(resultMessage);
+        }
+    });
+
+    // Função simples de análise de dados
+    function analyzeData(data) {
+        // Exemplo de análise: calcular o tamanho dos dados
+        return `Dados inseridos têm ${data.length} caracteres.`;
     }
 </script>
 
