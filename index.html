@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noise AI - Processamento de Dados</title>
+    <title>Noise AI - Fornalha de Dados</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- FontAwesome para ícones -->
     <style>
         /* Estilos Gerais */
@@ -154,18 +154,17 @@
 </head>
 <body>
 
-<h1>Noise AI</h1>
+<h1>Noise AI </h1>
 
 <div class="chat-container">
     <div class="chat-box" id="chat-box">
-        <div class="message received">👋 Olá! Como posso ajudar você com seus dados hoje?</div>
+        <div class="message received">👋 Olá! O que você deseja fazer na fornalha de dados?</div>
         <div class="message received" id="question-list">
-            <button class="question-btn" onclick="askQuestion('analise')"><i class="fas fa-chart-line"></i>Análise</button>
-            <button class="question-btn" onclick="askQuestion('banco')"><i class="fas fa-database"></i>Banco de Dados</button>
-            <button class="question-btn" onclick="askQuestion('visualizacao')"><i class="fas fa-pie-chart"></i>Visualizações</button>
-            <button class="question-btn" onclick="askQuestion('ferramentas')"><i class="fas fa-cogs"></i>Ferramentas BI</button>
-            <button class="question-btn" onclick="askQuestion('importar')"><i class="fas fa-file-import"></i>Importar Planilha</button>
-            <button class="question-btn" onclick="askQuestion('exportar')"><i class="fas fa-file-export"></i>Exportar Resultados</button>
+            <button class="question-btn" onclick="askQuestion('consultar')"><i class="fas fa-search"></i>Consultar Dados</button>
+            <button class="question-btn" onclick="askQuestion('deletar')"><i class="fas fa-trash-alt"></i>Deletar Dados</button>
+            <button class="question-btn" onclick="askQuestion('copiar')"><i class="fas fa-copy"></i>Copiar Dados</button>
+            <button class="question-btn" onclick="askQuestion('manipular')"><i class="fas fa-cogs"></i>Funções Simples</button>
+            <button class="question-btn" onclick="askQuestion('exportar')"><i class="fas fa-file-export"></i>Exportar para Google Docs</button>
         </div>
     </div>
     <div class="input-container">
@@ -205,25 +204,21 @@
         let message = document.createElement('div');
         message.classList.add('message', 'sent');
         switch (type) {
-            case 'analise':
-                message.textContent = 'Você escolheu ajuda com análise de dados. O que exatamente você precisa analisar?';
+            case 'consultar':
+                message.textContent = 'Você escolheu consultar dados. Informe o nome da tabela e o dado que deseja consultar.';
                 break;
-            case 'banco':
-                message.textContent = 'Você escolheu consultas em banco de dados. Você precisa de ajuda com SQL ou outra linguagem?';
+            case 'deletar':
+                message.textContent = 'Você escolheu deletar dados. Informe o dado a ser deletado.';
                 break;
-            case 'visualizacao':
-                message.textContent = 'Você escolheu aprender mais sobre visualização de dados. Qual tipo de visualização você precisa?';
+            case 'copiar':
+                message.textContent = 'Você escolheu copiar dados. Informe os dados que deseja copiar.';
                 break;
-            case 'ferramentas':
-                message.textContent = 'Você escolheu saber mais sobre ferramentas de BI. Você está procurando algo mais focado em análise ou em relatórios?';
-                break;
-            case 'importar':
-                message.textContent = 'Por favor, selecione a planilha que deseja importar para análise.';
-                showFileInput();
+            case 'manipular':
+                message.textContent = 'Você escolheu manipular dados. Que operação simples você deseja realizar (ex: soma, média, etc)?';
                 break;
             case 'exportar':
-                message.textContent = 'Você pode exportar os resultados em formatos como CSV ou Excel.';
-                showExportOptions();
+                message.textContent = 'Você escolheu exportar para Google Docs. Clique abaixo para gerar a planilha.';
+                showExportGoogleDocs();
                 break;
             default:
                 message.textContent = 'Escolha uma opção para começar!';
@@ -237,49 +232,11 @@
         document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
     }
 
-    // Função para exibir input de arquivo
-    function showFileInput() {
-        let fileInput = document.createElement('input');
-        fileInput.type = 'file';
-        fileInput.accept = '.csv, .xlsx';
-        fileInput.addEventListener('change', handleFileUpload);
-        document.getElementById('chat-box').appendChild(fileInput);
-    }
-
-    // Função para lidar com upload de arquivo
-    function handleFileUpload(event) {
-        let file = event.target.files[0];
-        if (file) {
-            alert(`Arquivo ${file.name} carregado com sucesso! Processando...`);
-            // Aqui você pode implementar o código para processar a planilha
-            processSpreadsheet(file);
-        }
-    }
-
-    // Função fictícia para processar planilhas (CSV ou XLSX)
-    function processSpreadsheet(file) {
-        // Aqui você pode adicionar o código para ler e processar planilhas
-        console.log("Processando arquivo:", file.name);
-    }
-
-    // Função para mostrar opções de exportação
-    function showExportOptions() {
-        let exportOptions = document.createElement('div');
-        exportOptions.innerHTML = '<button class="button send-btn" onclick="exportToCSV()">Exportar para CSV</button>' +
-                                  '<button class="button send-btn" onclick="exportToExcel()">Exportar para Excel</button>';
-        document.getElementById('chat-box').appendChild(exportOptions);
-    }
-
-    // Função para exportar para CSV (fictícia)
-    function exportToCSV() {
-        alert('Exportando dados para CSV...');
-        // Aqui você pode implementar o código para exportar os resultados para CSV
-    }
-
-    // Função para exportar para Excel (fictícia)
-    function exportToExcel() {
-        alert('Exportando dados para Excel...');
-        // Aqui você pode implementar o código para exportar os resultados para Excel
+    // Função para exibir o link de exportação para Google Docs
+    function showExportGoogleDocs() {
+        let exportOption = document.createElement('div');
+        exportOption.innerHTML = '<a class="button send-btn" href="https://docs.google.com/spreadsheets/u/0/" target="_blank"><i class="fas fa-file-export"></i> Exportar para Google Docs</a>';
+        document.getElementById('chat-box').appendChild(exportOption);
     }
 </script>
 
