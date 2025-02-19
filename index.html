@@ -70,8 +70,14 @@
         }
 
         .message.received {
-            background-color: #555;
+            background-color: #007BFF; /* Fundo azul */
             color: #fff;
+            display: flex;
+            align-items: center;
+        }
+
+        .message.received i {
+            margin-right: 8px; /* Espaçamento para o emoji */
         }
 
         .input-container {
@@ -197,7 +203,7 @@
 
 <div class="chat-container">
     <div class="chat-box" id="chat-box">
-        <div class="message received">👋 Olá! O que você deseja fazer na fornalha de dados? Use !GUIA para listar os comandos.</div>
+        <div class="message received"><i class="fas fa-robot"></i>👋 Olá! O que você deseja fazer na fornalha de dados? Use !GUIA para listar os comandos.</div>
     </div>
     <div class="input-container">
         <input type="text" id="chat-input" placeholder="Digite sua mensagem...">
@@ -231,8 +237,6 @@
             // Verifica se a mensagem é o comando !GUIA
             if(input.value.trim() === '!GUIA') {
                 displayGuide();
-            } else if(input.value.trim() === '!SERVIÇOS') {
-                displayServices();
             } else {
                 document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
             }
@@ -252,7 +256,7 @@
 
         let message = document.createElement('div');
         message.classList.add('message', 'received');
-        message.textContent = guide;
+        message.innerHTML = `<i class="fas fa-list"></i> ${guide}`;
         document.getElementById('chat-box').appendChild(message);
         document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
     }
@@ -272,7 +276,7 @@
 
         let message = document.createElement('div');
         message.classList.add('message', 'received');
-        message.textContent = services;
+        message.innerHTML = `<i class="fas fa-cogs"></i> ${services}`;
         document.getElementById('chat-box').appendChild(message);
         document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
     }
@@ -287,29 +291,15 @@
         let file = this.files[0];
         if (file) {
             alert('Arquivo ' + file.name + ' anexado!');
-            processFile(file);
         }
     });
-
-    // Função para processar o arquivo
-    function processFile(file) {
-        let reader = new FileReader();
-        reader.onload = function(e) {
-            let data = e.target.result;
-            let wb = XLSX.read(data, {type: 'binary'});
-            let ws = wb.Sheets[wb.SheetNames[0]];
-            let json = XLSX.utils.sheet_to_json(ws);
-            console.log(json);
-            alert('Arquivo processado com sucesso!');
-        };
-        reader.readAsBinaryString(file);
-    }
 
     // Função para analisar os dados e gerar uma função
     document.getElementById('analyze-btn').addEventListener('click', function() {
         let data = document.getElementById('data-input').value;
         if (data) {
             alert('Analisando dados: ' + data);
+            // Processar os dados e gerar a função desejada aqui
             processAndExportData(data);
         }
     });
