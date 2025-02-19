@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noise Explore </title>
+    <title>NOISE BOT</title>
     <style>
         /* Estilos Gerais */
         body {
             background-color: #000; /* Fundo preto */
-            color: #fff;
+            color: #fff; /* Texto branco */
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -21,7 +21,7 @@
 
         /* Cabeçalho */
         header {
-            background-color: #FFEB3B; /* Amarelo Pac-Man */
+            background-color: #4285F4; /* Azul Google */
             padding: 10px 20px;
             width: 100%;
             text-align: center;
@@ -30,143 +30,188 @@
         }
 
         header h1 {
-            color: #000;
+            color: #fff;
             font-size: 24px;
         }
 
         /* Estilo da Caixa do Chat */
         .chatbox {
-            background-color: #111;
-            border-radius: 15px;
-            width: 360px;
-            padding: 15px;
+            background-color: #222; /* Caixa do chat */
+            border-radius: 10px;
+            width: 350px;
+            padding: 20px;
             margin-top: 70px;
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            box-shadow: 0 4px 15px rgba(255, 235, 59, 0.5);
-            border: 2px solid #FFEB3B;
+            gap: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
         }
 
         .chatbox h2 {
-            color: #FFEB3B;
+            color: #F4B400; /* Amarelo Google */
             font-size: 20px;
             text-align: center;
+            margin-bottom: 20px;
         }
 
         .chatbox .messages {
-            height: 250px;
+            height: 200px;
             overflow-y: auto;
+            margin-bottom: 10px;
             padding: 10px;
-            background-color: #222;
-            border-radius: 10px;
-        }
-
-        .message {
-            padding: 8px;
-            margin: 5px 0;
-            border-radius: 10px;
-            max-width: 80%;
-        }
-
-        .user-message {
-            background-color: #0F9D58; /* Verde WhatsApp */
-            align-self: flex-end;
-            text-align: right;
-        }
-
-        .bot-message {
-            background-color: #FFEB3B;
-            color: #000;
-            align-self: flex-start;
-            text-align: left;
-        }
-
-        .chatbox input, .chatbox button, .chatbox label {
-            padding: 12px;
             background-color: #333;
+            border-radius: 5px;
+        }
+
+        .chatbox input {
+            padding: 10px;
+            background-color: #444;
             color: #fff;
             border: none;
-            border-radius: 25px;
+            border-radius: 5px;
             width: 100%;
-            margin-top: 5px;
-            text-align: center;
         }
 
         .chatbox input:focus {
             outline: none;
-            border: 2px solid #FFEB3B;
+            border: 2px solid #4285F4;
         }
 
         .chatbox button {
-            background-color: #FFEB3B;
-            color: #000;
+            background-color: #4285F4; /* Azul Google */
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
             cursor: pointer;
+            width: 100%;
             font-size: 16px;
-            font-weight: bold;
         }
 
         .chatbox button:hover {
-            background-color: #FBC02D;
+            background-color: #357AE8; /* Hover azul */
         }
 
-        .chatbox label {
+        .clear-cache {
+            background-color: #f44336; /* Vermelho */
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
             cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        .clear-cache:hover {
+            background-color: #d32f2f; /* Hover vermelho */
         }
 
         .footer {
             position: fixed;
             bottom: 0;
             width: 100%;
-            background-color: #111;
+            background-color: #222;
             text-align: center;
             padding: 10px;
-            color: #FFEB3B;
+            color: #fff;
+        }
+
+        /* Estilos dos ícones */
+        .pacman {
+            font-size: 50px;
+            color: #F4B400;
+            animation: pacman 0.5s infinite alternate;
+        }
+
+        @keyframes pacman {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(30deg); }
+        }
+
+        /* Contorno Azul nas Mensagens */
+        .user-message, .bot-message {
+            border: 2px solid #4285F4; /* Contorno azul */
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Noise Explore</h1>
+        <h1>NOISE</h1>
     </header>
     
     <div class="chatbox">
-        <h2>Noise Explore</h2>
+        <h2><span class="pacman">C</span> ChatBot</h2>
         <div class="messages" id="messages"></div>
+        <input type="file" id="fileInput" />
         <input type="text" id="userInput" placeholder="Digite sua mensagem..." />
-        <button onclick="sendMessage()">▶ Enviar</button>
-        <label for="fileInput">📎 Anexar Arquivo</label>
-        <input type="file" id="fileInput" style="display: none;" />
+        <button onclick="sendMessage()">Enviar</button>
+        <button class="clear-cache" onclick="clearCache()">Limpar Cache</button>
     </div>
 
     <footer class="footer">
-        <p>&copy; 2024 Direitos Reservados BRNC INC Lucas Januário</p>
+        <p>&copy; 2025 ChatBot -BRNC INC =  Todos os direitos reservados</p>
     </footer>
 
     <script>
+        // Função para processar o arquivo SSP
+        function processSSPFile(file) {
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                const content = event.target.result;
+                const messages = content.split('\n');
+                messages.forEach(message => {
+                    const botMessage = document.createElement('div');
+                    botMessage.textContent = `ChatBot: ${message}`;
+                    botMessage.style.color = '#F4B400';
+                    botMessage.classList.add('bot-message');
+                    document.getElementById('messages').appendChild(botMessage);
+                });
+            };
+            reader.readAsText(file);
+        }
+
+        // Função para enviar mensagem
         function sendMessage() {
             const userInput = document.getElementById('userInput').value;
             const messages = document.getElementById('messages');
             
             if (userInput.trim()) {
                 const userMessage = document.createElement('div');
-                userMessage.classList.add('message', 'user-message');
-                userMessage.textContent = userInput;
+                userMessage.textContent = `Você: ${userInput}`;
+                userMessage.classList.add('user-message');
                 messages.appendChild(userMessage);
 
                 // Simulando a resposta do ChatBot
-                setTimeout(() => {
-                    const botMessage = document.createElement('div');
-                    botMessage.classList.add('message', 'bot-message');
-                    botMessage.textContent = "👾 Como posso ajudar?";
-                    messages.appendChild(botMessage);
-                    messages.scrollTop = messages.scrollHeight;
-                }, 1000);
+                const botMessage = document.createElement('div');
+                botMessage.textContent = `ChatBot: Estou aqui para ajudar!`;
+                botMessage.style.color = '#F4B400';
+                botMessage.classList.add('bot-message');
+                messages.appendChild(botMessage);
 
+                // Limpar campo de entrada
                 document.getElementById('userInput').value = '';
+                
+                // Rolando a tela para o final
                 messages.scrollTop = messages.scrollHeight;
             }
         }
+
+        // Função para limpar o cache (mensagens)
+        function clearCache() {
+            document.getElementById('messages').innerHTML = '';
+        }
+
+        // Detectar arquivo SSP
+        document.getElementById('fileInput').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                processSSPFile(file);  // Processa o arquivo SSP
+            }
+        });
     </script>
 </body>
 </html>
