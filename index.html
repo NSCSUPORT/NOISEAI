@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat Bot - PacMan Style</title>
+    <title>Noise AI - Processamento de Dados</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- FontAwesome para ícones -->
     <style>
         /* Estilos Gerais */
         body {
-            background-color: #000; /* Fundo preto */
+            background-color: #121212; /* Fundo escuro */
             color: #fff;
-            font-family: Arial, sans-serif;
+            font-family: 'Courier New', Courier, monospace; /* Fonte estilo pixel */
             margin: 0;
             padding: 0;
             display: flex;
@@ -17,6 +18,14 @@
             align-items: center;
             height: 100vh;
             flex-direction: column;
+        }
+
+        /* Título */
+        h1 {
+            font-size: 36px;
+            font-weight: bold;
+            color: #4CAF50; /* Verde para destaque */
+            margin-bottom: 20px;
         }
 
         /* Estilo da Caixa do Chat */
@@ -28,17 +37,19 @@
             width: 100%;
             max-width: 450px;
             padding: 20px;
-            border: 2px solid #2196F3; /* Contorno azul */
+            border: 2px solid #4CAF50; /* Contorno verde */
             border-radius: 10px;
+            background-color: #1c1c1c; /* Escuro com tom mais suave */
         }
 
         .chat-box {
             flex-grow: 1;
             overflow-y: auto;
             margin-bottom: 10px;
-            background-color: #111;
+            background-color: #333;
             border-radius: 10px;
             padding: 10px;
+            font-size: 14px; /* Fonte pixel */
         }
 
         .message {
@@ -54,7 +65,7 @@
         }
 
         .message.received {
-            background-color: #444;
+            background-color: #555;
             color: #fff;
         }
 
@@ -71,13 +82,19 @@
             margin-right: 10px;
             background-color: #333;
             color: #fff;
+            font-size: 14px;
         }
 
+        /* Estilos dos Botões */
         .button {
-            padding: 12px;
+            padding: 10px;
             border-radius: 25px;
             cursor: pointer;
             font-weight: bold;
+            font-size: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .send-btn {
@@ -107,44 +124,60 @@
             background-color: #d32f2f;
         }
 
+        /* Botões de Perguntas */
         .question-btn {
-            background-color: #FFC107;
+            background-color: #2196F3;
             margin: 5px;
-            padding: 10px 20px;
+            padding: 10px;
             border-radius: 5px;
             cursor: pointer;
-            font-weight: bold;
-            color: #000;
+            font-size: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
         }
 
         .question-btn:hover {
-            background-color: #ffb300;
+            background-color: #0b79c2;
+        }
+
+        /* Estilos dos Ícones */
+        .fa {
+            font-size: 20px;
+        }
+
+        .question-btn i {
+            margin-right: 8px; /* Espaçamento entre ícone e texto */
         }
     </style>
 </head>
 <body>
 
+<h1>Noise AI</h1>
+
 <div class="chat-container">
     <div class="chat-box" id="chat-box">
-        <div class="message received">Olá! Como posso ajudar você?</div>
+        <div class="message received">👋 Olá! Como posso ajudar você com seus dados hoje?</div>
         <div class="message received" id="question-list">
-            <button class="question-btn" onclick="askQuestion('Qual é o horário de funcionamento?')">Qual é o horário de funcionamento?</button>
-            <button class="question-btn" onclick="askQuestion('Como faço para entrar em contato?')">Como faço para entrar em contato?</button>
-            <button class="question-btn" onclick="askQuestion('Quais são os planos disponíveis?')">Quais são os planos disponíveis?</button>
-            <button class="question-btn" onclick="askQuestion('Onde fica a empresa?')">Onde fica a empresa?</button>
-            <button class="question-btn" onclick="askQuestion('Qual é a previsão do tempo?')">Qual é a previsão do tempo?</button>
-            <button class="question-btn" onclick="askQuestion('Você pode me contar uma piada?')">Você pode me contar uma piada?</button>
+            <button class="question-btn" onclick="askQuestion('analise')"><i class="fas fa-chart-line"></i>Análise</button>
+            <button class="question-btn" onclick="askQuestion('banco')"><i class="fas fa-database"></i>Banco de Dados</button>
+            <button class="question-btn" onclick="askQuestion('visualizacao')"><i class="fas fa-pie-chart"></i>Visualizações</button>
+            <button class="question-btn" onclick="askQuestion('ferramentas')"><i class="fas fa-cogs"></i>Ferramentas BI</button>
+            <button class="question-btn" onclick="askQuestion('importar')"><i class="fas fa-file-import"></i>Importar Planilha</button>
+            <button class="question-btn" onclick="askQuestion('exportar')"><i class="fas fa-file-export"></i>Exportar Resultados</button>
         </div>
     </div>
     <div class="input-container">
         <input type="text" id="chat-input" placeholder="Digite sua mensagem...">
-        <button class="button send-btn" id="send-btn">Enviar</button>
-        <button class="button attach-btn" id="attach-btn">Anexar Arquivo</button>
-        <button class="button clear-btn" id="clear-btn">Limpar Chat</button>
+        <button class="button send-btn" id="send-btn"><i class="fas fa-paper-plane"></i></button>
+        <button class="button attach-btn" id="attach-btn"><i class="fas fa-paperclip"></i></button>
+        <button class="button clear-btn" id="clear-btn"><i class="fas fa-trash-alt"></i></button>
     </div>
 </div>
 
 <script>
+    // Função para enviar mensagem
     document.getElementById('send-btn').addEventListener('click', function() {
         let input = document.getElementById('chat-input');
         if (input.value) {
@@ -157,47 +190,96 @@
         }
     });
 
+    // Função para limpar o chat
     document.getElementById('clear-btn').addEventListener('click', function() {
         document.getElementById('chat-box').innerHTML = '';
     });
 
+    // Função para anexar arquivo
     document.getElementById('attach-btn').addEventListener('click', function() {
         alert('Arquivo anexado!');
     });
 
-    function askQuestion(question) {
+    // Função para perguntar e mostrar respostas
+    function askQuestion(type) {
         let message = document.createElement('div');
         message.classList.add('message', 'sent');
-        message.textContent = question;
+        switch (type) {
+            case 'analise':
+                message.textContent = 'Você escolheu ajuda com análise de dados. O que exatamente você precisa analisar?';
+                break;
+            case 'banco':
+                message.textContent = 'Você escolheu consultas em banco de dados. Você precisa de ajuda com SQL ou outra linguagem?';
+                break;
+            case 'visualizacao':
+                message.textContent = 'Você escolheu aprender mais sobre visualização de dados. Qual tipo de visualização você precisa?';
+                break;
+            case 'ferramentas':
+                message.textContent = 'Você escolheu saber mais sobre ferramentas de BI. Você está procurando algo mais focado em análise ou em relatórios?';
+                break;
+            case 'importar':
+                message.textContent = 'Por favor, selecione a planilha que deseja importar para análise.';
+                showFileInput();
+                break;
+            case 'exportar':
+                message.textContent = 'Você pode exportar os resultados em formatos como CSV ou Excel.';
+                showExportOptions();
+                break;
+            default:
+                message.textContent = 'Escolha uma opção para começar!';
+        }
         document.getElementById('chat-box').appendChild(message);
 
         let response = document.createElement('div');
         response.classList.add('message', 'received');
-        switch (question) {
-            case 'Qual é o horário de funcionamento?':
-                response.textContent = 'Nosso horário de funcionamento é de segunda a sexta, das 9h às 18h.';
-                break;
-            case 'Como faço para entrar em contato?':
-                response.textContent = 'Você pode entrar em contato através do nosso e-mail: contato@exemplo.com';
-                break;
-            case 'Quais são os planos disponíveis?':
-                response.textContent = 'Temos planos mensais, anuais e personalizados. Para mais detalhes, entre em contato.';
-                break;
-            case 'Onde fica a empresa?':
-                response.textContent = 'Estamos localizados em São Paulo, na Av. Paulista, 1000.';
-                break;
-            case 'Qual é a previsão do tempo?':
-                response.textContent = 'Hoje o tempo está parcialmente nublado, com temperaturas entre 20°C e 28°C.';
-                break;
-            case 'Você pode me contar uma piada?':
-                response.textContent = 'Claro! Por que o livro foi ao médico? Porque ele estava com muitas páginas em branco!';
-                break;
-            default:
-                response.textContent = 'Desculpe, não entendi a sua pergunta.';
-        }
-
+        response.textContent = 'Aguarde enquanto processamos sua solicitação...';
         document.getElementById('chat-box').appendChild(response);
         document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
+    }
+
+    // Função para exibir input de arquivo
+    function showFileInput() {
+        let fileInput = document.createElement('input');
+        fileInput.type = 'file';
+        fileInput.accept = '.csv, .xlsx';
+        fileInput.addEventListener('change', handleFileUpload);
+        document.getElementById('chat-box').appendChild(fileInput);
+    }
+
+    // Função para lidar com upload de arquivo
+    function handleFileUpload(event) {
+        let file = event.target.files[0];
+        if (file) {
+            alert(`Arquivo ${file.name} carregado com sucesso! Processando...`);
+            // Aqui você pode implementar o código para processar a planilha
+            processSpreadsheet(file);
+        }
+    }
+
+    // Função fictícia para processar planilhas (CSV ou XLSX)
+    function processSpreadsheet(file) {
+        // Aqui você pode adicionar o código para ler e processar planilhas
+        console.log("Processando arquivo:", file.name);
+    }
+
+    // Função para mostrar opções de exportação
+    function showExportOptions() {
+        let exportOptions = document.createElement('div');
+        exportOptions.innerHTML = '<button class="button send-btn" onclick="exportToCSV()">Exportar para CSV</button>' +
+                                  '<button class="button send-btn" onclick="exportToExcel()">Exportar para Excel</button>';
+        document.getElementById('chat-box').appendChild(exportOptions);
+    }
+
+    // Função para exportar para CSV (fictícia)
+    function exportToCSV() {
+        alert('Exportando dados para CSV...');
+        // Aqui você pode implementar o código para exportar os resultados para CSV
+    }
+
+    // Função para exportar para Excel (fictícia)
+    function exportToExcel() {
+        alert('Exportando dados para Excel...');
+        // Aqui você pode implementar o código para exportar os resultados para Excel
     }
 </script>
 
