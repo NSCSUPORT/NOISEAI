@@ -197,7 +197,7 @@
 
 <div class="chat-container">
     <div class="chat-box" id="chat-box">
-        <div class="message received">👋 Olá! O que você deseja fazer na fornalha de dados?</div>
+        <div class="message received">👋 Olá! O que você deseja fazer na fornalha de dados? Use !GUIA para listar os comandos.</div>
     </div>
     <div class="input-container">
         <input type="text" id="chat-input" placeholder="Digite sua mensagem...">
@@ -227,10 +227,53 @@
             message.classList.add('message', 'sent');
             message.textContent = input.value;
             document.getElementById('chat-box').appendChild(message);
+
+            // Verifica se a mensagem é o comando !GUIA
+            if(input.value.trim() === '!GUIA') {
+                displayGuide();
+            } else {
+                document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
+            }
             input.value = '';
-            document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
         }
     });
+
+    // Função para exibir a lista de comandos
+    function displayGuide() {
+        let guide = `
+        Comandos disponíveis:
+        1. !GUIA - Exibe esta lista de comandos.
+        2. !SERVIÇOS - Exibe a lista de serviços que você pode oferecer.
+        3. Analisar Dados - Insira dados para análise, que serão processados.
+        4. Enviar Arquivo - Anexe um arquivo para análise.
+        `;
+
+        let message = document.createElement('div');
+        message.classList.add('message', 'received');
+        message.textContent = guide;
+        document.getElementById('chat-box').appendChild(message);
+        document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
+    }
+
+    // Função para exibir os serviços disponíveis
+    function displayServices() {
+        let services = `
+        Serviços que podemos oferecer:
+        1. Análise de Dados em Tempo Real.
+        2. Consultoria em Inteligência Artificial.
+        3. Processamento de Arquivos Excel.
+        4. Análise Financeira e de Mercado.
+        5. Soluções em Automação e Machine Learning.
+        6. Criação de Dashboards Personalizados.
+        7. Consultoria para Implementação de Blockchain.
+        `;
+
+        let message = document.createElement('div');
+        message.classList.add('message', 'received');
+        message.textContent = services;
+        document.getElementById('chat-box').appendChild(message);
+        document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
+    }
 
     // Função para limpar o chat
     document.getElementById('clear-btn').addEventListener('click', function() {
@@ -255,23 +298,14 @@
         }
     });
 
-    // Função para processar e exportar os dados
     function processAndExportData(data) {
-        let processedData = `Dados Processados: ${data}`;
-        
-        // Exibir no Dashboard (simples)
-        let message = document.createElement('div');
-        message.classList.add('message', 'received');
-        message.textContent = processedData;
-        document.getElementById('chat-box').appendChild(message);
-        
-        // Criar uma planilha Excel com os dados processados
+        // Lógica de análise
+        console.log("Processando dados: " + data);
+        // Exemplo de exportação para Excel
+        const ws = XLSX.utils.aoa_to_sheet([['Data', data]]);
         const wb = XLSX.utils.book_new();
-        const ws = XLSX.utils.aoa_to_sheet([[processedData]]);
-        XLSX.utils.book_append_sheet(wb, ws, "Resultado");
-        
-        // Exportar como arquivo Excel
-        XLSX.writeFile(wb, "dados_processados.xlsx");
+        XLSX.utils.book_append_sheet(wb, ws, "Análise");
+        XLSX.writeFile(wb, "Analise_Dados.xlsx");
     }
 </script>
 
