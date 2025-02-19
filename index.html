@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de Configuração</title>
+    <title>ChatBot - Configuração</title>
     <style>
         /* Estilos Gerais */
         body {
@@ -12,88 +12,148 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
         }
 
-        /* Estilo do Cabeçalho */
+        /* Cabeçalho */
         header {
             background-color: #4285F4; /* Azul Google */
             padding: 10px 20px;
-        }
-
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-        }
-
-        nav ul li {
-            margin-right: 20px;
-        }
-
-        nav ul li a {
-            color: #fff; /* Texto branco */
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        /* Efeito de Hover */
-        nav ul li a:hover {
-            text-decoration: underline; /* Sublinhado ao passar o mouse */
-        }
-
-        /* Estilo das Seções */
-        main {
-            padding: 20px;
-        }
-
-        section {
-            margin-bottom: 40px;
-        }
-
-        /* Estilo do Rodapé */
-        footer {
-            background-color: #F4B400; /* Amarelo Google */
+            width: 100%;
             text-align: center;
+            position: fixed;
+            top: 0;
+        }
+
+        header h1 {
+            color: #fff;
+            font-size: 24px;
+        }
+
+        /* Estilo da Caixa do Chat */
+        .chatbox {
+            background-color: #222; /* Caixa do chat */
+            border-radius: 10px;
+            width: 350px;
+            padding: 20px;
+            margin-top: 70px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .chatbox h2 {
+            color: #F4B400; /* Amarelo Google */
+            font-size: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .chatbox .messages {
+            height: 200px;
+            overflow-y: auto;
+            margin-bottom: 10px;
             padding: 10px;
-            position: relative;
+            background-color: #333;
+            border-radius: 5px;
+        }
+
+        .chatbox input {
+            padding: 10px;
+            background-color: #444;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .chatbox input:focus {
+            outline: none;
+            border: 2px solid #4285F4;
+        }
+
+        .chatbox button {
+            background-color: #4285F4; /* Azul Google */
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        .chatbox button:hover {
+            background-color: #357AE8; /* Hover azul */
+        }
+
+        .footer {
+            position: fixed;
             bottom: 0;
             width: 100%;
+            background-color: #222;
+            text-align: center;
+            padding: 10px;
+            color: #fff;
+        }
+
+        /* Estilos dos ícones */
+        .pacman {
+            font-size: 50px;
+            color: #F4B400;
+            animation: pacman 0.5s infinite alternate;
+        }
+
+        @keyframes pacman {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(30deg); }
         }
     </style>
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Início</a></li>
-                <li><a href="#configuracoes">Configurações</a></li>
-                <li><a href="#ajuda">Ajuda</a></li>
-                <li><a href="#sobre">Sobre</a></li>
-            </ul>
-        </nav>
+        <h1>ChatBot de Suporte</h1>
     </header>
-    <main>
-        <section id="home">
-            <h1>Bem-vindo à Página de Configuração</h1>
-            <p>Personalize seu ambiente conforme suas preferências.</p>
-        </section>
-        <section id="configuracoes">
-            <h2>Configurações</h2>
-            <p>Aqui você pode ajustar suas configurações pessoais.</p>
-            <!-- Adicione mais conteúdo conforme necessário -->
-        </section>
-        <section id="ajuda">
-            <h2>Ajuda</h2>
-            <p>Se você precisar de assistência, entre em contato conosco.</p>
-        </section>
-        <section id="sobre">
-            <h2>Sobre</h2>
-            <p>Informações sobre o projeto.</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 Todos os direitos reservados.</p>
+    
+    <div class="chatbox">
+        <h2><span class="pacman">C</span> ChatBot</h2>
+        <div class="messages" id="messages"></div>
+        <input type="text" id="userInput" placeholder="Digite sua mensagem..." />
+        <button onclick="sendMessage()">Enviar</button>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 ChatBot - Todos os direitos reservados</p>
     </footer>
+
+    <script>
+        function sendMessage() {
+            const userInput = document.getElementById('userInput').value;
+            const messages = document.getElementById('messages');
+            
+            if (userInput.trim()) {
+                const userMessage = document.createElement('div');
+                userMessage.textContent = `Você: ${userInput}`;
+                messages.appendChild(userMessage);
+
+                // Simulando a resposta do ChatBot
+                const botMessage = document.createElement('div');
+                botMessage.textContent = `ChatBot: Estou aqui para ajudar!`;
+                botMessage.style.color = '#F4B400';
+                messages.appendChild(botMessage);
+
+                // Limpar campo de entrada
+                document.getElementById('userInput').value = '';
+                
+                // Rolando a tela para o final
+                messages.scrollTop = messages.scrollHeight;
+            }
+        }
+    </script>
 </body>
 </html>
