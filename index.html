@@ -5,13 +5,15 @@
     <link rel="icon" href="logo.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Noise AI</title>
+    <!-- Fonte Estilo Minecraft -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- FontAwesome para ícones -->
     <style>
         /* Estilos Gerais */
         body {
             background-color: #121212; /* Fundo escuro */
             color: #fff;
-            font-family: 'Courier New', Courier, monospace; /* Fonte estilo pixel */
+            font-family: 'Courier New', Courier, monospace; /* Fonte padrão */
             margin: 0;
             padding: 0;
             display: flex;
@@ -21,8 +23,9 @@
             flex-direction: column;
         }
 
-        /* Título */
+        /* Título com fonte Minecraft */
         h1 {
+            font-family: 'Press Start 2P', cursive; /* Fonte estilo Minecraft */
             font-size: 36px;
             font-weight: bold;
             color: #4CAF50; /* Verde para destaque */
@@ -73,6 +76,7 @@
         .input-container {
             display: flex;
             align-items: center;
+            justify-content: space-between;
         }
 
         input[type="text"] {
@@ -150,6 +154,37 @@
 
         .question-btn i {
             margin-right: 8px; /* Espaçamento entre ícone e texto */
+        }
+
+        /* Responsividade */
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 28px; /* Ajuste de tamanho no mobile */
+            }
+
+            .chat-container {
+                width: 90%;
+                padding: 10px;
+            }
+
+            .input-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            input[type="text"] {
+                margin-bottom: 10px;
+            }
+
+            .button {
+                width: 100%;
+                margin-bottom: 5px;
+            }
+
+            .send-btn, .attach-btn, .clear-btn {
+                width: 100%;
+                text-align: center;
+            }
         }
     </style>
 </head>
