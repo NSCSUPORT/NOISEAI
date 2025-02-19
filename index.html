@@ -211,7 +211,7 @@
     </div>
 </div>
 
-<!-- Painel de Input para Inserir Dados e Analisar -->
+<!-- Painel de Input para Inserir Dados e Analisar (Dentro do Chat) -->
 <div id="input-panel" style="display:none; background-color:#333; padding:20px; border-radius:10px; max-width: 400px; margin-top:20px;">
     <h2>Insira os Dados para Análise</h2>
     <input type="text" id="data-input" placeholder="Digite os dados...">
@@ -260,48 +260,32 @@
                 message.textContent = 'Você escolheu manipular dados. Que operação simples você deseja realizar (ex: soma, média, etc)?';
                 break;
             case 'exportar':
-                message.textContent = 'Você escolheu exportar para Google Docs. Clique abaixo para gerar a planilha.';
-                showExportGoogleDocs();
+                message.textContent = 'Você escolheu exportar os dados para Google Docs. Informe os dados para exportação.';
                 break;
-            default:
-                message.textContent = 'Escolha uma opção para começar!';
         }
         document.getElementById('chat-box').appendChild(message);
-
-        let response = document.createElement('div');
-        response.classList.add('message', 'received');
-        response.textContent = 'Aguarde enquanto processamos sua solicitação...';
-        document.getElementById('chat-box').appendChild(response);
         document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
 
-        // Exibe o painel de input
+        // Exibir o painel de inserção de dados
         document.getElementById('input-panel').style.display = 'block';
     }
 
-    // Função para exibir o link de exportação para Google Docs
-    function showExportGoogleDocs() {
-        let exportOption = document.createElement('div');
-        exportOption.innerHTML = '<a class="button send-btn" href="https://docs.google.com/spreadsheets/u/0/" target="_blank"><i class="fas fa-file-export"></i> Exportar para Google Docs</a>';
-        document.getElementById('chat-box').appendChild(exportOption);
-    }
-
-    // Função para Analisar Dados
+    // Função para analisar os dados inseridos
     document.getElementById('analyze-btn').addEventListener('click', function() {
-        let dataInput = document.getElementById('data-input').value;
-        if (dataInput) {
-            // Simulação de análise SSP (Processamento Simples de Dados)
-            let analyzedData = analyzeData(dataInput);
+        let data = document.getElementById('data-input').value;
+        if (data) {
             let resultMessage = document.createElement('div');
             resultMessage.classList.add('message', 'received');
-            resultMessage.textContent = `Análise concluída: ${analyzedData}`;
+            resultMessage.textContent = analyzeData(data);
             document.getElementById('chat-box').appendChild(resultMessage);
+            document.getElementById('data-input').value = ''; // Limpar o campo de input
         }
     });
 
     // Função simples de análise de dados
     function analyzeData(data) {
         // Exemplo de análise: calcular o tamanho dos dados
-        return `Dados inseridos têm ${data.length} caracteres.`;
+        return `Os dados inseridos têm ${data.length} caracteres.`;
     }
 </script>
 
