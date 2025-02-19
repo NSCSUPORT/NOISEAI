@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noise Explore - ChatBot</title>
+    <title>Noise Explore - Pac-Man Edition</title>
     <style>
         /* Estilos Gerais */
         body {
             background-color: #000; /* Fundo preto */
-            color: #fff; /* Texto branco */
+            color: #fff;
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -21,7 +21,7 @@
 
         /* Cabeçalho */
         header {
-            background-color: #4285F4; /* Azul Google */
+            background-color: #FFEB3B; /* Amarelo Pac-Man */
             padding: 10px 20px;
             width: 100%;
             text-align: center;
@@ -30,26 +30,27 @@
         }
 
         header h1 {
-            color: #fff;
+            color: #000;
             font-size: 24px;
         }
 
         /* Estilo da Caixa do Chat */
         .chatbox {
-            background-color: #222;
-            border-radius: 10px;
-            width: 400px;
-            padding: 20px;
+            background-color: #111;
+            border-radius: 15px;
+            width: 360px;
+            padding: 15px;
             margin-top: 70px;
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(255, 235, 59, 0.5);
+            border: 2px solid #FFEB3B;
         }
 
         .chatbox h2 {
-            color: #F4B400;
-            font-size: 22px;
+            color: #FFEB3B;
+            font-size: 20px;
             text-align: center;
         }
 
@@ -57,38 +58,59 @@
             height: 250px;
             overflow-y: auto;
             padding: 10px;
-            background-color: #333;
-            border-radius: 5px;
+            background-color: #222;
+            border-radius: 10px;
+        }
+
+        .message {
+            padding: 8px;
+            margin: 5px 0;
+            border-radius: 10px;
+            max-width: 80%;
+        }
+
+        .user-message {
+            background-color: #0F9D58; /* Verde WhatsApp */
+            align-self: flex-end;
+            text-align: right;
+        }
+
+        .bot-message {
+            background-color: #FFEB3B;
+            color: #000;
+            align-self: flex-start;
+            text-align: left;
         }
 
         .chatbox input, .chatbox button, .chatbox label {
-            padding: 10px;
-            background-color: #444;
+            padding: 12px;
+            background-color: #333;
             color: #fff;
             border: none;
-            border-radius: 5px;
+            border-radius: 25px;
             width: 100%;
             margin-top: 5px;
+            text-align: center;
         }
 
-        .chatbox input:focus, .chatbox button:focus {
+        .chatbox input:focus {
             outline: none;
-            border: 2px solid #4285F4;
+            border: 2px solid #FFEB3B;
         }
 
         .chatbox button {
-            background-color: #4285F4;
+            background-color: #FFEB3B;
+            color: #000;
             cursor: pointer;
             font-size: 16px;
+            font-weight: bold;
         }
 
         .chatbox button:hover {
-            background-color: #357AE8;
+            background-color: #FBC02D;
         }
 
         .chatbox label {
-            text-align: center;
-            background-color: transparent;
             cursor: pointer;
         }
 
@@ -96,23 +118,23 @@
             position: fixed;
             bottom: 0;
             width: 100%;
-            background-color: #222;
+            background-color: #111;
             text-align: center;
             padding: 10px;
-            color: #fff;
+            color: #FFEB3B;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Noise Explore - ChatBot</h1>
+        <h1>Noise Explore - Pac-Man Edition</h1>
     </header>
     
     <div class="chatbox">
-        <h2>🤖 Noise Explore</h2>
+        <h2>Noise Explore</h2>
         <div class="messages" id="messages"></div>
         <input type="text" id="userInput" placeholder="Digite sua mensagem..." />
-        <button onclick="sendMessage()">Enviar</button>
+        <button onclick="sendMessage()">▶ Enviar</button>
         <label for="fileInput">📎 Anexar Arquivo</label>
         <input type="file" id="fileInput" style="display: none;" />
     </div>
@@ -128,19 +150,20 @@
             
             if (userInput.trim()) {
                 const userMessage = document.createElement('div');
-                userMessage.textContent = `Você: ${userInput}`;
+                userMessage.classList.add('message', 'user-message');
+                userMessage.textContent = userInput;
                 messages.appendChild(userMessage);
 
                 // Simulando a resposta do ChatBot
-                const botMessage = document.createElement('div');
-                botMessage.textContent = `ChatBot: Como posso ajudar?`;
-                botMessage.style.color = '#F4B400';
-                messages.appendChild(botMessage);
+                setTimeout(() => {
+                    const botMessage = document.createElement('div');
+                    botMessage.classList.add('message', 'bot-message');
+                    botMessage.textContent = "👾 Como posso ajudar?";
+                    messages.appendChild(botMessage);
+                    messages.scrollTop = messages.scrollHeight;
+                }, 1000);
 
-                // Limpar campo de entrada
                 document.getElementById('userInput').value = '';
-                
-                // Rolando a tela para o final
                 messages.scrollTop = messages.scrollHeight;
             }
         }
