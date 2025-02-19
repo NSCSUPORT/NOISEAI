@@ -114,6 +114,7 @@
         .attach-btn {
             background-color: #FFC107;
             color: #000;
+            position: relative;
         }
 
         .attach-btn:hover {
@@ -185,6 +186,17 @@
                 width: 100%;
                 text-align: center;
             }
+
+            .attach-btn input[type="file"] {
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                cursor: pointer;
+            }
         }
     </style>
 </head>
@@ -206,7 +218,10 @@
     <div class="input-container">
         <input type="text" id="chat-input" placeholder="Digite sua mensagem...">
         <button class="button send-btn" id="send-btn"><i class="fas fa-paper-plane"></i></button>
-        <button class="button attach-btn" id="attach-btn"><i class="fas fa-paperclip"></i></button>
+        <div class="button attach-btn">
+            <input type="file" id="file-input" />
+            <i class="fas fa-paperclip"></i> Anexar Arquivo
+        </div>
         <button class="button clear-btn" id="clear-btn"><i class="fas fa-trash-alt"></i></button>
     </div>
 </div>
@@ -238,8 +253,11 @@
     });
 
     // Função para anexar arquivo
-    document.getElementById('attach-btn').addEventListener('click', function() {
-        alert('Arquivo anexado!');
+    document.getElementById('file-input').addEventListener('change', function() {
+        let file = this.files[0];
+        if (file) {
+            alert('Arquivo ' + file.name + ' anexado!');
+        }
     });
 
     // Função para perguntar e mostrar respostas
@@ -254,19 +272,22 @@
                 message.textContent = 'Você escolheu deletar dados. Informe o dado a ser deletado.';
                 break;
             case 'copiar':
-                message.textContent = 'Você escolheu copiar dados. Informe os dados que deseja copiar.';
+                message.textContent = 'Você escolheu copiar dados. Informe a tabela para copiar.';
                 break;
             case 'manipular':
-                message.textContent = 'Você escolheu manipular dados. Que operação simples você deseja realizar (ex: soma, média, etc)?';
+                message.textContent = 'Você escolheu realizar manipulações simples. Informe o que deseja manipular.';
                 break;
             case 'exportar':
-                message.textContent = 'Você escolheu exportar os dados para Google Docs. Informe os dados para exportação.';
+                message.textContent = 'Você escolheu exportar para Google Docs. Em breve, vou configurar para exportação.';
                 break;
         }
         document.getElementById('chat-box').appendChild(message);
         document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
+        showInputPanel();
+    }
 
-        // Exibir o painel de inserção de dados
+    // Função para exibir o painel de inserção de dados
+    function showInputPanel() {
         document.getElementById('input-panel').style.display = 'block';
     }
 
