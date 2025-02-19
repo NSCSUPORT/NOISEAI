@@ -227,41 +227,45 @@
             message.textContent = input.value;
             document.getElementById('chat-box').appendChild(message);
 
-            // Verifica se a mensagem é o comando !GUIA
-            if(input.value.trim() === '!GUIA') {
-                displayGuide();
-            } else {
-                document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
+            // Resposta após a seleção de uma função ou serviço
+            let responseMessage = handleUserInput(input.value.trim());
+            if (responseMessage) {
+                let response = document.createElement('div');
+                response.classList.add('message', 'received');
+                response.innerHTML = `<i class="fas fa-robot"></i> ${responseMessage}`;
+                document.getElementById('chat-box').appendChild(response);
             }
+
+            document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
             input.value = '';
         }
     });
 
-    // Função para exibir a lista de comandos
-    function displayGuide() {
-        let guide = `
-        Comandos disponíveis:
-        1. !GUIA - Exibe esta lista de comandos.
-        2. !SERVIÇOS - Exibe a lista de serviços que você pode oferecer.
-        3. Analisar Dados - Insira dados para análise, que serão processados.
-        4. Enviar Arquivo - Anexe um arquivo para análise.
-        5. Consultoria - Ofereça consultoria para implementação de IA ou Blockchain.
-        6. Análise Financeira - Análise do mercado e recomendações de investimentos.
-        7. Automação de Processos - Automatize processos usando IA.
-        8. Análise de Sentimentos - Análise de dados em tempo real de redes sociais e outros.
-        9. Soluções Customizadas - Desenvolvimento de soluções sob demanda.
-        10. Criação de Dashboards - Desenvolvimento de dashboards para visualização de dados.
-        11. Inteligência Artificial em Tempo Real - Análises rápidas e precisas com IA.
-        12. Análise de Arquivos Excel - Carregamento e análise de dados em planilhas.
-        13. Processamento de Dados em Lote - Tratamento de grandes volumes de dados.
-        14. Consultoria em Blockchain - Estratégias para implementar soluções de blockchain.
-        `;
-
-        let message = document.createElement('div');
-        message.classList.add('message', 'received');
-        message.innerHTML = `<i class="fas fa-list"></i> ${guide}`;
-        document.getElementById('chat-box').appendChild(message);
-        document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
+    // Função para verificar o comando e gerar a resposta
+    function handleUserInput(input) {
+        switch(input) {
+            case '!GUIA':
+                return `Comandos disponíveis:
+                1. !GUIA - Exibe esta lista de comandos.
+                2. !SERVIÇOS - Exibe a lista de serviços que você pode oferecer.
+                3. Analisar Dados - Insira dados para análise, que serão processados.
+                4. Enviar Arquivo - Anexe um arquivo para análise.
+                5. Consultoria - Ofereça consultoria para implementação de IA ou Blockchain.
+                6. Análise Financeira - Análise do mercado e recomendações de investimentos.`;
+            case '!SERVIÇOS':
+                return `Serviços disponíveis:
+                1. Consultoria em Blockchain.
+                2. Automação de Processos.
+                3. Análise de Sentimentos.
+                4. Análise de Dados.
+                5. Processamento de Dados em Lote.`;
+            case 'Analisar Dados':
+                return 'Você pode agora inserir dados para análise.';
+            case 'Enviar Arquivo':
+                return 'Anexe seu arquivo para análise.';
+            default:
+                return 'Desculpe, não reconhecemos este comando. Use !GUIA para listar os comandos.';
+        }
     }
 
     // Função para limpar o chat
