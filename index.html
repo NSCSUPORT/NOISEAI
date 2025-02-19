@@ -115,10 +115,27 @@
             background-color: #FFC107;
             color: #000;
             position: relative;
+            width: 40px; /* Tamanho do botão */
+            height: 40px; /* Tamanho do botão */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
         }
 
         .attach-btn:hover {
             background-color: #ffb300;
+        }
+
+        .attach-btn input[type="file"] {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
         }
 
         .clear-btn {
@@ -220,7 +237,7 @@
         <button class="button send-btn" id="send-btn"><i class="fas fa-paper-plane"></i></button>
         <div class="button attach-btn">
             <input type="file" id="file-input" />
-            <i class="fas fa-paperclip"></i> Anexar Arquivo
+            <i class="fas fa-paperclip"></i> <!-- Apenas o ícone -->
         </div>
         <button class="button clear-btn" id="clear-btn"><i class="fas fa-trash-alt"></i></button>
     </div>
@@ -272,41 +289,19 @@
                 message.textContent = 'Você escolheu deletar dados. Informe o dado a ser deletado.';
                 break;
             case 'copiar':
-                message.textContent = 'Você escolheu copiar dados. Informe a tabela para copiar.';
+                message.textContent = 'Você escolheu copiar dados. Informe o dado que deseja copiar.';
                 break;
             case 'manipular':
-                message.textContent = 'Você escolheu realizar manipulações simples. Informe o que deseja manipular.';
+                message.textContent = 'Você escolheu manipular dados. Informe as funções a serem aplicadas.';
                 break;
             case 'exportar':
-                message.textContent = 'Você escolheu exportar para Google Docs. Em breve, vou configurar para exportação.';
+                message.textContent = 'Você escolheu exportar para Google Docs. Informe os dados para exportar.';
+                break;
+            default:
+                message.textContent = 'Escolha uma opção válida.';
                 break;
         }
         document.getElementById('chat-box').appendChild(message);
-        document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
-        showInputPanel();
-    }
-
-    // Função para exibir o painel de inserção de dados
-    function showInputPanel() {
-        document.getElementById('input-panel').style.display = 'block';
-    }
-
-    // Função para analisar os dados inseridos
-    document.getElementById('analyze-btn').addEventListener('click', function() {
-        let data = document.getElementById('data-input').value;
-        if (data) {
-            let resultMessage = document.createElement('div');
-            resultMessage.classList.add('message', 'received');
-            resultMessage.textContent = analyzeData(data);
-            document.getElementById('chat-box').appendChild(resultMessage);
-            document.getElementById('data-input').value = ''; // Limpar o campo de input
-        }
-    });
-
-    // Função simples de análise de dados
-    function analyzeData(data) {
-        // Exemplo de análise: calcular o tamanho dos dados
-        return `Os dados inseridos têm ${data.length} caracteres.`;
     }
 </script>
 
