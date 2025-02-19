@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChatBot - Configuração</title>
+    <title>Noise Explore - ChatBot</title>
     <style>
         /* Estilos Gerais */
         body {
@@ -36,9 +36,9 @@
 
         /* Estilo da Caixa do Chat */
         .chatbox {
-            background-color: #222; /* Caixa do chat */
+            background-color: #222;
             border-radius: 10px;
-            width: 350px;
+            width: 400px;
             padding: 20px;
             margin-top: 70px;
             display: flex;
@@ -48,48 +48,48 @@
         }
 
         .chatbox h2 {
-            color: #F4B400; /* Amarelo Google */
-            font-size: 20px;
+            color: #F4B400;
+            font-size: 22px;
             text-align: center;
-            margin-bottom: 20px;
         }
 
         .chatbox .messages {
-            height: 200px;
+            height: 250px;
             overflow-y: auto;
-            margin-bottom: 10px;
             padding: 10px;
             background-color: #333;
             border-radius: 5px;
         }
 
-        .chatbox input {
+        .chatbox input, .chatbox button, .chatbox label {
             padding: 10px;
             background-color: #444;
             color: #fff;
             border: none;
             border-radius: 5px;
             width: 100%;
+            margin-top: 5px;
         }
 
-        .chatbox input:focus {
+        .chatbox input:focus, .chatbox button:focus {
             outline: none;
             border: 2px solid #4285F4;
         }
 
         .chatbox button {
-            background-color: #4285F4; /* Azul Google */
-            color: #fff;
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
+            background-color: #4285F4;
             cursor: pointer;
-            width: 100%;
             font-size: 16px;
         }
 
         .chatbox button:hover {
-            background-color: #357AE8; /* Hover azul */
+            background-color: #357AE8;
+        }
+
+        .chatbox label {
+            text-align: center;
+            background-color: transparent;
+            cursor: pointer;
         }
 
         .footer {
@@ -101,34 +101,24 @@
             padding: 10px;
             color: #fff;
         }
-
-        /* Estilos dos ícones */
-        .pacman {
-            font-size: 50px;
-            color: #F4B400;
-            animation: pacman 0.5s infinite alternate;
-        }
-
-        @keyframes pacman {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(30deg); }
-        }
     </style>
 </head>
 <body>
     <header>
-        <h1>ChatBot de Suporte</h1>
+        <h1>Noise Explore - ChatBot</h1>
     </header>
     
     <div class="chatbox">
-        <h2><span class="pacman">C</span> ChatBot</h2>
+        <h2>🤖 Noise Explore</h2>
         <div class="messages" id="messages"></div>
         <input type="text" id="userInput" placeholder="Digite sua mensagem..." />
         <button onclick="sendMessage()">Enviar</button>
+        <label for="fileInput">📎 Anexar Arquivo</label>
+        <input type="file" id="fileInput" style="display: none;" />
     </div>
 
     <footer class="footer">
-        <p>&copy; 2024 ChatBot - Todos os direitos reservados</p>
+        <p>&copy; 2024 Direitos Reservados BRNC INC Lucas Januário</p>
     </footer>
 
     <script>
@@ -143,7 +133,7 @@
 
                 // Simulando a resposta do ChatBot
                 const botMessage = document.createElement('div');
-                botMessage.textContent = `ChatBot: Estou aqui para ajudar!`;
+                botMessage.textContent = `ChatBot: Como posso ajudar?`;
                 botMessage.style.color = '#F4B400';
                 messages.appendChild(botMessage);
 
