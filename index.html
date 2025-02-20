@@ -201,21 +201,52 @@ document.getElementById('clear-btn').addEventListener('click', function() {
 });
     function processMessage(msg) {
     const commands = {
-        '!GUIA': 'Lista de comandos disponíveis: !AJUDA, !DATA, !HORA, !RANDOM, !MOEDA',
-        '!AJUDA': 'Comandos disponíveis: !GUIA, !DATA, !HORA, !RANDOM, !MOEDA',
-        '!DATA': new Date().toLocaleDateString(),
-        '!HORA': new Date().toLocaleTimeString(),
-        '!RANDOM': Math.floor(Math.random() * 100),
-        '!MOEDA': Math.random() < 0.5 ? 'Cara' : 'Coroa',
-        '!lucas januario': "Lucas Januário do Nascimento é o fundador do HoloFi e da tecnologia HOLLOW ETHER, trabalhando com inovação em ativos digitais e blockchain!"
-    };
+      // Comandos do chat
 
-    // Verificar comandos simples
-    if (commands[msg]) {
-        return commands[msg];
+    '!GUIA': 'Lista de comandos disponíveis: !AJUDA, !DATA, !HORA, !RANDOM, !MOEDA, !ALL',
+    '!AJUDA': 'Comandos disponíveis: !GUIA, !DATA, !HORA, !RANDOM, !MOEDA, !ALL',
+    '!DATA': new Date().toLocaleDateString(),
+    '!HORA': new Date().toLocaleTimeString(),
+    '!RANDOM': Math.floor(Math.random() * 100),
+    '!MOEDA': Math.random() < 0.5 ? 'Cara' : 'Coroa',
+    '!ALL': 'Aqui estão todos os comandos disponíveis:\n!GUIA, !AJUDA, !DATA, !HORA, !RANDOM, !MOEDA, !ALL\n\nAlém disso, se você digitar palavras-chave como "oi", "jogo", "dados", "clima", etc., receberei respostas personalizadas!'
+};
+
+// Função para enviar mensagem
+function sendMessage() {
+    let input = document.getElementById('chat-input');
+    let messageText = input.value.trim();
+    if (!messageText) return;
+
+    appendMessage(messageText, 'sent');
+    input.value = '';
+
+    if (comandos[messageText]) {
+        setTimeout(() => {
+            appendMessage(comandos[messageText], 'received');
+        }, 500);
+    } else {
+        let respostaPersonalizada = getRespostaPersonalizada(messageText);
+        if (respostaPersonalizada) {
+            setTimeout(() => {
+                appendMessage(respostaPersonalizada, 'received');
+            }, 500);
+        }
     }
+}
 
-    // Respostas personalizadas baseadas em palavras-chave
+// Função para adicionar mensagens ao chat
+function appendMessage(text, type) {
+    let chatBox = document.getElementById('chat-box');
+    let message = document.createElement('div');
+    message.classList.add('message', type);
+    message.innerHTML = type === 'received' ? `<i class="fas fa-robot"></i> ${text}` : text;
+    chatBox.appendChild(message);
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+// Função de respostas personalizadas com base em palavras-chave
+function getRespostaPersonalizada(msg) {
     msg = msg.toLowerCase();
     if (msg.includes('oi')) return "Olá! Como posso ajudar você hoje?";
     if (msg.includes('dados')) return "Você quer analisar dados? Envie os dados ou escolha uma opção!";
@@ -258,7 +289,7 @@ document.getElementById('clear-btn').addEventListener('click', function() {
             "9️⃣ Qual item concede escudo e roubo de vida para ADCs?\nA) Mata-Cráquens\nB) Gume do Infinito\nC) Arco-escudo Imortal\nD) Lâmina Fantasma de Youmuu\n\n" +
             "🔟 Qual é o nome da skin lendária de Ezreal que o transforma em um explorador do futuro?\nA) Ezreal TPA\nB) Ezreal Pulsefire\nC) Ezreal Guardião Estelar\nD) Ezreal Frosted\n\n" +
             "Responda com o número e a letra da resposta correta! Exemplo: 1A, 2B...";
-    } 
+    }
 
     // Se o comando não for reconhecido
     return "Desculpe, não entendi sua mensagem. Tente novamente!";
