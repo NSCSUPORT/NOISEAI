@@ -123,11 +123,11 @@
 <h1>Noise AI</h1>
 <div class="chat-container">
     <div class="chat-box" id="chat-box">
-        <div class="message received">👋 Olá! O que você deseja fazer? Use !GUIA para listar os comandos.</div>
+        <div class="message received" id="initial-message">👋 Olá! O que você deseja fazer? Use !GUIA para listar os comandos.</div>
     </div>
     <div class="input-container">
         <input type="text" id="chat-input" placeholder="Digite sua mensagem...">
-      <button class="button send-btn" id="send-btn"><i class="fas fa-paper-plane"></i></button>
+        <button class="button send-btn" id="send-btn"><i class="fas fa-paper-plane"></i></button>
         <div class="button attach-btn">
             <label for="file-input">
                 <i class="fas fa-paperclip"></i>
@@ -140,7 +140,6 @@
 <footer>
     <p>&copy; 2025 HoloFi. Todos os direitos reservados. Lucas Januário</p>
 </footer>
-
 <script>
   document.getElementById('file-input').addEventListener('change', function(event) {
     let file = event.target.files[0];
@@ -198,6 +197,39 @@ document.getElementById('chat-input').addEventListener('keypress', function(even
 
 document.getElementById('clear-btn').addEventListener('click', function() {
     document.getElementById('chat-box').innerHTML = '<div class="message received"><i class="fas fa-robot"></i> 👋 Olá! O que você deseja fazer? Use !GUIA para listar os comandos.</div>';
+});
+    // Function to speak the message
+function speakMessage(message) {
+    const speech = new SpeechSynthesisUtterance(message);
+    speech.lang = 'pt-BR';  // Set language to Brazilian Portuguese
+    speech.volume = 1;      // Full volume
+    speech.rate = 1;        // Normal speech rate
+    speech.pitch = 1;       // Normal pitch
+    speechSynthesis.speak(speech);
+}
+
+// Add event listener to the send button
+document.getElementById('send-btn').addEventListener('click', function() {
+    const input = document.getElementById('chat-input');
+    const message = input.value;
+    if (message) {
+        // Display the message in the chat
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message', 'sent');
+        messageDiv.textContent = message;
+        document.getElementById('chat-box').appendChild(messageDiv);
+
+        // Clear the input field
+        input.value = '';
+
+        // Use the speak function to narrate the message
+        speakMessage(message);
+    }
+});
+
+// Add event listener to the clear button
+document.getElementById('clear-btn').addEventListener('click', function() {
+    document.getElementById('chat-box').innerHTML = '';
 });
     function processMessage(msg) {
     const commands = {
