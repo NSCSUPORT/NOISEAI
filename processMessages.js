@@ -1,88 +1,95 @@
-  // Variáveis de comandos do chat
-  const comandos = {
-    "!GUIA": "Aqui estão alguns comandos disponíveis: !COMANDO1 - Descrição, !COMANDO2 - Descrição.",
-    "!COMANDO1": "Você ativou o COMANDO1. O que deseja fazer?",
-    "!COMANDO2": "Você ativou o COMANDO2. Por favor, forneça mais informações."
-  };
+  // Simulação de contrato com saldos de investidores
+const contract = {
+  investors: ['Lucas', 'Maria', 'João'],  // Lista de investidores
+  balances: [1000, 2000, 1500]  // Saldo de cada investidor
+};
 
-  // Função para responder com mensagens personalizadas
-  function getRespostaPersonalizada(messageText) {
-    if (messageText.includes("saldo de")) {
-      let investidor = messageText.replace("saldo de", "").trim();
-      let index = contract.investors.indexOf(investidor);
-      if (index !== -1) {
-        return `O saldo de ${investidor} é ${contract.balances[index]} reais.`;
-      } else {
-        return `Investidor ${investidor} não encontrado.`;
-      }
-    }
-    return null;
-  }
+// Variáveis de comandos do chat
+const comandos = {
+  "!GUIA": "Aqui estão alguns comandos disponíveis: !COMANDO1 - Descrição, !COMANDO2 - Descrição.",
+  "!COMANDO1": "Você ativou o COMANDO1. O que deseja fazer?",
+  "!COMANDO2": "Você ativou o COMANDO2. Por favor, forneça mais informações."
+};
 
-  // Função para inicializar o chat
-  function iniciarChat() {
-    document.getElementById('chat-box').innerHTML = '<div class="message received"><i class="fas fa-robot"></i> 👋 Olá! O que você deseja fazer? Use !GUIA para listar os comandos.</div>';
-  }
-
-  // Função para iniciar o envio de mensagens do chat
-  function sendMessage() {
-    let input = document.getElementById('chat-input');
-    let messageText = input.value.trim();
-    if (!messageText) return;
-
-    appendMessage(messageText, 'sent');
-    input.value = '';
-
-    // Comandos conhecidos
-    if (comandos[messageText]) {
-        setTimeout(() => {
-            appendMessage(comandos[messageText], 'received');
-        }, 500);
+// Função para responder com mensagens personalizadas
+function getRespostaPersonalizada(messageText) {
+  if (messageText.includes("saldo de")) {
+    let investidor = messageText.replace("saldo de", "").trim();
+    let index = contract.investors.indexOf(investidor);
+    if (index !== -1) {
+      return `O saldo de ${investidor} é R$ ${contract.balances[index].toFixed(2)}.`;
     } else {
-        // Resposta personalizada
-        let respostaPersonalizada = getRespostaPersonalizada(messageText);
-        if (respostaPersonalizada) {
-            setTimeout(() => {
-                appendMessage(respostaPersonalizada, 'received');
-            }, 500);
-        } else {
-            // Resposta padrão do bot
-            setTimeout(() => {
-                appendMessage("Desculpe, não entendi a sua pergunta.", 'received');
-            }, 500);
-        }
+      return `Investidor ${investidor} não encontrado.`;
     }
   }
+  return null;
+}
 
-  // Função para enviar mensagens e exibir no chat
-  function appendMessage(text, type) {
-    let chatBox = document.getElementById('chat-box');
-    let message = document.createElement('div');
-    message.classList.add('message', type);
-    message.innerHTML = type === 'received' ? `<i class="fas fa-robot"></i> ${text}` : text;
-    chatBox.appendChild(message);
-    chatBox.scrollTop = chatBox.scrollHeight;
+// Função para inicializar o chat
+function iniciarChat() {
+  document.getElementById('chat-box').innerHTML = '<div class="message received"><i class="fas fa-robot"></i> 👋 Olá! O que você deseja fazer? Use !GUIA para listar os comandos.</div>';
+}
+
+// Função para iniciar o envio de mensagens do chat
+function sendMessage() {
+  let input = document.getElementById('chat-input');
+  let messageText = input.value.trim();
+  if (!messageText) return;
+
+  appendMessage(messageText, 'sent');
+  input.value = '';
+
+  // Comandos conhecidos
+  if (comandos[messageText]) {
+    setTimeout(() => {
+      appendMessage(comandos[messageText], 'received');
+    }, 500);
+  } else {
+    // Resposta personalizada
+    let respostaPersonalizada = getRespostaPersonalizada(messageText);
+    if (respostaPersonalizada) {
+      setTimeout(() => {
+        appendMessage(respostaPersonalizada, 'received');
+      }, 500);
+    } else {
+      // Resposta padrão do bot
+      setTimeout(() => {
+        appendMessage("Desculpe, não entendi a sua pergunta.", 'received');
+      }, 500);
+    }
   }
+}
 
-  // Inicia o chat ao carregar a página
-  document.addEventListener('DOMContentLoaded', (event) => {
-    iniciarChat();
+// Função para enviar mensagens e exibir no chat
+function appendMessage(text, type) {
+  let chatBox = document.getElementById('chat-box');
+  let message = document.createElement('div');
+  message.classList.add('message', type);
+  message.innerHTML = type === 'received' ? `<i class="fas fa-robot"></i> ${text}` : text;
+  chatBox.appendChild(message);
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
 
-    // Adiciona eventos aos botões de interação
-    document.getElementById('send-btn').addEventListener('click', sendMessage);
-    document.getElementById('chat-input').addEventListener('keypress', handleEnterKey);
-    document.getElementById('clear-btn').addEventListener('click', clearChat);
-  });
+// Inicia o chat ao carregar a página
+document.addEventListener('DOMContentLoaded', (event) => {
+  iniciarChat();
 
-  // Função para detectar pressionamento de "Enter"
-  function handleEnterKey(event) {
-    if (event.key === 'Enter') sendMessage();
-  }
+  // Adiciona eventos aos botões de interação
+  document.getElementById('send-btn').addEventListener('click', sendMessage);
+  document.getElementById('chat-input').addEventListener('keypress', handleEnterKey);
+  document.getElementById('clear-btn').addEventListener('click', clearChat);
+});
 
-  // Função para limpar o chat
-  function clearChat() {
-    document.getElementById('chat-box').innerHTML = '<div class="message received"><i class="fas fa-robot"></i> 👋 Olá! O que você deseja fazer? Use !GUIA para listar os comandos.</div>';
-  }
+// Função para detectar pressionamento de "Enter"
+function handleEnterKey(event) {
+  if (event.key === 'Enter') sendMessage();
+}
+
+// Função para limpar o chat
+function clearChat() {
+  document.getElementById('chat-box').innerHTML = '<div class="message received"><i class="fas fa-robot"></i> 👋 Olá! O que você deseja fazer? Use !GUIA para listar os comandos.</div>';
+}
+
 
 
   function getRespostaPersonalizada(msg) {
