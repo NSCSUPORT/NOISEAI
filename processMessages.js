@@ -1,145 +1,30 @@
-const sqlite3 = require('sqlite3').verbose();
-const fs = require('fs');
-const { Worker, isMainThread, parentPort, workerData } = require('worker_threads');
+  // Variáveis de comandos do chat
+  const comandos = {
+    "!GUIA": "Aqui estão alguns comandos disponíveis: !COMANDO1 - Descrição, !COMANDO2 - Descrição.",
+    "!COMANDO1": "Você ativou o COMANDO1. O que deseja fazer?",
+    "!COMANDO2": "Você ativou o COMANDO2. Por favor, forneça mais informações."
+  };
 
-// Estrutura para o contrato de investimentos
-class InvestmentContract {
-  constructor() {
-    this.investors = [];
-    this.authorizedInvestors = [];
-    this.balances = [];
-    this.investedAmount = [];
-    this.investorCount = 0;
+  // Função para responder com mensagens personalizadas
+  function getRespostaPersonalizada(messageText) {
+    if (messageText.includes("saldo de")) {
+      let investidor = messageText.replace("saldo de", "").trim();
+      let index = contract.investors.indexOf(investidor);
+      if (index !== -1) {
+        return `O saldo de ${investidor} é ${contract.balances[index]} reais.`;
+      } else {
+        return `Investidor ${investidor} não encontrado.`;
+      }
+    }
+    return null;
   }
 
-  initializeContract() {
-    const db = new sqlite3.Database('investors.db');
-    db.serialize(() => {
-      db.run("CREATE TABLE IF NOT EXISTS Investors (Name TEXT, Authorized INT, Balance LONG)");
-
-      // Inserir dados iniciais (se necessário)
-      db.run("INSERT INTO Investors (Name, Authorized, Balance) VALUES ('Alice', 1, 1000), ('Bob', 0, 500), ('Charlie', 1, 1500)");
-
-      // Selecionar todos os investidores
-      db.all("SELECT Name, Authorized, Balance FROM Investors", (err, rows) => {
-        if (err) {
-          console.error("Erro ao buscar investidores:", err);
-          return;
-        }
-
-        rows.forEach(row => {
-          this.investors.push(row.Name);
-          this.authorizedInvestors.push(row.Authorized);
-          this.balances.push(row.Balance);
-          this.investedAmount.push(0);
-          this.investorCount++;
-        });
-
-        db.close();
-      });
-    });
+  // Função para inicializar o chat
+  function iniciarChat() {
+    document.getElementById('chat-box').innerHTML = '<div class="message received"><i class="fas fa-robot"></i> 👋 Olá! O que você deseja fazer? Use !GUIA para listar os comandos.</div>';
   }
 
-  processInvestment(investor, amount) {
-    const investorIndex = this.investors.indexOf(investor);
-    if (investorIndex === -1) {
-      console.log(`Investidor '${investor}' não encontrado no contrato`);
-      return;
-    }
-    if (!this.authorizedInvestors[investorIndex]) {
-      console.log(`Investidor '${investor}' não está autorizado a investir`);
-      return;
-    }
-    if (amount > this.balances[investorIndex]) {
-      console.log(`Saldo insuficiente para o investidor '${investor}'. Saldo atual: ${this.balances[investorIndex]}`);
-      return;
-    }
-
-    // Atualizar saldos e valores investidos
-    this.balances[investorIndex] -= amount;
-    this.investedAmount[investorIndex] += amount;
-    console.log(`Investimento de ${amount} realizado por '${investor}'`);
-  }
-}
-
-// Função para ler mensagens e enviar ao worker para processamento
-function processMessages() {
-  const messages = fs.readFileSync('mensagens.txt', 'utf8').split('\n').map(msg => msg.trim());
-  const worker = new Worker(__filename, { workerData: messages });
-
-  worker.on('message', result => {
-    console.log('Resultados processados:');
-    console.log(result);
-  });
-
-  worker.on('error', (error) => {
-    console.error("Erro no Worker:", error);
-  });
-
-  worker.on('exit', (exitCode) => {
-    if (exitCode !== 0) {
-      console.error(`Worker finalizou com erro, código de saída: ${exitCode}`);
-    }
-  });
-}
-
-// Processo do Worker
-if (!isMainThread) {
-  const messages = workerData;
-  const responses = messages.map(msg => {
-    msg = msg.toLowerCase();
-    if (msg.includes('como posso estudar melhor')) {
-      return "Estudar melhor envolve técnicas de foco e organização. Me fale mais sobre seu método de estudo, e eu te dou algumas dicas!";
-    } else if (msg.includes('quais são os erros mais comuns que devo evitar')) {
-      return "Evitar erros é essencial! Me fale mais sobre o que você está fazendo, e eu te mostro os erros mais comuns para evitar.";
-    } else if (msg.includes('como posso aplicar isso de maneira prática')) {
-      return "A melhor forma de aplicar depende do seu objetivo. Me fale mais sobre o que você quer aplicar, e eu te dou um plano prático!";
-    } else {
-      return "Desculpe, não entendi a sua pergunta.";
-    }
-  });
-
-  parentPort.postMessage(responses);
-}
-
-// Se for o processo principal, inicia o processamento
-if (isMainThread) {
-  const contract = new InvestmentContract();
-  contract.initializeContract();
-
-  contract.processInvestment('Alice', 200);  // Investimento válido
-  contract.processInvestment('Bob', 100);    // Investidor não autorizado
-  contract.processInvestment('Charlie', 2000); // Saldo insuficiente
-
-  // Manipulação do arquivo de entrada
-  document.getElementById('file-input').addEventListener('change', handleFileInput);
-  document.getElementById('send-btn').addEventListener('click', sendMessage);
-  document.getElementById('chat-input').addEventListener('keypress', handleEnterKey);
-  document.getElementById('clear-btn').addEventListener('click', clearChat);
-
-  // Manipulação de chat
-  function handleFileInput(event) {
-    let file = event.target.files[0];
-    if (file) {
-        let reader = new FileReader();
-        reader.onload = function(e) {
-            let data = new Uint8Array(e.target.result);
-            let workbook = XLSX.read(data, { type: 'array' });
-            let sheetName = workbook.SheetNames[0];
-            let sheet = workbook.Sheets[sheetName];
-            let jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
-
-            let response = "📊 Arquivo carregado com sucesso! Exibindo primeiras linhas:\n";
-            jsonData.slice(0, 5).forEach(row => {
-                response += JSON.stringify(row) + "\n";
-            });
-
-            appendMessage(response, 'received');
-        };
-        reader.readAsArrayBuffer(file);
-    }
-  }
-
+  // Função para iniciar o envio de mensagens do chat
   function sendMessage() {
     let input = document.getElementById('chat-input');
     let messageText = input.value.trim();
@@ -148,28 +33,28 @@ if (isMainThread) {
     appendMessage(messageText, 'sent');
     input.value = '';
 
+    // Comandos conhecidos
     if (comandos[messageText]) {
         setTimeout(() => {
             appendMessage(comandos[messageText], 'received');
         }, 500);
     } else {
+        // Resposta personalizada
         let respostaPersonalizada = getRespostaPersonalizada(messageText);
         if (respostaPersonalizada) {
             setTimeout(() => {
                 appendMessage(respostaPersonalizada, 'received');
             }, 500);
+        } else {
+            // Resposta padrão do bot
+            setTimeout(() => {
+                appendMessage("Desculpe, não entendi a sua pergunta.", 'received');
+            }, 500);
         }
     }
   }
 
-  function handleEnterKey(event) {
-    if (event.key === 'Enter') sendMessage();
-  }
-
-  function clearChat() {
-    document.getElementById('chat-box').innerHTML = '<div class="message received"><i class="fas fa-robot"></i> 👋 Olá! O que você deseja fazer? Use !GUIA para listar os comandos.</div>';
-  }
-
+  // Função para enviar mensagens e exibir no chat
   function appendMessage(text, type) {
     let chatBox = document.getElementById('chat-box');
     let message = document.createElement('div');
@@ -178,6 +63,27 @@ if (isMainThread) {
     chatBox.appendChild(message);
     chatBox.scrollTop = chatBox.scrollHeight;
   }
+
+  // Inicia o chat ao carregar a página
+  document.addEventListener('DOMContentLoaded', (event) => {
+    iniciarChat();
+
+    // Adiciona eventos aos botões de interação
+    document.getElementById('send-btn').addEventListener('click', sendMessage);
+    document.getElementById('chat-input').addEventListener('keypress', handleEnterKey);
+    document.getElementById('clear-btn').addEventListener('click', clearChat);
+  });
+
+  // Função para detectar pressionamento de "Enter"
+  function handleEnterKey(event) {
+    if (event.key === 'Enter') sendMessage();
+  }
+
+  // Função para limpar o chat
+  function clearChat() {
+    document.getElementById('chat-box').innerHTML = '<div class="message received"><i class="fas fa-robot"></i> 👋 Olá! O que você deseja fazer? Use !GUIA para listar os comandos.</div>';
+  }
+
 
   function getRespostaPersonalizada(msg) {
     msg = msg.toLowerCase();
@@ -673,22 +579,164 @@ if (msg.includes('como posso melhorar minha capacidade de liderança no trabalho
 if (msg.includes('como posso aprender a ser mais proativo no trabalho')) return "Antecipe necessidades, busque soluções antes que os problemas surjam e mostre iniciativa para fazer as coisas acontecerem!";
 if (msg.includes('como posso melhorar minha capacidade de resolver problemas no trabalho')) return "Identifique a causa raiz do problema, analise todas as opções e tome decisões baseadas em dados objetivos para encontrar a melhor solução!";
 if (msg.includes('como posso aumentar minha capacidade de concentração no trabalho')) return "Crie um ambiente de trabalho sem distrações, defina metas claras e use técnicas como Pomodoro para manter o foco!";
-if (msg.includes('como posso melhorar minha gestão de projetos no trabalho')) return "Estabeleça objetivos claros, delegue tarefas eficazmente e monitore o progresso de cada fase para garantir que os projetos sejam entregues a tempo!";
-if (msg.includes('como posso melhorar minha autoestima no ambiente profissional')) return "Reconheça suas conquistas, busque autoconhecimento e peça feedback construtivo para crescer pessoal e profissionalmente!";
-if (msg.includes('como posso melhorar minha capacidade de lidar com pressões no trabalho')) return "Mantenha a calma, divida tarefas grandes em etapas e aprenda a delegar para reduzir a pressão e aumentar sua eficiência!";
+// Função para buscar respostas personalizadas do usuário
+function getRespostaPersonalizada(message) {
+  const msg = message.toLowerCase();
 
-    if (msg.includes('moeda')) return "Digite a moeda que deseja converter e eu fornecerei a taxa de câmbio!";
-    return null;
+  if (msg.includes('como posso melhorar minha gestão de projetos no trabalho')) {
+    return "Estabeleça objetivos claros, delegue tarefas eficazmente e monitore o progresso de cada fase para garantir que os projetos sejam entregues a tempo!";
+  }
+  if (msg.includes('como posso melhorar minha autoestima no ambiente profissional')) {
+    return "Reconheça suas conquistas, busque autoconhecimento e peça feedback construtivo para crescer pessoal e profissionalmente!";
+  }
+  if (msg.includes('como posso melhorar minha capacidade de lidar com pressões no trabalho')) {
+    return "Mantenha a calma, divida tarefas grandes em etapas e aprenda a delegar para reduzir a pressão e aumentar sua eficiência!";
+  }
+  if (msg.includes('moeda')) {
+    return "Digite a moeda que deseja converter e eu fornecerei a taxa de câmbio!";
+  }
+  return null;
+}
+
+// Comandos pré-definidos para o chat
+const comandos = {
+  '!GUIA': 'Lista de comandos disponíveis: !AJUDA, !DATA, !HORA, !RANDOM, !MOEDA, !ALL',
+  '!AJUDA': 'Comandos disponíveis: !GUIA, !DATA, !HORA, !RANDOM, !MOEDA, !ALL',
+  '!DATA': new Date().toLocaleDateString(),
+  '!HORA': new Date().toLocaleTimeString(),
+  '!RANDOM': Math.random(),
+  '!MOEDA': 'Exemplo de conversão de moeda: Digite "USD para BRL"'
+};
+
+// Função para processar mensagens (exemplo com Worker)
+function processMessages() {
+  // Supondo que as mensagens estão sendo lidas de um arquivo ou outro método de entrada
+  const messages = fs.readFileSync('mensagens.txt', 'utf8').split('\n').map(msg => msg.trim());
+  const worker = new Worker(__filename, { workerData: messages });
+
+  worker.on('message', result => {
+    console.log('Resultados processados:');
+    console.log(result);
+  });
+
+  worker.on('error', (error) => {
+    console.error("Erro no Worker:", error);
+  });
+
+  worker.on('exit', (exitCode) => {
+    if (exitCode !== 0) {
+      console.error(`Worker finalizou com erro, código de saída: ${exitCode}`);
+    }
+  });
+}
+
+// Processo do Worker para processamento de mensagens
+if (!isMainThread) {
+  const messages = workerData;
+  const responses = messages.map(msg => {
+    // Verifica se há uma resposta personalizada para a mensagem
+    let resposta = getRespostaPersonalizada(msg);
+    if (resposta) return resposta;
+
+    // Caso não haja resposta personalizada, verifica comandos predefinidos
+    for (let comando in comandos) {
+      if (msg.includes(comando.toLowerCase())) {
+        return comandos[comando];
+      }
+    }
+    return "Desculpe, não entendi a sua pergunta.";
+  });
+
+  parentPort.postMessage(responses);
+}
+
+// Se for o processo principal, inicia o processamento e define os eventos da interface
+if (isMainThread) {
+  // Instancia e inicializa o contrato de investimentos
+  const contract = new InvestmentContract();
+  contract.initializeContract();
+
+  // Processa alguns investimentos para teste
+  contract.processInvestment('Alice', 200);    // Investimento válido
+  contract.processInvestment('Bob', 100);      // Investidor não autorizado
+  contract.processInvestment('Charlie', 2000); // Saldo insuficiente
+
+  // Manipulação do arquivo de entrada para chat
+  document.getElementById('file-input').addEventListener('change', handleFileInput);
+  document.getElementById('send-btn').addEventListener('click', sendMessage);
+  document.getElementById('chat-input').addEventListener('keypress', handleEnterKey);
+  document.getElementById('clear-btn').addEventListener('click', clearChat);
+
+  // Função para enviar mensagem
+  function sendMessage() {
+    let input = document.getElementById('chat-input');
+    let messageText = input.value.trim();
+    if (!messageText) return;
+
+    appendMessage(messageText, 'sent');
+    input.value = '';
+
+    // Se o comando existir, responde automaticamente
+    if (comandos[messageText]) {
+      setTimeout(() => {
+        appendMessage(comandos[messageText], 'received');
+      }, 500);
+    } else {
+      let respostaPersonalizada = getRespostaPersonalizada(messageText);
+      if (respostaPersonalizada) {
+        setTimeout(() => {
+          appendMessage(respostaPersonalizada, 'received');
+        }, 500);
+      }
+    }
   }
 
-  const comandos = {
-    '!GUIA': 'Lista de comandos disponíveis: !AJUDA, !DATA, !HORA, !RANDOM, !MOEDA, !ALL',
-    '!AJUDA': 'Comandos disponíveis: !GUIA, !DATA, !HORA, !RANDOM, !MOEDA, !ALL',
-    '!DATA': new Date().toLocaleDateString(),
-    '!HORA': new Date().toLocaleTimeString(),
-    '!RANDOM': Math.random(),
-    '!MOEDA': 'Exemplo de conversão de moeda: Digite "USD para BRL"'
-  };
+  // Função para tratar o pressionar da tecla Enter
+  function handleEnterKey(event) {
+    if (event.key === 'Enter') sendMessage();
+  }
 
+  // Função para limpar o chat
+  function clearChat() {
+    document.getElementById('chat-box').innerHTML = '<div class="message received"><i class="fas fa-robot"></i> 👋 Olá! O que você deseja fazer? Use !GUIA para listar os comandos.</div>';
+  }
+
+  // Função para adicionar mensagem no chat
+  function appendMessage(text, type) {
+    let chatBox = document.getElementById('chat-box');
+    let message = document.createElement('div');
+    message.classList.add('message', type);
+    message.innerHTML = type === 'received' ? `<i class="fas fa-robot"></i> ${text}` : text;
+    chatBox.appendChild(message);
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }
+
+  // Inicializa o chat com uma saudação
+  appendMessage("👋 Olá! O que você deseja fazer? Use !GUIA para listar os comandos.", 'received');
+
+  // Se o arquivo de entrada for alterado, processa o novo arquivo
+  function handleFileInput(event) {
+    let file = event.target.files[0];
+    if (file) {
+      let reader = new FileReader();
+      reader.onload = function(e) {
+        let data = new Uint8Array(e.target.result);
+        let workbook = XLSX.read(data, { type: 'array' });
+        let sheetName = workbook.SheetNames[0];
+        let sheet = workbook.Sheets[sheetName];
+        let jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+
+        let response = "📊 Arquivo carregado com sucesso! Exibindo primeiras linhas:\n";
+        jsonData.slice(0, 5).forEach(row => {
+          response += JSON.stringify(row) + "\n";
+        });
+
+        appendMessage(response, 'received');
+      };
+      reader.readAsArrayBuffer(file);
+    }
+  }
+
+  // Inicia o processamento de mensagens lidas de 'mensagens.txt'
   processMessages();
 }
