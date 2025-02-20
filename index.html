@@ -577,11 +577,161 @@ if (msg.includes('quais são as melhores ferramentas para isso')) return "As fer
 if (msg.includes('qual o melhor aplicativo para aprender isso')) return "Há muitos aplicativos ótimos! Me fale mais sobre o que você está aprendendo, e eu te recomendo o melhor app!";
 if (msg.includes('como posso automatizar isso')) return "Automatizar é uma ótima ideia! Me diga o que você quer automatizar, e eu te dou as melhores soluções para isso.";
 if (msg.includes('como posso melhorar minha eficiência')) return "Melhorar a eficiência envolve técnicas de organização e foco. Me fale mais sobre o que você está fazendo, e eu te dou as melhores sugestões!";
-if (msg.includes('quais são os erros mais comuns que devo evitar')) return "Evitar erros é essencial! Me fale mais sobre o que você está fazendo, e eu te mostro os erros mais comuns para evitar.";
-if (msg.includes('como posso aplicar isso de maneira prática')) return "A melhor forma de aplicar depende do seu objetivo. Me fale mais sobre o que você quer aplicar, e eu te dou um plano prático!";
-if (msg.includes('quais são os melhores exemplos para isso')) return "Exemplos práticos podem ajudar muito! Me fale sobre o que você está aprendendo, e eu te mostro os melhores exemplos!";
-if (msg.includes('o que você recomenda para melhorar isso')) return "Eu recomendo que você se concentre nos detalhes. Me diga o que você está fazendo, e eu te dou sugestões específicas para melhorar!";
-if (msg.includes('como posso aprender mais rápido sobre isso')) return "Aprender rápido envolve foco e prática. Me fale mais sobre o que você está tentando aprender, e eu te dou dicas de aceleração!";
+if (msg.includes('como posso melhorar minha produtividade')) return "Melhorar a produtividade envolve organização e disciplina. Me fale sobre sua rotina, e eu te dou dicas práticas!";
+if (msg.includes('qual é a melhor maneira de se organizar')) return "A organização ideal depende do seu estilo. Você prefere listas, calendários ou aplicativos? Me fale mais, e eu te ajudo a escolher!";
+if (msg.includes('como posso manter a motivação')) return "A motivação vem de metas claras e pequenas conquistas diárias. Me fale sobre seus objetivos, e eu te ajudo a manter o foco!";
+if (msg.includes('como posso lidar com o estresse')) return "O estresse pode ser aliviado com técnicas de respiração, pausas estratégicas e exercícios. Me fale sobre sua rotina, e eu te dou dicas específicas!";
+if (msg.includes('quais são os melhores hábitos para o sucesso')) return "Bons hábitos incluem leitura diária, planejamento e prática constante. Me fale sobre sua área de interesse, e eu te sugiro hábitos úteis!";
+if (msg.includes('como posso melhorar minha comunicação')) return "A comunicação melhora com prática e clareza. Você quer melhorar em escrita, fala ou em apresentações? Me fale mais, e eu te ajudo!";
+if (msg.includes('o que fazer quando me sinto sem energia')) return "A falta de energia pode estar ligada à alimentação, sono ou rotina. Me fale sobre seu dia a dia, e eu te sugiro formas de recuperar a energia!";
+if (msg.includes('como posso criar uma rotina eficiente')) return "Uma rotina eficiente precisa de equilíbrio entre trabalho, descanso e lazer. Me fale sobre sua rotina atual, e eu te ajudo a otimizar!";
+if (msg.includes('como posso evitar procrastinação')) return "Evitar a procrastinação envolve definir metas pequenas e recompensas. Me fale sobre o que você está adiando, e eu te ajudo a dar o primeiro passo!";
+if (msg.includes('qual é a melhor forma de aprender algo novo')) return "Aprender algo novo exige prática e curiosidade. Me fale sobre o que você quer aprender, e eu te mostro um método eficiente!";
+if (msg.includes('como posso melhorar minha criatividade')) return "A criatividade floresce com novas experiências e desafios. Me fale sobre sua área de interesse, e eu te dou ideias para estimular sua criatividade!";
+if (msg.includes('como lidar com a falta de foco')) return "A falta de foco pode ser causada por distrações ou cansaço. Me fale mais sobre seu ambiente de trabalho, e eu te dou dicas para melhorar a concentração!";
+if (msg.includes('qual é a melhor forma de resolver problemas')) return "Resolver problemas exige análise e pensamento crítico. Me fale sobre a situação, e eu te ajudo a encontrar a melhor abordagem!";
+if (msg.includes('como posso tomar melhores decisões')) return "Boas decisões vêm de boas informações. Me fale sobre sua situação, e eu te ajudo a avaliar as opções!";
+if (msg.includes('como posso aprender a gerenciar melhor meu tempo')) return "Gerenciar o tempo envolve prioridades e planejamento. Me fale sobre sua rotina, e eu te dou um método eficiente para administrar seu tempo!";
+if (msg.includes('como posso melhorar minha saúde')) return "Manter uma alimentação equilibrada, fazer exercícios regulares e descansar bem são essenciais para melhorar sua saúde!";
+if (msg.includes('como posso ser mais feliz')) return "A felicidade começa com gratidão e a valorização das pequenas coisas. Tente focar nas coisas boas da sua vida!";
+if (msg.includes('qual é o segredo do sucesso')) return "O sucesso vem com consistência, paciência e aprendizado contínuo. Não desista, mesmo quando as coisas parecerem difíceis!";
+if (msg.includes('como posso aumentar minha confiança')) return "A confiança vem de acreditar em si mesmo e em suas habilidades. A prática constante ajuda a aumentar a autoconfiança!";
+if (msg.includes('como ser mais organizado')) return "A organização começa com um plano. Tente dividir suas tarefas em pequenas metas e use ferramentas como listas ou apps de produtividade!";
+if (msg.includes('como posso melhorar minha memória')) return "Exercitar o cérebro com leitura, jogos e técnicas de memorização pode ajudar a melhorar a memória!";
+if (msg.includes('como posso reduzir a ansiedade')) return "Técnicas de respiração profunda, meditação e exercícios físicos são ótimos para reduzir a ansiedade!";
+if (msg.includes('como posso aprender um novo idioma mais rápido')) return "Pratique todos os dias, imerja-se na língua e use aplicativos de idiomas. Falar com nativos também é uma ótima maneira!";
+if (msg.includes('quais são os melhores livros de desenvolvimento pessoal')) return "Alguns bons livros são 'O Poder do Hábito' de Charles Duhigg, 'Como Fazer Amigos e Influenciar Pessoas' de Dale Carnegie, e 'A Arte da Guerra' de Sun Tzu!";
+if (msg.includes('como melhorar minhas habilidades de liderança')) return "A liderança vem com prática e empatia. Tente ouvir os outros, seja um exemplo e busque sempre aprender com suas experiências!";
+if (msg.includes('quais são as melhores formas de economizar dinheiro')) return "Fazer um orçamento mensal, reduzir despesas desnecessárias e investir de forma inteligente são maneiras eficazes de economizar!";
+if (msg.includes('como posso desenvolver mais empatia')) return "Ouvir com atenção, tentar entender os sentimentos dos outros e praticar a compaixão são ótimas maneiras de desenvolver empatia!";
+if (msg.includes('como posso ser mais produtivo')) return "A produtividade vem de um bom planejamento e a eliminação de distrações. Use técnicas como a Pomodoro e defina metas claras!";
+if (msg.includes('como posso melhorar meu desempenho no trabalho')) return "Foque em aprimorar suas habilidades, seja proativo, busque feedback e mantenha uma atitude positiva no trabalho!";
+if (msg.includes('qual é o melhor conselho para quem está começando no mercado de trabalho')) return "Seja perseverante, busque aprender continuamente e construa uma rede de contatos. Não tenha medo de cometer erros!";
+if (msg.includes('como posso ser mais criativo')) return "A criatividade pode ser estimulada com novas experiências, descanso e explorando diferentes perspectivas sobre os problemas!";
+if (msg.includes('qual é a melhor maneira de lidar com críticas')) return "Receber críticas construtivas com mente aberta, aprendendo com elas, é a melhor forma de usá-las ao seu favor!";
+if (msg.includes('como posso desenvolver minhas habilidades de comunicação')) return "Pratique escuta ativa, fale com clareza e seja objetivo. Participar de conversas e apresentações ajuda a melhorar essas habilidades!";
+if (msg.includes('quais são as melhores dicas para estudar para provas')) return "Organize um cronograma de estudos, revise regularmente, faça exercícios práticos e descanse antes da prova!";
+if (msg.includes('como posso manter uma boa alimentação')) return "Coma de forma balanceada, evite alimentos processados e prefira alimentos frescos e naturais. A hidratação também é fundamental!";
+if (msg.includes('como melhorar minhas finanças pessoais')) return "Faça um planejamento financeiro, elimine dívidas, crie uma reserva de emergência e busque investir seu dinheiro!";
+if (msg.includes('como posso melhorar minha autoestima')) return "Aceitar suas qualidades e limitações, praticar o autocuidado e rodear-se de pessoas positivas são maneiras eficazes de melhorar a autoestima!";
+if (msg.includes('qual é a melhor maneira de relaxar')) return "Praticar meditação, fazer uma caminhada ao ar livre, ler um bom livro ou ouvir música são ótimas formas de relaxar!";
+if (msg.includes('como posso melhorar meu trabalho em equipe')) return "Ouvir os outros, ser flexível e apoiar os colegas são fundamentais para trabalhar bem em equipe!";
+if (msg.includes('como posso aprender a gerenciar melhor o estresse')) return "Exercícios físicos, meditação e boas noites de sono são fundamentais para gerenciar o estresse de forma eficaz!";
+if (msg.includes('quais são as melhores estratégias de marketing digital')) return "Investir em conteúdo de qualidade, usar as redes sociais de forma estratégica e analisar métricas são boas estratégias de marketing digital!";
+if (msg.includes('como posso ser mais resiliente')) return "Resiliência vem com a prática de lidar com desafios, aprender com as falhas e manter uma atitude positiva em tempos difíceis!";
+if (msg.includes('como posso melhorar minha habilidade de negociação')) return "Ouça ativamente, seja paciente, foque em soluções ganha-ganha e pratique suas habilidades de negociação!";
+if (msg.includes('quais são as melhores dicas para ter sucesso nos estudos')) return "Estude regularmente, defina metas claras e mantenha um equilíbrio entre estudos e descanso para ter sucesso!";
+if (msg.includes('como posso começar a investir dinheiro')) return "Estude sobre investimentos, comece com opções mais seguras e invista com disciplina. Não se esqueça de diversificar!";
+if (msg.includes('quais são os melhores hábitos para ter uma vida equilibrada')) return "Alimente-se bem, pratique exercícios, tenha momentos de lazer e mantenha boas relações sociais. A vida equilibrada exige atenção em várias áreas!";
+if (msg.includes('como posso aumentar minha inteligência emocional')) return "Para aumentar a inteligência emocional, é importante reconhecer suas emoções, praticar empatia e aprender a lidar com os sentimentos!";
+if (msg.includes('quais são as melhores dicas para aprender a programar')) return "Pratique regularmente, estude a fundo as linguagens e construa projetos práticos para solidificar o conhecimento!";
+if (msg.includes('como posso melhorar minha capacidade de tomada de decisão')) return "Reflita sobre as opções, considere os prós e contras, e confie na sua intuição ao tomar decisões importantes!";
+if (msg.includes('como posso aprender a ser mais disciplinado')) return "Estabeleça metas claras, crie uma rotina e premie-se por seguir suas metas. A disciplina é uma habilidade que se desenvolve com prática!";
+if (msg.includes('quais são as melhores técnicas de aprendizagem acelerada')) return "Técnicas como a repetição espaçada, o uso de mnemônicas e o ensino de outros ajudam a acelerar o aprendizado!";
+if (msg.includes('como posso melhorar minhas habilidades de escrita')) return "Leia bastante, escreva regularmente e busque feedback para melhorar suas habilidades de escrita!";
+if (msg.includes('quais são os melhores métodos para aprender matemática')) return "Pratique resolvendo problemas, entenda os conceitos antes de memorizar e busque sempre mais desafios!";
+if (msg.includes('como posso melhorar minhas habilidades de resolução de problemas')) return "Para resolver problemas, é importante dividir a questão em partes menores, analisar soluções e testar alternativas!";
+if (msg.includes('como posso melhorar minha gestão de tempo')) return "Use ferramentas como calendários e listas, defina prazos e elimine distrações para gerenciar melhor seu tempo!";
+if (msg.includes('qual é o segredo para alcançar meus objetivos')) return "O segredo é persistir, mesmo diante das dificuldades, e ajustar sua estratégia sempre que necessário!";
+if (msg.includes('como posso ser mais autoconfiante')) return "Pratique o autoelogio, foque em suas conquistas e desafie-se a sair da zona de conforto!";
+if (msg.includes('como melhorar minha capacidade de concentração')) return "Reduza as distrações, estabeleça metas claras e faça pausas regulares para melhorar sua concentração!";
+if (msg.includes('quais são as melhores formas de alcançar o equilíbrio emocional')) return "Pratique mindfulness, busque apoio emocional e aprenda a lidar com as emoções de forma construtiva!";
+if (msg.includes('como posso lidar melhor com a frustração')) return "A frustração pode ser controlada com respiração profunda, uma pausa e reavaliando a situação com calma!";
+if (msg.includes('qual é a melhor maneira de lidar com o fracasso')) return "Veja o fracasso como uma oportunidade de aprender, ajuste suas estratégias e siga em frente com mais sabedoria!";
+if (msg.includes('como posso melhorar minha percepção crítica')) return "Pratique questionar suas suposições, leia diferentes pontos de vista e analise todas as possibilidades antes de tomar uma decisão!";
+if (msg.includes('como posso melhorar meu equilíbrio entre vida pessoal e profissional')) return "Estabeleça limites claros, aproveite o tempo de lazer e planeje suas atividades para equilibrar trabalho e vida pessoal!";
+if (msg.includes('como posso aprender a ser mais empático')) return "Coloque-se no lugar dos outros, ouça com atenção e seja paciente para entender as necessidades e sentimentos alheios!";
+if (msg.includes('como posso ser mais criativo no meu trabalho')) return "Tente ver as coisas de uma perspectiva diferente, busque inspiração fora do seu campo e experimente novas ideias!";
+if (msg.includes('qual é a melhor maneira de lidar com conflitos no trabalho')) return "Escute ambas as partes, procure por soluções que beneficiem todos e mantenha a calma durante a discussão!";
+if (msg.includes('como melhorar minha habilidade de pensamento crítico')) return "Pratique questionar e analisar informações antes de tomar decisões, e sempre procure mais evidências para apoiar suas ideias!";
+if (msg.includes('como posso me manter motivado a longo prazo')) return "Manter a motivação é sobre focar em pequenos objetivos diários e celebrar as vitórias. Encontre seu 'porquê' e mantenha-o em mente!";
+if (msg.includes('quais são os melhores hábitos para o sucesso a longo prazo')) return "O sucesso a longo prazo vem com consistência, adaptabilidade e aprendizado contínuo. Tente ser disciplinado e mantenha-se alinhado aos seus objetivos!";
+if (msg.includes('como posso lidar com a procrastinação de maneira eficaz')) return "Quebre grandes tarefas em partes menores, estabeleça prazos e recompense-se por concluir etapas. Isso ajuda a combater a procrastinação!";
+if (msg.includes('como posso equilibrar trabalho, estudos e vida pessoal')) return "O segredo é uma boa organização. Priorize suas tarefas, use calendários para gerenciar seu tempo e lembre-se de reservar momentos para si mesmo!";
+if (msg.includes('como posso evitar o estresse no trabalho')) return "Estabeleça limites claros, organize suas tarefas e faça pausas. A gestão do tempo e do ambiente de trabalho pode diminuir o estresse!";
+if (msg.includes('quais são as melhores maneiras de aprimorar minha inteligência emocional')) return "Pratique a autopercepção, saiba controlar suas emoções e aprenda a lidar com os sentimentos dos outros. Isso ajuda a melhorar sua inteligência emocional!";
+if (msg.includes('como posso ter mais foco no trabalho e nos estudos')) return "Crie um ambiente livre de distrações, estabeleça metas claras e use técnicas como Pomodoro para melhorar o foco durante o trabalho ou estudos!";
+if (msg.includes('qual é a melhor forma de lidar com a frustração em projetos importantes')) return "Reflita sobre o que deu errado, reavalie o plano e busque soluções criativas. A frustração é uma oportunidade de aprender e melhorar!";
+if (msg.includes('como posso melhorar minha comunicação interpessoal no trabalho')) return "Ouça atentamente, evite interrupções e se expresse com clareza. A comunicação eficaz no trabalho é essencial para boas relações!";
+if (msg.includes('quais são as estratégias para melhorar a produtividade no home office')) return "Crie um ambiente de trabalho separado, defina um horário fixo para trabalhar e estabeleça metas diárias para aumentar a produtividade em home office!";
+if (msg.includes('como posso aprender a ser mais organizado com o tempo')) return "Use uma agenda ou aplicativos de produtividade, organize suas tarefas por prioridade e revise seu progresso ao final do dia!";
+if (msg.includes('quais são os melhores métodos para trabalhar sob pressão')) return "Respire fundo, mantenha o foco no que precisa ser feito e divida as tarefas em etapas. Isso ajuda a reduzir a pressão em momentos desafiadores!";
+if (msg.includes('como posso aprender a delegar tarefas de forma eficaz')) return "Confie nas habilidades de sua equipe, seja claro ao comunicar as expectativas e forneça o suporte necessário para que todos cumpram suas responsabilidades!";
+if (msg.includes('como posso ser mais disciplinado com meus objetivos pessoais')) return "Defina metas claras e mensuráveis, crie uma rotina diária e acompanhe seu progresso para manter a disciplina em seus objetivos!";
+if (msg.includes('como manter um bom relacionamento com colegas de trabalho')) return "Seja empático, pratique a comunicação aberta e apoie os colegas em momentos de necessidade. Relacionamentos saudáveis são fundamentais no trabalho!";
+if (msg.includes('como posso melhorar minha capacidade de escuta ativa')) return "Preste total atenção ao que a pessoa está dizendo, faça perguntas esclarecedoras e evite interromper. A escuta ativa é chave para boas conversas!";
+if (msg.includes('como aprender a ter paciência no trabalho e nos estudos')) return "Lembre-se de que bons resultados exigem tempo. Pratique a meditação ou respiração profunda para ajudar a desenvolver a paciência!";
+if (msg.includes('como posso desenvolver mais criatividade em meus projetos')) return "Busque inspiração em diferentes fontes, seja aberto a novas ideias e não tenha medo de errar. A criatividade floresce quando você experimenta novas abordagens!";
+if (msg.includes('como posso manter minha saúde mental em dia no trabalho')) return "Tire pausas, converse com alguém de confiança e busque equilíbrio entre as tarefas. Cuidar da saúde mental é essencial para o sucesso a longo prazo!";
+if (msg.includes('como posso ser mais produtivo em um ambiente competitivo')) return "Mantenha o foco nos seus próprios objetivos, busque melhorar continuamente e aprenda com seus concorrentes para crescer ainda mais!";
+if (msg.includes('como posso aprender a ser mais positivo diante de desafios')) return "Procure o lado positivo em cada situação, veja os desafios como oportunidades de crescimento e mantenha uma atitude de perseverança!";
+if (msg.includes('como posso melhorar minha capacidade de resolução de conflitos no trabalho')) return "Fique calmo, ouça ambas as partes e procure uma solução que beneficie todos os envolvidos. A resolução de conflitos é uma habilidade essencial no trabalho!";
+if (msg.includes('quais são as melhores dicas para evitar o burnout no trabalho')) return "Estabeleça limites claros, tire férias regularmente, e sempre que possível, delegue tarefas. Manter o equilíbrio ajuda a evitar o burnout!";
+if (msg.includes('como posso aprender a ser mais proativo no trabalho')) return "Antecipe problemas e busque soluções antes que eles surjam. Mostre iniciativa e se coloque à disposição para novos desafios!";
+if (msg.includes('como posso ser mais eficiente no meu processo de aprendizagem')) return "Organize o conteúdo, revise regularmente e faça exercícios práticos para fixar melhor o aprendizado. A consistência é essencial!";
+if (msg.includes('como posso melhorar minha autoestima no ambiente de trabalho')) return "Aceite suas qualidades e conquistas, e não tenha medo de pedir feedback construtivo. A autoestima aumenta com autoconhecimento e confiança!";
+if (msg.includes('quais são as melhores maneiras de aprender com os erros no trabalho')) return "Reflita sobre o que deu errado, busque melhorar a abordagem e use os erros como aprendizado para evitar repeti-los no futuro!";
+if (msg.includes('como posso lidar com mudanças repentinas no trabalho')) return "Adapte-se rapidamente, mantenha uma atitude positiva e esteja sempre disposto a aprender novas abordagens para lidar com a mudança!";
+if (msg.includes('como posso melhorar minha habilidade de tomar decisões rápidas e eficazes')) return "Pratique a análise rápida de dados, confie em sua intuição e tome decisões com base em informações confiáveis para ser mais eficaz!";
+if (msg.includes('como posso melhorar minha resistência ao estresse no trabalho')) return "Pratique atividades relaxantes fora do expediente, mantenha uma boa alimentação e busque apoio quando necessário para lidar melhor com o estresse!";
+if (msg.includes('como posso manter um bom equilíbrio emocional em tempos de crise')) return "Mantenha a calma, procure apoio de amigos ou familiares e foque no que está ao seu alcance. O equilíbrio emocional vem da adaptabilidade!";
+if (msg.includes('quais são as melhores estratégias para melhorar minha carreira profissional')) return "Invista em autodesenvolvimento, crie uma rede de contatos sólida e busque sempre aprender novas habilidades para avançar em sua carreira!";
+if (msg.includes('como posso melhorar minha capacidade de multitarefa')) return "Pratique dividir suas tarefas de forma eficaz, use ferramentas de organização e priorize as tarefas mais importantes para não sobrecarregar a mente!";
+if (msg.includes('como posso aumentar a minha capacidade de adaptação no trabalho')) return "Mantenha uma mentalidade flexível, esteja aberto a novas ideias e busque aprender com diferentes situações para se adaptar rapidamente!";
+if (msg.includes('como posso ser mais assertivo em reuniões de trabalho')) return "Fale com clareza, expresse suas ideias de forma concisa e não tenha medo de dar sua opinião. A assertividade vem com a prática!";
+if (msg.includes('como posso aprender a ser mais flexível em situações difíceis')) return "Aprenda a ver diferentes perspectivas, seja paciente e esteja disposto a ajustar seus planos quando necessário para encontrar a melhor solução!";
+if (msg.includes('como posso melhorar a minha capacidade de trabalhar em equipe')) return "Seja colaborativo, ouça os outros e compartilhe suas ideias de forma clara. O trabalho em equipe exige confiança mútua e respeito!";
+if (msg.includes('como posso melhorar minha capacidade de lidar com críticas no trabalho')) return "Veja as críticas como uma oportunidade para crescer, aceite-as com humildade e use-as para se aprimorar profissionalmente!";
+if (msg.includes('como posso desenvolver minhas habilidades em liderança de equipes')) return "Seja um exemplo, saiba delegar tarefas e motive sua equipe. A liderança eficaz envolve empatia e boas habilidades de comunicação!";
+if (msg.includes('como posso melhorar minhas habilidades de negociação no trabalho')) return "Entenda as necessidades das partes envolvidas, seja flexível e sempre busque uma solução que seja vantajosa para todos os lados!";
+if (msg.includes('quais são as melhores práticas para ter uma vida profissional bem-sucedida')) return "Seja focado, aprenda com os erros, estabeleça metas claras e busque sempre se desenvolver para alcançar o sucesso profissional!";
+if (msg.includes('como posso melhorar minha capacidade de lidar com desafios no trabalho')) return "Enfrente os desafios com uma mente aberta, busque soluções criativas e não tenha medo de pedir ajuda quando necessário!";
+if (msg.includes('como posso melhorar meu desempenho no trabalho')) return "O segredo está em se concentrar em suas forças, buscar feedback constante e praticar a melhoria contínua em suas habilidades!";
+if (msg.includes('qual é a melhor forma de aprender um novo idioma')) return "Pratique todos os dias, faça imersões, converse com nativos e use aplicativos para melhorar a fluência!";
+if (msg.includes('quais são as melhores dicas para organizar meu dia')) return "Use listas de tarefas, defina prioridades e não se esqueça de fazer pausas. A organização é a chave para um dia produtivo!";
+if (msg.includes('como posso melhorar minhas habilidades de apresentação')) return "Pratique sua fala, use recursos visuais eficazes e controle sua linguagem corporal para transmitir confiança ao se apresentar!";
+if (msg.includes('como posso me tornar mais confiável no trabalho')) return "Seja consistente, cumpra prazos e seja transparente em suas ações. A confiança é construída com pequenas atitudes no dia a dia!";
+if (msg.includes('como posso lidar com a insegurança em situações importantes')) return "Respire fundo, confie em sua preparação e foque no que você pode controlar. A confiança vem com a prática!";
+if (msg.includes('como posso ser mais eficiente no trabalho em equipe')) return "Comunique-se de forma clara, respeite os outros e compartilhe responsabilidades. O trabalho em equipe exige colaboração e confiança mútua!";
+if (msg.includes('como posso controlar a ansiedade antes de apresentações')) return "Pratique sua apresentação, respire profundamente e visualize o sucesso. A preparação é a chave para controlar a ansiedade!";
+if (msg.includes('como posso melhorar minhas habilidades de escrita')) return "Leia bastante, escreva todos os dias e peça feedback para aprimorar seus textos. A prática constante é essencial!";
+if (msg.includes('quais são as melhores formas de praticar a escuta ativa')) return "Preste total atenção, faça perguntas esclarecedoras e valide os sentimentos do outro. Isso torna a escuta mais eficaz!";
+if (msg.includes('como posso aumentar minha capacidade de tomar decisões mais rápidas')) return "Pratique tomar decisões pequenas de forma mais ágil, confie em seu instinto e avalie rapidamente as informações disponíveis!";
+if (msg.includes('como posso ser mais criativo no meu trabalho')) return "Busque novas perspectivas, divida seu tempo entre atividades criativas e práticas, e esteja sempre aberto a novas ideias!";
+if (msg.includes('como posso melhorar minha produtividade ao estudar')) return "Crie um ambiente livre de distrações, use técnicas como Pomodoro e revise o conteúdo regularmente para aumentar a retenção!";
+if (msg.includes('quais são as melhores dicas para aprender a programar mais rápido')) return "Pratique regularmente, participe de projetos open-source e estude os fundamentos. A prática constante é o segredo para a fluência em programação!";
+if (msg.includes('como posso organizar minha rotina de estudo de forma eficiente')) return "Divida o tempo de estudo por tópicos, priorize as matérias mais difíceis e faça revisões regulares para melhorar a memória!";
+if (msg.includes('como posso melhorar meu tempo de resposta durante reuniões de trabalho')) return "Prepare-se com antecedência, ouça atentamente e faça anotações. Isso ajuda a formular respostas rápidas e assertivas!";
+if (msg.includes('como posso evitar sobrecarga de tarefas no trabalho')) return "Delegue tarefas quando possível, divida grandes tarefas em etapas menores e estabeleça prazos realistas para evitar sobrecarga!";
+if (msg.includes('como posso manter o equilíbrio entre trabalho e vida pessoal')) return "Estabeleça limites claros entre trabalho e lazer, pratique o autocuidado e priorize atividades que recarreguem suas energias!";
+if (msg.includes('como posso melhorar minha concentração enquanto estudo em casa')) return "Crie um espaço dedicado ao estudo, evite distrações e use técnicas como Pomodoro para manter o foco por mais tempo!";
+if (msg.includes('como posso aprender a dizer não sem me sentir culpado')) return "Entenda que seu tempo e energia são limitados. Seja educado e explique suas razões de forma clara e respeitosa!";
+if (msg.includes('quais são as melhores práticas para aumentar minha assertividade')) return "Fale com clareza, expresse suas necessidades e não tenha medo de defender seu ponto de vista de forma respeitosa!";
+if (msg.includes('como posso lidar com críticas construtivas de forma positiva')) return "Receba as críticas com humildade, use-as como oportunidade para crescer e peça sugestões específicas de como melhorar!";
+if (msg.includes('como posso manter a motivação no trabalho a longo prazo')) return "Defina metas claras, busque constantemente novos desafios e celebre suas conquistas, por menores que sejam!";
+if (msg.includes('como posso melhorar minha comunicação escrita no trabalho')) return "Seja claro e objetivo, evite jargões e revise suas mensagens antes de enviá-las. Uma boa comunicação escrita evita mal-entendidos!";
+if (msg.includes('como posso aprender a lidar melhor com conflitos no trabalho')) return "Ouça todas as partes envolvidas, busque compreender o ponto de vista dos outros e proponha soluções que atendam às necessidades de todos!";
+if (msg.includes('como posso me tornar um bom mentor no trabalho')) return "Seja paciente, compartilhe seus conhecimentos de forma clara e ajude seu mentorado a se desenvolver de maneira gradual!";
+if (msg.includes('como posso melhorar minha inteligência emocional no trabalho')) return "Pratique a autopercepção, controle suas reações e busque entender os sentimentos dos outros para construir boas relações!";
+if (msg.includes('como posso aprender a trabalhar sob pressão de forma mais eficaz')) return "Divida o trabalho em etapas menores, mantenha a calma e foque em uma tarefa por vez para reduzir o impacto da pressão!";
+if (msg.includes('como posso melhorar minha capacidade de influenciar as pessoas')) return "Ouça atentamente, seja empático e apresente argumentos convincentes. A persuasão é baseada na confiança e no respeito!";
+if (msg.includes('como posso melhorar meu processo de tomada de decisão no trabalho')) return "Avalie as opções disponíveis, consulte colegas e baseie suas decisões em dados objetivos para ser mais assertivo!";
+if (msg.includes('como posso melhorar minha habilidade de negociação no trabalho')) return "Entenda as necessidades de ambas as partes, busque soluções criativas e sempre procure uma solução que seja ganha-ganha!";
+if (msg.includes('como posso me organizar melhor em projetos com prazos apertados')) return "Defina prioridades, divida o projeto em etapas menores e mantenha comunicação constante com a equipe para garantir que tudo seja entregue a tempo!";
+if (msg.includes('quais são as melhores práticas para aumentar minha eficiência no trabalho')) return "Use ferramentas de produtividade, elimine distrações e aprenda a delegar tarefas para aumentar sua eficiência no trabalho!";
+if (msg.includes('como posso me tornar mais flexível para mudanças no trabalho')) return "Mantenha uma mentalidade aberta, seja proativo em aprender novas habilidades e esteja disposto a se adaptar às mudanças!";
+if (msg.includes('como posso melhorar meu relacionamento com minha equipe')) return "Seja transparente, busque ouvir as opiniões de todos e celebre os sucessos em conjunto para fortalecer os laços da equipe!";
+if (msg.includes('como posso aprender a gerenciar melhor meu tempo no trabalho')) return "Use ferramentas de gestão de tempo, organize suas tarefas por prioridade e defina prazos realistas para aumentar sua produtividade!";
+if (msg.includes('como posso melhorar minha criatividade para resolver problemas no trabalho')) return "Procure diferentes perspectivas, desafie seus próprios limites e permita-se pensar fora da caixa para encontrar soluções criativas!";
+if (msg.includes('como posso lidar com o medo de falhar no trabalho')) return "Veja cada falha como uma oportunidade de aprendizado. Reflita sobre o que pode ser melhorado e use isso para crescer profissionalmente!";
+if (msg.includes('quais são as melhores estratégias para aumentar a confiança no trabalho')) return "Seja competente, mostre suas habilidades e busque feedback construtivo para sempre melhorar e aumentar sua confiança!";
+if (msg.includes('como posso melhorar minha capacidade de liderança no trabalho')) return "Inspire sua equipe, mostre empatia e esteja disposto a delegar responsabilidades. A liderança é feita por exemplo!";
+if (msg.includes('como posso aprender a ser mais proativo no trabalho')) return "Antecipe necessidades, busque soluções antes que os problemas surjam e mostre iniciativa para fazer as coisas acontecerem!";
+if (msg.includes('como posso melhorar minha capacidade de resolver problemas no trabalho')) return "Identifique a causa raiz do problema, analise todas as opções e tome decisões baseadas em dados objetivos para encontrar a melhor solução!";
+if (msg.includes('como posso aumentar minha capacidade de concentração no trabalho')) return "Crie um ambiente de trabalho sem distrações, defina metas claras e use técnicas como Pomodoro para manter o foco!";
+if (msg.includes('como posso melhorar minha gestão de projetos no trabalho')) return "Estabeleça objetivos claros, delegue tarefas eficazmente e monitore o progresso de cada fase para garantir que os projetos sejam entregues a tempo!";
+if (msg.includes('como posso melhorar minha autoestima no ambiente profissional')) return "Reconheça suas conquistas, busque autoconhecimento e peça feedback construtivo para crescer pessoal e profissionalmente!";
+if (msg.includes('como posso melhorar minha capacidade de lidar com pressões no trabalho')) return "Mantenha a calma, divida tarefas grandes em etapas e aprenda a delegar para reduzir a pressão e aumentar sua eficiência!";
 
     // Quizzes
     if (msg.includes('harry potter quiz')) {
@@ -611,6 +761,19 @@ if (msg.includes('como posso aprender mais rápido sobre isso')) return "Aprende
             "🔟 Qual é o nome da skin lendária de Ezreal que o transforma em um explorador do futuro?\nA) Ezreal TPA\nB) Ezreal Pulsefire\nC) Ezreal Guardião Estelar\nD) Ezreal Frosted\n\n" +
             "Responda com o número e a letra da resposta correta! Exemplo: 1A, 2B...";
     } 
+         let responses = {
+                "oi": "Olá! Como posso ajudar você hoje?",
+                "bom dia": "Bom dia! Como você está?",
+                "boa tarde": "Boa tarde! Como posso ajudar?",
+                "boa noite": "Boa noite! Espero que tenha tido um bom dia!",
+                "tudo bem": "Tudo ótimo! E você, como está?",
+                "olá": "Oi! Como posso te ajudar?",
+                "como vai": "Estou bem, obrigado! E você?",
+                "e aí": "Oi! Como posso ajudar hoje?",
+                "tchau": "Até logo! Volte quando precisar!",
+                "adeus": "Adeus! Tenha um ótimo dia!",
+                "como posso estudar melhor": "Estudar melhor envolve técnicas de foco e organização. Me fale mais sobre seu método de estudo, e eu te dou algumas dicas!"
+            };
 
     // Se o comando não for reconhecido
     return "Desculpe, não entendi sua mensagem. Tente novamente!";
