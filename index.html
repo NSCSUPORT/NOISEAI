@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -141,267 +140,199 @@
 <footer>
     <p>&copy; 2025 HoloFi. Todos os direitos reservados. Lucas Januário</p>
 </footer>
+
 <script>
-    const comandos = {
-        '!GUIA': 'Lista de comandos disponíveis: !AJUDA, !DATA, !HORA, !RANDOM, !MOEDA',
-        '!AJUDA': 'Comandos disponíveis: !GUIA, !DATA, !HORA, !RANDOM, !MOEDA',
-        '!DATA': new Date().toLocaleDateString(),
-        '!HORA': new Date().toLocaleTimeString(),
-        '!RANDOM': Math.floor(Math.random() * 100),
-        '!MOEDA': Math.random() < 0.5 ? 'Cara' : 'Coroa'
-    document.getElementById("send-btn").addEventListener("click", sendMessage);
-document.getElementById("chat-input").addEventListener("keypress", function(event) {
-    if (event.key === "Enter") {
-        sendMessage();
+  document.getElementById('file-input').addEventListener('change', function(event) {
+    let file = event.target.files[0];
+    if (file) {
+        let reader = new FileReader();
+        reader.onload = function(e) {
+            let data = new Uint8Array(e.target.result);
+            let workbook = XLSX.read(data, { type: 'array' });
+            let sheetName = workbook.SheetNames[0];
+            let sheet = workbook.Sheets[sheetName];
+            let jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+
+            let response = "📊 Arquivo carregado com sucesso! Exibindo primeiras linhas:\n";
+            jsonData.slice(0, 5).forEach(row => {
+                response += JSON.stringify(row) + "\n";
+            });
+
+            appendMessage(response, 'received');
+        };
+        reader.readAsArrayBuffer(file);
     }
 });
 
+// Função para enviar mensagem
 function sendMessage() {
-    const chatBox = document.getElementById("chat-box");
-    const inputField = document.getElementById("chat-input");
-    const msg = inputField.value.trim();
-    
-    if (!msg) return;
+    let input = document.getElementById('chat-input');
+    let messageText = input.value.trim();
+    if (!messageText) return;
 
-    appendMessage(msg, "sent");
+    appendMessage(messageText, 'sent');
+    input.value = '';
 
-    let response = processMessage(msg);
-
-    setTimeout(() => {
-        appendMessage(response, "received");
-    }, 500);
-
-    inputField.value = "";
+    if (comandos[messageText]) {
+        setTimeout(() => {
+            appendMessage(comandos[messageText], 'received');
+        }, 500);
+    }
 }
 
+// Função para adicionar mensagens ao chat
 function appendMessage(text, type) {
-    const chatBox = document.getElementById("chat-box");
-    const messageDiv = document.createElement("div");
-    messageDiv.classList.add("message", type);
-    messageDiv.textContent = text;
-    chatBox.appendChild(messageDiv);
+    let chatBox = document.getElementById('chat-box');
+    let message = document.createElement('div');
+    message.classList.add('message', type);
+    message.innerHTML = type === 'received' ? `<i class="fas fa-robot"></i> ${text}` : text;
+    chatBox.appendChild(message);
     chatBox.scrollTop = chatBox.scrollHeight;
 }
 
-function processMessage(msg) {
+// Eventos do chat
+document.getElementById('send-btn').addEventListener('click', sendMessage);
+document.getElementById('chat-input').addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') sendMessage();
+});
+
+document.getElementById('clear-btn').addEventListener('click', function() {
+    document.getElementById('chat-box').innerHTML = '<div class="message received"><i class="fas fa-robot"></i> 👋 Olá! O que você deseja fazer? Use !GUIA para listar os comandos.</div>';
+});
+    function processMessage(msg) {
     const commands = {
         '!GUIA': 'Lista de comandos disponíveis: !AJUDA, !DATA, !HORA, !RANDOM, !MOEDA',
         '!AJUDA': 'Comandos disponíveis: !GUIA, !DATA, !HORA, !RANDOM, !MOEDA',
         '!DATA': new Date().toLocaleDateString(),
         '!HORA': new Date().toLocaleTimeString(),
         '!RANDOM': Math.floor(Math.random() * 100),
-        '!MOEDA': Math.random() < 0.5 ? 'Cara' : 'Coroa'
+        '!MOEDA': Math.random() < 0.5 ? 'Cara' : 'Coroa',
+        '!lucas januario': "Lucas Januário do Nascimento é o fundador do HoloFi e da tecnologia HOLLOW ETHER, trabalhando com inovação em ativos digitais e blockchain!"
     };
 
+    // Verificar comandos simples
     if (commands[msg]) {
         return commands[msg];
-    } else if (msg.toLowerCase().includes('oi')) {
-        return "Olá! Como posso ajudar você hoje?";
-    } else if (msg.toLowerCase().includes('dados')) {
-        return "Você quer analisar dados? Envie os dados ou escolha uma opção!";
-    } else if (msg.toLowerCase().includes('jogo')) {
-        return "Você gosta de jogos? Tenho algumas recomendações de jogos multiplayer. Deseja ver?";
-    } else if (msg.toLowerCase().includes('limpar dados')) {
-        return "Certo! Seus dados foram limpos e padronizados!";
-    } else if (msg.toLowerCase().includes('normalizar texto')) {
-        return "Texto formatado para minúsculas e acentos removidos!";
-    } else if (msg.toLowerCase().includes('validar email')) {
-        return "Verifiquei e sim, o email parece estar correto!";
-    } else if (msg.toLowerCase().includes('gerar hash')) {
-        return "Senha protegida com hash SHA-256!";
-    } else if (msg.toLowerCase().includes('analisar sentimento')) {
-        return "O sentimento do texto é positivo!";
-    } else if (msg.toLowerCase().includes('detectar anomalias')) {
-        return "Detectei padrões incomuns nos seus dados!";
-    } else if (msg.toLowerCase().includes('clima')) {
-        return "Digite sua cidade para que eu possa verificar a previsão do tempo!";
-    } else if (msg.toLowerCase().includes('horário')) {
-        return "O horário atual é: " + new Date().toLocaleTimeString();
-    } else if (msg.toLowerCase().includes('notícia')) {
-        return "Aqui estão as últimas notícias: [link para um feed de notícias]";
-    } else if (msg.toLowerCase().includes('moeda')) {
-        return "Digite a moeda que deseja converter e eu fornecerei a taxa de câmbio!";
-    } else {
-        return "Não entendi seu comando. Digite !GUIA para ver os comandos disponíveis.";
+    }
+
+    // Respostas personalizadas baseadas em palavras-chave
+    msg = msg.toLowerCase();
+    if (msg.includes('oi')) return "Olá! Como posso ajudar você hoje?";
+    if (msg.includes('dados')) return "Você quer analisar dados? Envie os dados ou escolha uma opção!";
+    if (msg.includes('jogo')) return "Você gosta de jogos? Tenho algumas recomendações de jogos multiplayer. Deseja ver?";
+    if (msg.includes('limpar dados')) return "Certo! Seus dados foram limpos e padronizados!";
+    if (msg.includes('normalizar texto')) return "Texto formatado para minúsculas e acentos removidos!";
+    if (msg.includes('validar email')) return "Verifiquei e sim, o email parece estar correto!";
+    if (msg.includes('gerar hash')) return "Senha protegida com hash SHA-256!";
+    if (msg.includes('analisar sentimento')) return "O sentimento do texto é positivo!";
+    if (msg.includes('detectar anomalias')) return "Detectei padrões incomuns nos seus dados!";
+    if (msg.includes('clima')) return "Digite sua cidade para que eu possa verificar a previsão do tempo!";
+    if (msg.includes('horário')) return "O horário atual é: " + new Date().toLocaleTimeString();
+    if (msg.includes('notícia')) return "Aqui estão as últimas notícias: [link para um feed de notícias]";
+    if (msg.includes('moeda')) return "Digite a moeda que deseja converter e eu fornecerei a taxa de câmbio!";
+
+    // Quizzes
+    if (msg.includes('harry potter quiz')) {
+        return "Vamos testar seus conhecimentos sobre Harry Potter! 🎩⚡\n\n" +
+            "1️⃣ Qual é o nome completo de Dumbledore?\nA) Alvo Percival Wulfrico Brian Dumbledore\nB) Alvo Severo Dumbledore\nC) Alvo Merlin Dumbledore\nD) Alvo Godric Dumbledore\n\n" +
+            "2️⃣ Qual é o animal de estimação de Rony Weasley?\nA) Coruja\nB) Rato\nC) Sapo\nD) Cachorro\n\n" +
+            "3️⃣ Qual feitiço é usado para desarmar um oponente?\nA) Expelliarmus\nB) Avada Kedavra\nC) Lumos\nD) Crucio\n\n" +
+            "4️⃣ Quem traiu os pais de Harry Potter?\nA) Sirius Black\nB) Pedro Pettigrew\nC) Severo Snape\nD) Lúcio Malfoy\n\n" +
+            "5️⃣ Qual é o nome do poltergeist de Hogwarts?\nA) Pirraça\nB) Dobby\nC) Nick Quase Sem Cabeça\nD) Barão Sangrento\n\n" +
+            "6️⃣ Qual é o nome do elfo doméstico de Harry?\nA) Kreacher\nB) Dobby\nC) Winky\nD) Monstro\n\n" +
+            "7️⃣ Qual das Relíquias da Morte é um símbolo da imortalidade?\nA) Pedra da Ressurreição\nB) Capa da Invisibilidade\nC) Varinha das Varinhas\nD) Medalhão de Sonserina\n\n" +
+            "8️⃣ Em qual casa Luna Lovegood pertence?\nA) Grifinória\nB) Corvinal\nC) Lufa-Lufa\nD) Sonserina\n\n" +
+            "9️⃣ Qual é o nome do Patrono de Hermione?\nA) Cervo\nB) Lebre\nC) Lobo\nD) Lontra\n\n" +
+            "🔟 Qual foi o primeiro Horcrux destruído?\nA) Diário de Tom Riddle\nB) Anel de Marvolo Gaunt\nC) Medalhão de Sonserina\nD) Taça de Helga Lufa-Lufa\n\n" +
+            "Responda com o número e a letra da resposta correta! Exemplo: 1A, 2B...";
+    } else if (msg.includes('league of legends quiz')) {
+        return "Vamos ver se você é um verdadeiro Invocador! 🏆🎮\n\n" +
+            "1️⃣ Qual é o nome do criador de League of Legends?\nA) Riot Games\nB) Tencent\nC) Blizzard\nD) Valve\n\n" +
+            "2️⃣ Qual é o campeão conhecido como 'O Curandeiro de Zaun'?\nA) Soraka\nB) Singed\nC) Dr. Mundo\nD) Warwick\n\n" +
+            "3️⃣ Qual foi o primeiro campeão criado no LoL?\nA) Ryze\nB) Teemo\nC) Ashe\nD) Alistar\n\n" +
+            "4️⃣ Qual é o nome do Dragão que concede buffs específicos?\nA) Dragão Ancião\nB) Dragão Infernal\nC) Dragão Hextech\nD) Dragão das Nuvens\n\n" +
+            "5️⃣ Qual é a classe principal do campeão Thresh?\nA) Assassino\nB) Lutador\nC) Suporte\nD) Mago\n\n" +
+            "6️⃣ Qual é o nome do modo de jogo principal do LoL?\nA) ARAM\nB) Summoner’s Rift\nC) Twisted Treeline\nD) Nexus Blitz\n\n" +
+            "7️⃣ Quem é a rival de Caitlyn em Piltover?\nA) Vi\nB) Jinx\nC) Ekko\nD) Jayce\n\n" +
+            "8️⃣ Qual campeão é conhecido por sua habilidade 'R - Cataclismo'?\nA) Garen\nB) Jarvan IV\nC) Darius\nD) Riven\n\n" +
+            "9️⃣ Qual item concede escudo e roubo de vida para ADCs?\nA) Mata-Cráquens\nB) Gume do Infinito\nC) Arco-escudo Imortal\nD) Lâmina Fantasma de Youmuu\n\n" +
+            "🔟 Qual é o nome da skin lendária de Ezreal que o transforma em um explorador do futuro?\nA) Ezreal TPA\nB) Ezreal Pulsefire\nC) Ezreal Guardião Estelar\nD) Ezreal Frosted\n\n" +
+            "Responda com o número e a letra da resposta correta! Exemplo: 1A, 2B...";
+    } 
+
+    // Se o comando não for reconhecido
+    return "Desculpe, não entendi sua mensagem. Tente novamente!";
+}
+
+
+ document.getElementById('file-input').addEventListener('change', function(event) {
+    let file = event.target.files[0];
+    if (file) {
+        let reader = new FileReader();
+        reader.onload = function(e) {
+            let data = new Uint8Array(e.target.result);
+            let workbook = XLSX.read(data, { type: 'array' });
+            let sheetName = workbook.SheetNames[0];
+            let sheet = workbook.Sheets[sheetName];
+            let jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+
+            let response = "📊 Arquivo carregado com sucesso! Exibindo primeiras linhas:\n";
+            jsonData.slice(0, 5).forEach(row => {
+                response += JSON.stringify(row) + "\n";
+            });
+
+            appendMessage(response, 'received');
+        };
+        reader.readAsArrayBuffer(file);
+    }
+});
+
+// Função para enviar mensagem
+function sendMessage() {
+    let input = document.getElementById('chat-input');
+    let messageText = input.value.trim();
+    if (!messageText) return;
+
+    appendMessage(messageText, 'sent');
+    input.value = '';
+
+    if (comandos[messageText]) {
+        setTimeout(() => {
+            appendMessage(comandos[messageText], 'received');
+        }, 500);
     }
 }
-   if (commands[msg]) {
-    response = commands[msg];
-} else if (msg.includes('oi')) {
-    response = "Olá! Como posso ajudar você hoje?";
-} else if (msg.includes('dados')) {
-    response = "Você quer analisar dados? Envie os dados ou escolha uma opção!";
-} else if (msg.includes('jogo')) {
-    response = "Você gosta de jogos? Tenho algumas recomendações de jogos multiplayer. Deseja ver?";
-} else if (msg.includes('limpar dados')) {
-    response = "Certo! Seus dados foram limpos e padronizados!";
-} else if (msg.includes('normalizar texto')) {
-    response = "Texto formatado para minúsculas e acentos removidos!";
-} else if (msg.includes('validar email')) {
-    response = "Verifiquei e sim, o email parece estar correto!";
-} else if (msg.includes('gerar hash')) {
-    response = "Senha protegida com hash SHA-256!";
-} else if (msg.includes('analisar sentimento')) {
-    response = "O sentimento do texto é positivo!";
-} else if (msg.includes('detectar anomalias')) {
-    response = "Detectei padrões incomuns nos seus dados!";
-} else if (msg.includes('clima')) {
-    response = "Digite sua cidade para que eu possa verificar a previsão do tempo!";
-} else if (msg.includes('horário')) {
-    response = "O horário atual é: " + new Date().toLocaleTimeString();
-} else if (msg.includes('notícia')) {
-    response = "Aqui estão as últimas notícias: [link para um feed de notícias]";
-} else if (msg.includes('moeda')) {
-    response = "Digite a moeda que deseja converter e eu fornecerei a taxa de câmbio!";
-} else if (msg.includes('harry potter quiz')) {
-    response = "Vamos testar seus conhecimentos sobre Harry Potter! 🎩⚡\n\n" +
-        "1️⃣ Qual é o nome completo de Dumbledore?\nA) Alvo Percival Wulfrico Brian Dumbledore\nB) Alvo Severo Dumbledore\nC) Alvo Merlin Dumbledore\nD) Alvo Godric Dumbledore\n\n" +
-        "2️⃣ Qual é o animal de estimação de Rony Weasley?\nA) Coruja\nB) Rato\nC) Sapo\nD) Cachorro\n\n" +
-        "3️⃣ Qual feitiço é usado para desarmar um oponente?\nA) Expelliarmus\nB) Avada Kedavra\nC) Lumos\nD) Crucio\n\n" +
-        "4️⃣ Quem traiu os pais de Harry Potter?\nA) Sirius Black\nB) Pedro Pettigrew\nC) Severo Snape\nD) Lúcio Malfoy\n\n" +
-        "5️⃣ Qual é o nome do poltergeist de Hogwarts?\nA) Pirraça\nB) Dobby\nC) Nick Quase Sem Cabeça\nD) Barão Sangrento\n\n" +
-        "6️⃣ Qual é o nome do elfo doméstico de Harry?\nA) Kreacher\nB) Dobby\nC) Winky\nD) Monstro\n\n" +
-        "7️⃣ Qual das Relíquias da Morte é um símbolo da imortalidade?\nA) Pedra da Ressurreição\nB) Capa da Invisibilidade\nC) Varinha das Varinhas\nD) Medalhão de Sonserina\n\n" +
-        "8️⃣ Em qual casa Luna Lovegood pertence?\nA) Grifinória\nB) Corvinal\nC) Lufa-Lufa\nD) Sonserina\n\n" +
-        "9️⃣ Qual é o nome do Patrono de Hermione?\nA) Cervo\nB) Lebre\nC) Lobo\nD) Lontra\n\n" +
-        "🔟 Qual foi o primeiro Horcrux destruído?\nA) Diário de Tom Riddle\nB) Anel de Marvolo Gaunt\nC) Medalhão de Sonserina\nD) Taça de Helga Lufa-Lufa\n\n" +
-        "Responda com o número e a letra da resposta correta! Exemplo: 1A, 2B...";
-} else if (msg.includes('league of legends quiz')) {
-    response = "Vamos ver se você é um verdadeiro Invocador! 🏆🎮\n\n" +
-        "1️⃣ Qual é o nome do criador de League of Legends?\nA) Riot Games\nB) Tencent\nC) Blizzard\nD) Valve\n\n" +
-        "2️⃣ Qual é o campeão conhecido como 'O Curandeiro de Zaun'?\nA) Soraka\nB) Singed\nC) Dr. Mundo\nD) Warwick\n\n" +
-        "3️⃣ Qual foi o primeiro campeão criado no LoL?\nA) Ryze\nB) Teemo\nC) Ashe\nD) Alistar\n\n" +
-        "4️⃣ Qual é o nome do Dragão que concede buffs específicos?\nA) Dragão Ancião\nB) Dragão Infernal\nC) Dragão Hextech\nD) Dragão das Nuvens\n\n" +
-        "5️⃣ Qual é a classe principal do campeão Thresh?\nA) Assassino\nB) Lutador\nC) Suporte\nD) Mago\n\n" +
-        "6️⃣ Qual é o nome do modo de jogo principal do LoL?\nA) ARAM\nB) Summoner’s Rift\nC) Twisted Treeline\nD) Nexus Blitz\n\n" +
-        "7️⃣ Quem é a rival de Caitlyn em Piltover?\nA) Vi\nB) Jinx\nC) Ekko\nD) Jayce\n\n" +
-        "8️⃣ Qual campeão é conhecido por sua habilidade 'R - Cataclismo'?\nA) Garen\nB) Jarvan IV\nC) Darius\nD) Riven\n\n" +
-        "9️⃣ Qual item concede escudo e roubo de vida para ADCs?\nA) Mata-Cráquens\nB) Gume do Infinito\nC) Arco-escudo Imortal\nD) Lâmina Fantasma de Youmuu\n\n" +
-        "🔟 Qual é o nome da skin lendária de Ezreal que o transforma em um explorador do futuro?\nA) Ezreal TPA\nB) Ezreal Pulsefire\nC) Ezreal Guardião Estelar\nD) Ezreal Frosted\n\n" +
-        "Responda com o número e a letra da resposta correta! Exemplo: 1A, 2B...";
-} else if (msg.includes('!lucas januario')) {
-    response = "Lucas Januário do Nascimento é o fundador do HoloFi e da tecnologia HOLLOW ETHER, trabalhando com inovação em ativos digitais e blockchain!";
-} else {
-    response = "Desculpe, não entendi sua mensagem. Tente novamente!";
-}
 
-        document.getElementById('file-input').addEventListener('change', function(event) {
-        let file = event.target.files[0];
-        if (file) {
-            let reader = new FileReader();
-            reader.onload = function(e) {
-                let data = new Uint8Array(e.target.result);
-                let workbook = XLSX.read(data, { type: 'array' });
-                let sheetName = workbook.SheetNames[0];
-                let sheet = workbook.Sheets[sheetName];
-                let jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
-
-                let response = "📊 Arquivo carregado com sucesso! Exibindo primeiras linhas:\n";
-                jsonData.slice(0, 5).forEach(row => {
-                    response += JSON.stringify(row) + "\n";
-                });
-
-                let message = document.createElement('div');
-                message.classList.add('message', 'received');
-                message.innerHTML = `<i class="fas fa-robot"></i> ${response}`;
-                document.getElementById('chat-box').appendChild(message);
-                document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
-            };
-            reader.readAsArrayBuffer(file);
-        }
-
-    // Função para limpar o chat
-    document.getElementById('clear-btn').addEventListener('click', function() {
-        document.getElementById('chat-box').innerHTML = '<div class="message received"><i class="fas fa-robot"></i> 👋 Olá! O que você deseja fazer na fornalha de dados? Use !GUIA para listar os comandos.</div>';
-    });
+// Função para adicionar mensagens ao chat
+function appendMessage(text, type) {
+    let chatBox = document.getElementById('chat-box');
     let message = document.createElement('div');
-    message.classList.add('message', 'received');
-    message.innerHTML = `<i class="fas fa-robot"></i> ${response}`;
-    document.getElementById('chat-box').appendChild(message);
-    document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
+    message.classList.add('message', type);
+    message.innerHTML = type === 'received' ? `<i class="fas fa-robot"></i> ${text}` : text;
+    chatBox.appendChild(message);
+    chatBox.scrollTop = chatBox.scrollHeight;
 }
 
-// Funções de Tratamento de Dados
-function limparDados(input) {
-    return input.trim().replace(/[^a-zA-Z0-9 ]/g, '');
-}
+// Eventos do chat
+document.getElementById('send-btn').addEventListener('click', sendMessage);
+document.getElementById('chat-input').addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') sendMessage();
+});
 
-function normalizarTexto(texto) {
-    return texto.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
-}
+document.getElementById('clear-btn').addEventListener('click', function() {
+    document.getElementById('chat-box').innerHTML = '<div class="message received"><i class="fas fa-robot"></i> 👋 Olá! O que você deseja fazer? Use !GUIA para listar os comandos.</div>';
+});
 
-function validarEmail(email) {
-    return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
-}
+// Comandos do chat
+const comandos = {
+    '!GUIA': 'Lista de comandos disponíveis: !AJUDA, !DATA, !HORA, !RANDOM, !MOEDA',
+    '!AJUDA': 'Comandos disponíveis: !GUIA, !DATA, !HORA, !RANDOM, !MOEDA',
+    '!DATA': new Date().toLocaleDateString(),
+    '!HORA': new Date().toLocaleTimeString(),
+    '!RANDOM': Math.floor(Math.random() * 100),
+    '!MOEDA': Math.random() < 0.5 ? 'Cara' : 'Coroa'
+};
 
-function gerarHash(senha) {
-    return btoa(senha); // Simulação de hash base64
-}
-
-function analisarSentimento(texto) {
-    return texto.includes("bom") ? "Positivo" : "Neutro";
-}
-
-function detectarAnomalias(dados) {
-    return dados.some(valor => valor > 1000) ? "Anomalia detectada!" : "Tudo normal.";
-}
-
-
-    // Função para processar arquivo
-    document.getElementById('file-input').addEventListener('change', function(event) {
-        const file = event.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const content = e.target.result;
-                const message = document.createElement('div');
-                message.classList.add('message', 'received');
-                message.innerHTML = `<i class="fas fa-robot"></i> Arquivo recebido! Você pode processá-lo para análise.`;
-                document.getElementById('chat-box').appendChild(message);
-                document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
-            };
-            reader.readAsText(file);
-        }
-    });
-
-    // Função para limpar o chat
-    document.getElementById('clear-btn').addEventListener('click', function() {
-        document.getElementById('chat-box').innerHTML = '';
-    });
-
-    document.getElementById('send-btn').addEventListener('click', sendMessage);
-    document.getElementById('chat-input').addEventListener('keypress', function(event) {
-        if (event.key === 'Enter') sendMessage();
-    });
-
-    function sendMessage() {
-        let input = document.getElementById('chat-input');
-        let chatBox = document.getElementById('chat-box');
-        let messageText = input.value.trim();
-        if (!messageText) return;
-
-        let message = document.createElement('div');
-        message.classList.add('message', 'sent');
-        message.innerText = messageText;
-        chatBox.appendChild(message);
-
-        if (comandos[messageText]) {
-            setTimeout(() => {
-                let response = document.createElement('div');
-                response.classList.add('message', 'received');
-                response.innerText = comandos[messageText];
-                chatBox.appendChild(response);
-                chatBox.scrollTop = chatBox.scrollHeight;
-            }, 500);
-        }
-
-        input.value = '';
-        chatBox.scrollTop = chatBox.scrollHeight;
-    }
-
-    document.getElementById('clear-btn').addEventListener('click', function() {
-        document.getElementById('chat-box').innerHTML = '';
-    });
 </script>
 </body>
 </html>
