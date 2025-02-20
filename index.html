@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -9,230 +10,125 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
     <style>
-    /* Estilos Gerais */
-body {
-    background-color: #121212;
-    color: #fff;
-    font-family: 'Courier New', Courier, monospace;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    flex-direction: column;
-}
+        body {
+            background-color: #121212;
+            color: #fff;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
 
-/* Título com efeito neon */
-h1 {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 28px;
-    font-weight: bold;
-    color: #4CAF50;
-    text-align: center;
-    margin-bottom: 20px;
-    text-shadow: 0 0 5px #4CAF50, 0 0 10px #4CAF50;
-}
+        h1 {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 32px;
+            color: #4CAF50;
+            text-align: center;
+            text-shadow: 0 0 10px #4CAF50, 0 0 20px #4CAF50;
+        }
 
-/* Container do chat */
-.chat-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    height: 80vh;
-    width: 100%;
-    max-width: 450px;
-    padding: 20px;
-    border: 2px solid #4CAF50;
-    border-radius: 10px;
-    background-color: #1c1c1c;
-    overflow: hidden;
-    box-shadow: 0px 0px 15px rgba(76, 175, 80, 0.4);
-    transition: all 0.3s ease-in-out;
-}
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            height: 80vh;
+            width: 100%;
+            max-width: 450px;
+            padding: 20px;
+            border: 2px solid #4CAF50;
+            border-radius: 10px;
+            background-color: #1c1c1c;
+            box-shadow: 0px 0px 20px rgba(76, 175, 80, 0.6);
+            overflow: hidden;
+        }
 
-.chat-box {
-    flex-grow: 1;
-    overflow-y: auto;
-    margin-bottom: 10px;
-    background-color: #333;
-    border-radius: 10px;
-    padding: 15px;
-    font-size: 14px;
-    max-height: 60vh;
-}
+        .chat-box {
+            flex-grow: 1;
+            overflow-y: auto;
+            margin-bottom: 10px;
+            background-color: #333;
+            border-radius: 10px;
+            padding: 15px;
+            max-height: 60vh;
+        }
 
-/* Mensagens */
-.message {
-    padding: 12px;
-    margin: 8px 0;
-    border-radius: 8px;
-    max-width: 75%;
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-    line-height: 1.4;
-    word-wrap: break-word;
-    animation: fadeIn 0.3s ease-in-out;
-}
+        .message {
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 8px;
+            max-width: 75%;
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            word-wrap: break-word;
+        }
 
-.message.sent {
-    background-color: #4CAF50;
-    align-self: flex-end;
-    color: #fff;
-    text-align: right;
-}
+        .message.sent {
+            background-color: #4CAF50;
+            align-self: flex-end;
+            color: #000;
+        }
 
-.message.received {
-    background-color: #007BFF;
-    color: #fff;
-    align-self: flex-start;
-}
+        .message.received {
+            background-color: #007BFF;
+            color: #000;
+            align-self: flex-start;
+        }
 
-.message.received i {
-    margin-right: 8px;
-}
+        .input-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 10px;
+            width: 100%;
+        }
 
-/* Entrada de texto */
-.input-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 10px;
-    width: 100%;
-}
+        input[type="text"] {
+            flex-grow: 1;
+            padding: 12px;
+            border: 2px solid #333;
+            border-radius: 25px;
+            background-color: #333;
+            color: #fff;
+            font-size: 14px;
+            outline: none;
+        }
 
-input[type="text"] {
-    flex-grow: 1;
-    padding: 12px;
-    border: none;
-    border-radius: 25px;
-    margin-right: 10px;
-    background-color: #333;
-    color: #fff;
-    font-size: 14px;
-    outline: none;
-    transition: 0.3s;
-}
+        .button {
+            padding: 10px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+        }
 
-input[type="text"]:focus {
-    box-shadow: 0 0 10px #4CAF50;
-}
+        .send-btn { background-color: #4CAF50; color: #fff; }
+        .clear-btn { background-color: #f44336; color: #fff; }
+        .attach-btn { background-color: #FFC107; color: #000; }
 
-/* Botões */
-.button {
-    padding: 10px;
-    border-radius: 25px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.3s ease-in-out;
-}
-
-.send-btn {
-    background-color: #4CAF50;
-    color: #fff;
-    box-shadow: 0px 4px 10px rgba(76, 175, 80, 0.3);
-}
-
-.send-btn:hover {
-    background-color: #45a049;
-    box-shadow: 0px 4px 12px rgba(76, 175, 80, 0.5);
-}
-
-.attach-btn {
-    background-color: #FFC107;
-    color: #000;
-    position: relative;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-}
-
-.attach-btn:hover {
-    background-color: #ffb300;
-}
-
-.clear-btn {
-    background-color: #f44336;
-    color: #fff;
-}
-
-.clear-btn:hover {
-    background-color: #d32f2f;
-}
-
-/* Rodapé com efeito neon */
-footer {
-    width: 100%;
-    padding: 12px;
-    background: linear-gradient(45deg, #f0f000, #ff4500);
-    color: #000;
-    text-align: center;
-    font-size: 1rem;
-    font-weight: bold;
-    letter-spacing: 2px;
-    text-shadow: 0 0 8px #ff0000;
-    margin-top: 20px;
-    animation: neon 1.5s ease-in-out infinite alternate;
-}
-
-/* Animações */
-@keyframes neon {
-    0% { text-shadow: 0 0 5px #ff0000; }
-    50% { text-shadow: 0 0 20px #ff4500; }
-    100% { text-shadow: 0 0 5px #ff0000; }
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(5px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Responsividade */
-@media (max-width: 480px) {
-    h1 {
-        font-size: 20px;
-    }
-
-    .chat-container {
-        width: 90%;
-        height: 85vh;
-        padding: 15px;
-    }
-
-    input[type="text"] {
-        font-size: 12px;
-        padding: 10px;
-    }
-
-    .button {
-        font-size: 14px;
-    }
-
-    .chat-box {
-        font-size: 12px;
-    }
-}
-</style>
+        footer {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(45deg, #f0f000, #ff4500);
+            color: #000;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-
 <h1>Noise AI</h1>
-
 <div class="chat-container">
     <div class="chat-box" id="chat-box">
-        <div class="message received"><i class="fas fa-robot"></i>👋 Olá! O que você deseja fazer na fornalha de dados? Use !GUIA para listar os comandos.</div>
+        <div class="message received">👋 Olá! O que você deseja fazer? Use !GUIA para listar os comandos.</div>
     </div>
     <div class="input-container">
         <input type="text" id="chat-input" placeholder="Digite sua mensagem...">
-        <button class="button send-btn" id="send-btn"><i class="fas fa-paper-plane"></i></button>
+      <button class="button send-btn" id="send-btn"><i class="fas fa-paper-plane"></i></button>
         <div class="button attach-btn">
             <label for="file-input">
                 <i class="fas fa-paperclip"></i>
@@ -242,46 +138,93 @@ footer {
         <button class="button clear-btn" id="clear-btn"><i class="fas fa-trash-alt"></i></button>
     </div>
 </div>
-  <footer>
-        <p>&copy; 2025 HoloFi. Todos os direitos reservados. Lucas Januário</p>
-    </footer>
+<footer>
+    <p>&copy; 2025 HoloFi. Todos os direitos reservados. Lucas Januário</p>
+</footer>
 <script>
-    // Função para enviar mensagem
-    document.getElementById('send-btn').addEventListener('click', function() {
+    const comandos = {
+        '!GUIA': 'Lista de comandos disponíveis: !AJUDA, !DATA, !HORA, !RANDOM, !MOEDA',
+        '!AJUDA': 'Comandos disponíveis: !GUIA, !DATA, !HORA, !RANDOM, !MOEDA',
+        '!DATA': new Date().toLocaleDateString(),
+        '!HORA': new Date().toLocaleTimeString(),
+        '!RANDOM': Math.floor(Math.random() * 100),
+        '!MOEDA': Math.random() < 0.5 ? 'Cara' : 'Coroa'
+    document.getElementById("send-btn").addEventListener("click", sendMessage);
+document.getElementById("chat-input").addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
         sendMessage();
-    });
-
-    // Função para enviar a mensagem ao pressionar Enter
-    document.getElementById('chat-input').addEventListener('keypress', function(event) {
-        if (event.key === 'Enter') {
-            sendMessage();
-        }
-    });
-
-    // Função para enviar a mensagem
-    function sendMessage() {
-        let input = document.getElementById('chat-input');
-        if (input.value) {
-            let message = document.createElement('div');
-            message.classList.add('message', 'sent');
-            message.textContent = input.value;
-            document.getElementById('chat-box').appendChild(message);
-
-            // Gerar resposta de forma generativa
-            generateResponse(input.value);
-
-            input.value = '';
-        }
     }
+});
 
-function generateResponse(userMessage) {
-    let response = '';
-    let msg = userMessage.toLowerCase().trim();
+function sendMessage() {
+    const chatBox = document.getElementById("chat-box");
+    const inputField = document.getElementById("chat-input");
+    const msg = inputField.value.trim();
     
+    if (!msg) return;
+
+    appendMessage(msg, "sent");
+
+    let response = processMessage(msg);
+
+    setTimeout(() => {
+        appendMessage(response, "received");
+    }, 500);
+
+    inputField.value = "";
+}
+
+function appendMessage(text, type) {
+    const chatBox = document.getElementById("chat-box");
+    const messageDiv = document.createElement("div");
+    messageDiv.classList.add("message", type);
+    messageDiv.textContent = text;
+    chatBox.appendChild(messageDiv);
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+function processMessage(msg) {
     const commands = {
-        "!GUIA": `Comandos disponíveis:\n1. !GUIA - Exibe esta lista de comandos.\n2. !SERVIÇOS - Exibe a lista de serviços que você pode oferecer.`,
-        "!SERVIÇOS": `Serviços disponíveis:\n1. Análise de Dados\n2. IA Generativa\n3. Detecção de Fraude\n4. Previsão de Tendências`
+        '!GUIA': 'Lista de comandos disponíveis: !AJUDA, !DATA, !HORA, !RANDOM, !MOEDA',
+        '!AJUDA': 'Comandos disponíveis: !GUIA, !DATA, !HORA, !RANDOM, !MOEDA',
+        '!DATA': new Date().toLocaleDateString(),
+        '!HORA': new Date().toLocaleTimeString(),
+        '!RANDOM': Math.floor(Math.random() * 100),
+        '!MOEDA': Math.random() < 0.5 ? 'Cara' : 'Coroa'
     };
+
+    if (commands[msg]) {
+        return commands[msg];
+    } else if (msg.toLowerCase().includes('oi')) {
+        return "Olá! Como posso ajudar você hoje?";
+    } else if (msg.toLowerCase().includes('dados')) {
+        return "Você quer analisar dados? Envie os dados ou escolha uma opção!";
+    } else if (msg.toLowerCase().includes('jogo')) {
+        return "Você gosta de jogos? Tenho algumas recomendações de jogos multiplayer. Deseja ver?";
+    } else if (msg.toLowerCase().includes('limpar dados')) {
+        return "Certo! Seus dados foram limpos e padronizados!";
+    } else if (msg.toLowerCase().includes('normalizar texto')) {
+        return "Texto formatado para minúsculas e acentos removidos!";
+    } else if (msg.toLowerCase().includes('validar email')) {
+        return "Verifiquei e sim, o email parece estar correto!";
+    } else if (msg.toLowerCase().includes('gerar hash')) {
+        return "Senha protegida com hash SHA-256!";
+    } else if (msg.toLowerCase().includes('analisar sentimento')) {
+        return "O sentimento do texto é positivo!";
+    } else if (msg.toLowerCase().includes('detectar anomalias')) {
+        return "Detectei padrões incomuns nos seus dados!";
+    } else if (msg.toLowerCase().includes('clima')) {
+        return "Digite sua cidade para que eu possa verificar a previsão do tempo!";
+    } else if (msg.toLowerCase().includes('horário')) {
+        return "O horário atual é: " + new Date().toLocaleTimeString();
+    } else if (msg.toLowerCase().includes('notícia')) {
+        return "Aqui estão as últimas notícias: [link para um feed de notícias]";
+    } else if (msg.toLowerCase().includes('moeda')) {
+        return "Digite a moeda que deseja converter e eu fornecerei a taxa de câmbio!";
+    } else {
+        return "Não entendi seu comando. Digite !GUIA para ver os comandos disponíveis.";
+    }
+}
    if (commands[msg]) {
     response = commands[msg];
 } else if (msg.includes('oi')) {
@@ -425,7 +368,40 @@ function detectarAnomalias(dados) {
     document.getElementById('clear-btn').addEventListener('click', function() {
         document.getElementById('chat-box').innerHTML = '';
     });
-</script>
 
+    document.getElementById('send-btn').addEventListener('click', sendMessage);
+    document.getElementById('chat-input').addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') sendMessage();
+    });
+
+    function sendMessage() {
+        let input = document.getElementById('chat-input');
+        let chatBox = document.getElementById('chat-box');
+        let messageText = input.value.trim();
+        if (!messageText) return;
+
+        let message = document.createElement('div');
+        message.classList.add('message', 'sent');
+        message.innerText = messageText;
+        chatBox.appendChild(message);
+
+        if (comandos[messageText]) {
+            setTimeout(() => {
+                let response = document.createElement('div');
+                response.classList.add('message', 'received');
+                response.innerText = comandos[messageText];
+                chatBox.appendChild(response);
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }, 500);
+        }
+
+        input.value = '';
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    document.getElementById('clear-btn').addEventListener('click', function() {
+        document.getElementById('chat-box').innerHTML = '';
+    });
+</script>
 </body>
 </html>
