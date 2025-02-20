@@ -9,148 +9,218 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
     <style>
-        /* Estilos Gerais */
-        body {
-            background-color: #121212;
-            color: #fff;
-            font-family: 'Courier New', Courier, monospace;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            flex-direction: column;
-        }
+    /* Estilos Gerais */
+body {
+    background-color: #121212;
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
 
-        h1 {
-            font-family: 'Press Start 2P', cursive;
-            font-size: 36px;
-            font-weight: bold;
-            color: #4CAF50;
-            margin-bottom: 20px;
-        }
+/* Título com efeito neon */
+h1 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 28px;
+    font-weight: bold;
+    color: #4CAF50;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 0 0 5px #4CAF50, 0 0 10px #4CAF50;
+}
 
-        .chat-container {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            height: 80vh;
-            width: 100%;
-            max-width: 450px;
-            padding: 20px;
-            border: 2px solid #4CAF50;
-            border-radius: 10px;
-            background-color: #1c1c1c;
-            overflow: hidden;
-        }
+/* Container do chat */
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 80vh;
+    width: 100%;
+    max-width: 450px;
+    padding: 20px;
+    border: 2px solid #4CAF50;
+    border-radius: 10px;
+    background-color: #1c1c1c;
+    overflow: hidden;
+    box-shadow: 0px 0px 15px rgba(76, 175, 80, 0.4);
+    transition: all 0.3s ease-in-out;
+}
 
-        .chat-box {
-            flex-grow: 1;
-            overflow-y: auto;
-            margin-bottom: 10px;
-            background-color: #333;
-            border-radius: 10px;
-            padding: 10px;
-            font-size: 14px;
-        }
+.chat-box {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    background-color: #333;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 14px;
+    max-height: 60vh;
+}
 
-        .message {
-            padding: 10px;
-            margin: 5px 0;
-            border-radius: 5px;
-            max-width: 70%;
-            display: flex;
-            align-items: center;
-        }
+/* Mensagens */
+.message {
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 8px;
+    max-width: 75%;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    line-height: 1.4;
+    word-wrap: break-word;
+    animation: fadeIn 0.3s ease-in-out;
+}
 
-        .message.sent {
-            background-color: #4CAF50;
-            align-self: flex-end;
-            color: #fff;
-        }
+.message.sent {
+    background-color: #4CAF50;
+    align-self: flex-end;
+    color: #fff;
+    text-align: right;
+}
 
-        .message.received {
-            background-color: #007BFF;
-            color: #000;
-        }
+.message.received {
+    background-color: #007BFF;
+    color: #fff;
+    align-self: flex-start;
+}
 
-        .message.received i {
-            margin-right: 8px;
-        }
+.message.received i {
+    margin-right: 8px;
+}
 
-        .input-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: 10px;
-        }
+/* Entrada de texto */
+.input-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    width: 100%;
+}
 
-        input[type="text"] {
-            flex-grow: 1;
-            padding: 12px;
-            border: none;
-            border-radius: 25px;
-            margin-right: 10px;
-            background-color: #333;
-            color: #fff;
-            font-size: 14px;
-        }
+input[type="text"] {
+    flex-grow: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 25px;
+    margin-right: 10px;
+    background-color: #333;
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s;
+}
 
-        .button {
-            padding: 10px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 18px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+input[type="text"]:focus {
+    box-shadow: 0 0 10px #4CAF50;
+}
 
-        .send-btn {
-            background-color: #4CAF50;
-            color: #fff;
-        }
+/* Botões */
+.button {
+    padding: 10px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+}
 
-        .send-btn:hover {
-            background-color: #45a049;
-        }
+.send-btn {
+    background-color: #4CAF50;
+    color: #fff;
+    box-shadow: 0px 4px 10px rgba(76, 175, 80, 0.3);
+}
 
-        .attach-btn {
-            background-color: #FFC107;
-            color: #000;
-            position: relative;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 50%;
-        }
+.send-btn:hover {
+    background-color: #45a049;
+    box-shadow: 0px 4px 12px rgba(76, 175, 80, 0.5);
+}
 
-        .attach-btn:hover {
-            background-color: #ffb300;
-        }
+.attach-btn {
+    background-color: #FFC107;
+    color: #000;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
 
-        .clear-btn {
-            background-color: #f44336;
-            color: #fff;
-        }
+.attach-btn:hover {
+    background-color: #ffb300;
+}
 
-        .clear-btn:hover {
-            background-color: #d32f2f;
-        }
- footer {
-            width: 100%; padding: 12px;
-            background: linear-gradient(45deg, #f0f000, #ff4500);
-            color: #000; text-align: center;
-            font-size: 1rem; font-weight: bold;
-            letter-spacing: 2px; text-shadow: 0 0 8px #ff0000;
-            margin-top: 20px; animation: neon 1.5s ease-in-out infinite alternate;
-        }
-        @keyframes neon { 0% { text-shadow: 0 0 5px #ff0000; } 50% { text-shadow: 0 0 20px #ff4500; } 100% { text-shadow: 0 0 5px #ff0000; } }
-    </style>
+.clear-btn {
+    background-color: #f44336;
+    color: #fff;
+}
+
+.clear-btn:hover {
+    background-color: #d32f2f;
+}
+
+/* Rodapé com efeito neon */
+footer {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(45deg, #f0f000, #ff4500);
+    color: #000;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 0 0 8px #ff0000;
+    margin-top: 20px;
+    animation: neon 1.5s ease-in-out infinite alternate;
+}
+
+/* Animações */
+@keyframes neon {
+    0% { text-shadow: 0 0 5px #ff0000; }
+    50% { text-shadow: 0 0 20px #ff4500; }
+    100% { text-shadow: 0 0 5px #ff0000; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 20px;
+    }
+
+    .chat-container {
+        width: 90%;
+        height: 85vh;
+        padding: 15px;
+    }
+
+    input[type="text"] {
+        font-size: 12px;
+        padding: 10px;
+    }
+
+    .button {
+        font-size: 14px;
+    }
+
+    .chat-box {
+        font-size: 12px;
+    }
+}
+</style>
 </head>
 <body>
 
@@ -204,31 +274,135 @@
         }
     }
 
-    // Função para gerar uma resposta generativa (simulação)
-    function generateResponse(userMessage) {
-        let response = '';
-        
-        // Simulação de uma resposta generativa
-        if (userMessage.toLowerCase().includes('oi')) {
-            response = "Olá! Como posso ajudar você hoje?";
-        } else if (userMessage.toLowerCase().includes('dados')) {
-            response = "Você quer analisar dados? Envie os dados ou escolha uma opção!";
-        } else if (userMessage.toLowerCase().includes('jogo')) {
-            response = "Você gosta de jogos? Tenho algumas recomendações de jogos multiplayer. Deseja ver?";
-        } else if (userMessage.trim() === "!GUIA") {
-            response = `Comandos disponíveis:
-            1. !GUIA - Exibe esta lista de comandos.
-            2. !SERVIÇOS - Exibe a lista de serviços que você pode oferecer.`;
-        } else {
-            response = "Desculpe, não entendi sua mensagem. Tente novamente!";
+function generateResponse(userMessage) {
+    let response = '';
+    let msg = userMessage.toLowerCase().trim();
+    
+    const commands = {
+        "!GUIA": `Comandos disponíveis:\n1. !GUIA - Exibe esta lista de comandos.\n2. !SERVIÇOS - Exibe a lista de serviços que você pode oferecer.`,
+        "!SERVIÇOS": `Serviços disponíveis:\n1. Análise de Dados\n2. IA Generativa\n3. Detecção de Fraude\n4. Previsão de Tendências`
+    };
+   if (commands[msg]) {
+    response = commands[msg];
+} else if (msg.includes('oi')) {
+    response = "Olá! Como posso ajudar você hoje?";
+} else if (msg.includes('dados')) {
+    response = "Você quer analisar dados? Envie os dados ou escolha uma opção!";
+} else if (msg.includes('jogo')) {
+    response = "Você gosta de jogos? Tenho algumas recomendações de jogos multiplayer. Deseja ver?";
+} else if (msg.includes('limpar dados')) {
+    response = "Certo! Seus dados foram limpos e padronizados!";
+} else if (msg.includes('normalizar texto')) {
+    response = "Texto formatado para minúsculas e acentos removidos!";
+} else if (msg.includes('validar email')) {
+    response = "Verifiquei e sim, o email parece estar correto!";
+} else if (msg.includes('gerar hash')) {
+    response = "Senha protegida com hash SHA-256!";
+} else if (msg.includes('analisar sentimento')) {
+    response = "O sentimento do texto é positivo!";
+} else if (msg.includes('detectar anomalias')) {
+    response = "Detectei padrões incomuns nos seus dados!";
+} else if (msg.includes('clima')) {
+    response = "Digite sua cidade para que eu possa verificar a previsão do tempo!";
+} else if (msg.includes('horário')) {
+    response = "O horário atual é: " + new Date().toLocaleTimeString();
+} else if (msg.includes('notícia')) {
+    response = "Aqui estão as últimas notícias: [link para um feed de notícias]";
+} else if (msg.includes('moeda')) {
+    response = "Digite a moeda que deseja converter e eu fornecerei a taxa de câmbio!";
+} else if (msg.includes('harry potter quiz')) {
+    response = "Vamos testar seus conhecimentos sobre Harry Potter! 🎩⚡\n\n" +
+        "1️⃣ Qual é o nome completo de Dumbledore?\nA) Alvo Percival Wulfrico Brian Dumbledore\nB) Alvo Severo Dumbledore\nC) Alvo Merlin Dumbledore\nD) Alvo Godric Dumbledore\n\n" +
+        "2️⃣ Qual é o animal de estimação de Rony Weasley?\nA) Coruja\nB) Rato\nC) Sapo\nD) Cachorro\n\n" +
+        "3️⃣ Qual feitiço é usado para desarmar um oponente?\nA) Expelliarmus\nB) Avada Kedavra\nC) Lumos\nD) Crucio\n\n" +
+        "4️⃣ Quem traiu os pais de Harry Potter?\nA) Sirius Black\nB) Pedro Pettigrew\nC) Severo Snape\nD) Lúcio Malfoy\n\n" +
+        "5️⃣ Qual é o nome do poltergeist de Hogwarts?\nA) Pirraça\nB) Dobby\nC) Nick Quase Sem Cabeça\nD) Barão Sangrento\n\n" +
+        "6️⃣ Qual é o nome do elfo doméstico de Harry?\nA) Kreacher\nB) Dobby\nC) Winky\nD) Monstro\n\n" +
+        "7️⃣ Qual das Relíquias da Morte é um símbolo da imortalidade?\nA) Pedra da Ressurreição\nB) Capa da Invisibilidade\nC) Varinha das Varinhas\nD) Medalhão de Sonserina\n\n" +
+        "8️⃣ Em qual casa Luna Lovegood pertence?\nA) Grifinória\nB) Corvinal\nC) Lufa-Lufa\nD) Sonserina\n\n" +
+        "9️⃣ Qual é o nome do Patrono de Hermione?\nA) Cervo\nB) Lebre\nC) Lobo\nD) Lontra\n\n" +
+        "🔟 Qual foi o primeiro Horcrux destruído?\nA) Diário de Tom Riddle\nB) Anel de Marvolo Gaunt\nC) Medalhão de Sonserina\nD) Taça de Helga Lufa-Lufa\n\n" +
+        "Responda com o número e a letra da resposta correta! Exemplo: 1A, 2B...";
+} else if (msg.includes('league of legends quiz')) {
+    response = "Vamos ver se você é um verdadeiro Invocador! 🏆🎮\n\n" +
+        "1️⃣ Qual é o nome do criador de League of Legends?\nA) Riot Games\nB) Tencent\nC) Blizzard\nD) Valve\n\n" +
+        "2️⃣ Qual é o campeão conhecido como 'O Curandeiro de Zaun'?\nA) Soraka\nB) Singed\nC) Dr. Mundo\nD) Warwick\n\n" +
+        "3️⃣ Qual foi o primeiro campeão criado no LoL?\nA) Ryze\nB) Teemo\nC) Ashe\nD) Alistar\n\n" +
+        "4️⃣ Qual é o nome do Dragão que concede buffs específicos?\nA) Dragão Ancião\nB) Dragão Infernal\nC) Dragão Hextech\nD) Dragão das Nuvens\n\n" +
+        "5️⃣ Qual é a classe principal do campeão Thresh?\nA) Assassino\nB) Lutador\nC) Suporte\nD) Mago\n\n" +
+        "6️⃣ Qual é o nome do modo de jogo principal do LoL?\nA) ARAM\nB) Summoner’s Rift\nC) Twisted Treeline\nD) Nexus Blitz\n\n" +
+        "7️⃣ Quem é a rival de Caitlyn em Piltover?\nA) Vi\nB) Jinx\nC) Ekko\nD) Jayce\n\n" +
+        "8️⃣ Qual campeão é conhecido por sua habilidade 'R - Cataclismo'?\nA) Garen\nB) Jarvan IV\nC) Darius\nD) Riven\n\n" +
+        "9️⃣ Qual item concede escudo e roubo de vida para ADCs?\nA) Mata-Cráquens\nB) Gume do Infinito\nC) Arco-escudo Imortal\nD) Lâmina Fantasma de Youmuu\n\n" +
+        "🔟 Qual é o nome da skin lendária de Ezreal que o transforma em um explorador do futuro?\nA) Ezreal TPA\nB) Ezreal Pulsefire\nC) Ezreal Guardião Estelar\nD) Ezreal Frosted\n\n" +
+        "Responda com o número e a letra da resposta correta! Exemplo: 1A, 2B...";
+} else if (msg.includes('!lucas januario')) {
+    response = "Lucas Januário do Nascimento é o fundador do HoloFi e da tecnologia HOLLOW ETHER, trabalhando com inovação em ativos digitais e blockchain!";
+} else {
+    response = "Desculpe, não entendi sua mensagem. Tente novamente!";
+}
+
+        document.getElementById('file-input').addEventListener('change', function(event) {
+        let file = event.target.files[0];
+        if (file) {
+            let reader = new FileReader();
+            reader.onload = function(e) {
+                let data = new Uint8Array(e.target.result);
+                let workbook = XLSX.read(data, { type: 'array' });
+                let sheetName = workbook.SheetNames[0];
+                let sheet = workbook.Sheets[sheetName];
+                let jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+
+                let response = "📊 Arquivo carregado com sucesso! Exibindo primeiras linhas:\n";
+                jsonData.slice(0, 5).forEach(row => {
+                    response += JSON.stringify(row) + "\n";
+                });
+
+                let message = document.createElement('div');
+                message.classList.add('message', 'received');
+                message.innerHTML = `<i class="fas fa-robot"></i> ${response}`;
+                document.getElementById('chat-box').appendChild(message);
+                document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
+            };
+            reader.readAsArrayBuffer(file);
         }
 
-        let message = document.createElement('div');
-        message.classList.add('message', 'received');
-        message.innerHTML = `<i class="fas fa-robot"></i> ${response}`;
-        document.getElementById('chat-box').appendChild(message);
-        document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
-    }
+    // Função para limpar o chat
+    document.getElementById('clear-btn').addEventListener('click', function() {
+        document.getElementById('chat-box').innerHTML = '<div class="message received"><i class="fas fa-robot"></i> 👋 Olá! O que você deseja fazer na fornalha de dados? Use !GUIA para listar os comandos.</div>';
+    });
+    let message = document.createElement('div');
+    message.classList.add('message', 'received');
+    message.innerHTML = `<i class="fas fa-robot"></i> ${response}`;
+    document.getElementById('chat-box').appendChild(message);
+    document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
+}
+
+// Funções de Tratamento de Dados
+function limparDados(input) {
+    return input.trim().replace(/[^a-zA-Z0-9 ]/g, '');
+}
+
+function normalizarTexto(texto) {
+    return texto.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+}
+
+function validarEmail(email) {
+    return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
+}
+
+function gerarHash(senha) {
+    return btoa(senha); // Simulação de hash base64
+}
+
+function analisarSentimento(texto) {
+    return texto.includes("bom") ? "Positivo" : "Neutro";
+}
+
+function detectarAnomalias(dados) {
+    return dados.some(valor => valor > 1000) ? "Anomalia detectada!" : "Tudo normal.";
+}
+
 
     // Função para processar arquivo
     document.getElementById('file-input').addEventListener('change', function(event) {
