@@ -1,94 +1,126 @@
+const WebSocket = require('ws');
+
 // Simulação de contrato com saldos de investidores
 const contract = {
-  investors: ['Lucas', 'Maria', 'João'],  // Lista de investidores
-  balances: [1000, 2000, 1500]  // Saldo de cada investidor
+    investors: ['Lucas', 'Maria', 'João'],
+    balances: [1000, 2000, 1500], // Saldos dos investidores
 };
 
-// Variáveis de comandos do chat
+// Classe DarkFi com Prosh Ish e Proof of Stake
+class DarkFiKernel {
+    constructor() {
+        this.processingPower = 1;
+        this.socketServer = new WebSocket.Server({ port: 8080 });
+        this.setupSocketServer();
+    }
+
+    // Proof of Stake: aumenta o poder de processamento conforme os saldos
+    applyProofOfStake() {
+        let totalStake = contract.balances.reduce((a, b) => a + b, 0);
+        this.processingPower = totalStake / 1000; // Exemplo: 1000 tokens = 1x poder
+        console.log(`PoS aplicado! Novo poder de processamento: ${this.processingPower}`);
+        this.sendSocketMessage('proof-of-stake', this.processingPower);
+    }
+
+    // Processamento de dados usando Prosh Ish
+    processData(data) {
+        console.log(`Processando ${data.length} bytes com poder ${this.processingPower}`);
+        setTimeout(() => {
+            console.log('Processamento concluído.');
+            this.sendSocketMessage('processing-complete', { dataSize: data.length });
+        }, 1000 / this.processingPower);
+    }
+
+    // Configura WebSocket
+    setupSocketServer() {
+        this.socketServer.on('connection', (socket) => {
+            console.log('Novo cliente conectado');
+            socket.on('message', (message) => {
+                const data = JSON.parse(message);
+                if (data.command === 'apply-pos') {
+                    this.applyProofOfStake();
+                } else if (data.command === 'process-data') {
+                    this.processData(data.payload);
+                }
+            });
+            socket.send('Conectado ao DarkFi Kernel!');
+        });
+    }
+
+    // Envio de mensagens via WebSocket
+    sendSocketMessage(event, data) {
+        this.socketServer.clients.forEach(client => {
+            if (client.readyState === WebSocket.OPEN) {
+                client.send(JSON.stringify({ event, data }));
+            }
+        });
+    }
+}
+
+// Inicializa o Kernel
+const darkFiKernel = new DarkFiKernel();
+
+// Chat do sistema
 const comandos = {
-  "!GUIA": "Aqui estão alguns comandos disponíveis: !COMANDO1 - Descrição, !COMANDO2 - Descrição.",
-  "!COMANDO1": "Você ativou o COMANDO1. O que deseja fazer?",
-  "!COMANDO2": "Você ativou o COMANDO2. Por favor, forneça mais informações."
+    "!GUIA": "Comandos disponíveis: !POS - Aplicar Proof of Stake, !SALDO - Ver saldo de investidores",
+    "!POS": "Aplicando Proof of Stake...",
 };
 
-// Função para responder com mensagens personalizadas
 function getRespostaPersonalizada(messageText) {
-  if (messageText.includes("saldo de")) {
-    let investidor = messageText.replace("saldo de", "").trim();
-    let index = contract.investors.indexOf(investidor);
-    if (index !== -1) {
-      return `O saldo de ${investidor} é R$ ${contract.balances[index].toFixed(2)}.`;
-    } else {
-      return `Investidor ${investidor} não encontrado.`;
+    if (messageText.includes("saldo de")) {
+        let investidor = messageText.replace("saldo de", "").trim();
+        let index = contract.investors.indexOf(investidor);
+        if (index !== -1) {
+            return `Saldo de ${investidor}: R$ ${contract.balances[index].toFixed(2)}`;
+        } else {
+            return `Investidor ${investidor} não encontrado.`;
+        }
     }
-  }
-  return null;
+    return null;
 }
 
-// Função para inicializar o chat
+// Funções do chat
 function iniciarChat() {
-  document.getElementById('chat-box').innerHTML = '<div class="message received"><i class="fas fa-robot"></i> 👋 Olá! O que você deseja fazer? Use !GUIA para listar os comandos.</div>';
+    document.getElementById('chat-box').innerHTML = '<div class="message received">👋 Olá! Use !GUIA para comandos.</div>';
 }
 
-// Função para iniciar o envio de mensagens do chat
 function sendMessage() {
-  let input = document.getElementById('chat-input');
-  let messageText = input.value.trim();
-  if (!messageText) return;
+    let input = document.getElementById('chat-input');
+    let messageText = input.value.trim();
+    if (!messageText) return;
 
-  appendMessage(messageText, 'sent');
-  input.value = '';
+    appendMessage(messageText, 'sent');
+    input.value = '';
 
-  // Comandos conhecidos
-  if (comandos[messageText]) {
-    setTimeout(() => {
-      appendMessage(comandos[messageText], 'received');
-    }, 500);
-  } else {
-    // Resposta personalizada
-    let respostaPersonalizada = getRespostaPersonalizada(messageText);
-    if (respostaPersonalizada) {
-      setTimeout(() => {
-        appendMessage(respostaPersonalizada, 'received');
-      }, 500);
+    if (comandos[messageText]) {
+        setTimeout(() => {
+            appendMessage(comandos[messageText], 'received');
+            if (messageText === "!POS") darkFiKernel.applyProofOfStake();
+        }, 500);
     } else {
-      // Resposta padrão do bot
-      setTimeout(() => {
-        appendMessage("Desculpe, não entendi a sua pergunta.", 'received');
-      }, 500);
+        let respostaPersonalizada = getRespostaPersonalizada(messageText);
+        setTimeout(() => {
+            appendMessage(respostaPersonalizada || "Comando não reconhecido.", 'received');
+        }, 500);
     }
-  }
 }
 
-// Função para enviar mensagens e exibir no chat
 function appendMessage(text, type) {
-  let chatBox = document.getElementById('chat-box');
-  let message = document.createElement('div');
-  message.classList.add('message', type);
-  message.innerHTML = type === 'received' ? `<i class="fas fa-robot"></i> ${text}` : text;
-  chatBox.appendChild(message);
-  chatBox.scrollTop = chatBox.scrollHeight;
+    let chatBox = document.getElementById('chat-box');
+    let message = document.createElement('div');
+    message.classList.add('message', type);
+    message.innerHTML = text;
+    chatBox.appendChild(message);
+    chatBox.scrollTop = chatBox.scrollHeight;
 }
 
-// Inicia o chat ao carregar a página
-document.addEventListener('DOMContentLoaded', (event) => {
-  iniciarChat();
-
-  // Adiciona eventos aos botões de interação
-  document.getElementById('send-btn').addEventListener('click', sendMessage);
-  document.getElementById('chat-input').addEventListener('keypress', handleEnterKey);
-  document.getElementById('clear-btn').addEventListener('click', clearChat);
+document.addEventListener('DOMContentLoaded', () => {
+    iniciarChat();
+    document.getElementById('send-btn').addEventListener('click', sendMessage);
+    document.getElementById('chat-input').addEventListener('keypress', (event) => {
+        if (event.key === 'Enter') sendMessage();
+    });
 });
-
-// Função para detectar pressionamento de "Enter"
-function handleEnterKey(event) {
-  if (event.key === 'Enter') sendMessage();
-}
-
-// Função para limpar o chat
-function clearChat() {
-  document.getElementById('chat-box').innerHTML = '<div class="message received"><i class="fas fa-robot"></i> 👋 Olá! O que você deseja fazer? Use !GUIA para listar os comandos.</div>';
-}
 
 
 
