@@ -1,10 +1,4 @@
-  // Simulação de contrato com saldos de investidores
-const contract = {
-  investors: ['Lucas', 'Maria', 'João'],  // Lista de investidores
-  balances: [1000, 2000, 1500]  // Saldo de cada investidor
-};
-
-// Variáveis de comandos do chat
+s de comandos do chat
 const comandos = {
   "!GUIA": "Aqui estão alguns comandos disponíveis: !COMANDO1 - Descrição, !COMANDO2 - Descrição.",
   "!COMANDO1": "Você ativou o COMANDO1. O que deseja fazer?",
@@ -91,6 +85,8 @@ function clearChat() {
 }
 
 
+
+  function getRespostaPersonalizada(msg) {
 
   function getRespostaPersonalizada(msg) {
     msg = msg.toLowerCase();
