@@ -141,7 +141,15 @@
         .clear-btn:hover {
             background-color: #d32f2f;
         }
-
+ footer {
+            width: 100%; padding: 12px;
+            background: linear-gradient(45deg, #f0f000, #ff4500);
+            color: #000; text-align: center;
+            font-size: 1rem; font-weight: bold;
+            letter-spacing: 2px; text-shadow: 0 0 8px #ff0000;
+            margin-top: 20px; animation: neon 1.5s ease-in-out infinite alternate;
+        }
+        @keyframes neon { 0% { text-shadow: 0 0 5px #ff0000; } 50% { text-shadow: 0 0 20px #ff4500; } 100% { text-shadow: 0 0 5px #ff0000; } }
     </style>
 </head>
 <body>
@@ -164,7 +172,9 @@
         <button class="button clear-btn" id="clear-btn"><i class="fas fa-trash-alt"></i></button>
     </div>
 </div>
-
+  <footer>
+        <p>&copy; 2025 HoloFi. Todos os direitos reservados. Lucas Januário</p>
+    </footer>
 <script>
     // Função para enviar mensagem
     document.getElementById('send-btn').addEventListener('click', function() {
