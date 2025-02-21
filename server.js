@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 
 // Rota para processar o comando
 app.post('/processar-comando', (req, res) => {
-    const { message } = req.body; // Mensagem enviada pelo front-end
+    const { message } = req.body;  // Mensagem enviada pelo front-end
 
     if (!message) {
         return res.status(400).json({ response: "Mensagem não fornecida." });
@@ -19,11 +19,11 @@ app.post('/processar-comando', (req, res) => {
 
     console.log("Mensagem recebida: ", message);  // Log para verificar a mensagem
 
-    const resposta = processarMensagem(message); // Processa a mensagem
+    const resposta = processarMensagem(message);  // Processa a mensagem
 
     console.log("Resposta: ", resposta);  // Log para verificar a resposta
 
-    res.json({ response: resposta }); // Retorna a resposta para o front-end
+    res.json({ response: resposta });  // Retorna a resposta para o front-end
 });
 
 // Função para processar a mensagem
