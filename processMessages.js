@@ -123,8 +123,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-
-
   function getRespostaPersonalizada(msg) {
     msg = msg.toLowerCase();
     if (msg.includes('oi')) return "Olá! Como posso ajudar você hoje?";
