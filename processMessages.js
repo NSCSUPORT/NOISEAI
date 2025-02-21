@@ -1,7 +1,8 @@
 const WebSocket = require('ws');
 
 
-
+<script src="kernal.js"></script>
+<script src="step2.js"></script>
 // Classe DarkFi com Prosh Ish e Proof sspdarkfi
 class DarkFiKernel {
     constructor() {
