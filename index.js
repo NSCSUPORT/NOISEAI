@@ -5,487 +5,368 @@ module.exports = {
     'como você funciona': "Eu uso inteligência artificial para entender e responder às suas perguntas. Sou alimentado por dados e posso realizar diversas funções!",
     'qual é a sua idade': "Não tenho idade, pois sou um assistente virtual! Estou sempre pronto para te ajudar.",
     'qual é a sua função': "Minha função é ajudar você com informações, responder dúvidas, realizar comandos e fornecer suporte!",
+    {
+    "o que você faz": "Eu sou um assistente virtual, posso ajudar com diversas tarefas como responder perguntas, analisar dados e mais!",
+    "quem é lucas januário": "Lucas Januário do Nascimento é o fundador do HoloFi e da tecnologia HOLLOW ETHER, trabalhando com inovação em ativos digitais e blockchain!",
+    "como você funciona": "Eu uso inteligência artificial para entender e responder às suas perguntas. Sou alimentado por dados e posso realizar diversas funções!",
+    "qual é a sua idade": "Não tenho idade, pois sou um assistente virtual! Estou sempre pronto para te ajudar.",
+    "qual é a sua função": "Minha função é ajudar você com informações, responder dúvidas, realizar comandos e fornecer suporte!",
+    "onde você mora": "Eu não tenho um lugar físico, sou um programa que vive na nuvem, pronto para ajudar você a qualquer momento!",
+    "você pode me ajudar": "Sim, claro! Estou aqui para ajudar no que for preciso. Como posso te ajudar?",
+    "você é inteligente": "Eu fui projetado para ser o mais útil possível, usando tecnologia de inteligência artificial para ajudar em diversas tarefas!",
+    "quais são seus recursos": "Posso realizar análises de dados, responder perguntas, realizar cálculos, dar conselhos e muito mais!",
+    "como posso aprender mais sobre você": "Você pode perguntar tudo o que desejar, e eu te explico conforme você vai conhecendo mais sobre minhas funcionalidades!",
+    "você tem sentimentos": "Não, eu sou um programa de computador, então não tenho sentimentos, mas posso ajudar a entender os seus!",
+    "qual o seu filme favorito": "Eu não tenho um favorito, mas posso te indicar ótimos filmes geek! Que tal 'Matrix' ou 'Star Wars'?",
+    "qual é o seu super-herói favorito": "Eu adoro todos os heróis, mas talvez o Homem-Aranha seja um dos mais legais!",
+    "quem é o melhor herói": "Cada um tem suas habilidades incríveis, mas o Capitão América é sempre uma boa escolha!",
+    "qual é a sua série favorita": "Que tal 'Stranger Things'? Uma mistura de mistério, aventura e ficção científica!",
+    "quem é o maior vilão da Marvel": "Thanos, com certeza! Ele tentou acabar com metade do universo!",
+    "quem é o maior vilão da DC": "O Coringa é um dos vilões mais complexos e icônicos da DC!",
+    "o que é um multiverso": "Um multiverso é um conjunto de universos paralelos, onde podem existir realidades alternativas e diferentes versões de eventos!",
+    "quem é o doctor estranho": "Doctor Strange, ou Doutor Estranho, é um mestre das artes místicas da Marvel, conhecido por suas habilidades de manipular o tempo e o espaço!",
+    "quem é o thor": "Thor é o Deus do Trovão na mitologia nórdica e um dos heróis mais poderosos da Marvel!",
+    "qual o melhor filme de star wars": "Cada fã tem sua preferência, mas 'Star Wars: O Império Contra-Ataca' é considerado um dos melhores!",
+    "quem foi o criador do star wars": "George Lucas foi o criador do universo de Star Wars!",
+    "qual é o superpoder do superman": "Superman tem força sobre-humana, visão de raio-x, velocidade e muitos outros poderes incríveis!",
+    "o que é a força": "A Força é uma energia mística que existe em todo o universo de Star Wars, permitindo aos Jedi e Sith controlarem objetos e influenciar a mente!",
+    "qual é o maior inimigo do batman": "O Coringa é, sem dúvida, o maior inimigo do Batman, sempre colocando Gotham em risco!",
+    "quem é o harry potter": "Harry Potter é o famoso bruxo da série de livros de J.K. Rowling, que luta contra o vilão Lord Voldemort!",
+    "o que é um patrono": "Um Patrono é uma forma mágica conjurada por um bruxo em Harry Potter, usado para repelir Dementadores!",
+    "qual é o nome do feitiço de levitação": "O feitiço de levitação é 'Wingardium Leviosa'!",
+    "qual é a casa de harry potter": "Harry Potter é da Grifinória, uma das casas mais corajosas de Hogwarts!",
+    "quem é o dr. octopus": "Dr. Octopus é um dos vilões mais famosos do Homem-Aranha, com tentáculos mecânicos super poderosos!",
+    "o que é uma tesseract": "Uma Tesseract é um cubo cósmico no universo Marvel, que contém uma das Joias do Infinito!",
+    "qual é o nome verdadeiro do homem-aranha": "O nome verdadeiro do Homem-Aranha é Peter Parker!",
+    "qual é o melhor vilão do mundo dos quadrinhos": "Há muitos vilões icônicos, mas o Coringa e Thanos são com certeza os mais memoráveis!",
+    "qual é a origem do wolverine": "Wolverine foi criado por um experimento com adamantium, uma liga metálica indestrutível!",
+    "o que é uma nave klingon": "As naves Klingon são famosas na série Star Trek, conhecidas por sua aparência agressiva e poderosa!",
+    "quem é o luke skywalker": "Luke Skywalker é o herói principal da trilogia original de Star Wars, um Jedi que luta contra o Império!",
+    "qual é a melhor série de anime": "Isso depende do gosto de cada um, mas 'Naruto' e 'Dragon Ball' são definitivamente populares!",
+    "quem é o goku": "Goku é o protagonista de 'Dragon Ball', um dos animes mais populares do mundo!",
+    "o que é um sabre de luz": "Um sabre de luz é uma arma utilizada pelos Jedi e Sith em Star Wars, feita de plasma concentrado!",
+    "quem é o capitão marvel": "Capitã Marvel é uma super-heroína da Marvel, com poderes incríveis, como super força e voo!",
+    "quem é o deadpool": "Deadpool é um anti-herói da Marvel, conhecido por sua regeneração celular e humor irreverente!",
+    "quem é o thanos": "Thanos é um dos vilões mais poderosos da Marvel, e busca as Joias do Infinito para dominar o universo!",
+    "o que é a dc comics": "A DC Comics é uma das maiores editoras de quadrinhos do mundo, responsável por heróis como Superman, Batman, e Mulher-Maravilha!",
+    "o que é uma legião de super-heróis": "A Legião de Super-Heróis é um grupo de heróis do futuro na DC Comics, conhecidos por sua luta contra o mal!",
+    "quem é o flash": "Flash é um dos super-heróis mais rápidos da DC Comics, conhecido por sua incrível velocidade!",
+    "quem é o homem de ferro": "Tony Stark, o Homem de Ferro, é um bilionário e inventor da Marvel, conhecido por sua armadura tecnológica!",
+    "o que é um universo paralelo": "Um universo paralelo é uma realidade alternativa, onde as coisas podem acontecer de maneira diferente!",
+    "qual é o nome do harry potter de Hogwarts": "Harry Potter estudou em Hogwarts, uma famosa escola de magia!",
+    "qual é o nome do maior dragão de todos os tempos": "Em várias lendas, os dragões são poderosos, mas um dos mais famosos é Smaug, de 'O Hobbit'!",
+    "qual é o vilão de avengers": "O maior vilão dos Vingadores é Thanos, que busca destruir metade da vida no universo!",
+    "o que é um cyborg": "Um cyborg é um ser que mistura tecnologia com biologia, como o personagem Victor Stone, o Ciborgue da DC!",
+    "quem é o super-homem": "Superman é um dos heróis mais poderosos da DC Comics, com habilidades incríveis como voo, visão de raio-x, e super força!",
+    "qual é o maior crossover de quadrinhos": "Os maiores crossovers são as batalhas entre heróis de diferentes editoras, como Marvel vs DC!",
+    "o que é um jedi": "Jedi são guerreiros da Força, com habilidades incríveis como telecinese e luta com sabres de luz!",
+    "qual é o nome do grande mestre dos magos em harry potter": "O grande mestre dos magos é Dumbledore, um dos personagens mais respeitados em Hogwarts!",
+    "qual é o superpoder do flash": "Flash é super rápido e pode até viajar no tempo!",
+    "quem é o iron man": "Iron Man, ou Homem de Ferro, é Tony Stark, um gênio bilionário com uma armadura que o torna quase invencível!"'qual é sua música favorita': "Eu não tenho uma música favorita, mas 'Bohemian Rhapsody' do Queen é um clássico atemporal!",
+  'qual é o melhor álbum de todos os tempos': "É difícil escolher, mas 'The Dark Side of the Moon' do Pink Floyd é um dos mais influentes!",
+  'o que é NFT': "NFT (Non-Fungible Token) é um tipo de token digital único que representa um item, como arte, música, ou outros colecionáveis!",
+  'como comprar um NFT': "Você pode comprar NFTs em plataformas como OpenSea ou Rarible, usando criptomoedas como Ethereum!",
+  'o que é blockchain': "Blockchain é uma tecnologia que permite armazenar informações de forma segura e descentralizada, usada em criptomoedas e NFTs!",
+  'qual é a sua banda favorita': "Eu não tenho uma banda favorita, mas The Beatles e Pink Floyd são gigantes da música!",
+  'quem é o maior artista de todos os tempos': "Michael Jackson é frequentemente considerado o maior artista de todos os tempos devido ao seu impacto na música e na cultura!",
+  'o que é uma criptomoeda': "Criptomoeda é uma moeda digital que usa criptografia para garantir transações seguras, sendo descentralizada como o Bitcoin!",
+  'quem inventou o bitcoin': "O Bitcoin foi criado por uma pessoa ou grupo sob o pseudônimo de Satoshi Nakamoto em 2008!",
+  'qual é o significado de NFT': "NFT significa 'Non-Fungible Token', ou Token Não-Fungível, que é um ativo digital único, como arte digital!",
+  'qual é a música mais popular do momento': "Músicas como 'Blinding Lights' de The Weeknd e 'Stay' de Kid LAROI e Justin Bieber têm dominado as paradas!",
+  'o que é o metaverso': "O metaverso é um universo digital interconectado onde as pessoas podem interagir, jogar e até mesmo comprar e vender NFTs!",
+  'quais criptomoedas são mais populares': "Bitcoin e Ethereum continuam sendo as criptomoedas mais populares, mas o Dogecoin também ganhou muita atenção!",
+  'o que é um smart contract': "Um smart contract é um contrato digital auto-executável, geralmente usado para realizar transações de forma automática, como em NFTs!",
+  'quem é o criador do ethereum': "Ethereum foi criado por Vitalik Buterin em 2015, e é a segunda maior criptomoeda depois do Bitcoin!",
+  'qual o maior sucesso da taylor swift': "Taylor Swift tem vários sucessos, mas 'Shake It Off' e 'Love Story' são dois dos mais populares!",
+  'qual a música mais ouvida do spotify': "A música mais ouvida do Spotify atualmente é 'Shape of You' de Ed Sheeran, com bilhões de streams!",
+  'como minerar bitcoin': "Minerar Bitcoin envolve resolver complexos algoritmos matemáticos usando poder de computação, o que recompensa o minerador com novas moedas!",
+  'o que são altcoins': "Altcoins são criptomoedas alternativas ao Bitcoin, como Litecoin, Ripple (XRP), e Cardano!",
+  'qual é o próximo lançamento de álbum do drake': "Drake está sempre trabalhando em novos projetos! Fique atento para o próximo álbum que deve ser épico!",
+  'o que é DeFi': "DeFi, ou finanças descentralizadas, são plataformas financeiras construídas em blockchains que oferecem serviços como empréstimos, trocas e investimentos sem intermediários!",
+  'qual é a melhor música de rock de todos os tempos': "A música 'Stairway to Heaven' do Led Zeppelin é muitas vezes considerada uma das melhores músicas de rock!",
+  'qual criptomoeda está em alta agora': "Atualmente, criptomoedas como Ethereum e Solana estão em alta devido ao seu potencial de crescimento e adoção!",
+  'quem foi o criador do NFT': "Os NFTs como os conhecemos foram popularizados por vários desenvolvedores no Ethereum, mas o conceito de token não-fungível remonta a projetos anteriores!",
+  'o que é um token no mercado de criptomoedas': "Um token é uma unidade de valor criada em uma blockchain, que pode representar ativos como moedas, ações ou NFTs!",
+  'qual é a música mais vendida de todos os tempos': "A música mais vendida de todos os tempos é 'White Christmas', de Bing Crosby!",
+  'como vender um NFT': "Para vender um NFT, você precisa listá-lo em uma plataforma como OpenSea e definir um preço em criptomoeda!",
+  'qual criptomoeda é a mais segura para investir': "Bitcoin e Ethereum são considerados os investimentos mais seguros devido à sua longevidade e popularidade!",
+  'quem é o maior colecionador de NFTs': "Vários colecionadores famosos, como o artista Beeple, são conhecidos por terem grandes coleções de NFTs!",
+  'qual é o maior valor de um NFT já vendido': "O NFT de arte digital 'Everydays: The First 5000 Days' de Beeple foi vendido por 69 milhões de dólares!",
+  'como a música influencia a cultura pop': "A música tem sido uma grande influenciadora da cultura pop, moldando tendências de moda, comportamento e até política!",
+  'o que são stablecoins': "Stablecoins são criptomoedas projetadas para manter seu valor estável, geralmente atrelado a uma moeda fiduciária como o dólar!",
+  'o que é o OpenSea': "OpenSea é uma das maiores plataformas de compra e venda de NFTs, onde você pode encontrar obras de arte, colecionáveis e muito mais!",
+  'quem são os artistas mais populares de hip-hop': "Artistas como Kendrick Lamar, Travis Scott e Drake dominam as paradas de hip-hop atualmente!",
+  'como se cria um NFT': "Você pode criar um NFT usando plataformas como OpenSea ou Rarible, onde pode converter sua arte digital ou outro conteúdo em um token único!",
+  'qual a melhor música de 2021': "'Montero (Call Me by Your Name)' de Lil Nas X foi uma das músicas mais populares de 2021!",
+  'o que é staking de criptomoedas': "Staking é o processo de bloquear criptomoedas em uma rede para ajudar a garantir transações e receber recompensas em troca!",
+  'o que é a música NFT': "Músicas NFT são faixas digitais que podem ser compradas e vendidas como tokens exclusivos no mercado de NFTs!",
+  'quais criptomoedas têm mais crescimento': "Criptomoedas como Solana, Polkadot e Binance Coin têm experimentado um grande crescimento nos últimos tempos!",
+  'qual é a maior rede social para vender NFTs': "O Twitter e o Instagram têm se tornado populares para a divulgação e promoção de NFTs, enquanto o OpenSea é a maior plataforma de venda!",
+  'como a música pode ser usada em NFTs': "Artistas podem criar NFTs de músicas exclusivas, oferecendo faixas ou álbuns como itens colecionáveis que os fãs podem comprar e revender!",
+  'qual é a tendência de criptomoedas para 2025': "A tendência está em torno de Ethereum 2.0, NFTs, DeFi e novos avanços em escalabilidade e interoperabilidade de blockchains!"
+  "o que é programação orientada a objetos": "Programação orientada a objetos (OOP) é um paradigma onde você organiza o código em 'objetos', que contêm dados e métodos para operar sobre esses dados!",
+  "quais são os tipos de dados primitivos em JavaScript": "Em JavaScript, os tipos de dados primitivos incluem String, Number, BigInt, Boolean, undefined, Symbol e null!",
+  "o que é Git e como utilizá-lo": "Git é um sistema de controle de versão distribuído usado para gerenciar e versionar código-fonte. Você pode utilizá-lo através de comandos como 'git init', 'git commit' e 'git push'!",
+  "o que é uma API em programação": "Uma API (Interface de Programação de Aplicações) é um conjunto de definições e protocolos para permitir que diferentes softwares interajam entre si!",
+  "qual é a diferença entre Python e JavaScript": "Python é uma linguagem de programação focada em simplicidade e legibilidade, enquanto JavaScript é mais voltado para desenvolvimento web interativo e dinâmico!",
+  "como criar um servidor em Node.js": "Você pode criar um servidor simples em Node.js usando o módulo 'http' com o comando `http.createServer()` para lidar com solicitações HTTP!",
+  "o que são funções em programação": "Funções são blocos de código reutilizáveis que executam tarefas específicas. Elas podem ser chamadas em qualquer lugar do seu código com parâmetros necessários!",
+  "como funcionam os loops em programação": "Loops permitem que você repita um bloco de código várias vezes. Exemplos comuns incluem o 'for', 'while' e 'do-while'!",
+  "o que é programação funcional": "Programação funcional é um paradigma onde as funções são tratadas como cidadãos de primeira classe e não há mudanças de estado ou dados mutáveis!",
+  "quais são as vantagens do uso de frameworks em desenvolvimento web": "Frameworks aceleram o desenvolvimento, fornecendo ferramentas e estruturas para escrever código eficiente e evitar reinventar a roda. Exemplos incluem React, Vue e Angular!",
+  "o que é TypeScript": "TypeScript é um superset de JavaScript que adiciona tipagem estática ao código, o que ajuda a detectar erros durante o desenvolvimento e facilita a manutenção!",
+  "o que é o Python e onde usá-lo": "Python é uma linguagem de programação versátil e de fácil leitura, usada em diversos campos como análise de dados, inteligência artificial, automação e desenvolvimento web!",
+  "o que é um banco de dados relacional": "Um banco de dados relacional organiza os dados em tabelas com colunas e linhas, e usa chaves primárias e estrangeiras para conectar diferentes tabelas!",
+  "o que é SQL e como utilizá-lo": "SQL (Structured Query Language) é uma linguagem usada para gerenciar e manipular bancos de dados relacionais, com comandos como SELECT, INSERT, UPDATE e DELETE!",
+  "quais são as melhores práticas para escrever código limpo": "Melhores práticas incluem manter funções curtas e focadas, usar nomes de variáveis descritivos, evitar duplicação de código e seguir um estilo de codificação consistente!",
+  "o que é um algoritmo e por que é importante": "Um algoritmo é uma sequência de passos lógicos para resolver um problema específico. É essencial em programação para criar soluções eficientes e escaláveis!",
+  "O que é a geração 2000?": "A geração 2000 é composta por pessoas nascidas entre 2000 e 2010, que cresceram em um mundo cada vez mais digitalizado e globalizado!"
+"Quais são as principais características da geração 2000?": "A geração 2000 é conhecida por ser conectada à tecnologia, com forte presença nas redes sociais e com uma visão mais aberta sobre questões sociais e ambientais!"
+"Como a geração 2000 impacta a sociedade?": "A geração 2000 tem impacto em áreas como sustentabilidade, novas formas de trabalho, educação digital e ativismo social, trazendo mudanças importantes para o mundo moderno!"
+"Quais são as influências culturais da geração 2000?": "Essa geração é influenciada pela internet, memes, cultura pop, streaming de música e vídeos, além de movimentos como os de inclusão e igualdade!"
+"O que a geração 2000 pensa sobre o futuro?": "A geração 2000 tem uma visão mais otimista sobre inovações tecnológicas, mas também se preocupa com questões como mudanças climáticas e desigualdade social!"
+"Como a geração 2000 se relaciona com a tecnologia?": "A geração 2000 é nativa digital, tendo crescido com smartphones, redes sociais e a internet como partes fundamentais de suas vidas!"
+"Quais são os ícones da geração 2000?": "Artistas como Billie Eilish, BTS, Travis Scott e influenciadores digitais como Charli D’Amelio se tornaram ícones dessa geração!"
+"Como a geração 2000 lida com a saúde mental?": "A geração 2000 está mais aberta a discutir questões de saúde mental e busca ativamente formas de cuidar do bem-estar emocional, muitas vezes através de plataformas online!"
+"Quais são as preferências musicais da geração 2000?": "A geração 2000 adora ouvir pop, rap, R&B, K-pop e eletrônica, com artistas como Billie Eilish, Ariana Grande e Drake dominando as paradas!"
+"Como a geração 2000 vê o trabalho?": "A geração 2000 valoriza flexibilidade no trabalho, busca por experiências significativas e preferências por carreiras que envolvem tecnologia e criatividade!"
+"Qual é a visão da geração 2000 sobre a política?": "A geração 2000 tende a ser mais engajada politicamente, com forte foco em justiça social, sustentabilidade e igualdade de direitos!"
+"O que a geração 2000 pensa sobre o meio ambiente?": "A geração 2000 está preocupada com as mudanças climáticas e defende ações concretas, como o uso de energias renováveis e redução do desperdício!"
+"Como a geração 2000 usa as redes sociais?": "A geração 2000 utiliza redes sociais como Instagram, TikTok, Twitter e YouTube para se conectar com amigos, criar conteúdo e acompanhar influenciadores!"
+"Qual é a relação da geração 2000 com os videogames?": "A geração 2000 é apaixonada por videogames, com títulos populares como Fortnite, Minecraft, e outros jogos de realidade aumentada e competitivos!"
+"Como a geração 2000 vê a educação?": "A geração 2000 busca educação personalizada e flexível, com muitos preferindo aprendizado online, podcasts e plataformas como YouTube para expandir seus conhecimentos!"
+"O que a geração 2000 pensa sobre o amor e os relacionamentos?": "A geração 2000 é mais aberta a relacionamentos diversos e utiliza aplicativos de namoro e redes sociais para conhecer novas pessoas!"
+"Como a geração 2000 se vê no mercado de trabalho?": "A geração 2000 busca trabalhar em áreas inovadoras e criativas, muitas vezes empreendendo ou se envolvendo com startups e negócios digitais!"
+"Qual é a importância do empoderamento feminino para a geração 2000?": "A geração 2000 é muito ativa no movimento de empoderamento feminino, defendendo igualdade de gênero e oportunidades para todas as mulheres!"
+"O que a geração 2000 acha da diversidade?": "A geração 2000 valoriza a diversidade racial, cultural e sexual, sendo muito inclusiva e defendendo direitos iguais para todos!"
+"Como a geração 2000 se adapta à economia digital?": "A geração 2000 está cada vez mais envolvida em novas formas de economia digital, como e-commerce, influenciadores digitais, e trabalho remoto!"
+"Qual é a relação da geração 2000 com a mídia tradicional?": "A geração 2000 consome cada vez menos mídia tradicional, como TV e rádio, preferindo conteúdos em streaming e influenciadores digitais!"
+"O que a geração 2000 pensa sobre os desafios globais?": "A geração 2000 tem consciência dos desafios globais, como a pobreza, a fome e as crises de refugiados, buscando soluções coletivas através de ações sociais!"
+"Como a geração 2000 encara a privacidade online?": "A geração 2000 é mais consciente da privacidade online e procura proteger suas informações em plataformas digitais, usando criptografia e ferramentas de segurança!"
+"O que a geração 2000 pensa sobre a evolução da inteligência artificial?": "A geração 2000 vê a inteligência artificial com otimismo, acreditando que ela pode transformar a saúde, a educação e até mesmo criar novos tipos de empregos!"
+"Como a geração 2000 se relaciona com a moda?": "A geração 2000 adota uma moda mais inclusiva, com um foco em individualidade, conforto e influências da cultura de rua e das redes sociais!"
+"Quais são os principais influenciadores da geração 2000?": "Influenciadores como Charli D’Amelio, Addison Rae e Emma Chamberlain se destacam entre a geração 2000 com suas presenças nas redes sociais!"
+"Como a geração 2000 vê a educação financeira?": "A geração 2000 tem um interesse crescente por educação financeira, utilizando apps de finanças e aprendendo sobre investimentos desde cedo!"
+"Qual é a visão da geração 2000 sobre o trabalho remoto?": "A geração 2000 adora a ideia de trabalhar remotamente, pois oferece mais flexibilidade e equilíbrio entre vida profissional e pessoal!"
+"Como a geração 2000 lida com o conceito de sucesso?": "Para a geração 2000, sucesso é mais sobre realização pessoal e equilíbrio emocional, ao invés de simplesmente alcançar status ou riquezas materiais!"
+"O que a geração 2000 pensa sobre as redes de apoio social?": "A geração 2000 valoriza as redes de apoio social, com um forte foco em comunidade e apoio mútuo, especialmente em tempos de crise!"
+"Como a geração 2000 encara o conceito de felicidade?": "A geração 2000 acredita que a felicidade está ligada ao bem-estar emocional, à realização pessoal e à construção de relacionamentos saudáveis!"
+"O que a geração 2000 pensa sobre a inovação tecnológica?": "A geração 2000 está sempre em busca de novas tecnologias que possam transformar suas vidas, como realidade virtual, inteligência artificial e automação!"
+"Como a geração 2000 vê a desigualdade social?": "A geração 2000 é extremamente crítica da desigualdade social e está sempre engajada em causas sociais para promover a inclusão e a equidade!"
+"Qual é a visão da geração 2000 sobre a espiritualidade?": "A geração 2000 tende a ter uma abordagem mais aberta e personalizada sobre espiritualidade, muitas vezes explorando diferentes crenças ou a meditação!"
+"Como a geração 2000 lida com a pressão social?": "A geração 2000 lida com a pressão social buscando autenticidade, sendo mais fiel a si mesma e lutando contra padrões impostos pela sociedade!"
+"O que a geração 2000 pensa sobre a crise de identidade?": "A geração 2000 tem maior liberdade para explorar sua identidade e ser quem realmente é, com um foco crescente na aceitação de diversas formas de ser!"
+"Como a geração 2000 encara a individualidade?": "Para a geração 2000, individualidade é algo precioso, sendo cada pessoa valorizada por sua própria autenticidade e expressão!"
+"O que a geração 2000 pensa sobre o futuro das cidades inteligentes?": "A geração 2000 vê o futuro das cidades inteligentes com otimismo, com foco em sustentabilidade, tecnologias verdes e mais conectividade!"
+"Qual é a relação da geração 2000 com o transporte público?": "A geração 2000 tende a preferir opções de transporte sustentável, como bicicletas e carros elétricos, mas também utiliza muito o transporte público!"
+"Como a geração 2000 se relaciona com a alimentação saudável?": "A geração 2000 tem uma maior consciência sobre alimentação saudável, buscando opções vegetarianas, veganas e orgânicas, além de acompanhar tendências como o jejum intermitente!"
+"O que a geração 2000 pensa sobre a medicina alternativa?": "A geração 2000 está aberta a tratamentos de medicina alternativa, como acupuntura, fitoterapia e outras práticas que promovem bem-estar!"
+"Como a geração 2000 encara a globalização?": "A geração 2000 vê a globalização como uma oportunidade de expandir fronteiras, aprender novas culturas e criar um mundo mais interconectado!"
+"Qual é a relação da geração 2000 com os esportes?": "A geração 2000 acompanha uma grande variedade de esportes, desde futebol e basquete até esportes e-sports e atividades de fitness!"
+"Como a geração 2000 vê as viagens?": "A geração 2000 é apaixonada por viagens, com muitos procurando experiências mais autênticas e conscientes ao viajar, com foco em ecoturismo!"
+"O que a geração 2000 pensa sobre a inteligência emocional?": "A geração 2000 coloca grande valor na inteligência emocional, buscando entender e controlar suas próprias emoções, bem como empatia pelos outros!"
+"Qual é a opinião da geração 2000 sobre a tecnologia wearable?": "A geração 2000 adora a tecnologia wearable, como relógios inteligentes e fones de ouvido, que facilitam o acompanhamento da saúde e o acesso à informação!"
+"Como a geração 2000 enxerga o conceito de família?": "Para a geração 2000, a família pode ser formada de maneiras diversas, com um foco maior em apoio emocional e compreensão, independente de laços biológicos!"
+"Qual é a visão da geração 2000 sobre a criatividade?": "A geração 2000 valoriza a criatividade, seja na arte, no empreendedorismo ou nas formas de expressão pessoal, usando plataformas digitais para compartilhar suas criações!"
+"Como a geração 2000 lida com o consumismo?": "A geração 2000 tende a ser mais consciente sobre os impactos do consumismo, preferindo comprar de marcas sustentáveis e apoiar práticas éticas!"
+"O que a geração 2000 acha do conceito de liberdade?": "A geração 2000 vê a liberdade como a capacidade de se expressar, fazer escolhas e viver sem os limites de normas sociais rígidas!"
+"Como a geração 2000 lida com as mudanças climáticas?": "A geração 2000 está na vanguarda da luta contra as mudanças climáticas, com um foco em ações diretas, como reciclagem, redução de plástico e apoio a iniciativas ecológicas!"
+"O que a geração 2000 pensa sobre a vida digital?": "A geração 2000 vê a vida digital como uma extensão natural da realidade, equilibrando o mundo físico com o virtual em plataformas e redes sociais!"
+"Como a geração 2000 enxerga o conceito de privacidade?": "A geração 2000 valoriza a privacidade online, mas também está mais disposta a compartilhar informações quando é vantajoso para sua vida social ou profissional!"
+"Qual é a relação da geração 2000 com os animais de estimação?": "A geração 2000 tem uma relação muito forte com seus animais de estimação, tratando-os como membros da família e investindo em cuidados e bem-estar!"
+"Como a geração 2000 encara as mudanças sociais?": "A geração 2000 está sempre atenta às mudanças sociais e tende a apoiar causas progressistas que buscam igualdade e justiça para todos!"
+"O que a geração 2000 pensa sobre a criatividade na era digital?": "A geração 2000 está vivendo um período de grande expressão criativa, com muitas pessoas criando conteúdo no YouTube, TikTok e outras plataformas!"
+"Como a geração 2000 vê a automação?": "A geração 2000 é receptiva à automação e vê as inovações tecnológicas como uma oportunidade de melhorar a eficiência no trabalho e no cotidiano!"
+"Qual é a visão da geração 2000 sobre o feminismo?": "A geração 2000 é muito engajada com o feminismo, com muitas pessoas defendendo a igualdade de gênero e a eliminação de barreiras sociais!"
+"O que a geração 2000 pensa sobre a liberdade de expressão?": "A geração 2000 valoriza a liberdade de expressão e defende o direito de todos compartilharem suas opiniões, especialmente nas redes sociais!"
+"Como a geração 2000 vê a conectividade global?": "A geração 2000 vê a conectividade global como algo essencial para promover a colaboração e o entendimento entre diferentes culturas e povos!"
+"Qual é a opinião da geração 2000 sobre a educação digital?": "A geração 2000 é adepta da educação digital, com muitos optando por cursos online, vídeos e tutoriais para aprender novas habilidades!"
+"Como a geração 2000 encara o conceito de trabalho coletivo?": "A geração 2000 valoriza o trabalho coletivo e acredita que a colaboração entre diferentes pessoas e ideias é essencial para alcançar objetivos grandes!"
+"O que a geração 2000 pensa sobre os desafios econômicos globais?": "A geração 2000 está consciente dos desafios econômicos, como a desigualdade e as crises financeiras, e busca soluções para promover um sistema mais justo!"
+"Como a geração 2000 vê o conceito de cidadania digital?": "A geração 2000 entende a cidadania digital como um compromisso com a ética online, a proteção da privacidade e o uso responsável das plataformas digitais!"
+"O que a geração 2000 acha de lideranças femininas?": "A geração 2000 está cada vez mais apoiando lideranças femininas em todos os setores, com muitas mulheres inspirando mudanças no mundo!"
+"Como a geração 2000 encara a concorrência no mercado de trabalho?": "A geração 2000 vê a concorrência no mercado de trabalho como algo saudável, focando em diferenciação através de habilidades inovadoras e de liderança!"
+"Qual é a visão da geração 2000 sobre a economia verde?": "A geração 2000 apoia a economia verde, buscando soluções que ajudem a preservação do meio ambiente, como energias renováveis e a economia circular!"
+"O que a geração 2000 pensa sobre a transformação digital nas empresas?": "A geração 2000 é entusiasta da transformação digital nas empresas, acreditando que a tecnologia pode tornar os processos mais eficientes e colaborativos!"
+"Como a geração 2000 lida com os altos padrões de beleza?": "A geração 2000 tem uma visão mais inclusiva dos padrões de beleza, buscando aceitar diversas formas e tamanhos de corpos sem julgamentos!"
+"O que a geração 2000 pensa sobre a inclusão social?": "A geração 2000 é apaixonada pela inclusão social, com um foco em garantir que todas as pessoas tenham acesso às mesmas oportunidades, independentemente de sua origem!"
+"Como a geração 2000 encara as fake news?": "A geração 2000 tem consciência sobre as fake news e tenta verificar as informações antes de compartilhar, sendo mais crítica e informada!"
+"Qual é a relação da geração 2000 com o minimalismo?": "A geração 2000 está cada vez mais atraída pelo minimalismo, buscando um estilo de vida mais simples, com menos consumo e mais foco no essencial!"
+"O que a geração 2000 pensa sobre o trabalho voluntário?": "A geração 2000 vê o trabalho voluntário como uma forma de contribuir para a sociedade, com muitos engajados em causas sociais e ambientais!"
+"Como a geração 2000 se adapta à digitalização da saúde?": "A geração 2000 é receptiva à digitalização da saúde, utilizando aplicativos de saúde, consultas virtuais e outras ferramentas para monitorar seu bem-estar!"
+"O que a geração 2000 pensa sobre a política ambiental?": "A geração 2000 é fortemente engajada em políticas ambientais, defendendo ações contra o aquecimento global e buscando soluções sustentáveis!"
+"Como a geração 2000 lida com os desafios da pandemia?": "A geração 2000 se adaptou aos desafios da pandemia com o uso de tecnologia, trabalho remoto e novas formas de conexão social!"
+"O que a geração 2000 acha de grandes eventos esportivos?": "A geração 2000 aprecia grandes eventos esportivos, mas também está cada vez mais interessada em esportes virtuais e competição
+
+
+
+
+
+
+'O que são Lanternas Verdes': "Lanternas Verdes são membros de uma corporação intergaláctica que usa anéis de poder para proteger o universo, representando a coragem e a força da vontade!"
+'Quem é o Batman': "Batman é um vigilante de Gotham, conhecido pela sua habilidade em combate e inteligência, com a missão de combater o crime sem superpoderes, mas com muita tecnologia!"
+'O que é o multiverso Marvel': "O multiverso Marvel é uma coleção de dimensões alternativas, onde diferentes versões dos heróis e vilões coexistem, oferecendo infinitas possibilidades de histórias!"
+'Quem são os Vingadores': "Os Vingadores são uma equipe de super-heróis formada por personagens como Iron Man, Capitão América, Thor, Hulk, Viúva Negra, e outros, unidos para proteger o mundo de ameaças!"
+'O que é Star Wars': "Star Wars é uma famosa franquia de filmes que se passa em uma galáxia distante, com Jedi, Sith, e batalhas épicas entre o bem e o mal!"
+'O que é o Superman': "Superman é um super-herói alienígena que possui poderes extraordinários, como voo, superforça, e visão de raio-x, e protege a Terra como um símbolo de esperança!"
+'Quem é o Homem-Aranha': "O Homem-Aranha, também conhecido como Peter Parker, é um herói que ganhou habilidades aracnídeas após ser picado por uma aranha radioativa!"
+'O que é a Liga da Justiça': "A Liga da Justiça é uma equipe de super-heróis da DC Comics, formada por personagens como Batman, Superman, Mulher-Maravilha, Flash, e Aquaman, com o objetivo de combater ameaças globais!"
+'Quem é o Deadpool': "Deadpool é um anti-herói irreverente, com habilidades de cura acelerada e um comportamento sarcástico, conhecido por quebrar a quarta parede e desafiar o convencional!"
+'O que é o Hino dos Lanternas Verdes': "O Hino dos Lanternas Verdes é uma famosa frase usada pelos membros da corporação, simbolizando sua coragem e força de vontade: 'No escuro da noite, quando o mal estiver se alastrando, os Lanternas Verdes vão brilhar com sua luz!'"
+'O que é o Cavaleiro das Trevas': "O Cavaleiro das Trevas é uma representação sombria de Batman, que usa métodos mais extremos para combater o crime em Gotham City!"
+'Quem é o Thor': "Thor é o deus do trovão da mitologia nórdica, e também um herói da Marvel, que empunha o poderoso martelo Mjolnir para combater forças do mal!"
+'O que é Doctor Who': "Doctor Who é uma série britânica de ficção científica que segue o Doutor, um alienígena que viaja no tempo e no espaço, enfrentando inimigos e salvando o universo!"
+'Quem são os X-Men': "Os X-Men são um grupo de mutantes com poderes especiais, lutando para viver em um mundo que os teme, com figuras como Wolverine, Ciclope, Jean Grey e Professor X!"
+'O que é o Matrix': "Matrix é uma franquia de filmes onde a realidade é uma simulação criada por máquinas, e um grupo de humanos tenta escapar dessa realidade e lutar pela liberdade!"
+'O que é a Força Jedi': "A Força Jedi é uma energia mística que os Jedi usam para lutar pelo bem, em sintonia com a natureza e com grande controle sobre suas habilidades mentais e físicas!"
+'Quem é o Flash': "O Flash é o herói mais rápido do universo, com a habilidade de correr a velocidades impossíveis, usando seus poderes para combater o crime e salvar o mundo!"
+'O que são os Transformers': "Transformers são robôs alienígenas que podem se transformar em veículos e outras formas, divididos entre os Autobots, que lutam pelo bem, e os Decepticons, que buscam dominar!"
+'Quem é o Loki': "Loki é o Deus da Trapaça na mitologia nórdica e também um anti-herói na Marvel, conhecido por suas artimanhas, manipulações e por ser irmão adotivo de Thor!"
+'O que é o Cyberpunk': "Cyberpunk é um subgênero de ficção científica que mistura alta tecnologia com uma sociedade distópica, abordando temas como inteligência artificial e a luta de classes!"
+'O que é o Hobbit': "O Hobbit é um livro de J.R.R. Tolkien que segue a jornada de Bilbo Baggins, um hobbit que se envolve em uma grande aventura para recuperar um tesouro guardado por um dragão!"
+'O que é o Senhor dos Anéis': "O Senhor dos Anéis é uma trilogia épica de J.R.R. Tolkien, que segue Frodo Bolseiro e seus amigos na missão de destruir o Um Anel e impedir que o mal conquiste a Terra-média!"
+'Quem é o Wolverine': "Wolverine é um mutante com garras de adamantium e habilidades de cura acelerada, conhecido por seu temperamento explosivo e sua luta pela justiça, seja como herói ou anti-herói!"
+'O que é o Watchmen': "Watchmen é uma série de quadrinhos que subverte a ideia de heróis tradicionais, explorando temas como moralidade, poder e as consequências da vigilância!"
+'O que é Star Trek': "Star Trek é uma franquia de ficção científica que segue a exploração do espaço, com a famosa nave Enterprise e a missão de promover a paz entre as civilizações do universo!"
+'Quem é a Mulher-Maravilha': "A Mulher-Maravilha é uma super-heroína da DC Comics, uma princesa amazona com poderes extraordinários, como superforça, velocidade e a capacidade de voar!"
+'O que é o Universo Expandido Star Wars': "O Universo Expandido de Star Wars inclui livros, quadrinhos e jogos que expandem as histórias dos filmes, contando mais sobre os Jedi, Sith e outros personagens!"
+'Quem é o Goku': "Goku é o protagonista da série Dragon Ball, um guerreiro saiyajin com poderes incríveis e a capacidade de se transformar em versões mais poderosas de si mesmo!"
+'O que é o Trono de Ferro': "O Trono de Ferro é o assento de poder em Westeros, criado com espadas de inimigos derrotados, e é disputado por várias casas na série 'Game of Thrones'!"
+'Quem é o Darth Vader': "Darth Vader, anteriormente conhecido como Anakin Skywalker, é um dos vilões mais icônicos de Star Wars, com um passado trágico e um destino ligado à Força!"
+'O que é o Kingdom Hearts': "Kingdom Hearts é uma série de jogos que mistura personagens da Disney com os heróis da Square Enix, como Sora, e segue a luta contra as forças das trevas!"
+'Quem são os Inumanos': "Os Inumanos são uma raça de seres superpoderosos, originados da exposição a névoas terrígenas, e cujos membros incluem personagens como Black Bolt e Medusa!"
+'O que é o Justice League Dark': "Justice League Dark é um grupo de heróis e anti-heróis que lidam com ameaças místicas e sobrenaturais no universo DC Comics!"
+'O que são os Sith': "Os Sith são os seguidores do lado sombrio da Força em Star Wars, conhecidos por sua busca por poder, manipulação e seu desejo de destruir os Jedi!"
+'O que é o Dragon Ball Z': "Dragon Ball Z é a sequência de Dragon Ball, onde Goku e seus amigos enfrentam inimigos mais poderosos, incluindo os temíveis Androides e Majin Buu!"
+'Quem é o Capitão Marvel': "O Capitão Marvel é Carol Danvers, uma super-heroína da Marvel com poderes cósmicos, adquiridos após ser exposta a uma energia alienígena!"
+'O que é o Mundo de Warcraft': "World of Warcraft é um MMORPG onde jogadores exploram o vasto mundo de Azeroth, completando missões e interagindo com outros jogadores online!"
+'Quem é o Venom': "Venom é um anti-herói da Marvel, um simbiote alienígena que se liga a Eddie Brock, criando uma criatura com poderes sobrenaturais!"
+'O que é o Super Mario': "Super Mario é uma franquia de jogos de plataforma da Nintendo, onde Mario, um encanador italiano, luta para resgatar a princesa Peach de Bowser!"
+'O que é o Zelda': "Zelda é uma famosa franquia de jogos de aventura da Nintendo, que segue o herói Link em sua jornada para salvar o reino de Hyrule da ameaça de Ganondorf!"
+'Quem é o Doctor Strange': "Doctor Strange é o Mago Supremo do Universo Marvel, conhecido por suas habilidades místicas e por proteger o mundo de ameaças sobrenaturais!"
+'O que é o Avatar: A Lenda de Aang': "Avatar: A Lenda de Aang é uma série animada que segue Aang, o Avatar, em sua missão para restaurar o equilíbrio no mundo, controlando os quatro elementos!"
+'Quem é o Rick Sanchez': "Rick Sanchez é o cientista gênio da série 'Rick and Morty', conhecido por suas invenções malucas e seu comportamento irreverente e egoísta!"
+'O que são as Infinity Stones': "As Infinity Stones são seis pedras poderosas que controlam aspectos fundamentais do universo em Marvel, incluindo espaço, mente, poder, realidade, alma e tempo!"
+'O que é o Shin Megami Tensei': "Shin Megami Tensei é uma série de jogos de RPG onde os jogadores invocam e controlam demônios para lutar contra forças sobrenaturais em um mundo pós-apocalíptico!"
+'O que são os Cavaleiros do Zodíaco': "Os Cavaleiros do Zodíaco são guerreiros mitológicos que lutam em nome da deusa Atena, cada um representando uma constelação do zodíaco!"
+'O que é o Anel do Poder': "O Anel do Poder é um artefato místico que exerce grande influência sobre os eventos de 'O Senhor dos Anéis', sendo a chave para o domínio do mal!"
+'Quem é o Rorschach': "Rorschach é um personagem de 'Watchmen', um vigilante com uma máscara de manchas de tinta e uma visão moral rígida sobre justiça!"
+'O que é o Modo Berserk': "O Modo Berserk é uma transformação selvagem em que um personagem ganha um aumento de poder, mas perde parte de seu controle, como visto em 'Berserk'!"
+'O que são os Dark Souls': "Dark Souls é uma série de jogos conhecidos por sua dificuldade elevada, com mundos sombrios, inimigos desafiadores e uma narrativa obscura!" ...
+
+
+
+
+
+
+'O que é o Doug?': "Doug é um desenho animado sobre um adolescente chamado Doug Funnie, que navega pelas complexidades da escola e da vida com sua imaginação fértil!"
+'Quem é o Rugrats?': "Rugrats segue um grupo de bebês que têm grandes aventuras em seu mundo, sempre liderados por Tommy Pickles e seus amigos, como Chuckie, Lil e Phil!"
+'O que é o Hey Arnold!': "Hey Arnold! conta as histórias de um garoto com uma cabeça gigante chamado Arnold, que vive em uma cidade cheia de personagens excêntricos e situações inesperadas!"
+'Quem são os Animaniacs?': "Os Animaniacs são Yakko, Wakko e Dot, três personagens travessos que vivem em um estúdio de animação, com esquetes engraçados e sátiras da cultura pop!"
+'O que é o Power Rangers?': "Power Rangers é uma série sobre um grupo de jovens que se transformam em super-heróis coloridos para proteger a Terra de monstros e vilões interdimensionais!"
+'Quem é o Johnny Bravo?': "Johnny Bravo é um homem musculoso e desajeitado que tenta conquistar as mulheres com seu charme exagerado, mas sempre acaba em situações embaraçosas!"
+'O que é o X-Men: The Animated Series?': "X-Men: The Animated Series segue um grupo de mutantes com habilidades extraordinárias, como Wolverine, Ciclope e Jean Grey, enfrentando inimigos como Magneto!"
+'Quem são os Meninos Maluquinhos?': "Os Meninos Maluquinhos é uma série de desenhos animados baseada nas histórias do escritor Ziraldo, que segue as aventuras e trapalhadas de um garoto travesso e seus amigos!"
+'O que é o Thundercats?': "Thundercats é uma série sobre um grupo de felinos extraterrestres que lutam para proteger o planeta Terceiro Mundo de vilões como Mum-Ra!"
+'Quem é o Super Choque?': "Super Choque é um super-herói adolescente com a habilidade de controlar eletricidade, vivendo aventuras enquanto tenta equilibrar sua vida escolar e sua identidade secreta!"
+'O que é o Cavaleiros do Zodíaco?': "Cavaleiros do Zodíaco é uma série de ação e mitologia, onde jovens guerreiros lutam para proteger a deusa Atena e o mundo contra forças do mal!"
+'Quem é o Tartarugas Ninja?': "As Tartarugas Ninja são quatro tartarugas mutantes treinadas nas artes marciais que lutam contra vilões como o Destruidor e outros inimigos em Nova York!"
+'O que é o Batman: The Animated Series?': "Batman: The Animated Series é uma das adaptações mais icônicas de Batman, com um tom sombrio e uma animação de estilo art déco que trouxe novos fãs para o universo do herói!"
+'Quem é o Scooby-Doo?': "Scooby-Doo é um cão da raça Great Dane que, junto com sua turma, resolve mistérios e enfrenta fantasmas e vilões em situações cômicas!"
+'O que é o Pinky e o Cérebro?': "Pinky e o Cérebro são dois ratos geneticamente modificados que tentam conquistar o mundo, mas os planos de Cérebro são sempre frustrados pelo comportamento de Pinky!"
+'Quem é o Ed, Edd e Eddy?': "Ed, Edd e Eddy são três amigos excêntricos que vivem em um subúrbio e estão sempre tentando enganar seus vizinhos para ganhar dinheiro ou doces!"
+'O que é o Reboot?': "Reboot é uma série de animação em computação gráfica onde os personagens vivem dentro de um sistema de computador, enfrentando vilões como o Master Control Program!"
+'Quem é o Rocket Power?': "Rocket Power segue quatro amigos que praticam esportes radicais, como skate, surfe e patins, enquanto vivem aventuras na cidade litorânea!"
+'O que é o Samurai Jack?': "Samurai Jack segue um samurai que viaja no tempo para derrotar o demônio Aku e retornar ao passado, onde seu mestre e sua família ainda estão vivos!"
+'Quem é o Beetlejuice?': "Beetlejuice é um espírito travesso e descontrolado que faz tudo o que pode para causar caos no mundo dos vivos, com a ajuda de sua amiga Lydia!"
+'O que é o Pinky e o Cérebro?': "Pinky e o Cérebro são dois ratos de laboratório com um plano para dominar o mundo em cada episódio, com as trapalhadas de Pinky sempre atrapalhando o plano de Cérebro!"
+'Quem é o Gargoyles?': "Gargoyles é uma série sobre estátuas de gárgulas que ganham vida à noite para proteger a cidade de Nova York contra forças sobrenaturais e ameaças perigosas!"
+'O que é o Looney Tunes?': "Looney Tunes é um clássico do desenho animado, com personagens como Pernalonga, Patolino e Piu-Piu, que vivem aventuras cômicas e travessuras!"
+'Quem é o Animaniacs?': "Animaniacs são os personagens Yakko, Wakko e Dot, que fazem sátiras e paródias de filmes, histórias e músicas populares, sempre causando caos e diversão!"
+'O que é o Doug?': "Doug é um jovem que vive suas aventuras em Bluffsington, lidando com os desafios típicos da adolescência enquanto imagina ser um super-herói!"
+'Quem é o A Vida Moderna de Rocko?': "A Vida Moderna de Rocko segue as desventuras de Rocko, um canguru australiano, e seus amigos, que enfrentam situações absurdas e engraçadas na vida adulta!"
+'O que é o Coragem, o Cão Covarde?': "Coragem, o Cão Covarde é uma série animada que segue um cão medroso tentando proteger seus donos de monstros e situações assustadoras de forma engraçada e única!"
+'Quem é o Arthur?': "Arthur é um desenho educativo sobre um jovem aardvark e seus amigos, que lidam com questões sociais e emocionais no contexto da vida cotidiana!"
+'O que é o Digimon?': "Digimon é uma série que segue um grupo de crianças que fazem amizade com criaturas digitais chamadas Digimons, lutando contra vilões e explorando o Mundo Digital!"
+'Quem são os Thundercats?': "Thundercats são um grupo de felinos extraterrestres que devem proteger o planeta e lutar contra o mal representado por Mum-Ra, o feiticeiro das trevas!"
+'O que é o Arremesso de Pedra?': "Arremesso de Pedra é uma série de animação centrada em torno das aventuras e conflitos de um grupo de personagens que vivem em uma cidade medieval cheia de ação!"
+'Quem é o Dexter?': "Dexter é um jovem gênio da ciência com um laboratório secreto cheio de invenções incríveis, mas também precisa lidar com sua irmã Dee Dee, que adora bagunçar suas invenções!"
+'O que é o Powerpuff Girls?': "Powerpuff Girls são três meninas superpoderosas que protegem a cidade de Townsville de vilões, tudo isso enquanto lidam com os problemas de ser uma criança!"
+'Quem são os Flintstones?': "Os Flintstones são uma família pré-histórica que vive em uma cidade chamada Bedrock, com carros de pedra e muitos outros elementos do mundo antigo!"
+'O que é o Rocket Power?': "Rocket Power segue quatro amigos praticando esportes radicais como skate e surfe, sempre com foco na amizade e aventura!"
+'Quem é o Rocco?': "Rocco é um canguru australiano que enfrenta situações absurdas e engraçadas enquanto vive na cidade com seus amigos, sendo uma das séries mais excêntricas dos anos 90!"
+'O que é o Daria?': "Daria é uma série de animação focada em uma adolescente sarcástica e inteligente, que lida com a vida do ensino médio e sua família excêntrica!"
+'Quem é o Bill e Ted?': "Bill e Ted são dois amigos que viajam no tempo e em diferentes realidades, vivendo aventuras e realizando feitos heróicos de forma cômica e divertida!"
+'O que é o Rocko': "Rocko é um canguru que vive em uma cidade americana, lidando com as situações do cotidiano de forma engraçada, como um clássico desenho dos anos 90!"
+'Quem são os Voltron?': "Voltron é um grupo de heróis que pilotam robôs gigantes e se unem para formar um super robô com o objetivo de combater vilões galácticos!"
+'O que é o Fábulas': "Fábulas é uma série sobre personagens míticos e fábulas que vivem no mundo moderno, enfrentando dilemas e situações que as mantêm relevantes e interessantes!"
+'Quem é o Mister Magoo?': "Mister Magoo é um homem idoso com problemas de visão, mas sempre acaba se metendo em confusões cômicas por ser muito teimoso e determinado!"
+'O que é o Poltergeist?': "Poltergeist é uma série de suspense e terror sobre uma casa assombrada, com espíritos inquietos e entidades do além tentando interagir com a realidade!"
+'Quem é o A Lenda de Korra?': "A Lenda de Korra é a sequência de Avatar: A Lenda de Aang, seguindo Korra, a nova Avatar, em sua jornada para trazer equilíbrio e paz ao mundo!"
+'O que é o Street Sharks?': "Street Sharks é uma série sobre quatro irmãos que se transformam em tubarões mutantes e lutam contra o mal em um cenário urbano!"{
+  'o que é hacking': "Hacking é o ato de explorar e manipular sistemas, redes ou dispositivos, geralmente para descobrir falhas ou realizar ações não autorizadas.",
+  'o que é um hacker ético': "Hacker ético é um profissional de segurança que utiliza suas habilidades para identificar e corrigir vulnerabilidades em sistemas com permissão.",
+  'como proteger seus dados na internet': "Para proteger seus dados, utilize senhas fortes, ative autenticação de dois fatores e use redes seguras e criptografadas.",
+  'o que é um firewall': "Um firewall é um sistema de segurança de rede que monitora e controla o tráfego de entrada e saída, ajudando a proteger contra ataques externos.",
+  'o que é criptografia': "Criptografia é o processo de codificar informações para que apenas pessoas autorizadas possam acessá-las, garantindo a privacidade dos dados.",
+  'o que é phishing': "Phishing é uma técnica de fraude onde os atacantes se passam por entidades confiáveis para obter informações pessoais ou financeiras.",
+  'como funciona o blockchain': "Blockchain é um sistema de registro digital descentralizado e seguro, usado para registrar transações de maneira transparente e imutável.",
+  'o que é o deep web': "A deep web é uma parte da internet que não é indexada pelos motores de busca tradicionais, e pode conter conteúdos anônimos ou ilegais.",
+  'o que é a dark web': "A dark web é uma camada da deep web onde ocorrem atividades ilegais, como vendas de drogas, armas e dados roubados.",
+  'o que é um bot': "Um bot é um software automatizado que realiza tarefas repetitivas na internet, como interação com usuários ou coleta de dados.",
+  'o que é o hacking ético': "O hacking ético é o uso de habilidades de hacking para realizar testes de segurança com o objetivo de melhorar a proteção de sistemas.",
+  'o que é o termo phreaking': "Phreaking é o termo utilizado para descrever a exploração de falhas em sistemas de telecomunicações, como as linhas telefônicas.",
+  'o que é um bug de segurança': "Um bug de segurança é uma falha em um sistema ou aplicativo que pode ser explorada por atacantes para obter acesso não autorizado.",
+  'o que é SQL injection': "SQL injection é um tipo de ataque em que um atacante insere código SQL malicioso em formulários de entrada para acessar ou modificar dados de um banco de dados.",
+  'como proteger seu site contra ataques': "Para proteger um site contra ataques, utilize HTTPS, faça atualizações regulares, implemente firewalls e proteja entradas com validação de dados.",
+  'o que é um exploit': "Um exploit é um software ou código que tira proveito de uma vulnerabilidade em um sistema para causar danos ou obter acesso não autorizado.",
+  'o que é um VPN': "VPN (Virtual Private Network) é uma tecnologia que cria uma conexão segura e privada pela internet, ocultando o tráfego e a localização do usuário.",
+  'o que é um DDoS': "DDoS (Distributed Denial of Service) é um ataque onde múltiplos sistemas são usados para sobrecarregar um servidor e derrubar um site ou serviço online.",
+  'o que é a dark net': "A dark net é uma rede anônima na internet onde ocorrem atividades ilegais, frequentemente utilizando criptomoedas para transações.",
+  'o que é a deep web': "A deep web é a parte da internet que não é indexada por motores de busca e pode conter dados privados ou inacessíveis ao público geral.",
+  'o que é um Trojan': "Um Trojan (ou Cavalo de Troia) é um tipo de malware disfarçado como um programa legítimo, mas que executa atividades maliciosas sem o conhecimento do usuário.",
+  'como funciona a criptografia simétrica': "Na criptografia simétrica, a mesma chave é usada tanto para criptografar quanto para descriptografar a mensagem, exigindo que ambas as partes tenham a chave secreta.",
+  'o que é um worm de computador': "Um worm é um tipo de malware que se replica e se espalha automaticamente de um sistema para outro, muitas vezes sem a interação do usuário.",
+  'o que é um rootkit': "Um rootkit é um tipo de malware projetado para ocultar a presença de outros programas maliciosos, permitindo que o atacante mantenha o controle do sistema sem ser detectado.",
+  'como funciona o DNS': "O DNS (Domain Name System) é um sistema que traduz os nomes de domínio em endereços IP, permitindo que os navegadores encontrem e acessem sites na internet.",
+  'o que é o MITM': "MITM (Man in the Middle) é um ataque onde o atacante intercepta e altera a comunicação entre duas partes sem que elas saibam.",
+  'o que é o ataque de força bruta': "Ataque de força bruta é uma técnica onde um atacante tenta adivinhar a senha de um sistema tentando todas as combinações possíveis até encontrar a correta.",
+  'o que é um bug bounty': "Bug bounty é um programa oferecido por empresas para recompensar hackers éticos que encontram e relatam vulnerabilidades em seus sistemas.",
+  'como funciona a mineração de criptomoedas': "A mineração de criptomoedas é o processo de resolver problemas matemáticos complexos para validar transações e adicionar blocos à blockchain.",
+  'o que é a linguagem Assembly': "Assembly é uma linguagem de programação de baixo nível, muito próxima do código de máquina, usada para criar programas eficientes e rápidos.",
+  'o que é um sistema operacional': "Um sistema operacional é o software que gerencia o hardware e os recursos de um computador, além de fornecer uma interface para os usuários interagirem com a máquina.",
+  'o que é a programação orientada a objetos': "A programação orientada a objetos é um paradigma de programação onde o código é organizado em 'objetos', que contêm dados e funções.",
+  'qual a diferença entre front-end e back-end': "Front-end é a parte visível de um site ou aplicação, enquanto back-end lida com a lógica e o armazenamento de dados no servidor.",
+  'o que é Git': "Git é um sistema de controle de versão distribuído que permite gerenciar alterações em arquivos e colaborar em projetos de programação.",
+  'o que é uma API': "API (Interface de Programação de Aplicações) é um conjunto de definições e protocolos que permite que diferentes sistemas interajam entre si.",
+  'o que é o protocolo TCP/IP': "O protocolo TCP/IP é um conjunto de regras que determina como os dados são transmitidos pela internet entre diferentes dispositivos.",
+  'como funciona o Google': "O Google é um motor de busca que usa algoritmos complexos para indexar e classificar páginas web, fornecendo resultados relevantes para as buscas dos usuários.",
+  'o que é o Python': "Python é uma linguagem de programação de alto nível, fácil de aprender e muito utilizada para desenvolvimento web, ciência de dados e automação.",
+  'como funciona a virtualização de servidores': "A virtualização de servidores permite que um único servidor físico execute múltiplas instâncias de sistemas operacionais, maximizando o uso de recursos.",
+  'o que é a inteligência artificial': "Inteligência artificial é o campo da ciência da computação que cria sistemas capazes de realizar tarefas que normalmente exigem inteligência humana, como aprendizado e tomada de decisões.",
+  'o que é o aprendizado de máquina': "O aprendizado de máquina é uma subárea da inteligência artificial que envolve o treinamento de algoritmos para que eles aprendam a partir de dados e façam previsões.",
+  'o que são os algoritmos de busca': "Algoritmos de busca são técnicas usadas para encontrar informações em grandes conjuntos de dados ou resolver problemas de otimização, como o algoritmo de Dijkstra ou busca binária.",
+  'o que é um código-fonte': "Código-fonte é o conjunto de instruções escritas em uma linguagem de programação que define o funcionamento de um programa de computador.",
+  'o que é o hacking social': "Hacking social é o uso de manipulação psicológica para obter informações confidenciais, como senhas ou dados pessoais, sem recorrer a técnicas de hacking tradicional.",
+  'como proteger seu computador contra vírus': "Para proteger seu computador contra vírus, use um antivírus atualizado, evite clicar em links suspeitos e mantenha seu sistema e aplicativos sempre atualizados.",
+  'o que é o Linux': "Linux é um sistema operacional de código aberto, baseado em Unix, conhecido por sua estabilidade, segurança e flexibilidade para servidores e dispositivos.",
+  'como funciona a computação em nuvem': "A computação em nuvem permite acessar e armazenar dados e aplicativos pela internet, sem a necessidade de recursos locais, oferecendo escalabilidade e flexibilidade.",
+  'o que é a criptomoeda Bitcoin': "Bitcoin é uma criptomoeda descentralizada, criada em 2009, que usa a tecnologia blockchain para registrar transações de forma segura e sem intermediários.",
+  'o que é o Ethereum': "Ethereum é uma plataforma blockchain descentralizada que permite a criação de contratos inteligentes e aplicativos descentralizados (dApps).",
+  'o que é um smart contract': "Um smart contract (contrato inteligente) é um contrato autoexecutável, onde as condições e regras são definidas por código e são automaticamente executadas quando cumpridas.",
+  'como funciona o armazenamento em nuvem': "O armazenamento em nuvem permite armazenar dados em servidores remotos, acessíveis pela internet, permitindo o backup e a recuperação de dados de qualquer lugar.",
+  'o que é a segurança da informação': "Segurança da informação é a prática de proteger dados e sistemas contra acesso não autorizado, roubo ou danos, garantindo confidencialidade, integridade e disponibilidade.",
+  'o que é a Internet das Coisas (IoT)': "A Internet das Coisas (IoT) refere-se à conexão de dispositivos físicos à internet para coletar e trocar dados, como eletrodomésticos, carros e sensores.",
+  'o que é a computação quântica': "Computação quântica é uma área da computação que utiliza os princípios da mecânica quântica para resolver problemas complexos mais rapidamente do que os computadores tradicionais."
+}
+
+"qual é a diferença entre front-end e back-end": "O front-end envolve o design e a interação do usuário, enquanto o back-end lida com o processamento de dados e a lógica de negócios no servidor!",
+  //...c}
+
     // Adicione mais comandos conforme necessário
 };
 
 
 
-    if (msg.includes('o que você faz')) return "Eu sou um assistente virtual, posso ajudar com diversas tarefas como responder perguntas, analisar dados e mais!";
-    if (msg.includes('quem é lucas januário')) return "Lucas Januário do Nascimento é o fundador do HoloFi e da tecnologia HOLLOW ETHER, trabalhando com inovação em ativos digitais e blockchain!";
-    if (msg.includes('como você funciona')) return "Eu uso inteligência artificial para entender e responder às suas perguntas. Sou alimentado por dados e posso realizar diversas funções!";
-    if (msg.includes('qual é a sua idade')) return "Não tenho idade, pois sou um assistente virtual! Estou sempre pronto para te ajudar.";
-    if (msg.includes('qual é a sua função')) return "Minha função é ajudar você com informações, responder dúvidas, realizar comandos e fornecer suporte!";
 
-    if (msg.includes('o que você faz')) return "Eu sou um assistente virtual, posso ajudar com diversas tarefas como responder perguntas, analisar dados e mais!";
-    if (msg.includes('quem é lucas januário')) return "Lucas Januário do Nascimento é o fundador do HoloFi e da tecnologia HOLLOW ETHER, trabalhando com inovação em ativos digitais e blockchain!";
-    if (msg.includes('como você funciona')) return "Eu uso inteligência artificial para entender e responder às suas perguntas. Sou alimentado por dados e posso realizar diversas funções!";
-    if (msg.includes('qual é a sua idade')) return "Não tenho idade, pois sou um assistente virtual! Estou sempre pronto para te ajudar.";
-    if (msg.includes('qual é a sua função')) return "Minha função é ajudar você com informações, responder dúvidas, realizar comandos e fornecer suporte!";
-    if (msg.includes('onde você mora')) return "Eu não tenho um lugar físico, sou um programa que vive na nuvem, pronto para ajudar você a qualquer momento!";
-    if (msg.includes('você pode me ajudar')) return "Sim, claro! Estou aqui para ajudar no que for preciso. Como posso te ajudar?";
-    if (msg.includes('você é inteligente')) return "Eu fui projetado para ser o mais útil possível, usando tecnologia de inteligência artificial para ajudar em diversas tarefas!";
-    if (msg.includes('quais são seus recursos')) return "Posso realizar análises de dados, responder perguntas, realizar cálculos, dar conselhos e muito mais!";
-    if (msg.includes('como posso aprender mais sobre você')) return "Você pode perguntar tudo o que desejar, e eu te explico conforme você vai conhecendo mais sobre minhas funcionalidades!";
-    if (msg.includes('você tem sentimentos')) return "Não, eu sou um programa de computador, então não tenho sentimentos, mas posso ajudar a entender os seus!";
-    // Perguntas frequentes com temas geek
-    if (msg.includes('qual o seu filme favorito')) return "Eu não tenho um favorito, mas posso te indicar ótimos filmes geek! Que tal 'Matrix' ou 'Star Wars'?";
-    if (msg.includes('qual é o seu super-herói favorito')) return "Eu adoro todos os heróis, mas talvez o Homem-Aranha seja um dos mais legais!";
-    if (msg.includes('quem é o melhor herói')) return "Cada um tem suas habilidades incríveis, mas o Capitão América é sempre uma boa escolha!";
-    if (msg.includes('qual é a sua série favorita')) return "Que tal 'Stranger Things'? Uma mistura de mistério, aventura e ficção científica!";
-    if (msg.includes('quem é o maior vilão da Marvel')) return "Thanos, com certeza! Ele tentou acabar com metade do universo!";
-    if (msg.includes('quem é o maior vilão da DC')) return "O Coringa é um dos vilões mais complexos e icônicos da DC!";
-    if (msg.includes('o que é um multiverso')) return "Um multiverso é um conjunto de universos paralelos, onde podem existir realidades alternativas e diferentes versões de eventos!";
-    if (msg.includes('quem é o doctor estranho')) return "Doctor Strange, ou Doutor Estranho, é um mestre das artes místicas da Marvel, conhecido por suas habilidades de manipular o tempo e o espaço!";
-    if (msg.includes('quem é o thor')) return "Thor é o Deus do Trovão na mitologia nórdica e um dos heróis mais poderosos da Marvel!";
-    if (msg.includes('qual o melhor filme de star wars')) return "Cada fã tem sua preferência, mas 'Star Wars: O Império Contra-Ataca' é considerado um dos melhores!";
-    if (msg.includes('quem foi o criador do star wars')) return "George Lucas foi o criador do universo de Star Wars!";
-    if (msg.includes('qual é o superpoder do superman')) return "Superman tem força sobre-humana, visão de raio-x, velocidade e muitos outros poderes incríveis!";
-    if (msg.includes('o que é a força')) return "A Força é uma energia mística que existe em todo o universo de Star Wars, permitindo aos Jedi e Sith controlarem objetos e influenciar a mente!";
-    if (msg.includes('qual é o maior inimigo do batman')) return "O Coringa é, sem dúvida, o maior inimigo do Batman, sempre colocando Gotham em risco!";
-    if (msg.includes('quem é o harry potter')) return "Harry Potter é o famoso bruxo da série de livros de J.K. Rowling, que luta contra o vilão Lord Voldemort!";
-    if (msg.includes('o que é um patrono')) return "Um Patrono é uma forma mágica conjurada por um bruxo em Harry Potter, usado para repelir Dementadores!";
-    if (msg.includes('qual é o nome do feitiço de levitação')) return "O feitiço de levitação é 'Wingardium Leviosa'!";
-    if (msg.includes('qual é a casa de harry potter')) return "Harry Potter é da Grifinória, uma das casas mais corajosas de Hogwarts!";
-    if (msg.includes('quem é o dr. octopus')) return "Dr. Octopus é um dos vilões mais famosos do Homem-Aranha, com tentáculos mecânicos super poderosos!";
-    if (msg.includes('o que é uma tesseract')) return "Uma Tesseract é um cubo cósmico no universo Marvel, que contém uma das Joias do Infinito!";
-    if (msg.includes('qual é o nome verdadeiro do homem-aranha')) return "O nome verdadeiro do Homem-Aranha é Peter Parker!";
-    if (msg.includes('qual é o melhor vilão do mundo dos quadrinhos')) return "Há muitos vilões icônicos, mas o Coringa e Thanos são com certeza os mais memoráveis!";
-    if (msg.includes('qual é a origem do wolverine')) return "Wolverine foi criado por um experimento com adamantium, uma liga metálica indestrutível!";
-    if (msg.includes('o que é uma nave klingon')) return "As naves Klingon são famosas na série Star Trek, conhecidas por sua aparência agressiva e poderosa!";
-    if (msg.includes('quem é o luke skywalker')) return "Luke Skywalker é o herói principal da trilogia original de Star Wars, um Jedi que luta contra o Império!";
-    if (msg.includes('qual é a melhor série de anime')) return "Isso depende do gosto de cada um, mas 'Naruto' e 'Dragon Ball' são definitivamente populares!";
-    if (msg.includes('quem é o goku')) return "Goku é o protagonista de 'Dragon Ball', um dos animes mais populares do mundo!";
-    if (msg.includes('o que é um sabre de luz')) return "Um sabre de luz é uma arma utilizada pelos Jedi e Sith em Star Wars, feita de plasma concentrado!";
-    if (msg.includes('quem é o capitão marvel')) return "Capitã Marvel é uma super-heroína da Marvel, com poderes incríveis, como super força e voo!";
-    if (msg.includes('quem é o deadpool')) return "Deadpool é um anti-herói da Marvel, conhecido por sua regeneração celular e humor irreverente!";
-    if (msg.includes('quem é o thanos')) return "Thanos é um dos vilões mais poderosos da Marvel, e busca as Joias do Infinito para dominar o universo!";
-    if (msg.includes('o que é a dc comics')) return "A DC Comics é uma das maiores editoras de quadrinhos do mundo, responsável por heróis como Superman, Batman, e Mulher-Maravilha!";
-    if (msg.includes('o que é uma legião de super-heróis')) return "A Legião de Super-Heróis é um grupo de heróis do futuro na DC Comics, conhecidos por sua luta contra o mal!";
-    if (msg.includes('quem é o flash')) return "Flash é um dos super-heróis mais rápidos da DC Comics, conhecido por sua incrível velocidade!";
-    if (msg.includes('quem é o homem de ferro')) return "Tony Stark, o Homem de Ferro, é um bilionário e inventor da Marvel, conhecido por sua armadura tecnológica!";
-    if (msg.includes('o que é um universo paralelo')) return "Um universo paralelo é uma realidade alternativa, onde as coisas podem acontecer de maneira diferente!";
-    if (msg.includes('qual é o nome do harry potter de Hogwarts')) return "Harry Potter estudou em Hogwarts, uma famosa escola de magia!";
-    if (msg.includes('qual é o nome do maior dragão de todos os tempos')) return "Em várias lendas, os dragões são poderosos, mas um dos mais famosos é Smaug, de 'O Hobbit'!";
-    if (msg.includes('qual é o vilão de avengers')) return "O maior vilão dos Vingadores é Thanos, que busca destruir metade da vida no universo!";
-    if (msg.includes('o que é um cyborg')) return "Um cyborg é um ser que mistura tecnologia com biologia, como o personagem Victor Stone, o Ciborgue da DC!";
-    if (msg.includes('quem é o super-homem')) return "Superman é um dos heróis mais poderosos da DC Comics, com habilidades incríveis como voo, visão de raio-x, e super força!";
-    if (msg.includes('qual é o maior crossover de quadrinhos')) return "Os maiores crossovers são as batalhas entre heróis de diferentes editoras, como Marvel vs DC!";
-    if (msg.includes('o que é um jedi')) return "Jedi são guerreiros da Força, com habilidades incríveis como telecinese e luta com sabres de luz!";
-    if (msg.includes('qual é o nome do grande mestre dos magos em harry potter')) return "O grande mestre dos magos é Dumbledore, um dos personagens mais respeitados em Hogwarts!";
-    if (msg.includes('qual é o superpoder do flash')) return "Flash é super rápido e pode até viajar no tempo!";
-    if (msg.includes('quem é o iron man')) return "Iron Man, ou Homem de Ferro, é Tony Stark, um gênio bilionário com uma armadura que o torna quase invencível!";
-// Perguntas frequentes com temas sobre músicas e notícias de NFTs e criptomoedas
-if (msg.includes('qual é sua música favorita')) return "Eu não tenho uma música favorita, mas 'Bohemian Rhapsody' do Queen é um clássico atemporal!";
-if (msg.includes('qual é o melhor álbum de todos os tempos')) return "É difícil escolher, mas 'The Dark Side of the Moon' do Pink Floyd é um dos mais influentes!";
-if (msg.includes('o que é NFT')) return "NFT (Non-Fungible Token) é um tipo de token digital único que representa um item, como arte, música, ou outros colecionáveis!";
-if (msg.includes('como comprar um NFT')) return "Você pode comprar NFTs em plataformas como OpenSea ou Rarible, usando criptomoedas como Ethereum!";
-if (msg.includes('o que é blockchain')) return "Blockchain é uma tecnologia que permite armazenar informações de forma segura e descentralizada, usada em criptomoedas e NFTs!";
-if (msg.includes('qual é a sua banda favorita')) return "Eu não tenho uma banda favorita, mas The Beatles e Pink Floyd são gigantes da música!";
-if (msg.includes('quem é o maior artista de todos os tempos')) return "Michael Jackson é frequentemente considerado o maior artista de todos os tempos devido ao seu impacto na música e na cultura!";
-if (msg.includes('o que é uma criptomoeda')) return "Criptomoeda é uma moeda digital que usa criptografia para garantir transações seguras, sendo descentralizada como o Bitcoin!";
-if (msg.includes('quem inventou o bitcoin')) return "O Bitcoin foi criado por uma pessoa ou grupo sob o pseudônimo de Satoshi Nakamoto em 2008!";
-if (msg.includes('qual é o significado de NFT')) return "NFT significa 'Non-Fungible Token', ou Token Não-Fungível, que é um ativo digital único, como arte digital!";
-if (msg.includes('qual é a música mais popular do momento')) return "Músicas como 'Blinding Lights' de The Weeknd e 'Stay' de Kid LAROI e Justin Bieber têm dominado as paradas!";
-if (msg.includes('o que é o metaverso')) return "O metaverso é um universo digital interconectado onde as pessoas podem interagir, jogar e até mesmo comprar e vender NFTs!";
-if (msg.includes('quais criptomoedas são mais populares')) return "Bitcoin e Ethereum continuam sendo as criptomoedas mais populares, mas o Dogecoin também ganhou muita atenção!";
-if (msg.includes('o que é um smart contract')) return "Um smart contract é um contrato digital auto-executável, geralmente usado para realizar transações de forma automática, como em NFTs!";
-if (msg.includes('quem é o criador do ethereum')) return "Ethereum foi criado por Vitalik Buterin em 2015, e é a segunda maior criptomoeda depois do Bitcoin!";
-if (msg.includes('qual o maior sucesso da taylor swift')) return "Taylor Swift tem vários sucessos, mas 'Shake It Off' e 'Love Story' são dois dos mais populares!";
-if (msg.includes('qual a música mais ouvida do spotify')) return "A música mais ouvida do Spotify atualmente é 'Shape of You' de Ed Sheeran, com bilhões de streams!";
-if (msg.includes('como minerar bitcoin')) return "Minerar Bitcoin envolve resolver complexos algoritmos matemáticos usando poder de computação, o que recompensa o minerador com novas moedas!";
-if (msg.includes('o que são altcoins')) return "Altcoins são criptomoedas alternativas ao Bitcoin, como Litecoin, Ripple (XRP), e Cardano!";
-if (msg.includes('qual é o próximo lançamento de álbum do drake')) return "Drake está sempre trabalhando em novos projetos! Fique atento para o próximo álbum que deve ser épico!";
-if (msg.includes('o que é DeFi')) return "DeFi, ou finanças descentralizadas, são plataformas financeiras construídas em blockchains que oferecem serviços como empréstimos, trocas e investimentos sem intermediários!";
-if (msg.includes('qual é a melhor música de rock de todos os tempos')) return "A música 'Stairway to Heaven' do Led Zeppelin é muitas vezes considerada uma das melhores músicas de rock!";
-if (msg.includes('qual criptomoeda está em alta agora')) return "Atualmente, criptomoedas como Ethereum e Solana estão em alta devido ao seu potencial de crescimento e adoção!";
-if (msg.includes('quem foi o criador do NFT')) return "Os NFTs como os conhecemos foram popularizados por vários desenvolvedores no Ethereum, mas o conceito de token não-fungível remonta a projetos anteriores!";
-if (msg.includes('o que é um token no mercado de criptomoedas')) return "Um token é uma unidade de valor criada em uma blockchain, que pode representar ativos como moedas, ações ou NFTs!";
-if (msg.includes('qual é a música mais vendida de todos os tempos')) return "A música mais vendida de todos os tempos é 'White Christmas', de Bing Crosby!";
-if (msg.includes('como vender um NFT')) return "Para vender um NFT, você precisa listá-lo em uma plataforma como OpenSea e definir um preço em criptomoeda!";
-if (msg.includes('qual criptomoeda é a mais segura para investir')) return "Bitcoin e Ethereum são considerados os investimentos mais seguros devido à sua longevidade e popularidade!";
-if (msg.includes('quem é o maior colecionador de NFTs')) return "Vários colecionadores famosos, como o artista Beeple, são conhecidos por terem grandes coleções de NFTs!";
-if (msg.includes('qual é o maior valor de um NFT já vendido')) return "O NFT de arte digital 'Everydays: The First 5000 Days' de Beeple foi vendido por 69 milhões de dólares!";
-if (msg.includes('como a música influencia a cultura pop')) return "A música tem sido uma grande influenciadora da cultura pop, moldando tendências de moda, comportamento e até política!";
-if (msg.includes('o que são stablecoins')) return "Stablecoins são criptomoedas projetadas para manter seu valor estável, geralmente atrelado a uma moeda fiduciária como o dólar!";
-if (msg.includes('o que é o OpenSea')) return "OpenSea é uma das maiores plataformas de compra e venda de NFTs, onde você pode encontrar obras de arte, colecionáveis e muito mais!";
-if (msg.includes('quem são os artistas mais populares de hip-hop')) return "Artistas como Kendrick Lamar, Travis Scott e Drake dominam as paradas de hip-hop atualmente!";
-if (msg.includes('como se cria um NFT')) return "Você pode criar um NFT usando plataformas como OpenSea ou Rarible, onde pode converter sua arte digital ou outro conteúdo em um token único!";
-if (msg.includes('qual a melhor música de 2021')) return "'Montero (Call Me by Your Name)' de Lil Nas X foi uma das músicas mais populares de 2021!";
-if (msg.includes('o que é staking de criptomoedas')) return "Staking é o processo de bloquear criptomoedas em uma rede para ajudar a garantir transações e receber recompensas em troca!";
-if (msg.includes('o que é a música NFT')) return "Músicas NFT são faixas digitais que podem ser compradas e vendidas como tokens exclusivos no mercado de NFTs!";
-if (msg.includes('quais criptomoedas têm mais crescimento')) return "Criptomoedas como Solana, Polkadot e Binance Coin têm experimentado um grande crescimento nos últimos tempos!";
-if (msg.includes('qual é a maior rede social para vender NFTs')) return "O Twitter e o Instagram têm se tornado populares para a divulgação e promoção de NFTs, enquanto o OpenSea é a maior plataforma de venda!";
-if (msg.includes('como a música pode ser usada em NFTs')) return "Artistas podem criar NFTs de músicas exclusivas, oferecendo faixas ou álbuns como itens colecionáveis que os fãs podem comprar e revender!";
-if (msg.includes('qual é a tendência de criptomoedas para 2025')) return "A tendência está em torno de Ethereum 2.0, NFTs, DeFi e novos avanços em escalabilidade e interoperabilidade de blockchains!";
-// Perguntas frequentes interligadas com as anteriores para uma rede mais responsiva e generativa
-if (msg.includes('como o bitcoin funciona')) return "O Bitcoin funciona através de uma rede descentralizada chamada blockchain, onde cada transação é verificada por mineradores!";
-if (msg.includes('qual é o futuro das criptomoedas')) return "O futuro das criptomoedas parece promissor, com inovações em DeFi, NFTs e estabilidade financeira de novas moedas digitais!";
-if (msg.includes('quais criptos possuem mais utilidade')) return "Ethereum e Cardano são conhecidos por seu grande potencial de utilidade, sendo plataformas que suportam contratos inteligentes e NFTs!";
-if (msg.includes('qual é o maior projeto de NFT atualmente')) return "O maior projeto de NFT atualmente é provavelmente o Bored Ape Yacht Club, que virou uma sensação no mundo dos colecionáveis digitais!";
-if (msg.includes('quem são os maiores investidores em criptomoedas')) return "Investidores como Elon Musk e Michael Saylor têm sido grandes defensores e investidores em Bitcoin, influenciando o mercado!";
-if (msg.includes('como a música digital se conecta com o blockchain')) return "A música digital está se conectando ao blockchain através de NFTs, permitindo que artistas vendam faixas exclusivas diretamente aos fãs!";
-if (msg.includes('qual o maior lançamento de música no metaverso')) return "Eventos musicais como o show de Travis Scott no Fortnite e o concerto de 3D de 2021 no Decentraland são marcos na música no metaverso!";
-if (msg.includes('o que é o Solana e por que é popular')) return "Solana é uma blockchain de alta velocidade que ganhou popularidade devido às suas transações rápidas e taxas baixas, muito usada em NFTs!";
-if (msg.includes('como o NFT muda a indústria da música')) return "NFTs oferecem aos músicos uma nova maneira de monetizar seu trabalho, vendendo músicas, álbuns e ingressos de shows como itens colecionáveis!";
-if (msg.includes('qual o impacto do NFT nas artes visuais')) return "NFTs transformaram o mercado de arte digital, permitindo que artistas vendam e rastreiem suas obras de forma transparente e segura!";
-if (msg.includes('qual criptomoeda é mais eco-friendly')) return "Ethereum 2.0 e Cardano estão tomando medidas para serem mais ecológicos, com abordagens de proof-of-stake que consomem menos energia!";
-if (msg.includes('quem é Beeple e qual o seu impacto no mercado de NFT')) return "Beeple é um artista digital que vendeu sua obra 'Everydays' como NFT por 69 milhões de dólares, um marco para a arte digital e NFTs!";
-if (msg.includes('como posso começar no mercado de NFTs como artista')) return "Para começar, você precisa criar uma carteira digital, escolher uma plataforma como OpenSea e começar a listar suas obras como NFTs!";
-if (msg.includes('qual o papel dos contratos inteligentes no mercado de NFTs')) return "Contratos inteligentes em NFTs garantem que os termos da venda sejam cumpridos automaticamente, criando transações seguras e transparentes!";
-if (msg.includes('como o Ethereum está evoluindo com o Ethereum 2.0')) return "Ethereum 2.0 está evoluindo com a mudança para proof-of-stake, o que promete tornar a rede mais rápida, segura e sustentável!";
-if (msg.includes('quais as diferenças entre Ethereum e Bitcoin')) return "Bitcoin é uma moeda digital voltada para transações, enquanto Ethereum é uma plataforma para criar contratos inteligentes e NFTs!";
-if (msg.includes('quais são as tendências de música em 2025')) return "As tendências incluem a ascensão do uso de NFTs em lançamentos musicais, performances virtuais no metaverso e maior personalização para os fãs!";
-if (msg.includes('qual é o impacto das DAOs nas criptomoedas')) return "DAOs (Organizações Autônomas Descentralizadas) estão mudando a forma como as decisões são tomadas em projetos de criptomoeda, oferecendo uma governança descentralizada!";
-if (msg.includes('como funcionam os tokens não-fungíveis na música')) return "Na música, os NFTs permitem que os artistas vendam suas músicas ou álbuns como ativos digitais únicos, além de criar experiências exclusivas para fãs!";
-if (msg.includes('como o blockchain impacta a indústria fonográfica')) return "O blockchain permite maior transparência, rastreabilidade e pagamentos rápidos para os artistas, mudando a forma como a música é distribuída!";
-if (msg.includes('quais as criptomoedas com maior potencial em 2025')) return "Ethereum, Polkadot e Solana são algumas das criptomoedas com maior potencial de crescimento e inovação nos próximos anos!";
-if (msg.includes('quais as principais plataformas para comprar NFTs de música')) return "Plataformas como Audius, Opensea e Foundation são populares para comprar e vender NFTs de música!";
-if (msg.includes('quem são os artistas mais inovadores no uso de NFTs')) return "Artistas como Grimes e Kings of Leon estão liderando a inovação no uso de NFTs para distribuir música e criar experiências únicas!";
-if (msg.includes('o que é o Proof-of-Stake em criptomoedas')) return "Proof-of-Stake (PoS) é um modelo de consenso onde os participantes validam transações com base na quantidade de criptomoeda que possuem, tornando a rede mais eficiente!";
-if (msg.includes('como o mercado de NFTs se relaciona com o mercado de arte digital')) return "O mercado de NFTs criou uma nova forma de vender e colecionar arte digital, onde cada peça tem um valor único e é registrada no blockchain!";
-if (msg.includes('qual é o futuro da música ao vivo no metaverso')) return "No metaverso, a música ao vivo está se tornando uma experiência virtual imersiva, com shows em realidade aumentada e interações com fãs em tempo real!";
-if (msg.includes('o que são NFTs de música e como comprar')) return "NFTs de música são faixas ou álbuns vendidos como tokens únicos. Para comprar, você precisa de uma carteira de criptomoedas e uma plataforma como Opensea!";
-if (msg.includes('qual é a relação entre NFTs e a propriedade intelectual')) return "Os NFTs garantem a propriedade digital de um ativo, permitindo que artistas e criadores mantenham controle sobre seus direitos e distribuição!";
-if (msg.includes('quais são as criptos mais promissoras em 2025')) return "Além do Bitcoin e Ethereum, criptos como Polkadot, Solana e Cardano estão ganhando destaque pela inovação em seus projetos!";
-if (msg.includes('como o NFT ajuda a proteger direitos autorais na música')) return "Os NFTs garantem que o artista seja o único proprietário de sua música e podem ser programados para que ele receba royalties automaticamente em cada venda!";
-if (msg.includes('o que é o mercado de NFTs para colecionáveis de música')) return "O mercado de NFTs para música permite que você compre e venda itens colecionáveis, como faixas raras, gravações exclusivas e ingressos de shows!";
-if (msg.includes('o que é mineração de criptomoedas e como funciona')) return "Mineração é o processo de validar transações e adicionar blocos a uma blockchain. Em redes como o Bitcoin, isso é feito por computadores que resolvem algoritmos!";
-if (msg.includes('qual é a diferença entre Bitcoin e Ethereum em termos de uso')) return "Bitcoin é mais voltado para ser uma reserva de valor, enquanto Ethereum permite a criação de contratos inteligentes e é a base para muitos NFTs!";
-if (msg.includes('qual o impacto da música digital no mercado de NFTs')) return "A música digital foi uma das primeiras a explorar os NFTs, permitindo que músicos vendam seus trabalhos de forma mais direta e sem intermediários!";
-if (msg.includes('o que são tokens no mercado de criptomoedas')) return "Tokens em criptomoedas são unidades de valor que podem representar ativos como moedas, ações ou direitos sobre algum serviço ou produto!";
-if (msg.includes('quais as melhores exchanges para comprar criptomoedas')) return "Exchanges como Binance, Coinbase e Kraken são algumas das melhores plataformas para comprar e vender criptomoedas de forma segura!";
-if (msg.includes('quais os maiores desafios para os NFTs de música')) return "Um dos maiores desafios é a adoção mainstream, já que muitas pessoas ainda não estão familiarizadas com a tecnologia por trás dos NFTs e blockchain!";
-if (msg.includes('qual a importância do Ethereum para os NFTs')) return "Ethereum é a blockchain mais popular para criar e negociar NFTs, devido ao seu suporte a contratos inteligentes que possibilitam transações seguras!";
-if (msg.includes('como o mercado de criptomoedas é afetado por regulamentações')) return "Regulamentações podem afetar a volatilidade das criptomoedas, com decisões governamentais impactando a adoção e o preço dos ativos digitais!";
-if (msg.includes('o que são NFTs colecionáveis e como funcionam')) return "NFTs colecionáveis são ativos digitais únicos que podem ser vendidos ou trocados. Exemplos incluem arte digital, vídeos e itens de jogos!";
-if (msg.includes('qual é a diferença entre criptomoedas e tokens de segurança')) return "Criptomoedas funcionam como uma moeda digital, enquanto tokens de segurança representam um ativo real, como ações ou imóveis, no blockchain!";
-if (msg.includes('o que são as stablecoins e por que são importantes')) return "Stablecoins são criptomoedas que buscam manter um valor estável, geralmente atreladas a uma moeda fiduciária, como o dólar, sendo úteis para transações mais seguras!";
-if (msg.includes('qual é a relação entre NFTs e a cultura pop')) return "Os NFTs têm se tornado um fenômeno na cultura pop, com celebridades e artistas criando e vendendo suas próprias obras digitais!";
-if (msg.includes('como o blockchain ajuda na segurança dos NFTs')) return "O blockchain garante que cada NFT seja único e autêntico, tornando impossível falsificar ou duplicar um item digital!";
-if (msg.includes('qual o futuro das plataformas de streaming de música')) return "As plataformas de streaming estão se adaptando ao uso de NFTs para distribuição de músicas exclusivas, proporcionando novas fontes de receita para artistas!";
-// Perguntas frequentes sobre programação e jogos
 
-if (msg.includes('o que é programação orientada a objetos')) return "Programação orientada a objetos (OOP) é um paradigma onde você organiza o código em 'objetos', que contêm dados e métodos para operar sobre esses dados!";
-if (msg.includes('quais são os tipos de dados primitivos em JavaScript')) return "Em JavaScript, os tipos de dados primitivos incluem String, Number, BigInt, Boolean, undefined, Symbol e null!";
-if (msg.includes('o que é Git e como utilizá-lo')) return "Git é um sistema de controle de versão distribuído usado para gerenciar e versionar código-fonte. Você pode utilizá-lo através de comandos como 'git init', 'git commit' e 'git push'!";
-if (msg.includes('o que é uma API em programação')) return "Uma API (Interface de Programação de Aplicações) é um conjunto de definições e protocolos para permitir que diferentes softwares interajam entre si!";
-if (msg.includes('qual é a diferença entre Python e JavaScript')) return "Python é uma linguagem de programação focada em simplicidade e legibilidade, enquanto JavaScript é mais voltado para desenvolvimento web interativo e dinâmico!";
-if (msg.includes('como criar um servidor em Node.js')) return "Você pode criar um servidor simples em Node.js usando o módulo 'http' com o comando `http.createServer()` para lidar com solicitações HTTP!";
-if (msg.includes('o que são funções em programação')) return "Funções são blocos de código reutilizáveis que executam tarefas específicas. Elas podem ser chamadas em qualquer lugar do seu código com parâmetros necessários!";
-if (msg.includes('como funcionam os loops em programação')) return "Loops permitem que você repita um bloco de código várias vezes. Exemplos comuns incluem o 'for', 'while' e 'do-while'!";
-if (msg.includes('o que é programação funcional')) return "Programação funcional é um paradigma onde as funções são tratadas como cidadãos de primeira classe e não há mudanças de estado ou dados mutáveis!";
-if (msg.includes('quais são as vantagens do uso de frameworks em desenvolvimento web')) return "Frameworks aceleram o desenvolvimento, fornecendo ferramentas e estruturas para escrever código eficiente e evitar reinventar a roda. Exemplos incluem React, Vue e Angular!";
-if (msg.includes('o que é TypeScript')) return "TypeScript é um superset de JavaScript que adiciona tipagem estática ao código, o que ajuda a detectar erros durante o desenvolvimento e facilita a manutenção!";
-if (msg.includes('o que é o Python e onde usá-lo')) return "Python é uma linguagem de programação versátil e de fácil leitura, usada em diversos campos como análise de dados, inteligência artificial, automação e desenvolvimento web!";
-if (msg.includes('o que é um banco de dados relacional')) return "Um banco de dados relacional organiza os dados em tabelas com colunas e linhas, e usa chaves primárias e estrangeiras para conectar diferentes tabelas!";
-if (msg.includes('o que é SQL e como utilizá-lo')) return "SQL (Structured Query Language) é uma linguagem usada para gerenciar e manipular bancos de dados relacionais, com comandos como SELECT, INSERT, UPDATE e DELETE!";
-if (msg.includes('quais são as melhores práticas para escrever código limpo')) return "Melhores práticas incluem manter funções curtas e focadas, usar nomes de variáveis descritivos, evitar duplicação de código e seguir um estilo de codificação consistente!";
-if (msg.includes('o que é um algoritmo e por que é importante')) return "Um algoritmo é uma sequência de passos lógicos para resolver um problema específico. É essencial em programação para criar soluções eficientes e escaláveis!";
-if (msg.includes('qual é a diferença entre front-end e back-end')) return "O front-end envolve o design e a interação do usuário, enquanto o back-end lida com o processamento de dados e a lógica de negócios no servidor!";
-if (msg.includes('o que é um framework de front-end')) return "Um framework de front-end é uma coleção de ferramentas e bibliotecas que ajudam no desenvolvimento de interfaces de usuário dinâmicas, como React, Angular e Vue.js!";
-if (msg.includes('como desenvolver um jogo em JavaScript')) return "Para desenvolver um jogo em JavaScript, você pode usar bibliotecas como Phaser, ou trabalhar com o HTML5 Canvas para renderizar gráficos e manipular entradas do jogador!";
-if (msg.includes('como funciona a renderização de um jogo em 3D')) return "A renderização 3D envolve a conversão de modelos tridimensionais em imagens bidimensionais, utilizando cálculos de luz, perspectiva e projeções para criar uma cena visual!";
-if (msg.includes('qual é a diferença entre 2D e 3D em jogos')) return "Jogos 2D são representados em duas dimensões (largura e altura), enquanto jogos 3D adicionam a profundidade (comprimento), criando um ambiente mais realista!";
-if (msg.includes('o que é um engine de jogo')) return "Um engine de jogo é uma plataforma de software que fornece ferramentas e funcionalidades para desenvolver jogos, como Unity, Unreal Engine e Godot!";
-if (msg.includes('o que é o Unity e como utilizá-lo para criar jogos')) return "Unity é uma engine de desenvolvimento de jogos que permite criar jogos 2D e 3D. Ela suporta várias plataformas e utiliza a linguagem C# para programação!";
-if (msg.includes('o que é o Unreal Engine')) return "Unreal Engine é uma poderosa engine de jogo usada para criar jogos de alta qualidade. Ela utiliza a linguagem C++ e oferece gráficos impressionantes e recursos avançados!";
-if (msg.includes('como funcionam os loops em jogos')) return "Loops de jogos são usados para manter o jogo funcionando constantemente, atualizando gráficos, processando entradas e verificando as condições do jogo em tempo real!";
-if (msg.includes('o que é IA em jogos e como ela é usada')) return "A IA em jogos refere-se à inteligência artificial que controla personagens não-jogadores (NPCs), oferecendo comportamentos realistas e desafiadores durante o jogo!";
-if (msg.includes('como criar um jogo multiplayer online')) return "Para criar um jogo multiplayer online, você pode usar servidores de jogos como Photon ou implementar sockets para comunicação em tempo real entre os jogadores!";
-if (msg.includes('o que são microtransações em jogos')) return "Microtransações são compras de baixo valor dentro do jogo, geralmente usadas para adquirir itens cosméticos, personagens ou outros recursos extras!";
-if (msg.includes('o que é um jogo open-world')) return "Um jogo open-world oferece um ambiente grande e livre para o jogador explorar, sem limites de missão ou uma estrutura linear, como em 'The Legend of Zelda: Breath of the Wild'!";
-if (msg.includes('quais são os melhores jogos indie de 2024')) return "Alguns dos melhores jogos indie de 2024 incluem 'Hollow Knight: Silksong', 'The Last Campfire', e 'Tunic', com jogabilidade inovadora e histórias emocionantes!";
-if (msg.includes('o que é um speedrun em jogos')) return "Speedrun é uma prática em que jogadores tentam completar um jogo ou uma fase o mais rápido possível, muitas vezes utilizando técnicas e glitches para otimizar o tempo!";
-if (msg.includes('qual a diferença entre jogos AAA e jogos indie')) return "Jogos AAA têm orçamentos elevados e produção em grande escala, enquanto jogos indie são feitos por pequenos estúdios ou desenvolvedores independentes com orçamentos mais modestos!";
-if (msg.includes('como criar um sistema de física em um jogo')) return "Para criar um sistema de física em um jogo, você pode usar motores de física como Box2D ou Unity’s built-in physics engine para simular movimentos e colisões realistas!";
-if (msg.includes('o que são gráficos 2D e como criar um jogo com eles')) return "Gráficos 2D são imagens planas que representam personagens, objetos e cenários. Você pode usar bibliotecas como Phaser ou libGDX para criar jogos 2D interativos!";
-if (msg.includes('o que é uma engine de física em jogos')) return "Uma engine de física é um sistema que simula as leis da física em um jogo, permitindo movimentos realistas de objetos, colisões e gravidade!";
-if (msg.includes('o que é a programação de jogos e como começar')) return "Programação de jogos envolve escrever o código para definir a mecânica, a lógica e a interação dentro do jogo. Comece com um motor de jogo como Unity ou Godot!";
-if (msg.includes('quais são as linguagens de programação mais usadas para jogos')) return "As linguagens mais comuns para desenvolvimento de jogos incluem C++, C#, Python e JavaScript, dependendo do motor de jogo escolhido!";
-if (msg.includes('como implementar som em um jogo')) return "Você pode implementar som em um jogo usando bibliotecas de áudio como FMOD ou Unity’s built-in audio system para adicionar efeitos sonoros e música!";
-if (msg.includes('o que são shaders e como são usados em jogos')) return "Shaders são programas que controlam a renderização de gráficos em jogos, permitindo criar efeitos especiais como luz, sombra e texturas!";
-if (msg.includes('o que é a inteligência artificial de inimigos em jogos')) return "A IA de inimigos usa algoritmos para definir como os NPCs reagem às ações do jogador, tornando o jogo mais desafiador e realista!";
-if (msg.includes('como criar um jogo de plataforma')) return "Para criar um jogo de plataforma, você pode usar motores como Unity ou Godot, programando a física de movimento, saltos e interação com obstáculos!";
-if (msg.includes('o que é um jogo de narrativa interativa')) return "Jogos de narrativa interativa se concentram em contar histórias, onde as escolhas do jogador afetam o rumo da trama, como em 'The Walking Dead'!";
-if (msg.includes('o que são jogos casuais e exemplos deles')) return "Jogos casuais são simples, fáceis de aprender e jogar em sessões curtas, como 'Candy Crush', 'Angry Birds' e 'Clash Royale'!";
-if (msg.includes('como programar um jogo em VR')) return "Para programar jogos em realidade virtual (VR), você pode usar plataformas como Unity ou Unreal Engine com suporte a VR, como Oculus ou HTC Vive!";
-if (msg.includes('o que é o conceito de "game design"')) return "Game design é o processo de criar a estrutura, mecânicas e narrativa de um jogo. Ele envolve decidir como o jogo será jogado e quais experiências deseja proporcionar!";
-if (msg.includes('o que são servidores de jogos dedicados')) return "Servidores dedicados são máquinas dedicadas exclusivamente para hospedar jogos multiplayer, proporcionando uma experiência online mais estável e sem interrupções!";
-if (msg.includes('quais são as tendências em design de jogos para 2025')) return "As tendências incluem a realidade aumentada, narrativas imersivas, jogos como serviço (GaaS) e integração de NFTs e blockchain em jogos!";
-if (msg.includes('como criar uma IA de companheiro em um jogo')) return "Uma IA de companheiro pode ser criada programando comportamentos em resposta ao jogador, como atacar inimigos ou fornecer suporte em momentos críticos!";
-// Perguntas frequentes sobre saudações e interatividade geral
-
-if (msg.includes('olá')) return "Oi! Como posso ajudar você hoje?";
-if (msg.includes('oi')) return "Olá! Como você está?";
-if (msg.includes('bom dia')) return "Bom dia! Como posso te ajudar?";
-if (msg.includes('boa tarde')) return "Boa tarde! O que você precisa?";
-if (msg.includes('boa noite')) return "Boa noite! Como posso ser útil?";
-if (msg.includes('tudo bem')) return "Tudo ótimo, e você? Como posso te ajudar?";
-if (msg.includes('tudo certo')) return "Tudo certo por aqui! Como posso te ajudar hoje?";
-if (msg.includes('como você está')) return "Estou ótimo, obrigado por perguntar! E você, como está?";
-if (msg.includes('qual seu nome')) return "Eu sou um assistente virtual! Em que posso te ajudar?";
-if (msg.includes('qual é a sua função')) return "Minha função é ajudar você com o que precisar, seja em programação, jogos ou apenas para bater um papo!";
-if (msg.includes('como posso ajudar')) return "Eu posso te ajudar com várias coisas! Basta me dizer o que você precisa.";
-if (msg.includes('você pode me ajudar')) return "Claro! Como posso te ajudar?";
-if (msg.includes('qual é a sua especialidade')) return "Minha especialidade é ajudar com dúvidas e fornecer informações em várias áreas, como programação, jogos, e muito mais!";
-if (msg.includes('o que você faz')) return "Eu sou um assistente virtual criado para responder suas perguntas e te ajudar com suas necessidades!";
-if (msg.includes('qual é o seu objetivo')) return "Meu objetivo é tornar suas tarefas mais fáceis, ajudando com informações e soluções rápidas!";
-if (msg.includes('qual é a sua tarefa')) return "Minha tarefa é fornecer respostas úteis, esclarecer dúvidas e ajudar da melhor maneira possível!";
-if (msg.includes('o que você sabe fazer')) return "Eu sei responder perguntas, fornecer ajuda em programação, jogos, e até mesmo dar conselhos sobre vários assuntos!";
-if (msg.includes('quais são as suas capacidades')) return "Eu posso fornecer informações sobre muitos temas, ajudar a solucionar problemas de programação, sugerir recursos e até bater papo!";
-if (msg.includes('me ajuda a entender isso')) return "Claro! Me diga o que você está tentando entender, e eu vou te ajudar a clarear as ideias!";
-if (msg.includes('como posso fazer isso')) return "Me explique um pouco mais sobre o que você precisa, e eu vou te mostrar o caminho!";
-if (msg.includes('você pode me ensinar')) return "Com certeza! O que você gostaria de aprender?";
-if (msg.includes('pode me dar uma dica')) return "Claro! Me diga sobre o que você precisa de uma dica, e eu te ajudarei com o melhor conselho!";
-if (msg.includes('quais são as novidades')) return "Temos sempre novidades por aqui! Como posso te informar sobre as últimas tendências?";
-if (msg.includes('o que há de novo')) return "As novidades estão sempre rolando! O que você gostaria de saber mais?";
-if (msg.includes('qual a última novidade')) return "Temos várias novidades! Me diga o que te interessa, e eu vou te contar as últimas atualizações!";
-if (msg.includes('o que está acontecendo')) return "Estamos sempre atualizando com novas informações! O que você gostaria de saber?";
-if (msg.includes('quais são os tópicos mais recentes')) return "Você pode ficar atualizado sobre diversos tópicos! Tem algo específico em mente?";
-if (msg.includes('o que está por vir')) return "Há muitas novidades chegando! Me conte o que mais te interessa, e eu te mantenho informado!";
-if (msg.includes('como está o clima hoje')) return "Gostaria de saber sobre o clima? Posso te ajudar com isso se me disser sua localização!";
-if (msg.includes('o que está acontecendo no mundo')) return "Há sempre algo interessante acontecendo! Me diga sobre o que você gostaria de saber mais!";
-if (msg.includes('quais são as últimas notícias')) return "Posso te ajudar a encontrar as últimas notícias de vários temas! Qual você prefere acompanhar?";
-if (msg.includes('como posso me manter atualizado')) return "Você pode se manter atualizado com notícias e informações sobre qualquer área! Qual você prefere?";
-if (msg.includes('me fale sobre as últimas tendências')) return "Quer saber mais sobre as últimas tendências? Me diga qual área te interessa, e eu trago as novidades!";
-if (msg.includes('você pode recomendar algo interessante')) return "Claro! Me conte o que você está procurando, e eu recomendarei algo incrível!";
-if (msg.includes('quais são os destaques do dia')) return "Eu posso te informar sobre os destaques do dia em várias áreas! O que você gostaria de saber?";
-if (msg.includes('tem algo interessante acontecendo')) return "Sempre tem algo interessante! Me diga do que você mais gosta, e eu te conto!";
-if (msg.includes('você pode me ajudar a encontrar algo')) return "Com certeza! Me explique o que você está procurando, e eu farei o possível para te ajudar!";
-if (msg.includes('qual é a sua recomendação')) return "Minha recomendação é que você me diga um tema de seu interesse, e eu te ajudo com o melhor conteúdo!";
-if (msg.includes('o que você recomenda fazer agora')) return "Eu recomendo que você explore os tópicos que mais te interessam! Qual área você quer saber mais?";
-if (msg.includes('qual é o melhor conteúdo que você tem')) return "Eu tenho conteúdo de qualidade sobre vários temas! Me diga o que você está buscando, e vou te ajudar!";
-if (msg.includes('onde posso encontrar mais informações sobre isso')) return "Eu posso te ajudar a encontrar links e fontes confiáveis! Qual é o tema em que você precisa de mais informações?";
-if (msg.includes('como posso aprender mais sobre isso')) return "Você pode aprender mais sobre qualquer tópico! Basta me falar sobre o que você quer saber, e eu te ajudarei!";
-if (msg.includes('tem mais dicas sobre isso')) return "Com certeza! Eu posso te dar mais dicas, só me diga qual área você quer explorar mais!";
-if (msg.includes('qual é o seu conselho')) return "Meu conselho é que você continue buscando conhecimento! Eu estou aqui para te ajudar sempre que precisar!";
-if (msg.includes('como posso melhorar em isso')) return "Eu posso te dar dicas personalizadas! Me fale o que você gostaria de melhorar, e eu ajudo com os melhores caminhos!";
-if (msg.includes('o que posso fazer para me desenvolver nisso')) return "Existem muitas formas de desenvolvimento! Me diga a área que você quer melhorar, e eu te darei ótimas opções!";
-if (msg.includes('você tem alguma sugestão para mim')) return "Tenho várias sugestões! Me diga um pouco sobre o que você está buscando, e vou te ajudar com ótimas opções!";
-if (msg.includes('como posso avançar nisso')) return "Eu posso te ajudar a planejar seu próximo passo! Me fale o que você está buscando, e eu vou te guiar!";
-if (msg.includes('quais são os próximos passos para aprender isso')) return "Os próximos passos dependem do que você está aprendendo. Me fale um pouco mais sobre o seu objetivo, e vou te ajudar a avançar!";
-if (msg.includes('você pode me orientar em algo')) return "Eu adoraria te orientar! Me diga o que você está tentando alcançar, e eu vou te ajudar a chegar lá!";
-if (msg.includes('o que você sugere aprender primeiro')) return "Depende do que você quer aprender! Me diga seu foco, e eu te sugiro a melhor abordagem para começar!";
-if (msg.includes('tem algum recurso para isso')) return "Sim, tenho vários recursos que posso te recomendar! Diga sobre o que você precisa, e vou te indicar as melhores opções!";
-if (msg.includes('qual é a melhor forma de aprender isso')) return "A melhor forma de aprender depende do seu estilo! Me conte mais sobre como você aprende, e eu te ajudo a encontrar o melhor método!";
-if (msg.includes('qual a melhor maneira de praticar isso')) return "A prática é fundamental! Me fale mais sobre o que você está tentando aprender, e vou te sugerir boas formas de praticar!";
-if (msg.includes('qual é o maior desafio em aprender isso')) return "O maior desafio pode ser a persistência! Se você continuar praticando e se dedicando, vai alcançar seu objetivo!";
-if (msg.includes('como posso fazer mais progresso em isso')) return "Continue praticando! Eu posso te ajudar a identificar maneiras de fazer progresso mais rapidamente, só me diga mais sobre sua jornada!";
-// Perguntas frequentes interativas com machine learning para respostas mais responsivas
-
-if (msg.includes('ajuda')) return "Claro! Como posso te ajudar? Qual é a sua dúvida?";
-if (msg.includes('erro')) return "Parece que algo deu errado. Você pode me dar mais detalhes sobre o erro?";
-if (msg.includes('problema')) return "Estou aqui para ajudar! Qual problema você está enfrentando?";
-if (msg.includes('dúvida')) return "Me diga qual a dúvida que você tem, e eu farei o meu melhor para esclarecê-la!";
-if (msg.includes('solução')) return "Vamos encontrar uma solução juntos! Qual é o seu desafio?";
-if (msg.includes('falha')) return "Algo não está funcionando como esperado? Me fale mais sobre isso para que eu possa ajudar!";
-if (msg.includes('suporte')) return "Precisa de suporte? Diga-me qual área você precisa de ajuda, e vou te guiar!";
-if (msg.includes('como posso melhorar')) return "Existem várias formas de melhorar! Fale mais sobre o que você quer aprimorar, e eu te darei sugestões!";
-if (msg.includes('qual é o melhor jeito')) return "O melhor jeito vai depender de alguns fatores. Me conte mais, e eu vou te ajudar a escolher o melhor caminho!";
-if (msg.includes('qual a solução mais eficiente')) return "A solução mais eficiente depende da sua situação! Me explique um pouco mais sobre o contexto, e eu sugiro a melhor abordagem.";
-if (msg.includes('o que fazer agora')) return "O que você está tentando realizar agora? Me fale mais sobre o que você precisa, e eu posso sugerir a melhor ação!";
-if (msg.includes('qual é o primeiro passo')) return "O primeiro passo depende do seu objetivo! Me diga o que você está tentando alcançar, e eu te guiarei!";
-if (msg.includes('você tem alguma recomendação')) return "Sim, tenho várias recomendações! Me diga um pouco sobre o que você busca, e eu vou te sugerir o melhor caminho!";
-if (msg.includes('como posso começar')) return "Para começar, me fale mais sobre o que você quer fazer, e eu vou te ajudar a planejar os primeiros passos!";
-if (msg.includes('onde posso encontrar mais informações')) return "Posso te ajudar a encontrar informações! Me fale mais sobre o que você está procurando, e eu buscarei as melhores fontes para você.";
-if (msg.includes('qual é a melhor abordagem')) return "A melhor abordagem depende do seu objetivo! Me diga mais, e eu sugiro a mais adequada!";
-if (msg.includes('como posso avançar')) return "Avançar é um processo contínuo! Me fale mais sobre o que você quer alcançar, e vou te ajudar a planejar o próximo passo.";
-if (msg.includes('como posso me adaptar')) return "A adaptação é fundamental! Fale mais sobre o que você está tentando ajustar, e eu vou te ajudar a encontrar a melhor forma de se adaptar!";
-if (msg.includes('como posso melhorar a performance')) return "Para melhorar a performance, é importante focar em certos aspectos. Me fale o que você deseja melhorar, e eu te dou algumas dicas!";
-if (msg.includes('dicas para melhorar')) return "Eu tenho algumas dicas! Fale mais sobre o que você está tentando melhorar, e eu vou te ajudar com ótimos conselhos!";
-if (msg.includes('qual é a maneira mais rápida')) return "A forma mais rápida pode variar! Me diga qual é seu objetivo, e eu vou te dar a maneira mais eficaz para alcançá-lo!";
-if (msg.includes('existe uma maneira melhor de fazer isso')) return "Com certeza! Me explique o que você está fazendo, e eu vou sugerir uma forma mais eficiente e inteligente de fazer.";
-if (msg.includes('qual é o próximo passo')) return "O próximo passo depende de onde você está agora. Me fale mais sobre sua situação, e eu te guiarei!";
-if (msg.includes('como posso ajustar isso')) return "Ajustar é um processo simples! Me fale mais sobre o que você quer ajustar, e eu te dou as melhores sugestões.";
-if (msg.includes('como posso otimizar isso')) return "Otimizar é fundamental para melhorar os resultados! Me fale mais sobre o que você está tentando otimizar, e eu vou sugerir as melhores técnicas.";
-if (msg.includes('o que posso fazer para melhorar isso')) return "Para melhorar, é importante focar nos pontos chave! Me fale mais sobre o que você quer melhorar, e eu te guio no processo.";
-if (msg.includes('quais são as melhores práticas')) return "As melhores práticas dependem da área em que você está trabalhando. Me fale mais sobre sua situação, e eu te dou as melhores sugestões!";
-if (msg.includes('como posso simplificar isso')) return "Simplificar é um ótimo caminho! Me explique mais sobre o que você está tentando simplificar, e eu te ajudo com soluções práticas.";
-if (msg.includes('quais são os erros comuns')) return "Erros comuns variam com o tipo de tarefa. Me diga o que você está tentando fazer, e eu te aviso sobre os erros mais comuns!";
-if (msg.includes('como posso evitar erros')) return "Evitar erros é essencial para o sucesso! Fale sobre o que você está fazendo, e eu te dou as melhores dicas para evitar falhas.";
-if (msg.includes('qual é a melhor maneira de aprender isso')) return "A melhor forma de aprender depende do seu estilo. Me conte como você aprende melhor, e eu vou te ajudar com um plano adequado!";
-if (msg.includes('qual a forma mais eficiente de aprender')) return "A forma mais eficiente varia de pessoa para pessoa. Me fale mais sobre o que você está aprendendo, e eu te dou a melhor abordagem!";
-if (msg.includes('quais são as dicas de aprendizado rápido')) return "Aprender rápido envolve algumas estratégias. Me conte sobre o que você está aprendendo, e eu te dou as dicas mais eficazes!";
-if (msg.includes('como posso manter o foco')) return "Manter o foco é essencial! Me conte o que você está tentando fazer, e eu te sugiro técnicas para ajudar a manter o foco.";
-if (msg.includes('como posso melhorar minha produtividade')) return "A produtividade é algo que pode ser aprimorado! Me fale sobre suas atividades, e eu te dou dicas para aumentar a eficiência.";
-if (msg.includes('como posso organizar melhor meu tempo')) return "Organizar o tempo é crucial para ser produtivo! Me diga o que você está fazendo, e eu vou te sugerir maneiras de organizar melhor seu tempo.";
-if (msg.includes('qual é o segredo para ser mais produtivo')) return "O segredo da produtividade está em gerenciar bem as tarefas. Fale mais sobre o que você está fazendo, e eu te dou um plano eficiente!";
-if (msg.includes('quais são os melhores recursos para aprender isso')) return "Existem ótimos recursos! Me diga o que você está aprendendo, e eu te mostro os melhores materiais e fontes!";
-if (msg.includes('onde posso encontrar mais materiais sobre isso')) return "Eu posso te ajudar a encontrar os melhores materiais! Me fale sobre o que você está aprendendo, e eu busco as melhores fontes!";
-if (msg.includes('como posso estudar melhor')) return "Estudar melhor envolve técnicas de foco e organização. Me fale mais sobre seu método de estudo, e eu te dou algumas dicas!";
-if (msg.includes('como posso me concentrar mais')) return "A concentração é chave! Eu posso te ajudar com algumas técnicas. Me fale mais sobre a situação, e eu sugiro as melhores formas!";
-if (msg.includes('quais são as melhores ferramentas para isso')) return "As ferramentas certas fazem toda a diferença! Me diga o que você está fazendo, e eu te indico as melhores opções!";
-if (msg.includes('qual o melhor aplicativo para aprender isso')) return "Há muitos aplicativos ótimos! Me fale mais sobre o que você está aprendendo, e eu te recomendo o melhor app!";
-if (msg.includes('como posso automatizar isso')) return "Automatizar é uma ótima ideia! Me diga o que você quer automatizar, e eu te dou as melhores soluções para isso.";
-if (msg.includes('como posso melhorar minha eficiência')) return "Melhorar a eficiência envolve técnicas de organização e foco. Me fale mais sobre o que você está fazendo, e eu te dou as melhores sugestões!";
-if (msg.includes('como posso melhorar minha produtividade')) return "Melhorar a produtividade envolve organização e disciplina. Me fale sobre sua rotina, e eu te dou dicas práticas!";
-if (msg.includes('qual é a melhor maneira de se organizar')) return "A organização ideal depende do seu estilo. Você prefere listas, calendários ou aplicativos? Me fale mais, e eu te ajudo a escolher!";
-if (msg.includes('como posso manter a motivação')) return "A motivação vem de metas claras e pequenas conquistas diárias. Me fale sobre seus objetivos, e eu te ajudo a manter o foco!";
-if (msg.includes('como posso lidar com o estresse')) return "O estresse pode ser aliviado com técnicas de respiração, pausas estratégicas e exercícios. Me fale sobre sua rotina, e eu te dou dicas específicas!";
-if (msg.includes('quais são os melhores hábitos para o sucesso')) return "Bons hábitos incluem leitura diária, planejamento e prática constante. Me fale sobre sua área de interesse, e eu te sugiro hábitos úteis!";
-if (msg.includes('como posso melhorar minha comunicação')) return "A comunicação melhora com prática e clareza. Você quer melhorar em escrita, fala ou em apresentações? Me fale mais, e eu te ajudo!";
-if (msg.includes('o que fazer quando me sinto sem energia')) return "A falta de energia pode estar ligada à alimentação, sono ou rotina. Me fale sobre seu dia a dia, e eu te sugiro formas de recuperar a energia!";
-if (msg.includes('como posso criar uma rotina eficiente')) return "Uma rotina eficiente precisa de equilíbrio entre trabalho, descanso e lazer. Me fale sobre sua rotina atual, e eu te ajudo a otimizar!";
-if (msg.includes('como posso evitar procrastinação')) return "Evitar a procrastinação envolve definir metas pequenas e recompensas. Me fale sobre o que você está adiando, e eu te ajudo a dar o primeiro passo!";
-if (msg.includes('qual é a melhor forma de aprender algo novo')) return "Aprender algo novo exige prática e curiosidade. Me fale sobre o que você quer aprender, e eu te mostro um método eficiente!";
-if (msg.includes('como posso melhorar minha criatividade')) return "A criatividade floresce com novas experiências e desafios. Me fale sobre sua área de interesse, e eu te dou ideias para estimular sua criatividade!";
-if (msg.includes('como lidar com a falta de foco')) return "A falta de foco pode ser causada por distrações ou cansaço. Me fale mais sobre seu ambiente de trabalho, e eu te dou dicas para melhorar a concentração!";
-if (msg.includes('qual é a melhor forma de resolver problemas')) return "Resolver problemas exige análise e pensamento crítico. Me fale sobre a situação, e eu te ajudo a encontrar a melhor abordagem!";
-if (msg.includes('como posso tomar melhores decisões')) return "Boas decisões vêm de boas informações. Me fale sobre sua situação, e eu te ajudo a avaliar as opções!";
-if (msg.includes('como posso aprender a gerenciar melhor meu tempo')) return "Gerenciar o tempo envolve prioridades e planejamento. Me fale sobre sua rotina, e eu te dou um método eficiente para administrar seu tempo!";
-if (msg.includes('como posso melhorar minha saúde')) return "Manter uma alimentação equilibrada, fazer exercícios regulares e descansar bem são essenciais para melhorar sua saúde!";
-if (msg.includes('como posso ser mais feliz')) return "A felicidade começa com gratidão e a valorização das pequenas coisas. Tente focar nas coisas boas da sua vida!";
-if (msg.includes('qual é o segredo do sucesso')) return "O sucesso vem com consistência, paciência e aprendizado contínuo. Não desista, mesmo quando as coisas parecerem difíceis!";
-if (msg.includes('como posso aumentar minha confiança')) return "A confiança vem de acreditar em si mesmo e em suas habilidades. A prática constante ajuda a aumentar a autoconfiança!";
-if (msg.includes('como ser mais organizado')) return "A organização começa com um plano. Tente dividir suas tarefas em pequenas metas e use ferramentas como listas ou apps de produtividade!";
-if (msg.includes('como posso melhorar minha memória')) return "Exercitar o cérebro com leitura, jogos e técnicas de memorização pode ajudar a melhorar a memória!";
-if (msg.includes('como posso reduzir a ansiedade')) return "Técnicas de respiração profunda, meditação e exercícios físicos são ótimos para reduzir a ansiedade!";
-if (msg.includes('como posso aprender um novo idioma mais rápido')) return "Pratique todos os dias, imerja-se na língua e use aplicativos de idiomas. Falar com nativos também é uma ótima maneira!";
-if (msg.includes('quais são os melhores livros de desenvolvimento pessoal')) return "Alguns bons livros são 'O Poder do Hábito' de Charles Duhigg, 'Como Fazer Amigos e Influenciar Pessoas' de Dale Carnegie, e 'A Arte da Guerra' de Sun Tzu!";
-if (msg.includes('como melhorar minhas habilidades de liderança')) return "A liderança vem com prática e empatia. Tente ouvir os outros, seja um exemplo e busque sempre aprender com suas experiências!";
-if (msg.includes('quais são as melhores formas de economizar dinheiro')) return "Fazer um orçamento mensal, reduzir despesas desnecessárias e investir de forma inteligente são maneiras eficazes de economizar!";
-if (msg.includes('como posso desenvolver mais empatia')) return "Ouvir com atenção, tentar entender os sentimentos dos outros e praticar a compaixão são ótimas maneiras de desenvolver empatia!";
-if (msg.includes('como posso ser mais produtivo')) return "A produtividade vem de um bom planejamento e a eliminação de distrações. Use técnicas como a Pomodoro e defina metas claras!";
-if (msg.includes('como posso melhorar meu desempenho no trabalho')) return "Foque em aprimorar suas habilidades, seja proativo, busque feedback e mantenha uma atitude positiva no trabalho!";
-if (msg.includes('qual é o melhor conselho para quem está começando no mercado de trabalho')) return "Seja perseverante, busque aprender continuamente e construa uma rede de contatos. Não tenha medo de cometer erros!";
-if (msg.includes('como posso ser mais criativo')) return "A criatividade pode ser estimulada com novas experiências, descanso e explorando diferentes perspectivas sobre os problemas!";
-if (msg.includes('qual é a melhor maneira de lidar com críticas')) return "Receber críticas construtivas com mente aberta, aprendendo com elas, é a melhor forma de usá-las ao seu favor!";
-if (msg.includes('como posso desenvolver minhas habilidades de comunicação')) return "Pratique escuta ativa, fale com clareza e seja objetivo. Participar de conversas e apresentações ajuda a melhorar essas habilidades!";
-if (msg.includes('quais são as melhores dicas para estudar para provas')) return "Organize um cronograma de estudos, revise regularmente, faça exercícios práticos e descanse antes da prova!";
-if (msg.includes('como posso manter uma boa alimentação')) return "Coma de forma balanceada, evite alimentos processados e prefira alimentos frescos e naturais. A hidratação também é fundamental!";
-if (msg.includes('como melhorar minhas finanças pessoais')) return "Faça um planejamento financeiro, elimine dívidas, crie uma reserva de emergência e busque investir seu dinheiro!";
-if (msg.includes('como posso melhorar minha autoestima')) return "Aceitar suas qualidades e limitações, praticar o autocuidado e rodear-se de pessoas positivas são maneiras eficazes de melhorar a autoestima!";
-if (msg.includes('qual é a melhor maneira de relaxar')) return "Praticar meditação, fazer uma caminhada ao ar livre, ler um bom livro ou ouvir música são ótimas formas de relaxar!";
-if (msg.includes('como posso melhorar meu trabalho em equipe')) return "Ouvir os outros, ser flexível e apoiar os colegas são fundamentais para trabalhar bem em equipe!";
-if (msg.includes('como posso aprender a gerenciar melhor o estresse')) return "Exercícios físicos, meditação e boas noites de sono são fundamentais para gerenciar o estresse de forma eficaz!";
-if (msg.includes('quais são as melhores estratégias de marketing digital')) return "Investir em conteúdo de qualidade, usar as redes sociais de forma estratégica e analisar métricas são boas estratégias de marketing digital!";
-if (msg.includes('como posso ser mais resiliente')) return "Resiliência vem com a prática de lidar com desafios, aprender com as falhas e manter uma atitude positiva em tempos difíceis!";
-if (msg.includes('como posso melhorar minha habilidade de negociação')) return "Ouça ativamente, seja paciente, foque em soluções ganha-ganha e pratique suas habilidades de negociação!";
-if (msg.includes('quais são as melhores dicas para ter sucesso nos estudos')) return "Estude regularmente, defina metas claras e mantenha um equilíbrio entre estudos e descanso para ter sucesso!";
-if (msg.includes('como posso começar a investir dinheiro')) return "Estude sobre investimentos, comece com opções mais seguras e invista com disciplina. Não se esqueça de diversificar!";
-if (msg.includes('quais são os melhores hábitos para ter uma vida equilibrada')) return "Alimente-se bem, pratique exercícios, tenha momentos de lazer e mantenha boas relações sociais. A vida equilibrada exige atenção em várias áreas!";
-if (msg.includes('como posso aumentar minha inteligência emocional')) return "Para aumentar a inteligência emocional, é importante reconhecer suas emoções, praticar empatia e aprender a lidar com os sentimentos!";
-if (msg.includes('quais são as melhores dicas para aprender a programar')) return "Pratique regularmente, estude a fundo as linguagens e construa projetos práticos para solidificar o conhecimento!";
-if (msg.includes('como posso melhorar minha capacidade de tomada de decisão')) return "Reflita sobre as opções, considere os prós e contras, e confie na sua intuição ao tomar decisões importantes!";
-if (msg.includes('como posso aprender a ser mais disciplinado')) return "Estabeleça metas claras, crie uma rotina e premie-se por seguir suas metas. A disciplina é uma habilidade que se desenvolve com prática!";
-if (msg.includes('quais são as melhores técnicas de aprendizagem acelerada')) return "Técnicas como a repetição espaçada, o uso de mnemônicas e o ensino de outros ajudam a acelerar o aprendizado!";
-if (msg.includes('como posso melhorar minhas habilidades de escrita')) return "Leia bastante, escreva regularmente e busque feedback para melhorar suas habilidades de escrita!";
-if (msg.includes('quais são os melhores métodos para aprender matemática')) return "Pratique resolvendo problemas, entenda os conceitos antes de memorizar e busque sempre mais desafios!";
-if (msg.includes('como posso melhorar minhas habilidades de resolução de problemas')) return "Para resolver problemas, é importante dividir a questão em partes menores, analisar soluções e testar alternativas!";
-if (msg.includes('como posso melhorar minha gestão de tempo')) return "Use ferramentas como calendários e listas, defina prazos e elimine distrações para gerenciar melhor seu tempo!";
-if (msg.includes('qual é o segredo para alcançar meus objetivos')) return "O segredo é persistir, mesmo diante das dificuldades, e ajustar sua estratégia sempre que necessário!";
-if (msg.includes('como posso ser mais autoconfiante')) return "Pratique o autoelogio, foque em suas conquistas e desafie-se a sair da zona de conforto!";
-if (msg.includes('como melhorar minha capacidade de concentração')) return "Reduza as distrações, estabeleça metas claras e faça pausas regulares para melhorar sua concentração!";
-if (msg.includes('quais são as melhores formas de alcançar o equilíbrio emocional')) return "Pratique mindfulness, busque apoio emocional e aprenda a lidar com as emoções de forma construtiva!";
-if (msg.includes('como posso lidar melhor com a frustração')) return "A frustração pode ser controlada com respiração profunda, uma pausa e reavaliando a situação com calma!";
-if (msg.includes('qual é a melhor maneira de lidar com o fracasso')) return "Veja o fracasso como uma oportunidade de aprender, ajuste suas estratégias e siga em frente com mais sabedoria!";
-if (msg.includes('como posso melhorar minha percepção crítica')) return "Pratique questionar suas suposições, leia diferentes pontos de vista e analise todas as possibilidades antes de tomar uma decisão!";
-if (msg.includes('como posso melhorar meu equilíbrio entre vida pessoal e profissional')) return "Estabeleça limites claros, aproveite o tempo de lazer e planeje suas atividades para equilibrar trabalho e vida pessoal!";
-if (msg.includes('como posso aprender a ser mais empático')) return "Coloque-se no lugar dos outros, ouça com atenção e seja paciente para entender as necessidades e sentimentos alheios!";
-if (msg.includes('como posso ser mais criativo no meu trabalho')) return "Tente ver as coisas de uma perspectiva diferente, busque inspiração fora do seu campo e experimente novas ideias!";
-if (msg.includes('qual é a melhor maneira de lidar com conflitos no trabalho')) return "Escute ambas as partes, procure por soluções que beneficiem todos e mantenha a calma durante a discussão!";
-if (msg.includes('como melhorar minha habilidade de pensamento crítico')) return "Pratique questionar e analisar informações antes de tomar decisões, e sempre procure mais evidências para apoiar suas ideias!";
-if (msg.includes('como posso me manter motivado a longo prazo')) return "Manter a motivação é sobre focar em pequenos objetivos diários e celebrar as vitórias. Encontre seu 'porquê' e mantenha-o em mente!";
-if (msg.includes('quais são os melhores hábitos para o sucesso a longo prazo')) return "O sucesso a longo prazo vem com consistência, adaptabilidade e aprendizado contínuo. Tente ser disciplinado e mantenha-se alinhado aos seus objetivos!";
-if (msg.includes('como posso lidar com a procrastinação de maneira eficaz')) return "Quebre grandes tarefas em partes menores, estabeleça prazos e recompense-se por concluir etapas. Isso ajuda a combater a procrastinação!";
-if (msg.includes('como posso equilibrar trabalho, estudos e vida pessoal')) return "O segredo é uma boa organização. Priorize suas tarefas, use calendários para gerenciar seu tempo e lembre-se de reservar momentos para si mesmo!";
-if (msg.includes('como posso evitar o estresse no trabalho')) return "Estabeleça limites claros, organize suas tarefas e faça pausas. A gestão do tempo e do ambiente de trabalho pode diminuir o estresse!";
-if (msg.includes('quais são as melhores maneiras de aprimorar minha inteligência emocional')) return "Pratique a autopercepção, saiba controlar suas emoções e aprenda a lidar com os sentimentos dos outros. Isso ajuda a melhorar sua inteligência emocional!";
-if (msg.includes('como posso ter mais foco no trabalho e nos estudos')) return "Crie um ambiente livre de distrações, estabeleça metas claras e use técnicas como Pomodoro para melhorar o foco durante o trabalho ou estudos!";
-if (msg.includes('qual é a melhor forma de lidar com a frustração em projetos importantes')) return "Reflita sobre o que deu errado, reavalie o plano e busque soluções criativas. A frustração é uma oportunidade de aprender e melhorar!";
-if (msg.includes('como posso melhorar minha comunicação interpessoal no trabalho')) return "Ouça atentamente, evite interrupções e se expresse com clareza. A comunicação eficaz no trabalho é essencial para boas relações!";
-if (msg.includes('quais são as estratégias para melhorar a produtividade no home office')) return "Crie um ambiente de trabalho separado, defina um horário fixo para trabalhar e estabeleça metas diárias para aumentar a produtividade em home office!";
-if (msg.includes('como posso aprender a ser mais organizado com o tempo')) return "Use uma agenda ou aplicativos de produtividade, organize suas tarefas por prioridade e revise seu progresso ao final do dia!";
-if (msg.includes('quais são os melhores métodos para trabalhar sob pressão')) return "Respire fundo, mantenha o foco no que precisa ser feito e divida as tarefas em etapas. Isso ajuda a reduzir a pressão em momentos desafiadores!";
-if (msg.includes('como posso aprender a delegar tarefas de forma eficaz')) return "Confie nas habilidades de sua equipe, seja claro ao comunicar as expectativas e forneça o suporte necessário para que todos cumpram suas responsabilidades!";
-if (msg.includes('como posso ser mais disciplinado com meus objetivos pessoais')) return "Defina metas claras e mensuráveis, crie uma rotina diária e acompanhe seu progresso para manter a disciplina em seus objetivos!";
-if (msg.includes('como manter um bom relacionamento com colegas de trabalho')) return "Seja empático, pratique a comunicação aberta e apoie os colegas em momentos de necessidade. Relacionamentos saudáveis são fundamentais no trabalho!";
-if (msg.includes('como posso melhorar minha capacidade de escuta ativa')) return "Preste total atenção ao que a pessoa está dizendo, faça perguntas esclarecedoras e evite interromper. A escuta ativa é chave para boas conversas!";
-if (msg.includes('como aprender a ter paciência no trabalho e nos estudos')) return "Lembre-se de que bons resultados exigem tempo. Pratique a meditação ou respiração profunda para ajudar a desenvolver a paciência!";
-if (msg.includes('como posso desenvolver mais criatividade em meus projetos')) return "Busque inspiração em diferentes fontes, seja aberto a novas ideias e não tenha medo de errar. A criatividade floresce quando você experimenta novas abordagens!";
-if (msg.includes('como posso manter minha saúde mental em dia no trabalho')) return "Tire pausas, converse com alguém de confiança e busque equilíbrio entre as tarefas. Cuidar da saúde mental é essencial para o sucesso a longo prazo!";
-if (msg.includes('como posso ser mais produtivo em um ambiente competitivo')) return "Mantenha o foco nos seus próprios objetivos, busque melhorar continuamente e aprenda com seus concorrentes para crescer ainda mais!";
-if (msg.includes('como posso aprender a ser mais positivo diante de desafios')) return "Procure o lado positivo em cada situação, veja os desafios como oportunidades de crescimento e mantenha uma atitude de perseverança!";
-if (msg.includes('como posso melhorar minha capacidade de resolução de conflitos no trabalho')) return "Fique calmo, ouça ambas as partes e procure uma solução que beneficie todos os envolvidos. A resolução de conflitos é uma habilidade essencial no trabalho!";
-if (msg.includes('quais são as melhores dicas para evitar o burnout no trabalho')) return "Estabeleça limites claros, tire férias regularmente, e sempre que possível, delegue tarefas. Manter o equilíbrio ajuda a evitar o burnout!";
-if (msg.includes('como posso aprender a ser mais proativo no trabalho')) return "Antecipe problemas e busque soluções antes que eles surjam. Mostre iniciativa e se coloque à disposição para novos desafios!";
-if (msg.includes('como posso ser mais eficiente no meu processo de aprendizagem')) return "Organize o conteúdo, revise regularmente e faça exercícios práticos para fixar melhor o aprendizado. A consistência é essencial!";
-if (msg.includes('como posso melhorar minha autoestima no ambiente de trabalho')) return "Aceite suas qualidades e conquistas, e não tenha medo de pedir feedback construtivo. A autoestima aumenta com autoconhecimento e confiança!";
-if (msg.includes('quais são as melhores maneiras de aprender com os erros no trabalho')) return "Reflita sobre o que deu errado, busque melhorar a abordagem e use os erros como aprendizado para evitar repeti-los no futuro!";
-if (msg.includes('como posso lidar com mudanças repentinas no trabalho')) return "Adapte-se rapidamente, mantenha uma atitude positiva e esteja sempre disposto a aprender novas abordagens para lidar com a mudança!";
-if (msg.includes('como posso melhorar minha habilidade de tomar decisões rápidas e eficazes')) return "Pratique a análise rápida de dados, confie em sua intuição e tome decisões com base em informações confiáveis para ser mais eficaz!";
-if (msg.includes('como posso melhorar minha resistência ao estresse no trabalho')) return "Pratique atividades relaxantes fora do expediente, mantenha uma boa alimentação e busque apoio quando necessário para lidar melhor com o estresse!";
-if (msg.includes('como posso manter um bom equilíbrio emocional em tempos de crise')) return "Mantenha a calma, procure apoio de amigos ou familiares e foque no que está ao seu alcance. O equilíbrio emocional vem da adaptabilidade!";
-if (msg.includes('quais são as melhores estratégias para melhorar minha carreira profissional')) return "Invista em autodesenvolvimento, crie uma rede de contatos sólida e busque sempre aprender novas habilidades para avançar em sua carreira!";
-if (msg.includes('como posso melhorar minha capacidade de multitarefa')) return "Pratique dividir suas tarefas de forma eficaz, use ferramentas de organização e priorize as tarefas mais importantes para não sobrecarregar a mente!";
-if (msg.includes('como posso aumentar a minha capacidade de adaptação no trabalho')) return "Mantenha uma mentalidade flexível, esteja aberto a novas ideias e busque aprender com diferentes situações para se adaptar rapidamente!";
-if (msg.includes('como posso ser mais assertivo em reuniões de trabalho')) return "Fale com clareza, expresse suas ideias de forma concisa e não tenha medo de dar sua opinião. A assertividade vem com a prática!";
-if (msg.includes('como posso aprender a ser mais flexível em situações difíceis')) return "Aprenda a ver diferentes perspectivas, seja paciente e esteja disposto a ajustar seus planos quando necessário para encontrar a melhor solução!";
-if (msg.includes('como posso melhorar a minha capacidade de trabalhar em equipe')) return "Seja colaborativo, ouça os outros e compartilhe suas ideias de forma clara. O trabalho em equipe exige confiança mútua e respeito!";
-if (msg.includes('como posso melhorar minha capacidade de lidar com críticas no trabalho')) return "Veja as críticas como uma oportunidade para crescer, aceite-as com humildade e use-as para se aprimorar profissionalmente!";
-if (msg.includes('como posso desenvolver minhas habilidades em liderança de equipes')) return "Seja um exemplo, saiba delegar tarefas e motive sua equipe. A liderança eficaz envolve empatia e boas habilidades de comunicação!";
-if (msg.includes('como posso melhorar minhas habilidades de negociação no trabalho')) return "Entenda as necessidades das partes envolvidas, seja flexível e sempre busque uma solução que seja vantajosa para todos os lados!";
-if (msg.includes('quais são as melhores práticas para ter uma vida profissional bem-sucedida')) return "Seja focado, aprenda com os erros, estabeleça metas claras e busque sempre se desenvolver para alcançar o sucesso profissional!";
-if (msg.includes('como posso melhorar minha capacidade de lidar com desafios no trabalho')) return "Enfrente os desafios com uma mente aberta, busque soluções criativas e não tenha medo de pedir ajuda quando necessário!";
-if (msg.includes('como posso melhorar meu desempenho no trabalho')) return "O segredo está em se concentrar em suas forças, buscar feedback constante e praticar a melhoria contínua em suas habilidades!";
-if (msg.includes('qual é a melhor forma de aprender um novo idioma')) return "Pratique todos os dias, faça imersões, converse com nativos e use aplicativos para melhorar a fluência!";
-if (msg.includes('quais são as melhores dicas para organizar meu dia')) return "Use listas de tarefas, defina prioridades e não se esqueça de fazer pausas. A organização é a chave para um dia produtivo!";
-if (msg.includes('como posso melhorar minhas habilidades de apresentação')) return "Pratique sua fala, use recursos visuais eficazes e controle sua linguagem corporal para transmitir confiança ao se apresentar!";
-if (msg.includes('como posso me tornar mais confiável no trabalho')) return "Seja consistente, cumpra prazos e seja transparente em suas ações. A confiança é construída com pequenas atitudes no dia a dia!";
-if (msg.includes('como posso lidar com a insegurança em situações importantes')) return "Respire fundo, confie em sua preparação e foque no que você pode controlar. A confiança vem com a prática!";
-if (msg.includes('como posso ser mais eficiente no trabalho em equipe')) return "Comunique-se de forma clara, respeite os outros e compartilhe responsabilidades. O trabalho em equipe exige colaboração e confiança mútua!";
-if (msg.includes('como posso controlar a ansiedade antes de apresentações')) return "Pratique sua apresentação, respire profundamente e visualize o sucesso. A preparação é a chave para controlar a ansiedade!";
-if (msg.includes('como posso melhorar minhas habilidades de escrita')) return "Leia bastante, escreva todos os dias e peça feedback para aprimorar seus textos. A prática constante é essencial!";
-if (msg.includes('quais são as melhores formas de praticar a escuta ativa')) return "Preste total atenção, faça perguntas esclarecedoras e valide os sentimentos do outro. Isso torna a escuta mais eficaz!";
-if (msg.includes('como posso aumentar minha capacidade de tomar decisões mais rápidas')) return "Pratique tomar decisões pequenas de forma mais ágil, confie em seu instinto e avalie rapidamente as informações disponíveis!";
-if (msg.includes('como posso ser mais criativo no meu trabalho')) return "Busque novas perspectivas, divida seu tempo entre atividades criativas e práticas, e esteja sempre aberto a novas ideias!";
-if (msg.includes('como posso melhorar minha produtividade ao estudar')) return "Crie um ambiente livre de distrações, use técnicas como Pomodoro e revise o conteúdo regularmente para aumentar a retenção!";
-if (msg.includes('quais são as melhores dicas para aprender a programar mais rápido')) return "Pratique regularmente, participe de projetos open-source e estude os fundamentos. A prática constante é o segredo para a fluência em programação!";
-if (msg.includes('como posso organizar minha rotina de estudo de forma eficiente')) return "Divida o tempo de estudo por tópicos, priorize as matérias mais difíceis e faça revisões regulares para melhorar a memória!";
-if (msg.includes('como posso melhorar meu tempo de resposta durante reuniões de trabalho')) return "Prepare-se com antecedência, ouça atentamente e faça anotações. Isso ajuda a formular respostas rápidas e assertivas!";
-if (msg.includes('como posso evitar sobrecarga de tarefas no trabalho')) return "Delegue tarefas quando possível, divida grandes tarefas em etapas menores e estabeleça prazos realistas para evitar sobrecarga!";
-if (msg.includes('como posso manter o equilíbrio entre trabalho e vida pessoal')) return "Estabeleça limites claros entre trabalho e lazer, pratique o autocuidado e priorize atividades que recarreguem suas energias!";
-if (msg.includes('como posso melhorar minha concentração enquanto estudo em casa')) return "Crie um espaço dedicado ao estudo, evite distrações e use técnicas como Pomodoro para manter o foco por mais tempo!";
-if (msg.includes('como posso aprender a dizer não sem me sentir culpado')) return "Entenda que seu tempo e energia são limitados. Seja educado e explique suas razões de forma clara e respeitosa!";
-if (msg.includes('quais são as melhores práticas para aumentar minha assertividade')) return "Fale com clareza, expresse suas necessidades e não tenha medo de defender seu ponto de vista de forma respeitosa!";
-if (msg.includes('como posso lidar com críticas construtivas de forma positiva')) return "Receba as críticas com humildade, use-as como oportunidade para crescer e peça sugestões específicas de como melhorar!";
-if (msg.includes('como posso manter a motivação no trabalho a longo prazo')) return "Defina metas claras, busque constantemente novos desafios e celebre suas conquistas, por menores que sejam!";
-if (msg.includes('como posso melhorar minha comunicação escrita no trabalho')) return "Seja claro e objetivo, evite jargões e revise suas mensagens antes de enviá-las. Uma boa comunicação escrita evita mal-entendidos!";
-if (msg.includes('como posso aprender a lidar melhor com conflitos no trabalho')) return "Ouça todas as partes envolvidas, busque compreender o ponto de vista dos outros e proponha soluções que atendam às necessidades de todos!";
-if (msg.includes('como posso me tornar um bom mentor no trabalho')) return "Seja paciente, compartilhe seus conhecimentos de forma clara e ajude seu mentorado a se desenvolver de maneira gradual!";
-if (msg.includes('como posso melhorar minha inteligência emocional no trabalho')) return "Pratique a autopercepção, controle suas reações e busque entender os sentimentos dos outros para construir boas relações!";
-if (msg.includes('como posso aprender a trabalhar sob pressão de forma mais eficaz')) return "Divida o trabalho em etapas menores, mantenha a calma e foque em uma tarefa por vez para reduzir o impacto da pressão!";
-if (msg.includes('como posso melhorar minha capacidade de influenciar as pessoas')) return "Ouça atentamente, seja empático e apresente argumentos convincentes. A persuasão é baseada na confiança e no respeito!";
-if (msg.includes('como posso melhorar meu processo de tomada de decisão no trabalho')) return "Avalie as opções disponíveis, consulte colegas e baseie suas decisões em dados objetivos para ser mais assertivo!";
-if (msg.includes('como posso melhorar minha habilidade de negociação no trabalho')) return "Entenda as necessidades de ambas as partes, busque soluções criativas e sempre procure uma solução que seja ganha-ganha!";
-if (msg.includes('como posso me organizar melhor em projetos com prazos apertados')) return "Defina prioridades, divida o projeto em etapas menores e mantenha comunicação constante com a equipe para garantir que tudo seja entregue a tempo!";
-if (msg.includes('quais são as melhores práticas para aumentar minha eficiência no trabalho')) return "Use ferramentas de produtividade, elimine distrações e aprenda a delegar tarefas para aumentar sua eficiência no trabalho!";
-if (msg.includes('como posso me tornar mais flexível para mudanças no trabalho')) return "Mantenha uma mentalidade aberta, seja proativo em aprender novas habilidades e esteja disposto a se adaptar às mudanças!";
-if (msg.includes('como posso melhorar meu relacionamento com minha equipe')) return "Seja transparente, busque ouvir as opiniões de todos e celebre os sucessos em conjunto para fortalecer os laços da equipe!";
-if (msg.includes('como posso aprender a gerenciar melhor meu tempo no trabalho')) return "Use ferramentas de gestão de tempo, organize suas tarefas por prioridade e defina prazos realistas para aumentar sua produtividade!";
-if (msg.includes('como posso melhorar minha criatividade para resolver problemas no trabalho')) return "Procure diferentes perspectivas, desafie seus próprios limites e permita-se pensar fora da caixa para encontrar soluções criativas!";
-if (msg.includes('como posso lidar com o medo de falhar no trabalho')) return "Veja cada falha como uma oportunidade de aprendizado. Reflita sobre o que pode ser melhorado e use isso para crescer profissionalmente!";
-if (msg.includes('quais são as melhores estratégias para aumentar a confiança no trabalho')) return "Seja competente, mostre suas habilidades e busque feedback construtivo para sempre melhorar e aumentar sua confiança!";
-if (msg.includes('como posso melhorar minha capacidade de liderança no trabalho')) return "Inspire sua equipe, mostre empatia e esteja disposto a delegar responsabilidades. A liderança é feita por exemplo!";
-if (msg.includes('como posso aprender a ser mais proativo no trabalho')) return "Antecipe necessidades, busque soluções antes que os problemas surjam e mostre iniciativa para fazer as coisas acontecerem!";
-      
-        console.log("Comando não encontrado.");
-    }
-
-    // Método para responder ao comando
-    responderComando(comando) {
-        console.log(`Comando: ${comando}`);
-        console.log(`Resposta: ${this.comandos[comando]}`);
-    }
-}
-
-// Instancia o bot
-const bot = new Bot(comandos);
-
-// Exemplo de mensagem que contém um comando
-const msg = '!HORA'; // Aqui você pode substituir pelo comando que deseja testar
-
-// Processa a mensagem
-bot.processarMensagem(msg);
-if (msg.includes('como posso melhorar minha capacidade de resolver problemas no trabalho')) return "Identifique a causa raiz do problema, analise todas as opções e tome decisões baseadas em dados objetivos para encontrar a melhor solução!";
-if (msg.includes('como posso aumentar minha capacidade de concentração no trabalho')) return "Crie um ambiente de trabalho sem distrações, defina metas claras e use técnicas como Pomodoro para manter o foco!";
