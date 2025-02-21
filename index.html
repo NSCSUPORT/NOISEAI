@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -9,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
-      <style>
+    <style>
 body {
     background-color: #000;
     color: #fff;
@@ -34,7 +35,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    height: calc(60vh - 50px); /* Reduz a altura do chat em 20% */
+    height: calc(80vh - 50px); /* Ajusta o tamanho do chat para não invadir o footer */
     width: 100%;
     max-width: 450px;
     padding: 20px;
@@ -192,76 +193,63 @@ footer {
     </footer>
 
     <script>
-        document.getElementById('file-input').addEventListener('change', function(event) {
-            let file = event.target.files[0];
-            if (file) {
-                let reader = new FileReader();
-                reader.onload = function(e) {
-                    let data = new Uint8Array(e.target.result);
-                    let workbook = XLSX.read(data, { type: 'array' });
-                    let sheetName = workbook.SheetNames[0];
-                    let sheet = workbook.Sheets[sheetName];
-                    let jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+  document.getElementById('file-input').addEventListener('change', function(event) {
+    let file = event.target.files[0];
+    if (file) {
+        let reader = new FileReader();
+        reader.onload = function(e) {
+            let data = new Uint8Array(e.target.result);
+            let workbook = XLSX.read(data, { type: 'array' });
+            let sheetName = workbook.SheetNames[0];
+            let sheet = workbook.Sheets[sheetName];
+            let jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
 
-                    let response = "📊 Arquivo carregado com sucesso! Exibindo primeiras linhas:\n";
-                    jsonData.slice(0, 5).forEach(row => {
-                        response += JSON.stringify(row) + "\n";
-                    });
-                    appendMessage(response, 'received');
-                };
-                reader.readAsArrayBuffer(file);
-            }
-        });
+            let response = "📊 Arquivo carregado com sucesso! Exibindo primeiras linhas:\n";
+            jsonData.slice(0, 5).forEach(row => {
+                response += JSON.stringify(row) + "\n";
+            });
 
-        function sendMessage() {
-            let input = document.getElementById('chat-input');
-            let messageText = input.value.trim();
-            if (!messageText) return;
-
-            appendMessage(messageText, 'sent');
-            speakMessage(messageText);
-            input.value = '';
-
-            if (commands[messageText]) {
-                setTimeout(() => appendMessage(commands[messageText], 'received'), 500);
-            }
-        }
-
-        function appendMessage(text, type) {
-            let chatBox = document.getElementById('chat-box');
-            let message = document.createElement('div');
-            message.classList.add('message', type);
-            message.innerHTML = type === 'received' ? `<i class="fas fa-robot"></i> ${text}` : text;
-            chatBox.appendChild(message);
-            chatBox.scrollTop = chatBox.scrollHeight;
-        }
-
-        function speakMessage(message) {
-            const speech = new SpeechSynthesisUtterance(message);
-            speech.lang = 'pt-BR';
-            speech.volume = 1;
-            speech.rate = 1;
-            speech.pitch = 1;
-            speechSynthesis.speak(speech);
-        }
-
-        const commands = {
-            '!GUIA': 'Lista de comandos disponíveis: !AJUDA, !DATA, !HORA, !RANDOM, !MOEDA',
-            '!AJUDA': 'Comandos disponíveis: !GUIA, !DATA, !HORA, !RANDOM, !MOEDA',
-            '!DATA': new Date().toLocaleDateString(),
-            '!HORA': new Date().toLocaleTimeString(),
-            '!RANDOM': Math.floor(Math.random() * 100),
-            '!MOEDA': Math.random() < 0.5 ? 'Cara' : 'Coroa',
-            '!lucas januario': "Lucas Januário do Nascimento é o fundador do HoloFi e da tecnologia HOLLOW ETHER!"
+            appendMessage(response, 'received');
         };
+        reader.readAsArrayBuffer(file);
+    }
+});
 
-        document.getElementById('send-btn').addEventListener('click', sendMessage);
-        document.getElementById('chat-input').addEventListener('keypress', function(event) {
-            if (event.key === 'Enter') sendMessage();
-        });
-        document.getElementById('clear-btn').addEventListener('click', function() {
-            document.getElementById('chat-box').innerHTML = '<div class="message received"><i class="fas fa-robot"></i> 👋 Olá! O que você deseja fazer? Use !GUIA para listar os comandos.</div>';
-        });
+// Função para enviar mensagem
+function sendMessage() {
+    let input = document.getElementById('chat-input');
+    let messageText = input.value.trim();
+    if (!messageText) return;
+
+    appendMessage(messageText, 'sent');
+    input.value = '';
+
+    if (comandos[messageText]) {
+        setTimeout(() => {
+            appendMessage(comandos[messageText], 'received');
+        }, 500);
+    }
+}
+
+// Função para adicionar mensagens ao chat
+function appendMessage(text, type) {
+    let chatBox = document.getElementById('chat-box');
+    let message = document.createElement('div');
+    message.classList.add('message', type);
+    message.innerHTML = type === 'received' ? `<i class="fas fa-robot"></i> ${text}` : text;
+    chatBox.appendChild(message);
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+// Eventos do chat
+document.getElementById('send-btn').addEventListener('click', sendMessage);
+document.getElementById('chat-input').addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') sendMessage();
+});
+
+document.getElementById('clear-btn').addEventListener('click', function() {
+    document.getElementById('chat-box').innerHTML = '<div class="message received"><i class="fas fa-robot"></i> 👋 Olá! O que você deseja fazer? Use !GUIA para listar os comandos.</div>';
+});
     // Function to speak the message
 function speakMessage(message) {
     const speech = new SpeechSynthesisUtterance(message);
@@ -698,10 +686,112 @@ document.getElementById('clear-btn').addEventListener('click', function() {
   'o que é a Internet das Coisas (IoT)': "A Internet das Coisas (IoT) refere-se à conexão de dispositivos físicos à internet para coletar e trocar dados, como eletrodomésticos, carros e sensores.",
   "qual é a diferença entre front-end e back-end": "O front-end envolve o design e a interação do usuário, enquanto o back-end lida com o processamento de dados e a lógica de negócios no servidor!",
 };
-
-    // Se o comando não for reconhecido
+ // Se o comando não for reconhecido
     return "Desculpe, não entendi sua mensagem. Tente novamente!";
 }
+
+
+ document.getElementById('file-input').addEventListener('change', function(event) {
+    let file = event.target.files[0];
+    if (file) {
+        let reader = new FileReader();
+        reader.onload = function(e) {
+            let data = new Uint8Array(e.target.result);
+            let workbook = XLSX.read(data, { type: 'array' });
+            let sheetName = workbook.SheetNames[0];
+            let sheet = workbook.Sheets[sheetName];
+            let jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+
+            let response = "📊 Arquivo carregado com sucesso! Exibindo primeiras linhas:\n";
+            jsonData.slice(0, 5).forEach(row => {
+                response += JSON.stringify(row) + "\n";
+            });
+
+            appendMessage(response, 'received');
+        };
+        reader.readAsArrayBuffer(file);
+    }
+});
+
+// Função para enviar mensagem
+function sendMessage() {
+    let input = document.getElementById('chat-input');
+    let messageText = input.value.trim();
+    if (!messageText) return;
+
+    appendMessage(messageText, 'sent');
+    input.value = '';
+
+    if (comandos[messageText]) {
+        setTimeout(() => {
+            appendMessage(comandos[messageText], 'received');
+        }, 500);
+    }
+}
+
+// Função para adicionar mensagens ao chat
+function appendMessage(text, type) {
+    let chatBox = document.getElementById('chat-box');
+    let message = document.createElement('div');
+    message.classList.add('message', type);
+    message.innerHTML = type === 'received' ? `<i class="fas fa-robot"></i> ${text}` : text;
+    chatBox.appendChild(message);
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+// Eventos do chat
+document.getElementById('send-btn').addEventListener('click', sendMessage);
+document.getElementById('chat-input').addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') sendMessage();
+});
+
+document.getElementById('clear-btn').addEventListener('click', function() {
+    document.getElementById('chat-box').innerHTML = '<div class="message received"><i class="fas fa-robot"></i> 👋 Olá! O que você deseja fazer? Use !GUIA para listar os comandos.</div>';
+});
+// Comandos do chat
+const comandos = {
+    '!GUIA': 'Lista de comandos disponíveis: !AJUDA, !DATA, !HORA, !RANDOM, !MOEDA, !ALL',
+    '!AJUDA': 'Comandos disponíveis: !GUIA, !DATA, !HORA, !RANDOM, !MOEDA, !ALL',
+    '!DATA': new Date().toLocaleDateString(),
+    '!HORA': new Date().toLocaleTimeString(),
+    '!RANDOM': Math.floor(Math.random() * 100),
+    '!MOEDA': Math.random() < 0.5 ? 'Cara' : 'Coroa',
+    '!ALL': 'Aqui estão todos os comandos disponíveis:\n!GUIA, !AJUDA, !DATA, !HORA, !RANDOM, !MOEDA, !ALL\n\nAlém disso, se você digitar palavras-chave como "oi", "jogo", "dados", "clima", etc., receberei respostas personalizadas!'
+};
+
+// Função para enviar mensagem
+function sendMessage() {
+    let input = document.getElementById('chat-input');
+    let messageText = input.value.trim();
+    if (!messageText) return;
+
+    appendMessage(messageText, 'sent');
+    input.value = '';
+
+    if (comandos[messageText]) {
+        setTimeout(() => {
+            appendMessage(comandos[messageText], 'received');
+        }, 500);
+    } else {
+        let respostaPersonalizada = getRespostaPersonalizada(messageText);
+        if (respostaPersonalizada) {
+            setTimeout(() => {
+                appendMessage(respostaPersonalizada, 'received');
+            }, 500);
+        }
+    }
+}
+
+// Função para adicionar mensagens ao chat
+function appendMessage(text, type) {
+    let chatBox = document.getElementById('chat-box');
+    let message = document.createElement('div');
+    message.classList.add('message', type);
+    message.innerHTML = type === 'received' ? `<i class="fas fa-robot"></i> ${text}` : text;
+    chatBox.appendChild(message);
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+
 
 
 </script>
