@@ -9,6 +9,7 @@ module.exports = {
 };
 
 
+
     if (msg.includes('o que você faz')) return "Eu sou um assistente virtual, posso ajudar com diversas tarefas como responder perguntas, analisar dados e mais!";
     if (msg.includes('quem é lucas januário')) return "Lucas Januário do Nascimento é o fundador do HoloFi e da tecnologia HOLLOW ETHER, trabalhando com inovação em ativos digitais e blockchain!";
     if (msg.includes('como você funciona')) return "Eu uso inteligência artificial para entender e responder às suas perguntas. Sou alimentado por dados e posso realizar diversas funções!";
