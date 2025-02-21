@@ -189,8 +189,7 @@ footer {
     <p>&copy; 2025 HoloFi. Todos os direitos reservados. Lucas Januário</p>
 </footer>
 
-<script>
-  document.getElementById('file-input').addEventListener('change', function(event) {
+document.getElementById('file-input').addEventListener('change', function(event) {
     let file = event.target.files[0];
     if (file) {
         let reader = new FileReader();
@@ -221,9 +220,11 @@ function sendMessage() {
     appendMessage(messageText, 'sent');
     input.value = '';
 
-    if (comandos[messageText]) {
+    // Process the message and look for commands
+    const response = processMessage(messageText);
+    if (response) {
         setTimeout(() => {
-            appendMessage(comandos[messageText], 'received');
+            appendMessage(response, 'received');
         }, 500);
     }
 }
@@ -237,111 +238,63 @@ function appendMessage(text, type) {
     chatBox.appendChild(message);
     chatBox.scrollTop = chatBox.scrollHeight;
 }
-    let kernelSocket;  // Conexão com kernel.js (porta 9090)
-let setep2Socket;  // Conexão com setep2.js (porta 9091)
-const chatBox = document.getElementById('chat-box');
 
-function appendMessage(text, type) {
-  const div = document.createElement('div');
-  div.className = 'message ' + type;
-  div.textContent = text;
-  chatBox.appendChild(div);
-  chatBox.scrollTop = chatBox.scrollHeight;
-}
+// Conectar aos kernels
+let kernelSocket, setep2Socket;
+const chatBox = document.getElementById('chat-box');
 
 // Conecta ao kernel (kernel.js - porta 9090)
 document.getElementById('connect-kernel-btn').addEventListener('click', () => {
-  kernelSocket = new WebSocket('ws://localhost:9090');
-  kernelSocket.onopen = () => {
-    appendMessage('Conectado ao Kernel (9090)', 'received');
-  };
-  kernelSocket.onmessage = (e) => {
-    const data = JSON.parse(e.data);
-    appendMessage('Kernel: ' + data.response, 'received');
-  };
-  kernelSocket.onerror = (e) => {
-    appendMessage('Erro no Kernel: ' + e, 'received');
-  };
+    kernelSocket = new WebSocket('ws://localhost:9090');
+    kernelSocket.onopen = () => {
+        appendMessage('Conectado ao Kernel (9090)', 'received');
+    };
+    kernelSocket.onmessage = (e) => {
+        const data = JSON.parse(e.data);
+        appendMessage('Kernel: ' + data.response, 'received');
+    };
+    kernelSocket.onerror = (e) => {
+        appendMessage('Erro no Kernel: ' + e, 'received');
+    };
 });
 
 // Conecta ao setep2 (setep2.js - porta 9091)
 document.getElementById('connect-setep2-btn').addEventListener('click', () => {
-  setep2Socket = new WebSocket('ws://localhost:9091');
-  setep2Socket.onopen = () => {
-    appendMessage('Conectado ao Setep2 (9091)', 'received');
-  };
-  setep2Socket.onmessage = (e) => {
-    const data = JSON.parse(e.data);
-    appendMessage('Setep2: ' + data.response, 'received');
-  };
-  setep2Socket.onerror = (e) => {
-    appendMessage('Erro no Setep2: ' + e, 'received');
-  };
+    setep2Socket = new WebSocket('ws://localhost:9091');
+    setep2Socket.onopen = () => {
+        appendMessage('Conectado ao Setep2 (9091)', 'received');
+    };
+    setep2Socket.onmessage = (e) => {
+        const data = JSON.parse(e.data);
+        appendMessage('Setep2: ' + data.response, 'received');
+    };
+    setep2Socket.onerror = (e) => {
+        appendMessage('Erro no Setep2: ' + e, 'received');
+    };
 });
 
 // Envia a mensagem para ambos os kernels (se conectados)
 document.getElementById('send-btn').addEventListener('click', () => {
-  const input = document.getElementById('chat-input');
-  const message = input.value.trim();
-  if (message === '') return;
-  appendMessage('Você: ' + message, 'sent');
-
-  // Envia para o kernel.js (porta 9090)
-  if (kernelSocket && kernelSocket.readyState === WebSocket.OPEN) {
-    kernelSocket.send(message);
-  }
-
-  // Envia para o setep2.js (porta 9091)
-  if (setep2Socket && setep2Socket.readyState === WebSocket.OPEN) {
-    setep2Socket.send(message);
-  }
-
-  input.value = '';
-});
-
-// Eventos do chat
-document.getElementById('send-btn').addEventListener('click', sendMessage);
-document.getElementById('chat-input').addEventListener('keypress', function(event) {
-    if (event.key === 'Enter') sendMessage();
-});
-
-document.getElementById('clear-btn').addEventListener('click', function() {
-    document.getElementById('chat-box').innerHTML = '<div class="message received"><i class="fas fa-robot"></i> 👋 Olá! O que você deseja fazer? Use !GUIA para listar os comandos.</div>';
-});
-    // Function to speak the message
-function speakMessage(message) {
-    const speech = new SpeechSynthesisUtterance(message);
-    speech.lang = 'pt-BR';  // Set language to Brazilian Portuguese
-    speech.volume = 1;      // Full volume
-    speech.rate = 1;        // Normal speech rate
-    speech.pitch = 1;       // Normal pitch
-    speechSynthesis.speak(speech);
-}
-
-// Add event listener to the send button
-document.getElementById('send-btn').addEventListener('click', function() {
     const input = document.getElementById('chat-input');
-    const message = input.value;
-    if (message) {
-        // Display the message in the chat
-        const messageDiv = document.createElement('div');
-        messageDiv.classList.add('message', 'sent');
-        messageDiv.textContent = message;
-        document.getElementById('chat-box').appendChild(messageDiv);
+    const message = input.value.trim();
+    if (message === '') return;
+    appendMessage('Você: ' + message, 'sent');
 
-        // Clear the input field
-        input.value = '';
-
-        // Use the speak function to narrate the message
-        speakMessage(message);
+    // Envia para o kernel.js (porta 9090)
+    if (kernelSocket && kernelSocket.readyState === WebSocket.OPEN) {
+        kernelSocket.send(message);
     }
+
+    // Envia para o setep2.js (porta 9091)
+    if (setep2Socket && setep2Socket.readyState === WebSocket.OPEN) {
+        setep2Socket.send(message);
+    }
+
+    input.value = '';
 });
 
-// Add event listener to the clear button
-document.getElementById('clear-btn').addEventListener('click', function() {
-    document.getElementById('chat-box').innerHTML = '';
-});
-    function processMessage(msg) {
+// Função para processar comandos
+function processMessage(msg) {
     const commands = {
         '!GUIA': 'Lista de comandos disponíveis: !AJUDA, !DATA, !HORA, !RANDOM, !MOEDA',
         '!AJUDA': 'Comandos disponíveis: !GUIA, !DATA, !HORA, !RANDOM, !MOEDA',
@@ -356,6 +309,44 @@ document.getElementById('clear-btn').addEventListener('click', function() {
     if (commands[msg]) {
         return commands[msg];
     }
+    
+    // Caso comando não seja encontrado
+    return 'Comando não reconhecido. Digite !GUIA para ajuda.';
+}
+
+// Função para falar a mensagem
+function speakMessage(message) {
+    const speech = new SpeechSynthesisUtterance(message);
+    speech.lang = 'pt-BR';  // Definir idioma para português brasileiro
+    speech.volume = 1;      // Volume máximo
+    speech.rate = 1;        // Taxa de fala normal
+    speech.pitch = 1;       // Tom de voz normal
+    speechSynthesis.speak(speech);
+}
+
+// Adicionar evento para botão de envio
+document.getElementById('send-btn').addEventListener('click', function() {
+    const input = document.getElementById('chat-input');
+    const message = input.value;
+    if (message) {
+        // Exibir a mensagem no chat
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message', 'sent');
+        messageDiv.textContent = message;
+        document.getElementById('chat-box').appendChild(messageDiv);
+
+        // Limpar campo de entrada
+        input.value = '';
+
+        // Usar a função de fala
+        speakMessage(message);
+    }
+});
+
+// Evento para o botão de limpar
+document.getElementById('clear-btn').addEventListener('click', function() {
+    document.getElementById('chat-box').innerHTML = '';
+});
 
     // Respostas personalizadas baseadas em palavras-chave
     // Quizzes
