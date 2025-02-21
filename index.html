@@ -178,8 +178,6 @@ footer {
         </div>
         <button class="button clear-btn" id="clear-btn"><i class="fas fa-trash-alt"></i></button>
     </div>
-<script src="processMessages.js"></script>
-
 <div style="text-align: center; margin-top: 20px; font-size: 14px; color: #ccc;">
     NOISE BOT AI  - Version 1.2.3
 </div>
@@ -188,64 +186,106 @@ footer {
     <p>&copy; 2025 HoloFi. Todos os direitos reservados. Lucas Januário</p>
 </footer>
 
-<script>
-  document.getElementById('file-input').addEventListener('change', function(event) {
-    let file = event.target.files[0];
-    if (file) {
-        let reader = new FileReader();
-        reader.onload = function(e) {
-            let data = new Uint8Array(e.target.result);
-            let workbook = XLSX.read(data, { type: 'array' });
-            let sheetName = workbook.SheetNames[0];
-            let sheet = workbook.Sheets[sheetName];
-            let jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+<body>
+    <img src="banner.png" alt="Noise AI Banner">
+    <div class="chat-container">
+        <div class="chat-box" id="chat-box">
+            <div class="message received" id="initial-message">
+                👋 Olá! O que você deseja fazer? Use !GUIA para listar os comandos.
+            </div>
+        </div>
+        <div class="input-container">
+            <input type="text" id="chat-input" placeholder="Digite sua mensagem...">
+            <button class="button send-btn" id="send-btn">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+            <label class="button attach-btn" for="file-input">
+                <i class="fas fa-paperclip"></i>
+            </label>
+            <input type="file" id="file-input" style="display:none;">
+            <button class="button clear-btn" id="clear-btn">
+                <i class="fas fa-trash-alt"></i>
+            </button>
+        </div>
+        <div style="text-align: center; margin-top: 20px; font-size: 14px; color: #ccc;">
+            NOISE BOT AI - Version 1.2.3
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 HoloFi. Todos os direitos reservados. Lucas Januário</p>
+    </footer>
 
-            let response = "📊 Arquivo carregado com sucesso! Exibindo primeiras linhas:\n";
-            jsonData.slice(0, 5).forEach(row => {
-                response += JSON.stringify(row) + "\n";
-            });
+    <script>
+        document.getElementById('file-input').addEventListener('change', function(event) {
+            let file = event.target.files[0];
+            if (file) {
+                let reader = new FileReader();
+                reader.onload = function(e) {
+                    let data = new Uint8Array(e.target.result);
+                    let workbook = XLSX.read(data, { type: 'array' });
+                    let sheetName = workbook.SheetNames[0];
+                    let sheet = workbook.Sheets[sheetName];
+                    let jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
 
-            appendMessage(response, 'received');
+                    let response = "📊 Arquivo carregado com sucesso! Exibindo primeiras linhas:\n";
+                    jsonData.slice(0, 5).forEach(row => {
+                        response += JSON.stringify(row) + "\n";
+                    });
+                    appendMessage(response, 'received');
+                };
+                reader.readAsArrayBuffer(file);
+            }
+        });
+
+        function sendMessage() {
+            let input = document.getElementById('chat-input');
+            let messageText = input.value.trim();
+            if (!messageText) return;
+
+            appendMessage(messageText, 'sent');
+            speakMessage(messageText);
+            input.value = '';
+
+            if (commands[messageText]) {
+                setTimeout(() => appendMessage(commands[messageText], 'received'), 500);
+            }
+        }
+
+        function appendMessage(text, type) {
+            let chatBox = document.getElementById('chat-box');
+            let message = document.createElement('div');
+            message.classList.add('message', type);
+            message.innerHTML = type === 'received' ? `<i class="fas fa-robot"></i> ${text}` : text;
+            chatBox.appendChild(message);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        function speakMessage(message) {
+            const speech = new SpeechSynthesisUtterance(message);
+            speech.lang = 'pt-BR';
+            speech.volume = 1;
+            speech.rate = 1;
+            speech.pitch = 1;
+            speechSynthesis.speak(speech);
+        }
+
+        const commands = {
+            '!GUIA': 'Lista de comandos disponíveis: !AJUDA, !DATA, !HORA, !RANDOM, !MOEDA',
+            '!AJUDA': 'Comandos disponíveis: !GUIA, !DATA, !HORA, !RANDOM, !MOEDA',
+            '!DATA': new Date().toLocaleDateString(),
+            '!HORA': new Date().toLocaleTimeString(),
+            '!RANDOM': Math.floor(Math.random() * 100),
+            '!MOEDA': Math.random() < 0.5 ? 'Cara' : 'Coroa',
+            '!lucas januario': "Lucas Januário do Nascimento é o fundador do HoloFi e da tecnologia HOLLOW ETHER!"
         };
-        reader.readAsArrayBuffer(file);
-    }
-});
 
-// Função para enviar mensagem
-function sendMessage() {
-    let input = document.getElementById('chat-input');
-    let messageText = input.value.trim();
-    if (!messageText) return;
-
-    appendMessage(messageText, 'sent');
-    input.value = '';
-
-    if (comandos[messageText]) {
-        setTimeout(() => {
-            appendMessage(comandos[messageText], 'received');
-        }, 500);
-    }
-}
-
-// Função para adicionar mensagens ao chat
-function appendMessage(text, type) {
-    let chatBox = document.getElementById('chat-box');
-    let message = document.createElement('div');
-    message.classList.add('message', type);
-    message.innerHTML = type === 'received' ? `<i class="fas fa-robot"></i> ${text}` : text;
-    chatBox.appendChild(message);
-    chatBox.scrollTop = chatBox.scrollHeight;
-}
-
-// Eventos do chat
-document.getElementById('send-btn').addEventListener('click', sendMessage);
-document.getElementById('chat-input').addEventListener('keypress', function(event) {
-    if (event.key === 'Enter') sendMessage();
-});
-
-document.getElementById('clear-btn').addEventListener('click', function() {
-    document.getElementById('chat-box').innerHTML = '<div class="message received"><i class="fas fa-robot"></i> 👋 Olá! O que você deseja fazer? Use !GUIA para listar os comandos.</div>';
-});
+        document.getElementById('send-btn').addEventListener('click', sendMessage);
+        document.getElementById('chat-input').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') sendMessage();
+        });
+        document.getElementById('clear-btn').addEventListener('click', function() {
+            document.getElementById('chat-box').innerHTML = '<div class="message received"><i class="fas fa-robot"></i> 👋 Olá! O que você deseja fazer? Use !GUIA para listar os comandos.</div>';
+        });
     // Function to speak the message
 function speakMessage(message) {
     const speech = new SpeechSynthesisUtterance(message);
