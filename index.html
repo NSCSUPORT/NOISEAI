@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
       <style>
-        body {
+    body {
     background-color: #000;
     color: #fff;
     font-family: 'Courier New', Courier, monospace;
@@ -20,6 +20,7 @@
     align-items: center;
     height: 100vh;
     flex-direction: column;
+    position: relative;
 }
 
 .banner {
@@ -140,7 +141,10 @@ input[type="text"]:focus {
     background-color: #FF9800;
 }
 
+/* Ajustes no footer */
 footer {
+    position: absolute;
+    bottom: 0;
     width: 100%;
     padding: 12px;
     background: linear-gradient(45deg, #f0f000, #ff4500);
@@ -148,7 +152,9 @@ footer {
     text-align: center;
     font-size: 1rem;
     font-weight: bold;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
 }
+
 
     </style>
 </head>
