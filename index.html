@@ -190,7 +190,7 @@ footer {
     <p>&copy; 2025 HoloFi. Todos os direitos reservados. Lucas Januário</p>
 </footer>
 <script>
-document.getElementById('file-input').addEventListener('change', function(event) {
+  document.getElementById('file-input').addEventListener('change', function(event) {
     let file = event.target.files[0];
     if (file) {
         let reader = new FileReader();
@@ -211,6 +211,7 @@ document.getElementById('file-input').addEventListener('change', function(event)
         reader.readAsArrayBuffer(file);
     }
 });
+
 // Função para enviar mensagem
 function sendMessage() {
     let input = document.getElementById('chat-input');
@@ -294,6 +295,7 @@ document.getElementById('clear-btn').addEventListener('click', function() {
     if (commands[msg]) {
         return commands[msg];
     }
+
     // Respostas personalizadas baseadas em palavras-chave
     // Quizzes
     if (msg.includes('harry potter quiz')) {
