@@ -178,7 +178,288 @@ module.exports = { getRespostaPersonalizada };
     if (msg.includes('tchau')) return "Até logo! Volte quando precisar!";
     if (msg.includes('adeus')) return "Adeus! Tenha um ótimo dia!";function getResponse(msg) {
     msg = msg.toLowerCase();
-    
+      msg = msg.toLowerCase();
+    if (msg.includes('oi')) return "Olá! Como posso ajudar você hoje?";
+    if (msg.includes('dados')) return "Você quer analisar dados? Envie os dados ou escolha uma opção!";
+    if (msg.includes('jogo')) return "Você gosta de jogos? Tenho algumas recomendações de jogos multiplayer. Deseja ver?";
+    if (msg.includes('limpar dados')) return "Certo! Seus dados foram limpos e padronizados!";
+    if (msg.includes('normalizar texto')) return "Texto formatado para minúsculas e acentos removidos!";
+    if (msg.includes('validar email')) return "Verifiquei e sim, o email parece estar correto!";
+    if (msg.includes('gerar hash')) return "Senha protegida com hash SHA-256!";
+function getRespostaPersonalizada(msg) {
+    msg = msg.toLowerCase();
+    if (msg.includes('oi')) return "Olá! Como posso ajudar você hoje?";
+    if (msg.includes('dados')) return "Você quer analisar dados? Envie os dados ou escolha uma opção!";
+    if (msg.includes('jogo')) return "Você gosta de jogos? Tenho algumas recomendações de jogos multiplayer. Deseja ver?";
+    if (msg.includes('limpar dados')) return "Certo! Seus dados foram limpos e padronizados!";
+    if (msg.includes('normalizar texto')) return "Texto formatado para minúsculas e acentos removidos!";
+    if (msg.includes('validar email')) return "Verifiquei e sim, o email parece estar correto!";
+    if (msg.includes('gerar hash')) return "Senha protegida com hash SHA-256!";
+    if (msg.includes('analisar sentimento')) return "O sentimento do texto é positivo!";
+    if (msg.includes('detectar anomalias')) return "Detectei padrões incomuns nos seus dados!";
+    if (msg.includes('clima')) return "Digite sua cidade para que eu possa verificar a previsão do tempo!";
+    if (msg.includes('horário')) return "O horário atual é: " + new Date().toLocaleTimeString();
+    if (msg.includes('notícia')) return "Aqui estão as últimas notícias: [link para um feed de notícias]";
+    if (msg.includes('moeda')) return "Digite a moeda que deseja converter e eu fornecerei a taxa de câmbio!";
+    if (msg.includes('qual é o seu nome')) return "Eu sou um assistente virtual! Em que posso te ajudar?";
+    if (msg.includes('como você está')) return "Estou bem, obrigado! E você, como está?";
+    if (msg.includes('quem é você')) return "Eu sou um assistente criado para ajudar com várias tarefas. O que posso fazer por você?";
+    if (msg.includes('o que você faz')) return "Posso ajudar a analisar dados, fornecer informações sobre clima, e muito mais!";
+    if (msg.includes('ajuda')) return "Claro! O que você precisa? Estou aqui para ajudar!";
+    if (msg.includes('assistente virtual')) return "Sou um assistente digital e posso te ajudar com várias tarefas. Como posso te ajudar hoje?";
+    if (msg.includes('informações')) return "Você gostaria de mais informações sobre o quê?";
+    if (msg.includes('recomendação')) return "Em que área você gostaria de receber uma recomendação? Jogos, filmes, livros?";
+    if (msg.includes('calculadora')) return "Você quer fazer algum cálculo específico?";
+    if (msg.includes('vídeo')) return "Você quer assistir a um vídeo? Posso te recomendar alguns!";
+    if (msg.includes('notícias de tecnologia')) return "Aqui estão as últimas notícias sobre tecnologia: [link para um feed de tecnologia]";
+    if (msg.includes('compartilhar')) return "Você gostaria de compartilhar algo comigo? Posso ajudar!";
+    if (msg.includes('documento')) return "Você quer fazer upload ou verificar algum documento?";
+    if (msg.includes('link')) return "Aqui está o link solicitado: [insira o link].";
+    if (msg.includes('gostei')) return "Que bom que gostou! Como mais posso te ajudar?";
+    if (msg.includes('não gostei')) return "Sinto muito que não tenha gostado. Como posso melhorar?";
+    if (msg.includes('excluir conta')) return "Você tem certeza de que deseja excluir sua conta? Posso ajudar com o processo.";
+    if (msg.includes('criar conta')) return "Você quer criar uma nova conta? Posso te ajudar com isso!";
+    if (msg.includes('rede social')) return "Qual rede social você gostaria de saber mais?";
+    if (msg.includes('spotify')) return "Você quer ouvir algo no Spotify? Posso sugerir uma playlist!";
+    if (msg.includes('email de contato')) return "Você pode nos contatar pelo email: contato@exemplo.com.";
+    if (msg.includes('redefinir senha')) return "Eu posso te ajudar a redefinir sua senha. Você quer continuar?";
+    if (msg.includes('conta bloqueada')) return "Sua conta foi bloqueada? Eu posso ajudar a resolver isso.";
+    if (msg.includes('esqueci minha senha')) return "Não se preocupe! Posso te ajudar a recuperar sua senha.";
+    if (msg.includes('atualizar dados')) return "Você gostaria de atualizar suas informações pessoais?";
+    if (msg.includes('carregar mais')) return "Carregando mais informações... Aguarde um momento.";
+    if (msg.includes('ajustes de perfil')) return "Quer atualizar seu perfil? Posso te ajudar com isso!";
+    if (msg.includes('compra confirmada')) return "Sua compra foi confirmada com sucesso!";
+    if (msg.includes('cancelar compra')) return "Você deseja cancelar a compra? Eu posso ajudar com isso.";
+    if (msg.includes('dúvida')) return "Qual é a sua dúvida? Vou tentar te ajudar da melhor maneira!";
+    if (msg.includes('erro')) return "Parece que ocorreu um erro. Posso tentar corrigir isso para você!";
+    if (msg.includes('agendar')) return "Gostaria de agendar uma reunião ou compromisso?";
+    if (msg.includes('compartilhar dados')) return "Você quer compartilhar seus dados comigo? Vou garantir que tudo esteja seguro!";
+    if (msg.includes('tradução')) return "Você precisa traduzir algo? Posso ajudar com isso.";
+    if (msg.includes('agradeço')) return "De nada! Se precisar de mais alguma coisa, estarei por aqui!";
+    if (msg.includes('livro')) return "Está procurando um bom livro para ler? Posso te recomendar alguns!";
+    if (msg.includes('filme')) return "Quer assistir a um bom filme? Posso sugerir alguns títulos!";
+    if (msg.includes('série')) return "Procurando uma boa série para maratonar? Tenho algumas sugestões!";
+    if (msg.includes('música')) return "Qual tipo de música você gosta? Posso sugerir algo!";
+    if (msg.includes('saudação')) return "Olá! Como posso te ajudar hoje?";
+    if (msg.includes('desconectar')) return "Você quer se desconectar da conta? Posso ajudar!";
+    if (msg.includes('feedback')) return "Gostaria de deixar um feedback? Sua opinião é muito importante para nós!";
+    if (msg.includes('dados pessoais')) return "Você quer atualizar seus dados pessoais? Eu posso te ajudar.";
+    if (msg.includes('documento necessário')) return "Precisa de algum documento específico? Posso ajudar a encontrá-lo!";
+    if (msg.includes('gerar relatório')) return "Eu posso gerar um relatório para você. O que você precisa no relatório?";
+    if (msg.includes('histórico de compras')) return "Você quer visualizar seu histórico de compras? Eu posso te ajudar!";
+    if (msg.includes('consultar saldo')) return "Quer consultar o saldo da sua conta? Vou verificar para você!";
+    if (msg.includes('status de pedido')) return "Você quer saber o status de um pedido? Me envie o número do pedido!";
+    if (msg.includes('informações de pagamento')) return "Você precisa de informações sobre um pagamento? Eu posso te ajudar!";
+    if (msg.includes('dúvida sobre produto')) return "Tem alguma dúvida sobre um produto? Posso ajudar com as especificações!";
+    if (msg.includes('preço de produto')) return "Você quer saber o preço de um produto? Eu posso consultar para você!";
+    if (msg.includes('recomendações de investimento')) return "Você quer recomendações de investimento? Posso sugerir opções de acordo com seu perfil!";
+    if (msg.includes('planos de investimento')) return "Eu tenho várias opções de planos de investimento. Quer ver mais detalhes?";
+    if (msg.includes('escolher plano')) return "Quer ajuda para escolher o melhor plano de investimento?";
+    if (msg.includes('resultado financeiro')) return "Você quer ver o seu resultado financeiro? Eu posso gerar um relatório!";
+    if (msg.includes('criar orçamento')) return "Quer criar um orçamento? Eu posso ajudar com isso!";
+    if (msg.includes('perguntas frequentes')) return "Aqui estão as perguntas frequentes: [link para FAQ]";
+    if (msg.includes('suporte técnico')) return "Você precisa de suporte técnico? Posso direcioná-lo para o time adequado!";
+    if (msg.includes('feedback do sistema')) return "Você gostaria de deixar um feedback sobre o sistema? Adoraríamos ouvir sua opinião!";
+    if (msg.includes('recarregar página')) return "Recarregando a página para atualizar as informações!";
+    if (msg.includes('solicitar suporte')) return "Você pode solicitar suporte clicando no botão 'Suporte' ou me dizendo o que precisa!";
+    if (msg.includes('opções de pagamento')) return "Quais opções de pagamento você deseja? Posso mostrar as disponíveis!";
+    if (msg.includes('tempo de entrega')) return "O tempo estimado de entrega é de X dias úteis. Posso verificar mais detalhes para você!";
+    if (msg.includes('opções de entrega')) return "Você quer saber as opções de entrega? Eu posso te ajudar!";
+    if (msg.includes('agendar reunião')) return "Você quer agendar uma reunião com nossa equipe? Eu posso organizar isso!";
+    if (msg.includes('avisos importantes')) return "Aqui estão os avisos importantes: [link ou lista de avisos]";
+    if (msg.includes('ajuda com uso do sistema')) return "Está com dificuldades para usar o sistema? Posso te guiar no processo!";
+    if (msg.includes('tempo de resposta')) return "O tempo de resposta pode variar, mas vou tentar responder o mais rápido possível!";
+if (msg.includes('oi')) return "Olá! Como posso ajudar você hoje?";
+if (msg.includes('dados')) return "Você quer analisar dados? Envie os dados ou escolha uma opção!";
+if (msg.includes('jogo')) return "Você gosta de jogos? Tenho algumas recomendações de jogos multiplayer. Deseja ver?";
+if (msg.includes('limpar dados')) return "Certo! Seus dados foram limpos e padronizados!";
+if (msg.includes('normalizar texto')) return "Texto formatado para minúsculas e acentos removidos!";
+if (msg.includes('validar email')) return "Verifiquei e sim, o email parece estar correto!";
+if (msg.includes('gerar hash')) return "Senha protegida com hash SHA-256!";
+if (msg.includes('música popular 2000')) return "A música mais popular foi 'Hey Ya!' do OutKast!";
+if (msg.includes('jogo favorito 2000')) return "Alguns dos jogos mais amados foram 'The Sims' e 'Grand Theft Auto: San Andreas'.";
+if (msg.includes('internet 2000')) return "A internet na década de 2000 estava começando a se expandir com redes sociais como Orkut e MySpace.";
+if (msg.includes('lanterna verde')) return "O hino dos Lanternas Verdes é: 'In brightest day, in blackest night, No evil shall escape my sight, Let those who worship evil's might, Beware my power, Green Lantern's light!'";
+if (msg.includes('musica dance 2000')) return "Dentre as músicas de dance, 'Sandstorm' de Darude foi um sucesso!";
+if (msg.includes('rock 2000')) return "O rock foi marcado por bandas como Linkin Park e Green Day durante os anos 2000.";
+if (msg.includes('filmes 2000')) return "Filmes como 'O Senhor dos Anéis' e 'Harry Potter' dominaram as bilheteiras!";
+if (msg.includes('celebridades 2000')) return "Entre as celebridades de destaque estavam Britney Spears, Justin Timberlake e Paris Hilton.";
+if (msg.includes('moda 2000')) return "A moda era marcada por calças de cintura baixa, blusas de manga curta e tênis Converse.";
+if (msg.includes('futebol 2000')) return "O Brasil venceu a Copa do Mundo de 2002, com destaque para Ronaldo Fenômeno!";
+if (msg.includes('tecnologia 2000')) return "O início da popularização dos smartphones e a ascensão do Facebook marcaram essa década.";
+if (msg.includes('games retro')) return "Jogos como 'Super Mario Bros.' e 'Pac-Man' começaram a fazer parte da cultura nostálgica!";
+if (msg.includes('redes sociais 2000')) return "O Orkut foi a rede social mais popular do Brasil entre 2004 e 2010!";
+if (msg.includes('televisão 2000')) return "Séries como 'Friends', 'Lost' e 'Desperate Housewives' fizeram sucesso na TV.";
+if (msg.includes('internet discada')) return "Lembra da internet discada? Isso marcou a transição para a internet de banda larga!";
+if (msg.includes('banda punk 2000')) return "A banda Green Day lançou o álbum 'American Idiot', que marcou os anos 2000!";
+if (msg.includes('anime 2000')) return "Animes como 'Naruto' e 'Dragon Ball Z' eram sucesso absoluto entre os jovens!";
+if (msg.includes('lanterna verde') && msg.includes('hino')) return "O hino dos Lanternas Verdes é: 'In brightest day, in blackest night, No evil shall escape my sight, Let those who worship evil's might, Beware my power, Green Lantern's light!'";
+if (msg.includes('teclado') && msg.includes('musical')) return "No final dos anos 2000, o uso de teclados musicais começou a se popularizar entre os jovens!";
+if (msg.includes('video game')) return "PlayStation 2 foi um dos consoles mais vendidos da década de 2000!";
+if (msg.includes('y2k')) return "O bug do milênio (Y2K) foi um grande temor no início dos anos 2000!";
+if (msg.includes('séries 2000')) return "Além de 'Friends' e 'Lost', 'Prison Break' também fez muito sucesso!";
+if (msg.includes('dança 2000')) return "Passos como o 'moonwalk' de Michael Jackson ainda estavam muito populares nos anos 2000!";
+if (msg.includes('show 2000')) return "Os shows ao vivo de bandas como Coldplay e Linkin Park eram muito esperados!";
+if (msg.includes('moda 2000')) return "A moda de calças rasgadas e piercings começou a ganhar força nesse período.";
+if (msg.includes('hip hop 2000')) return "Os anos 2000 marcaram o auge de artistas como Eminem e 50 Cent!";
+if (msg.includes('revistas') && msg.includes('2000')) return "Revistas como 'Capricho' e 'Atrevida' marcaram a adolescência de muitos jovens!";
+if (msg.includes('console 2000')) return "O PlayStation 2 e o Xbox dominaram os videogames dessa década!";
+if (msg.includes('networking')) return "Networking nas redes sociais como MySpace e Orkut eram a principal forma de interação!";
+if (msg.includes('comida fast food')) return "Fast food, como o McDonald's, teve um grande crescimento durante essa década!";
+if (msg.includes('carros 2000')) return "Os carros da década de 2000 eram marcados por SUVs e modelos mais compactos e econômicos!";
+if (msg.includes('fotos polaroid')) return "As câmeras Polaroid continuaram populares, dando um toque nostálgico nas fotos!";
+if (msg.includes('cabelos 2000')) return "Os cortes de cabelo estilo 'Joãozinho' e franjas eram muito populares entre os jovens!";
+if (msg.includes('arte 2000')) return "A arte grafiteiro, inspirada em Banksy, teve um grande crescimento na década de 2000!";
+if (msg.includes('computadores 2000')) return "Os computadores desktop foram substituídos por laptops mais acessíveis na década de 2000!";
+if (msg.includes('hacker')) return "O 'hacker' virou um ícone de cultura pop, com filmes como 'Matrix' e 'AntiTrust'!";
+if (msg.includes('invenções 2000')) return "O lançamento do iPod e do iPhone pela Apple foi uma das maiores inovações da década!";
+if (msg.includes('youtube')) return "O YouTube foi fundado em 2005 e revolucionou a forma como consumimos vídeos!";
+if (msg.includes('twitter')) return "O Twitter foi criado em 2006 e logo se tornou uma das plataformas mais populares!";
+if (msg.includes('facebook')) return "O Facebook começou a ganhar força em 2004, revolucionando a forma de se conectar!";
+if (msg.includes('governo 2000')) return "A presidência de Luiz Inácio Lula da Silva marcou a política no Brasil nesse período!";
+if (msg.includes('superheroes')) return "Os filmes de super-heróis como 'Spider-Man' e 'X-Men' foram grandes sucessos!";
+if (msg.includes('rock') && msg.includes('anos 2000')) return "O rock dos anos 2000 teve como ícones bandas como The Strokes e The White Stripes!";
+if (msg.includes('cinema 2000')) return "Filmes como 'O Senhor dos Anéis' e 'Piratas do Caribe' marcaram o cinema mundial!";
+if (msg.includes('video game')) return "Os jogos como 'Halo' e 'World of Warcraft' ganharam muitos fãs durante essa década!";
+if (msg.includes('cultura pop')) return "A cultura pop dos anos 2000 foi marcada por 'Harry Potter', reality shows e novas tecnologias!";
+if (msg.includes('imagens 2000')) return "O uso de imagens digitais e edições em Photoshop começou a se popularizar nessa década!";
+if (msg.includes('marvel')) return "O universo Marvel começou a se expandir com 'X-Men' e 'Spider-Man' nos cinemas!";
+if (msg.includes('livros 2000')) return "Livros como 'Harry Potter' e 'Crepúsculo' dominaram as prateleiras da literatura!";
+if (msg.includes('moda feminina 2000')) return "O estilo boho e roupas de grife dominaram a moda feminina da década!";
+if (msg.includes('moda masculina 2000')) return "Calças cargo, jaquetas de couro e bonés eram peças chave no guarda-roupa masculino!";
+if (msg.includes('tecnologia') && msg.includes('2000')) return "Os avanços tecnológicos dos anos 2000 trouxeram a era dos smartphones e redes sociais!";
+if (msg.includes('podcast')) return "Podcasts começaram a crescer e se popularizar com temas variados desde o início dos anos 2000!";
+if (msg.includes('games') && msg.includes('multiplayer')) return "Os jogos multiplayer como 'World of Warcraft' e 'Call of Duty' tornaram-se verdadeiros fenômenos!";
+if (msg.includes('videos youtube')) return "Os vídeos virais e as primeiras celebridades do YouTube começaram a aparecer em 2005!";
+if (msg.includes('calças rasgadas')) return "Calças rasgadas, especialmente as de cintura baixa, eram uma tendência constante no início dos anos 2000!";
+if (msg.includes('computador portátil')) return "O computador portátil começou a se popularizar, com modelos como o MacBook e o Dell Inspiron!";
+if (msg.includes('cellphone 2000')) return "O celular foi revolucionado pelos modelos flip e com telas coloridas, como o Nokia 3210!";
+if (msg.includes('oi')) return "Olá! Como posso ajudar você hoje?";
+if (msg.includes('qual linguagem de programação usar?')) return "Depende do seu projeto, mas Python, JavaScript, Java e C# são sempre boas escolhas!";
+if (msg.includes('o que é um algoritmo?')) return "Um algoritmo é uma sequência de instruções que resolvem um problema ou executam uma tarefa!";
+if (msg.includes('como funciona o Git?')) return "O Git é um sistema de controle de versão que ajuda você a gerenciar alterações no código!";
+if (msg.includes('o que é o HTML?')) return "HTML (HyperText Markup Language) é a linguagem usada para estruturar páginas web.";
+if (msg.includes('como usar CSS?')) return "CSS é usado para estilizar as páginas HTML, controlando o layout, cores, fontes e outros elementos visuais.";
+if (msg.includes('qual é a diferença entre GET e POST?')) return "GET é usado para buscar dados de um servidor, enquanto POST envia dados ao servidor.";
+if (msg.includes('o que é RESTful?')) return "RESTful é uma arquitetura para criar APIs, baseada nos princípios REST (Representational State Transfer).";
+if (msg.includes('o que é JSON?')) return "JSON (JavaScript Object Notation) é um formato leve de troca de dados, muito usado em APIs.";
+if (msg.includes('o que é Node.js?')) return "Node.js é uma plataforma que permite rodar JavaScript no servidor.";
+if (msg.includes('o que é uma API?')) return "Uma API (Application Programming Interface) é um conjunto de regras que permite que diferentes softwares se comuniquem entre si.";
+if (msg.includes('como aprender Python?')) return "Você pode começar aprendendo sintaxe básica, estruturas de dados e, depois, partir para frameworks como Flask ou Django.";
+if (msg.includes('o que é um framework?')) return "Um framework é um conjunto de bibliotecas e ferramentas que ajudam a facilitar o desenvolvimento de aplicações.";
+if (msg.includes('como usar o React?')) return "React é uma biblioteca JavaScript para construir interfaces de usuário. Você pode começar criando componentes e utilizando JSX.";
+if (msg.includes('o que é uma variável em programação?')) return "Uma variável é um espaço na memória onde você pode armazenar dados, como números ou strings.";
+if (msg.includes('o que é um banco de dados?')) return "Banco de dados é uma coleção organizada de dados, que pode ser acessada, gerenciada e atualizada de forma eficiente.";
+if (msg.includes('qual a diferença entre SQL e NoSQL?')) return "SQL é usado para bancos de dados relacionais, enquanto NoSQL é usado para bancos de dados não relacionais, como MongoDB.";
+if (msg.includes('como fazer uma requisição HTTP?')) return "Você pode fazer uma requisição HTTP usando ferramentas como Fetch no JavaScript ou axios para obter ou enviar dados.";
+if (msg.includes('o que é um servidor web?')) return "Um servidor web é um software que entrega páginas web aos usuários que solicitam por meio de navegadores.";
+if (msg.includes('como debugar código?')) return "Você pode usar ferramentas de depuração (debugging) como o console do navegador ou uma IDE com suporte a breakpoints.";
+if (msg.includes('o que é uma classe em programação?')) return "Uma classe é um modelo para criar objetos, definindo propriedades e métodos que os objetos terão.";
+if (msg.includes('o que é um método em programação?')) return "Método é uma função associada a uma classe ou objeto em programação orientada a objetos.";
+if (msg.includes('como funciona o ciclo de vida de um componente no React?')) return "Os componentes no React passam por diferentes fases como montagem, atualização e desmontagem, sendo controladas por métodos do ciclo de vida.";
+if (msg.includes('o que é a programação orientada a objetos?')) return "Programação orientada a objetos (POO) é um paradigma baseado em objetos, que combinam dados e comportamentos.";
+if (msg.includes('como fazer um loop em JavaScript?')) return "Você pode fazer um loop em JavaScript usando estruturas como 'for', 'while' e 'forEach'.";
+if (msg.includes('o que é o GitHub?')) return "GitHub é uma plataforma de hospedagem de código-fonte que permite versionamento de código e colaboração entre desenvolvedores.";
+if (msg.includes('o que é o Git Flow?')) return "Git Flow é uma estratégia de ramificação que organiza como as branches devem ser usadas no Git para facilitar o desenvolvimento e lançamento.";
+if (msg.includes('como usar o console.log?')) return "Você pode usar 'console.log()' para imprimir mensagens no console do navegador ou na terminal.";
+if (msg.includes('qual a diferença entre var, let e const?')) return "A principal diferença está no escopo e mutabilidade: var tem escopo global, let tem escopo de bloco e const é imutável.";
+if (msg.includes('o que são promessas em JavaScript?')) return "Promessas são uma forma de lidar com operações assíncronas em JavaScript, permitindo tratamento de sucesso e erro.";
+if (msg.includes('o que é o padrão MVC?')) return "O padrão MVC (Model-View-Controller) organiza o código separando os dados, a interface e a lógica de controle da aplicação.";
+if (msg.includes('como funciona a criptografia?')) return "A criptografia converte dados em um formato que só pode ser lido por quem tiver a chave correta para descriptografá-los.";
+if (msg.includes('como fazer deploy de uma aplicação?')) return "Você pode fazer o deploy de uma aplicação utilizando plataformas como Heroku, Netlify ou AWS.";
+if (msg.includes('o que é AJAX?')) return "AJAX (Asynchronous JavaScript and XML) permite fazer requisições assíncronas sem precisar recarregar a página.";
+if (msg.includes('o que é um callback?')) return "Um callback é uma função passada como argumento para outra função, executada quando a tarefa principal termina.";
+if (msg.includes('o que é o Docker?')) return "Docker é uma ferramenta que permite empacotar uma aplicação e suas dependências em containers, facilitando a portabilidade.";
+if (msg.includes('o que é uma máquina virtual?')) return "Uma máquina virtual é um software que cria um ambiente simulado de um computador dentro de outro computador.";
+if (msg.includes('como fazer um teste unitário?')) return "Você pode usar frameworks como Jest ou Mocha para escrever testes unitários que garantem que o código funciona como esperado.";
+if (msg.includes('o que é o modelo de dados relacional?')) return "O modelo relacional usa tabelas para organizar dados, com relações entre elas, muito utilizado em bancos de dados SQL.";
+if (msg.includes('como funciona a herança em POO?')) return "A herança permite que uma classe herde propriedades e métodos de outra classe, promovendo reutilização de código.";
+if (msg.includes('qual a diferença entre front-end e back-end?')) return "O front-end lida com a interface do usuário, enquanto o back-end lida com a lógica de servidor e banco de dados.";
+if (msg.includes('o que é um servidor de banco de dados?')) return "É um servidor responsável por armazenar, processar e fornecer dados em um banco de dados para aplicações clientes.";
+if (msg.includes('o que são testes de integração?')) return "Testes de integração verificam a interação entre diferentes módulos de um sistema para garantir que funcionem bem juntos.";
+if (msg.includes('como usar o Express?')) return "Express é um framework para Node.js que simplifica a criação de APIs e servidores web.";
+if (msg.includes('o que é o React Router?')) return "React Router é uma biblioteca que permite implementar navegação entre diferentes componentes em uma aplicação React.";
+if (msg.includes('o que é uma API RESTful?')) return "Uma API RESTful segue os princípios da arquitetura REST, onde recursos são identificados por URIs e manipulados usando métodos HTTP.";
+if (msg.includes('qual a diferença entre SQL e NoSQL?')) return "SQL usa bancos de dados relacionais enquanto NoSQL usa bancos de dados não relacionais, como MongoDB ou Firebase.";
+if (msg.includes('o que é a AWS?')) return "AWS (Amazon Web Services) é uma plataforma de computação em nuvem que oferece uma variedade de serviços, como servidores e armazenamento.";
+if (msg.includes('como funciona a programação assíncrona?')) return "A programação assíncrona permite que tarefas sejam executadas sem bloquear a execução do programa, usando callbacks, promessas ou async/await.";
+if (msg.includes('o que é Node Package Manager?')) return "NPM é o gerenciador de pacotes padrão para o Node.js, que permite instalar bibliotecas e dependências para o seu projeto.";
+if (msg.includes('o que é um template engine?')) return "Template engines são usados para gerar HTML dinâmico a partir de templates e dados, com exemplos populares como EJS e Handlebars.";
+if (msg.includes('como otimizar um banco de dados?')) return "Você pode otimizar um banco de dados usando índices, normalização e consultas eficientes.";
+if (msg.includes('o que é CI/CD?')) return "CI/CD (Integração Contínua/Entrega Contínua) é uma prática de desenvolvimento onde o código é constantemente integrado e entregue automaticamente.";
+if (msg.includes('o que são funções puras?')) return "Funções puras são funções que não têm efeitos colaterais e sempre retornam o mesmo valor para os mesmos parâmetros.";
+if (msg.includes('o que é um SPA?')) return "SPA (Single Page Application) é uma aplicação onde o conteúdo da página é carregado dinamicamente, sem recarregar toda a página.";
+if (msg.includes('o que é o Webpack?')) return "Webpack é uma ferramenta para empacotar e otimizar módulos JavaScript e outros ativos em um projeto.";
+if (msg.includes('o que é o GitHub Actions?')) return "GitHub Actions permite a automação de fluxos de trabalho para CI/CD diretamente dentro do GitHub.";
+if (msg.includes('quem é o super-homem?')) return "O Superman é um super-herói criado por Jerry Siegel e Joe Shuster, um dos mais icônicos personagens da DC Comics!";
+if (msg.includes('quem é o batman?')) return "O Batman é um vigilante de Gotham City, criado por Bob Kane e Bill Finger, que luta contra o crime usando sua inteligência e habilidades físicas!";
+if (msg.includes('o que é uma máquina do tempo?')) return "A máquina do tempo é um conceito de ficção científica que permite viajar para o passado ou o futuro, popularizado em obras como 'De Volta para o Futuro' e 'H.G. Wells'.";
+if (msg.includes('o que é o multiverso?')) return "O multiverso é a ideia de que existem múltiplos universos, cada um com sua própria realidade, frequentemente explorado nos quadrinhos, como em Marvel e DC.";
+if (msg.includes('o que é Star Wars?')) return "Star Wars é uma franquia de ficção científica criada por George Lucas, que mistura aventuras espaciais com temas de mitologia e filosofia.";
+if (msg.includes('quem é o Thanos?')) return "Thanos é um vilão da Marvel Comics, conhecido por sua busca pelas Joias do Infinito e seu desejo de eliminar metade da vida no universo.";
+if (msg.includes('o que é um Jedi?')) return "Jedi são membros de uma ordem mística em Star Wars, treinados para usar a Força e manter a paz na galáxia.";
+if (msg.includes('quem é o Doctor Who?')) return "Doctor Who é um personagem da série britânica de ficção científica, um alienígena conhecido como 'Time Lord' que viaja no tempo e no espaço.";
+if (msg.includes('o que é um lightsaber?')) return "O lightsaber é uma espada de luz utilizada pelos Jedi e Sith em Star Wars, com lâminas de energia pura.";
+if (msg.includes('quem são os Vingadores?')) return "Os Vingadores são um grupo de super-heróis da Marvel Comics, incluindo personagens como Capitão América, Iron Man, Thor, Hulk, Viúva Negra e Hawkeye.";
+if (msg.includes('o que é a Força?')) return "A Força é uma energia mística presente em Star Wars, permitindo habilidades como telecinese e precognição, usada tanto por Jedi quanto por Sith.";
+if (msg.includes('quem é o Wolverine?')) return "Wolverine é um mutante da Marvel Comics com habilidades regenerativas e garras de adamantium, conhecido por sua ferocidade e código moral.";
+if (msg.includes('o que é o Spock?')) return "Spock é um personagem de Star Trek, um vulcano conhecido pela sua lógica implacável e papel como primeiro oficial da nave Enterprise.";
+if (msg.includes('o que é uma TARDIS?')) return "A TARDIS é a nave do Doctor Who, uma máquina do tempo que parece uma cabine telefônica da década de 1960, mas é muito maior por dentro.";
+if (msg.includes('quem é o Homem-Aranha?')) return "O Homem-Aranha é o alter ego de Peter Parker, um super-herói da Marvel Comics que ganha poderes de aranha e combate o crime em Nova York.";
+if (msg.includes('o que é o cosplay?')) return "Cosplay é uma prática onde as pessoas se vestem como seus personagens favoritos de filmes, quadrinhos, jogos e animes.";
+if (msg.includes('quem é o Capitão Kirk?')) return "Capitão James T. Kirk é o comandante da nave estelar Enterprise na série Star Trek, conhecido por sua coragem e habilidades de liderança.";
+if (msg.includes('o que são hobbits?')) return "Os hobbits são uma raça fictícia da Terra-média, criados por J.R.R. Tolkien em 'O Senhor dos Anéis', conhecidos por sua altura baixa e estilo de vida simples.";
+if (msg.includes('o que é o universo expandido de Star Wars?')) return "O universo expandido de Star Wars inclui livros, jogos, quadrinhos e outros materiais que expandem a história além dos filmes.";
+if (msg.includes('quem é o Darth Vader?')) return "Darth Vader é um dos vilões mais icônicos de Star Wars, ex-Jedi que se torna um Sith, conhecido por sua armadura preta e o uso do lado sombrio da Força.";
+if (msg.includes('o que é o Pokedex?')) return "A Pokédex é um dispositivo eletrônico no universo Pokémon, usado para registrar informações sobre os Pokémon encontrados pelo treinador.";
+if (msg.includes('o que é o anel único?')) return "O Anel Único é um artefato mágico em 'O Senhor dos Anéis' que confere grande poder a quem o possui, mas também corrompe e controla a vontade.";
+if (msg.includes('quem é o Loki?')) return "Loki é o deus da trapaça da mitologia nórdica, também um personagem da Marvel, conhecido por sua astúcia e habilidade de manipulação.";
+if (msg.includes('o que são orcs?')) return "Orcs são criaturas malignas e brutais frequentemente encontradas em ficção, especialmente em 'O Senhor dos Anéis', onde são inimigos das forças do bem.";
+if (msg.includes('o que é um superpoder?')) return "Superpoderes são habilidades extraordinárias possuídas por personagens de ficção, como força sobre-humana, telecinese, invisibilidade, entre outras.";
+if (msg.includes('quem é o Flash?')) return "O Flash é um super-herói da DC Comics, conhecido por sua supervelocidade, capaz de correr mais rápido que a luz!";
+if (msg.includes('o que é o Homem de Ferro?')) return "O Homem de Ferro é o alter ego de Tony Stark, um bilionário e inventor da Marvel Comics, que utiliza uma armadura avançada para combater o crime.";
+if (msg.includes('o que são zumbis?')) return "Zumbis são mortos-vivos que caminham e se alimentam de carne humana, popularizados por filmes e séries de terror como 'The Walking Dead'.";
+if (msg.includes('o que é um velociraptor?')) return "O velociraptor é um dinossauro carnívoro da era mesozoica, famoso por sua inteligência e agilidade, especialmente retratado em filmes como Jurassic Park.";
+if (msg.includes('quem é a Mulher-Maravilha?')) return "A Mulher-Maravilha é uma super-heroína da DC Comics, criada por William Moulton Marston, conhecida por sua força, habilidades de combate e laço da verdade.";
+if (msg.includes('o que é o dragão?')) return "O dragão é uma criatura mítica presente em várias culturas, frequentemente retratado como um grande réptil com asas e a capacidade de cuspir fogo.";
+if (msg.includes('quem é o C-3PO?')) return "C-3PO é um dos personagens de Star Wars, um droide de protocolo fluente em várias línguas, conhecido por seu comportamento meticuloso.";
+if (msg.includes('o que é um Sith?')) return "Sith são usuários do lado sombrio da Força em Star Wars, conhecidos por sua busca por poder e domínio, frequentemente em conflito com os Jedi.";
+if (msg.includes('o que é a Batcaverna?')) return "A Batcaverna é o esconderijo secreto do Batman, localizado sob a mansão Wayne, onde ele guarda seus equipamentos e veículos.";
+if (msg.includes('o que são os Jedi?')) return "Os Jedi são uma ordem de guerreiros místicos em Star Wars, treinados para usar a Força e manter a paz na galáxia.";
+if (msg.includes('o que é a Liga da Justiça?')) return "A Liga da Justiça é uma equipe de super-heróis da DC Comics, composta por personagens como Superman, Batman, Mulher-Maravilha, Flash, Aquaman e outros.";
+}
+    // Quizzes
+    if (msg.includes('harry potter quiz')) {
+        return "Vamos testar seus conhecimentos sobre Harry Potter! 🎩⚡\n\n" +
+            "1️⃣ Qual é o nome completo de Dumbledore?\nA) Alvo Percival Wulfrico Brian Dumbledore\nB) Alvo Severo Dumbledore\nC) Alvo Merlin Dumbledore\nD) Alvo Godric Dumbledore\n\n" +
+            "2️⃣ Qual é o animal de estimação de Rony Weasley?\nA) Coruja\nB) Rato\nC) Sapo\nD) Cachorro\n\n" +
+            "3️⃣ Qual feitiço é usado para desarmar um oponente?\nA) Expelliarmus\nB) Avada Kedavra\nC) Lumos\nD) Crucio\n\n" +
+            "4️⃣ Quem traiu os pais de Harry Potter?\nA) Sirius Black\nB) Pedro Pettigrew\nC) Severo Snape\nD) Lúcio Malfoy\n\n" +
+            "5️⃣ Qual é o nome do poltergeist de Hogwarts?\nA) Pirraça\nB) Dobby\nC) Nick Quase Sem Cabeça\nD) Barão Sangrento\n\n" +
+            "6️⃣ Qual é o nome do elfo doméstico de Harry?\nA) Kreacher\nB) Dobby\nC) Winky\nD) Monstro\n\n" +
+            "7️⃣ Qual das Relíquias da Morte é um símbolo da imortalidade?\nA) Pedra da Ressurreição\nB) Capa da Invisibilidade\nC) Varinha das Varinhas\nD) Medalhão de Sonserina\n\n" +
+            "8️⃣ Em qual casa Luna Lovegood pertence?\nA) Grifinória\nB) Corvinal\nC) Lufa-Lufa\nD) Sonserina\n\n" +
+            "9️⃣ Qual é o nome do Patrono de Hermione?\nA) Cervo\nB) Lebre\nC) Lobo\nD) Lontra\n\n" +
+            "🔟 Qual foi o primeiro Horcrux destruído?\nA) Diário de Tom Riddle\nB) Anel de Marvolo Gaunt\nC) Medalhão de Sonserina\nD) Taça de Helga Lufa-Lufa\n\n" +
+            "Responda com o número e a letra da resposta correta! Exemplo: 1A, 2B...";
+    } else if (msg.includes('league of legends quiz')) {
+        return "Vamos ver se você é um verdadeiro Invocador! 🏆🎮\n\n" +
+            "1️⃣ Qual é o nome do criador de League of Legends?\nA) Riot Games\nB) Tencent\nC) Blizzard\nD) Valve\n\n" +
+            "2️⃣ Qual é o campeão conhecido como 'O Curandeiro de Zaun'?\nA) Soraka\nB) Singed\nC) Dr. Mundo\nD) Warwick\n\n" +
+            "3️⃣ Qual foi o primeiro campeão criado no LoL?\nA) Ryze\nB) Teemo\nC) Ashe\nD) Alistar\n\n" +
+            "4️⃣ Qual é o nome do Dragão que concede buffs específicos?\nA) Dragão Ancião\nB) Dragão Infernal\nC) Dragão Hextech\nD) Dragão das Nuvens\n\n" +
+            "5️⃣ Qual é a classe principal do campeão Thresh?\nA) Assassino\nB) Lutador\nC) Suporte\nD) Mago\n\n" +
+            "6️⃣ Qual é o nome do modo de jogo principal do LoL?\nA) ARAM\nB) Summoner’s Rift\nC) Twisted Treeline\nD) Nexus Blitz\n\n" +
+            "7️⃣ Quem é a rival de Caitlyn em Piltover?\nA) Vi\nB) Jinx\nC) Ekko\nD) Jayce\n\n" +
+            "8️⃣ Qual campeão é conhecido por sua habilidade 'R - Cataclismo'?\nA) Garen\nB) Jarvan IV\nC) Darius\nD) Riven\n\n" +
+            "9️⃣ Qual item concede escudo e roubo de vida para ADCs?\nA) Mata-Cráquens\nB) Gume do Infinito\nC) Arco-escudo Imortal\nD) Lâmina Fantasma de Youmuu\n\n" +
+            "🔟 Qual é o nome da skin lendária de Ezreal que o transforma em um explorador do futuro?\nA) Ezreal TPA\nB) Ezreal Pulsefire\nC) Ezreal Guardião Estelar\nD) Ezreal Frosted\n\n" +
+            "Responda com o número e a letra da resposta correta! Exemplo: 1A, 2B...";
+    }
+
+    // Se o comando não for reconhecido
+    return "Desculpe, não entendi sua mensagem. Tente novamente!";
+}
     const responses = {
         'oi': ["Olá! Como posso ajudar você hoje?", "Oi! Tudo bem?", "E aí! Como posso te ajudar?"],
         'bom dia': ["Bom dia! Como você está?", "Bom dia! Espero que tenha um ótimo dia!", "Bom dia! Como posso te ajudar?"],
