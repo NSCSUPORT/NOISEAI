@@ -159,6 +159,7 @@ footer {
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
 }
 
+
     </style>
 </head>
 <body>
@@ -217,10 +218,11 @@ function sendMessage() {
     let messageText = input.value.trim();
     if (!messageText) return;
 
+    // Exibe a mensagem enviada
     appendMessage(messageText, 'sent');
     input.value = '';
 
-    // Process the message and look for commands
+    // Processa a mensagem e busca por comandos
     const response = processMessage(messageText);
     if (response) {
         setTimeout(() => {
@@ -236,12 +238,23 @@ function appendMessage(text, type) {
     message.classList.add('message', type);
     message.innerHTML = type === 'received' ? `<i class="fas fa-robot"></i> ${text}` : text;
     chatBox.appendChild(message);
-    chatBox.scrollTop = chatBox.scrollHeight;
+    chatBox.scrollTop = chatBox.scrollHeight;  // Rola para a última mensagem
+}
+
+// Função para processar a mensagem (caso haja comandos)
+function processMessage(messageText) {
+    // Exemplo simples de processamento de comando
+    if (messageText.startsWith("!GUIA")) {
+        return "Comandos disponíveis:\n- !GUIA: Exibe os comandos\n- !SAIR: Encerra a conexão";
+    }
+    if (messageText.startsWith("!SAIR")) {
+        return "Desconectando... Até logo!";
+    }
+    return "Mensagem recebida!";
 }
 
 // Conectar aos kernels
 let kernelSocket, setep2Socket;
-const chatBox = document.getElementById('chat-box');
 
 // Conecta ao kernel (kernel.js - porta 9090)
 document.getElementById('connect-kernel-btn').addEventListener('click', () => {
@@ -276,7 +289,9 @@ document.getElementById('connect-setep2-btn').addEventListener('click', () => {
 // Envia a mensagem para ambos os kernels (se conectados)
 document.getElementById('send-btn').addEventListener('click', sendMessage);
 document.getElementById('chat-input').addEventListener('keypress', function(event) {
-    if (event.key === 'Enter') sendMessage();
+    if (event.key === 'Enter') {
+        sendMessage();
+    }
 });
 
 // Adiciona evento ao botão de limpar
