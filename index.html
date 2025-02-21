@@ -395,15 +395,19 @@ document.getElementById('clear-btn').addEventListener('click', function() {
     document.getElementById('chat-box').innerHTML = '<div class="message received"><i class="fas fa-robot"></i> 👋 Olá! O que você deseja fazer? Use !GUIA para listar os comandos.</div>';
 });
 // Comandos do chat
+// comandos.js
 const comandos = {
     '!GUIA': 'Lista de comandos disponíveis: !AJUDA, !DATA, !HORA, !RANDOM, !MOEDA, !ALL !LANTERNA VERDE !GITHUB ',
-    '!AJUDA': 'Comandos disponíveis: !GUIA, !DATA, !HORA, !RANDOM, !MOEDA, !ALL ENTER ON GIT HUB  FOR ALL LIST ',
+    '!AJUDA': 'Comandos disponíveis: !GUIA, !DATA, !HORA, !RANDOM, !MOEDA, !ALL ENTER ON GIT HUB FOR ALL LIST ',
     '!DATA': new Date().toLocaleDateString(),
     '!HORA': new Date().toLocaleTimeString(),
     '!RANDOM': Math.floor(Math.random() * 100),
     '!MOEDA': Math.random() < 0.5 ? 'Cara' : 'Coroa',
     '!ALL': 'Aqui estão todos os comandos disponíveis:\n!GUIA, !AJUDA, !DATA, !HORA, !RANDOM, !MOEDA, !ALL\n\nAlém disso, se você digitar palavras-chave como "oi", "jogo", "dados", "clima", etc., receberei respostas personalizadas!'
 };
+
+module.exports = comandos;
+
 
 // Função para enviar mensagem
 function sendMessage() {
