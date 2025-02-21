@@ -171,49 +171,8 @@ footer {
     <button id="send-btn">Enviar</button>
     <button id="clear-btn">Limpar</button>
 
-    <script>
-        document.getElementById('file-input').addEventListener('change', function(event) {
-            let file = event.target.files[0];
-            if (file) {
-                let reader = new FileReader();
-                reader.onload = function(e) {
-                    let data = new Uint8Array(e.target.result);
-                    let workbook = XLSX.read(data, { type: 'array' });
-                    let sheetName = workbook.SheetNames[0];
-                    let sheet = workbook.Sheets[sheetName];
-                    let jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
-
-                    let response = "📊 Arquivo carregado com sucesso! Exibindo primeiras linhas:\n";
-                    jsonData.slice(0, 5).forEach(row => {
-                        response += JSON.stringify(row) + "\n";
-                    });
-
-                    appendMessage(response, 'received');
-                };
-                reader.readAsArrayBuffer(file);
-            }
-        });
-
-        function sendMessage() {
-            let input = document.getElementById('chat-input');
-            let messageText = input.value.trim();
-            if (!messageText) return;
-
-            appendMessage(messageText, 'sent');
-            input.value = '';
-
-            processMessage(messageText.toLowerCase());
-        }
-
-        function appendMessage(text, type) {
-            let chatBox = document.getElementById('chat-box');
-            let message = document.createElement('div');
-            message.classList.add('message', type);
-            message.innerHTML = type === 'received' ? `<i class="fas fa-robot"></i> ${text}` : text;
-            chatBox.appendChild(message);
-            chatBox.scrollTop = chatBox.scrollHeight;
-        }
-
+  <script>
+    window.onload = function() {
         document.getElementById('send-btn').addEventListener('click', sendMessage);
         document.getElementById('chat-input').addEventListener('keypress', function(event) {
             if (event.key === 'Enter') sendMessage();
@@ -222,18 +181,38 @@ footer {
         document.getElementById('clear-btn').addEventListener('click', function() {
             document.getElementById('chat-box').innerHTML = '<div class="message received"><i class="fas fa-robot"></i> 👋 Olá! O que você deseja fazer? Use !GUIA para listar os comandos.</div>';
         });
+    };
 
-        function processMessage(msg) {
-            const commands = {
-                '!GUIA': 'Lista de comandos disponíveis: !AJUDA, !DATA, !HORA, !RANDOM, !MOEDA',
-                '!AJUDA': 'Comandos disponíveis: !GUIA, !DATA, !HORA, !RANDOM, !MOEDA',
-                '!DATA': new Date().toLocaleDateString(),
-                '!HORA': new Date().toLocaleTimeString(),
-                '!RANDOM': Math.floor(Math.random() * 100),
-                '!MOEDA': Math.random() < 0.5 ? 'Cara' : 'Coroa',
-                '!LUCAS JANUARIO': "Lucas Januário do Nascimento é o fundador do HoloFi e da tecnologia HOLLOW ETHER, trabalhando com inovação em ativos digitais e blockchain!"
-            };
+    function sendMessage() {
+        let input = document.getElementById('chat-input');
+        let messageText = input.value.trim();
+        if (!messageText) return;
 
+        appendMessage(messageText, 'sent');
+        input.value = '';
+
+        processMessage(messageText.toLowerCase());
+    }
+
+    function appendMessage(text, type) {
+        let chatBox = document.getElementById('chat-box');
+        let message = document.createElement('div');
+        message.classList.add('message', type);
+        message.innerHTML = type === 'received' ? `<i class="fas fa-robot"></i> ${text}` : text;
+        chatBox.appendChild(message);
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    function processMessage(msg) {
+        const commands = {
+            '!GUIA': 'Lista de comandos disponíveis: !AJUDA, !DATA, !HORA, !RANDOM, !MOEDA',
+            '!AJUDA': 'Comandos disponíveis: !GUIA, !DATA, !HORA, !RANDOM, !MOEDA',
+            '!DATA': new Date().toLocaleDateString(),
+            '!HORA': new Date().toLocaleTimeString(),
+            '!RANDOM': Math.floor(Math.random() * 100),
+            '!MOEDA': Math.random() < 0.5 ? 'Cara' : 'Coroa',
+            '!LUCAS JANUARIO': "Lucas Januário do Nascimento é o fundador do HoloFi e da tecnologia HOLLOW ETHER, trabalhando com inovação em ativos digitais e blockchain!"
+        };
             const responses = {
                 "oi": "Olá! Como posso ajudar você hoje?",
                 "bom dia": "Bom dia! Como você está?",
@@ -593,10 +572,14 @@ footer {
   "qual é a diferença entre front-end e back-end": "O front-end envolve o design e a interação do usuário, enquanto o back-end lida com o processamento de dados e a lógica de negócios no servidor!",
 };
 
-    // Se o comando não for reconhecido
-    return "Desculpe, não entendi sua mensagem. Tente novamente!";
-}
-
+  if (commands[msg]) {
+                appendMessage(commands[msg], 'received');
+            } else if (responses[msg]) {
+                appendMessage(responses[msg], 'received');
+            } else {
+                appendMessage("Desculpe, não entendi. Digite !GUIA para ver os comandos disponíveis.", 'received');
+            }
+        }
 
  
 
