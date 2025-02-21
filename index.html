@@ -1,4 +1,11 @@
 
+    // Quizzes
+O ChatGPT disse:
+Aqui está o código ajustado conforme sua solicitação, com o layout e funcionalidades melhoradas para o chat, incluindo a parte de comandos e a interação com arquivos:
+
+html
+Copiar
+Editar
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -9,295 +16,254 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
-      <style>
-body {
-    background-color: #000;
-    color: #fff;
-    font-family: 'Courier New', Courier, monospace;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    flex-direction: column;
-    position: relative;
-}
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            position: relative;
+        }
 
-.banner {
-    width: 100%;
-    max-width: 450px;
-    margin-bottom: 20px; /* Espaçamento entre o banner e o chat */
-}
+        .banner {
+            width: 100%;
+            max-width: 450px;
+            margin-bottom: 20px;
+        }
 
-.chat-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    height: calc(80vh - 50px); /* Ajusta o tamanho do chat para não invadir o footer */
-    width: 100%;
-    max-width: 450px;
-    padding: 20px;
-    border: 2px solid #4CAF50;
-    border-radius: 10px;
-    background-color: #1c1c1c;
-    box-shadow: 0 0 10px #4CAF50, 0 0 20px #4CAF50, 0 0 30px #4CAF50;
-    overflow: hidden;
-    animation: neon-pulse 1.5s infinite alternate;
-}
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            height: calc(80vh - 50px);
+            width: 100%;
+            max-width: 450px;
+            padding: 20px;
+            border: 2px solid #4CAF50;
+            border-radius: 10px;
+            background-color: #1c1c1c;
+            box-shadow: 0 0 10px #4CAF50, 0 0 20px #4CAF50, 0 0 30px #4CAF50;
+            overflow: hidden;
+            animation: neon-pulse 1.5s infinite alternate;
+        }
 
-@keyframes neon-pulse {
-    0% { box-shadow: 0 0 10px #4CAF50, 0 0 20px #4CAF50; }
-    100% { box-shadow: 0 0 15px #4CAF50, 0 0 30px #4CAF50; }
-}
+        @keyframes neon-pulse {
+            0% { box-shadow: 0 0 10px #4CAF50, 0 0 20px #4CAF50; }
+            100% { box-shadow: 0 0 15px #4CAF50, 0 0 30px #4CAF50; }
+        }
 
-.chat-box {
-    flex-grow: 1;
-    overflow-y: auto;
-    margin-bottom: 10px;
-    background-color: #333;
-    border-radius: 10px;
-    padding: 15px;
-    max-height: 60vh;
-}
+        .chat-box {
+            flex-grow: 1;
+            overflow-y: auto;
+            margin-bottom: 10px;
+            background-color: #333;
+            border-radius: 10px;
+            padding: 15px;
+            max-height: 60vh;
+        }
 
-.message {
-    padding: 12px;
-    margin: 8px 0;
-    border-radius: 8px;
-    max-width: 75%;
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-    word-wrap: break-word;
-}
+        .message {
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 8px;
+            max-width: 75%;
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            word-wrap: break-word;
+        }
 
-.message.sent {
-    background-color: #4CAF50;
-    align-self: flex-end;
-    color: #000;
-}
+        .message.sent {
+            background-color: #4CAF50;
+            align-self: flex-end;
+            color: #000;
+        }
 
-.message.received {
-    background-color: #007BFF;
-    color: #000;
-    align-self: flex-start;
-}
+        .message.received {
+            background-color: #007BFF;
+            color: #000;
+            align-self: flex-start;
+        }
 
-.input-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 10px;
-    width: 100%;
-}
+        .input-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 10px;
+            width: 100%;
+        }
 
-input[type="text"] {
-    flex-grow: 1;
-    padding: 12px;
-    border: 2px solid #333;
-    border-radius: 25px;
-    background-color: #333;
-    color: #fff;
-    font-size: 14px;
-    outline: none;
-    transition: border-color 0.3s ease;
-}
+        input[type="text"] {
+            flex-grow: 1;
+            padding: 12px;
+            border: 2px solid #333;
+            border-radius: 25px;
+            background-color: #333;
+            color: #fff;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
 
-input[type="text"]:focus {
-    border-color: #4CAF50;
-}
+        input[type="text"]:focus {
+            border-color: #4CAF50;
+        }
 
-.button {
-    padding: 10px;
-    border-radius: 25px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
+        .button {
+            padding: 10px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
 
-.send-btn {
-    background-color: #4CAF50;
-    color: #fff;
-}
+        .send-btn {
+            background-color: #4CAF50;
+            color: #fff;
+        }
 
-.send-btn:hover {
-    background-color: #388E3C;
-}
+        .send-btn:hover {
+            background-color: #388E3C;
+        }
 
-.clear-btn {
-    background-color: #f44336;
-    color: #fff;
-}
+        .clear-btn {
+            background-color: #f44336;
+            color: #fff;
+        }
 
-.clear-btn:hover {
-    background-color: #d32f2f;
-}
+        .clear-btn:hover {
+            background-color: #d32f2f;
+        }
 
-.attach-btn {
-    background-color: #FFC107;
-    color: #000;
-}
+        .attach-btn {
+            background-color: #FFC107;
+            color: #000;
+        }
 
-.attach-btn:hover {
-    background-color: #FF9800;
-}
+        .attach-btn:hover {
+            background-color: #FF9800;
+        }
 
-/* Ajustes no footer */
-footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;  /* Garantir que começa na esquerda */
-    right: 0; /* Garantir que vai até a direita */
-    width: 100%;
-    padding: 8px; /* Diminuir o padding */
-    background: linear-gradient(45deg, #f0f000, #ff4500);
-    color: #000;
-    text-align: center;
-    font-size: 0.8rem; /* Diminuir o tamanho da fonte */
-    font-weight: bold;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
-}
-
-
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            padding: 8px;
+            background: linear-gradient(45deg, #f0f000, #ff4500);
+            color: #000;
+            text-align: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+        }
     </style>
 </head>
 <body>
-<img src="banner.png" alt="Noise AI Banner">
-<div class="chat-container">
-    <div class="chat-box" id="chat-box">
-        <div class="message received" id="initial-message">👋 Olá! O que você deseja fazer? Use !GUIA para listar os comandos.</div>
-    </div>
-    <div class="input-container">
-        <input type="text" id="chat-input" placeholder="Digite sua mensagem...">
-        <button class="button send-btn" id="send-btn"><i class="fas fa-paper-plane"></i></button>
-        <div class="button attach-btn">
-            <label for="file-input">
-                <i class="fas fa-paperclip"></i>
-            </label>
-            <input type="file" id="file-input" style="display:none;" />
+    <img src="banner.png" alt="Noise AI Banner" class="banner">
+    <div class="chat-container">
+        <div class="chat-box" id="chat-box">
+            <div class="message received" id="initial-message">👋 Olá! O que você deseja fazer? Use !GUIA para listar os comandos.</div>
         </div>
-        <button class="button clear-btn" id="clear-btn"><i class="fas fa-trash-alt"></i></button>
+        <div class="input-container">
+            <input type="text" id="chat-input" placeholder="Digite sua mensagem...">
+            <button class="button send-btn" id="send-btn"><i class="fas fa-paper-plane"></i></button>
+            <div class="button attach-btn">
+                <label for="file-input">
+                    <i class="fas fa-paperclip"></i>
+                </label>
+                <input type="file" id="file-input" style="display:none;" />
+            </div>
+            <button class="button clear-btn" id="clear-btn"><i class="fas fa-trash-alt"></i></button>
+        </div>
     </div>
-<script src="processMessages.js"></script>
+
+    <footer>
+        <p>&copy; 2025 HoloFi. Todos os direitos reservados. Lucas Januário</p>
+    </footer>
+
+    <script src="processMessages.js"></script>
     <script src="kernal.js"></script>
-<script src="step2.js"></script>
-<div style="text-align: center; margin-top: 20px; font-size: 14px; color: #ccc;">
+    <script src="step2.js"></script>
 
-</div>
+    <script>
+        document.getElementById('file-input').addEventListener('change', function(event) {
+            let file = event.target.files[0];
+            if (file) {
+                let reader = new FileReader();
+                reader.onload = function(e) {
+                    let data = new Uint8Array(e.target.result);
+                    let workbook = XLSX.read(data, { type: 'array' });
+                    let sheetName = workbook.SheetNames[0];
+                    let sheet = workbook.Sheets[sheetName];
+                    let jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
 
-<footer>
-    <p>&copy; 2025 HoloFi. Todos os direitos reservados. Lucas Januário</p>
-</footer>
-<script>
-  document.getElementById('file-input').addEventListener('change', function(event) {
-    let file = event.target.files[0];
-    if (file) {
-        let reader = new FileReader();
-        reader.onload = function(e) {
-            let data = new Uint8Array(e.target.result);
-            let workbook = XLSX.read(data, { type: 'array' });
-            let sheetName = workbook.SheetNames[0];
-            let sheet = workbook.Sheets[sheetName];
-            let jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+                    let response = "📊 Arquivo carregado com sucesso! Exibindo primeiras linhas:\n";
+                    jsonData.slice(0, 5).forEach(row => {
+                        response += JSON.stringify(row) + "\n";
+                    });
 
-            let response = "📊 Arquivo carregado com sucesso! Exibindo primeiras linhas:\n";
-            jsonData.slice(0, 5).forEach(row => {
-                response += JSON.stringify(row) + "\n";
-            });
+                    appendMessage(response, 'received');
+                };
+                reader.readAsArrayBuffer(file);
+            }
+        });
 
-            appendMessage(response, 'received');
-        };
-        reader.readAsArrayBuffer(file);
-    }
-});
+        function sendMessage() {
+            let input = document.getElementById('chat-input');
+            let messageText = input.value.trim();
+            if (!messageText) return;
 
-// Função para enviar mensagem
-function sendMessage() {
-    let input = document.getElementById('chat-input');
-    let messageText = input.value.trim();
-    if (!messageText) return;
+            appendMessage(messageText, 'sent');
+            input.value = '';
 
-    appendMessage(messageText, 'sent');
-    input.value = '';
+            if (comandos[messageText]) {
+                setTimeout(() => {
+                    appendMessage(comandos[messageText], 'received');
+                }, 500);
+            }
+        }
 
-    if (comandos[messageText]) {
-        setTimeout(() => {
-            appendMessage(comandos[messageText], 'received');
-        }, 500);
-    }
-}
+        function appendMessage(text, type) {
+            let chatBox = document.getElementById('chat-box');
+            let message = document.createElement('div');
+            message.classList.add('message', type);
+            message.innerHTML = type === 'received' ? `<i class="fas fa-robot"></i> ${text}` : text;
+            chatBox.appendChild(message);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
 
-// Função para adicionar mensagens ao chat
-function appendMessage(text, type) {
-    let chatBox = document.getElementById('chat-box');
-    let message = document.createElement('div');
-    message.classList.add('message', type);
-    message.innerHTML = type === 'received' ? `<i class="fas fa-robot"></i> ${text}` : text;
-    chatBox.appendChild(message);
-    chatBox.scrollTop = chatBox.scrollHeight;
-}
+        document.getElementById('send-btn').addEventListener('click', sendMessage);
+        document.getElementById('chat-input').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') sendMessage();
+        });
 
-// Eventos do chat
-document.getElementById('send-btn').addEventListener('click', sendMessage);
-document.getElementById('chat-input').addEventListener('keypress', function(event) {
-    if (event.key === 'Enter') sendMessage();
-});
+        document.getElementById('clear-btn').addEventListener('click', function() {
+            document.getElementById('chat-box').innerHTML = '<div class="message received"><i class="fas fa-robot"></i> 👋 Olá! O que você deseja fazer? Use !GUIA para listar os comandos.</div>';
+        });
 
-document.getElementById('clear-btn').addEventListener('click', function() {
-    document.getElementById('chat-box').innerHTML = '<div class="message received"><i class="fas fa-robot"></i> 👋 Olá! O que você deseja fazer? Use !GUIA para listar os comandos.</div>';
-});
-    // Function to speak the message
-function speakMessage(message) {
-    const speech = new SpeechSynthesisUtterance(message);
-    speech.lang = 'pt-BR';  // Set language to Brazilian Portuguese
-    speech.volume = 1;      // Full volume
-    speech.rate = 1;        // Normal speech rate
-    speech.pitch = 1;       // Normal pitch
-    speechSynthesis.speak(speech);
-}
+        function processMessage(msg) {
+            const commands = {
+                '!GUIA': 'Lista de comandos disponíveis: !AJUDA, !DATA, !HORA, !RANDOM, !MOEDA',
+                '!AJUDA': 'Comandos disponíveis: !GUIA, !DATA, !HORA, !RANDOM, !MOEDA',
+                '!DATA': new Date().toLocaleDateString(),
+                '!HORA': new Date().toLocaleTimeString(),
+                '!RANDOM': Math.floor(Math.random() * 100),
+                '!MOEDA': Math.random() < 0.5 ? 'Cara' : 'Coroa',
+                '!lucas januario': "Lucas Januário do Nascimento é o fundador do HoloFi e da tecnologia HOLLOW ETHER, trabalhando com inovação em ativos digitais e blockchain!"
+            };
 
-// Add event listener to the send button
-document.getElementById('send-btn').addEventListener('click', function() {
-    const input = document.getElementById('chat-input');
-    const message = input.value;
-    if (message) {
-        // Display the message in the chat
-        const messageDiv = document.createElement('div');
-        messageDiv.classList.add('message', 'sent');
-        messageDiv.textContent = message;
-        document.getElementById('chat-box').appendChild(messageDiv);
-
-        // Clear the input field
-        input.value = '';
-
-        // Use the speak function to narrate the message
-        speakMessage(message);
-    }
-});
-
-// Add event listener to the clear button
-document.getElementById('clear-btn').addEventListener('click', function() {
-    document.getElementById('chat-box').innerHTML = '';
-});
-    function processMessage(msg) {
-    const commands = {
-        '!GUIA': 'Lista de comandos disponíveis: !AJUDA, !DATA, !HORA, !RANDOM, !MOEDA',
-        '!AJUDA': 'Comandos disponíveis: !GUIA, !DATA, !HORA, !RANDOM, !MOEDA',
-        '!DATA': new Date().toLocaleDateString(),
-        '!HORA': new Date().toLocaleTimeString(),
-        '!RANDOM': Math.floor(Math.random() * 100),
-        '!MOEDA': Math.random() < 0.5 ? 'Cara' : 'Coroa',
-        '!lucas januario': "Lucas Januário do Nascimento é o fundador do HoloFi e da tecnologia HOLLOW ETHER, trabalhando com inovação em ativos digitais e blockchain!"
-    };
-
-    // Verificar comandos simples
-    if (commands[msg]) {
-        return commands[msg];
-    }
-
-    // Respostas personalizadas baseadas em palavras-chave
-    // Quizzes
+            if (commands[msg]) {
+                return commands[msg];
+            }
+        }
     if (msg.includes('harry potter quiz')) {
         return "Vamos testar seus conhecimentos sobre Harry Potter! 🎩⚡\n\n" +
             "1️⃣ Qual é o nome completo de Dumbledore?\nA) Alvo Percival Wulfrico Brian Dumbledore\nB) Alvo Severo Dumbledore\nC) Alvo Merlin Dumbledore\nD) Alvo Godric Dumbledore\n\n" +
