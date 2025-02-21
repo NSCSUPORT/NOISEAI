@@ -6,7 +6,7 @@ const contract = {
     balances: [1000, 2000, 1500], // Saldos dos investidores
 };
 
-// Classe DarkFi com Prosh Ish e Proof of Stake
+// Classe DarkFi com Prosh Ish e Proof sspdarkfi
 class DarkFiKernel {
     constructor() {
         this.processingPower = 1;
@@ -14,12 +14,12 @@ class DarkFiKernel {
         this.setupSocketServer();
     }
 
-    // Proof of Stake: aumenta o poder de processamento conforme os saldos
+    // Proof sspdarkfi: aumenta o poder de processamento conforme os saldos
     applyProofOfStake() {
         let totalStake = contract.balances.reduce((a, b) => a + b, 0);
         this.processingPower = totalStake / 1000; // Exemplo: 1000 tokens = 1x poder
-        console.log(`PoS aplicado! Novo poder de processamento: ${this.processingPower}`);
-        this.sendSocketMessage('proof-of-stake', this.processingPower);
+        console.log(`Proof sspdarkfi aplicado! Novo poder de processamento: ${this.processingPower}`);
+        this.sendSocketMessage('proof-sspdarkfi', this.processingPower);
     }
 
     // Processamento de dados usando Prosh Ish
@@ -37,7 +37,7 @@ class DarkFiKernel {
             console.log('Novo cliente conectado');
             socket.on('message', (message) => {
                 const data = JSON.parse(message);
-                if (data.command === 'apply-pos') {
+                if (data.command === 'apply-sspdarkfi') {
                     this.applyProofOfStake();
                 } else if (data.command === 'process-data') {
                     this.processData(data.payload);
@@ -62,8 +62,8 @@ const darkFiKernel = new DarkFiKernel();
 
 // Chat do sistema
 const comandos = {
-    "!GUIA": "Comandos disponíveis: !POS - Aplicar Proof of Stake, !SALDO - Ver saldo de investidores",
-    "!POS": "Aplicando Proof of Stake...",
+    "!GUIA": "Comandos disponíveis: !SSPDARKFI - Aplicar Proof sspdarkfi, !SALDO - Ver saldo de investidores",
+    "!SSPDARKFI": "Aplicando Proof sspdarkfi...",
 };
 
 function getRespostaPersonalizada(messageText) {
@@ -95,7 +95,7 @@ function sendMessage() {
     if (comandos[messageText]) {
         setTimeout(() => {
             appendMessage(comandos[messageText], 'received');
-            if (messageText === "!POS") darkFiKernel.applyProofOfStake();
+            if (messageText === "!SSPDARKFI") darkFiKernel.applyProofOfStake();
         }, 500);
     } else {
         let respostaPersonalizada = getRespostaPersonalizada(messageText);
