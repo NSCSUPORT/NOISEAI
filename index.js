@@ -1,18 +1,4 @@
-// Comandos do bot
-const comandos = {
-    '!HORA': "⏰ A hora atual é: " + new Date().toLocaleTimeString(),
-    '!AJUDA': "Comandos disponíveis: !HORA, !LUCAS, !COMO, !FUNCAO, !ID, !AJUDA",
-    '!LUCAS': "Lucas Januário do Nascimento é o fundador do HoloFi e da tecnologia HOLLOW ETHER, trabalhando com inovação em ativos digitais e blockchain!",
-    '!COMO': "Eu uso inteligência artificial para entender e responder às suas perguntas. Sou alimentado por dados e posso realizar diversas funções!",
-    '!ID': "Não tenho idade, pois sou um assistente virtual! Estou sempre pronto para te ajudar.",
-    '!FUNCAO': "Minha função é ajudar você com informações, responder dúvidas, realizar comandos e fornecer suporte!"
-};
 
-// Exporta os comandos
-module.exports = comandos;
-
-// Processa a mensagem
-bot.processarMensagem(msg);
 
     if (msg.includes('o que você faz')) return "Eu sou um assistente virtual, posso ajudar com diversas tarefas como responder perguntas, analisar dados e mais!";
     if (msg.includes('quem é lucas januário')) return "Lucas Januário do Nascimento é o fundador do HoloFi e da tecnologia HOLLOW ETHER, trabalhando com inovação em ativos digitais e blockchain!";
