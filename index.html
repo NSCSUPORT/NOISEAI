@@ -1,18 +1,15 @@
 <!DOCTYPE html>
-<!-- saved from url=(0043)file:///C:/Users/jobsj/Downloads/index.html -->
 <html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
     <link rel="icon" href="file:///C:/Users/jobsj/Downloads/logo.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Noise AI</title>
-    <link href="./Noise AI_files/css2" rel="stylesheet">
-    <link rel="stylesheet" href="./Noise AI_files/all.min.css">
-    <script src="./Noise AI_files/xlsx.full.min.js.download"></script>
- <style>
+
+<style>
     body {
-        background-color: #000;
+        background-color: #121212;
         color: #fff;
-        font-family: 'Courier New', Courier, monospace;
+        font-family: 'Inter', sans-serif;
         margin: 0;
         padding: 0;
         display: flex;
@@ -22,18 +19,18 @@
         flex-direction: column;
         overflow: hidden;
     }
-.banner {
-    width: 70%;
-    max-width: 315px;  /* 30% smaller from 450px */
-    margin-bottom: 20px;
-}
+    .banner {
+        width: 80%;
+        max-width: 350px;  /* Ajuste para um tamanho mais moderado */
+        margin-bottom: 20px;
+    }
 
     h1 {
         font-family: 'Press Start 2P', cursive;
-        font-size: 36px;
+        font-size: 34px;
         color: #4CAF50;
         text-align: center;
-        text-shadow: 0 0 10px #4CAF50, 0 0 20px #4CAF50;
+        text-shadow: 0 0 15px #4CAF50, 0 0 30px #4CAF50;
         margin-bottom: 20px;
     }
 
@@ -43,12 +40,12 @@
         justify-content: flex-end;
         height: 80vh;
         width: 100%;
-        max-width: 450px;
+        max-width: 480px;
         padding: 20px;
         border: 2px solid #4CAF50;
-        border-radius: 15px;
-        background-color: #1c1c1c;
-        box-shadow: 0px 0px 30px rgba(76, 175, 80, 0.6);
+        border-radius: 12px;
+        background-color: #1e1e1e;
+        box-shadow: 0px 0px 40px rgba(76, 175, 80, 0.7);
         overflow: hidden;
         transition: all 0.3s ease-in-out;
     }
@@ -65,15 +62,15 @@
     }
 
     .message {
-        padding: 12px;
+        padding: 14px;
         margin: 8px 0;
         border-radius: 12px;
         max-width: 75%;
         display: flex;
         align-items: center;
-        font-size: 15px;
+        font-size: 16px;
         word-wrap: break-word;
-        transition: background-color 0.2s ease;
+        transition: background-color 0.3s ease;
     }
 
     .message.sent {
@@ -98,12 +95,12 @@
 
     input[type="text"] {
         flex-grow: 1;
-        padding: 12px;
+        padding: 14px;
         border: 2px solid #333;
         border-radius: 30px;
         background-color: #333;
         color: #fff;
-        font-size: 14px;
+        font-size: 16px;
         outline: none;
         transition: all 0.3s ease;
     }
@@ -148,27 +145,29 @@
         background-color: #ff8f00;
     }
 
-     footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            width: 100%;
-            padding: 8px;
-            background: linear-gradient(45deg, #f0f000, #ff4500);
-            color: #000;
-            text-align: center;
-            font-size: 0.8rem;
-            font-weight: bold;
-            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
-        }
+    footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        padding: 10px;
+        background: linear-gradient(45deg, #f0f000, #ff4500);
+        color: #000;
+        text-align: center;
+        font-size: 0.9rem;
+        font-weight: bold;
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+    }
+
     .chat-container:hover {
-        box-shadow: 0px 0px 40px rgba(76, 175, 80, 0.8);
+        box-shadow: 0px 0px 50px rgba(76, 175, 80, 0.8);
     }
 
     .message:hover {
         background-color: #444;
     }
+
 </style>
 
 </head>
