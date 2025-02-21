@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
       <style>
- body {
+body {
     background-color: #000;
     color: #fff;
     font-family: 'Courier New', Courier, monospace;
@@ -146,6 +146,8 @@ input[type="text"]:focus {
 footer {
     position: fixed;
     bottom: 0;
+    left: 0;  /* Garantir que começa na esquerda */
+    right: 0; /* Garantir que vai até a direita */
     width: 100%;
     padding: 8px; /* Diminuir o padding */
     background: linear-gradient(45deg, #f0f000, #ff4500);
@@ -155,7 +157,6 @@ footer {
     font-weight: bold;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
 }
-
 
     </style>
 </head>
