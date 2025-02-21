@@ -1,10 +1,6 @@
 const WebSocket = require('ws');
 
-// Simulação de contrato com saldos de investidores
-const contract = {
-    investors: ['Lucas', 'Maria', 'João'],
-    balances: [1000, 2000, 1500], // Saldos dos investidores
-};
+
 
 // Classe DarkFi com Prosh Ish e Proof sspdarkfi
 class DarkFiKernel {
