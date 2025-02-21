@@ -1,5 +1,4 @@
-// index.js
-const comandos = require('./comandos.js');
+/const comandos = require('./comandos.js');
 
 // Classe Bot
 class Bot {
@@ -16,6 +15,26 @@ class Bot {
                 return;
             }
         }
+
+        // Se nenhum comando for encontrado, responde com uma mensagem padrão
+        console.log("Comando não encontrado. Digite !AJUDA para ver a lista de comandos disponíveis.");
+    }
+
+    // Método para responder ao comando
+    responderComando(comando) {
+        console.log(`Comando: ${comando}`);
+        console.log(`Resposta: ${this.comandos[comando]}`);
+    }
+}
+
+// Instancia o bot
+const bot = new Bot(comandos);
+
+// Exemplo de mensagem que contém um comando
+const msg = '!HORA'; // Aqui você pode substituir pelo comando que deseja testar
+
+// Processa a mensagem
+bot.processarMensagem(msg);
 
     if (msg.includes('o que você faz')) return "Eu sou um assistente virtual, posso ajudar com diversas tarefas como responder perguntas, analisar dados e mais!";
     if (msg.includes('quem é lucas januário')) return "Lucas Januário do Nascimento é o fundador do HoloFi e da tecnologia HOLLOW ETHER, trabalhando com inovação em ativos digitais e blockchain!";
