@@ -1,32 +1,15 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
+// Importa os comandos do arquivo index.js
+const comandos = require('./index.js');
+
 // Inicializa o app Express
 const app = express();
 const port = 3000;
 
 // Middleware para parsear o corpo das requisições como JSON
 app.use(bodyParser.json());
-
-// Rota para processar o comando
-app.post('/processar-comando', (req, res) => {
-    const { message } = req.body; // Mensagem enviada pelo front-end
-
-    const bot = new Bot(comandos); // Instancia o Bot com os comandos
-    const resposta = bot.processarMensagem(message); // Processa a mensagem
-
-    res.json({ response: resposta }); // Retorna a resposta para o front-end
-});
-
-// Comandos do bot
-const comandos = {
-    '!HORA': "⏰ A hora atual é: " + new Date().toLocaleTimeString(),
-    '!AJUDA': "Comandos disponíveis: !HORA, !LUCAS, !COMO, !FUNCAO, !ID, !AJUDA",
-    '!LUCAS': "Lucas Januário do Nascimento é o fundador do HoloFi e da tecnologia HOLLOW ETHER, trabalhando com inovação em ativos digitais e blockchain!",
-    '!COMO': "Eu uso inteligência artificial para entender e responder às suas perguntas. Sou alimentado por dados e posso realizar diversas funções!",
-    '!ID': "Não tenho idade, pois sou um assistente virtual! Estou sempre pronto para te ajudar.",
-    '!FUNCAO': "Minha função é ajudar você com informações, responder dúvidas, realizar comandos e fornecer suporte!"
-};
 
 // Classe Bot para processar os comandos
 class Bot {
@@ -44,10 +27,25 @@ class Bot {
         return "Comando não encontrado. Digite !AJUDA para ver a lista de comandos disponíveis.";
     }
 
+    // Retorna a resposta associada ao comando
     responderComando(comando) {
         return this.comandos[comando] || "Comando desconhecido.";
     }
 }
+
+// Rota para processar o comando
+app.post('/processar-comando', (req, res) => {
+    const { message } = req.body; // Mensagem enviada pelo front-end
+
+    if (!message) {
+        return res.status(400).json({ response: "Mensagem não fornecida." });
+    }
+
+    const bot = new Bot(comandos); // Instancia o Bot com os comandos
+    const resposta = bot.processarMensagem(message); // Processa a mensagem
+
+    res.json({ response: resposta }); // Retorna a resposta para o front-end
+});
 
 // Inicia o servidor
 app.listen(port, () => {
