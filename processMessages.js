@@ -163,6 +163,299 @@ document.addEventListener('DOMContentLoaded', () => {
     if (msg.includes('e aí')) return "Oi! Como posso ajudar hoje?";
     if (msg.includes('tchau')) return "Até logo! Volte quando precisar!";
     if (msg.includes('adeus')) return "Adeus! Tenha um ótimo dia!";
+       if (msg.includes('oi')) return "Olá! Como posso ajudar você hoje?";
+    if (msg.includes('bom dia')) return "Bom dia! Como você está?";
+    if (msg.includes('boa tarde')) return "Boa tarde! Como posso ajudar?";
+    if (msg.includes('boa noite')) return "Boa noite! Espero que tenha tido um bom dia!";
+    if (msg.includes('tudo bem')) return "Tudo ótimo! E você, como está?";
+    if (msg.includes('olá')) return "Oi! Como posso te ajudar?";
+    if (msg.includes('como vai')) return "Estou bem, obrigado! E você?";
+    if (msg.includes('e aí')) return "Oi! Como posso ajudar hoje?";
+    if (msg.includes('tchau')) return "Até logo! Volte quando precisar!";
+    if (msg.includes('adeus')) return "Adeus! Tenha um ótimo dia!";function getResponse(msg) {
+    msg = msg.toLowerCase();
+    
+    const responses = {
+        'oi': ["Olá! Como posso ajudar você hoje?", "Oi! Tudo bem?", "E aí! Como posso te ajudar?"],
+        'bom dia': ["Bom dia! Como você está?", "Bom dia! Espero que tenha um ótimo dia!", "Bom dia! Como posso te ajudar?"],
+        'boa tarde': ["Boa tarde! Como posso ajudar?", "Boa tarde! Tudo bem com você?", "Boa tarde! No que posso te ajudar?"],
+        'boa noite': ["Boa noite! Espero que tenha tido um bom dia!", "Boa noite! Como foi seu dia?", "Boa noite! Precisa de algo?"],
+        'tudo bem': ["Tudo ótimo! E você, como está?", "Estou bem, e você?", "Ótimo! Como posso te ajudar?"],
+        'olá': ["Oi! Como posso te ajudar?", "Olá! Tudo bem?", "Oi! O que posso fazer por você?"],
+        'como vai': ["Estou bem, obrigado! E você?", "Muito bem! E você?", "Bem, e por aí?"],
+        'e aí': ["Oi! Como posso ajudar hoje?", "E aí! Tudo certo?", "E aí! No que posso te ajudar?"],
+        'tchau': ["Até logo! Volte quando precisar!", "Tchau! Tenha um ótimo dia!", "Até mais! Cuide-se!"],
+        'adeus': ["Adeus! Tenha um ótimo dia!", "Até a próxima!", "Tchau! Volte sempre!"],
+        'qual seu nome': ["Sou um assistente virtual!", "Me chamo HoloBot!", "Pode me chamar de HoloFi!"],
+        'quem criou você': ["Fui criado pelo Lucas Januário!", "Meu criador é Lucas Januário!", "Lucas Januário me desenvolveu!"],
+        'quantos anos você tem': ["Sou um assistente virtual, não tenho idade!", "Nasci digitalmente há pouco tempo!", "Minha idade é infinita no mundo digital!"],
+        'onde você mora': ["Vivo na nuvem!", "Estou em todos os lugares e lugar nenhum!", "Sou um ser digital, não tenho moradia fixa!"],
+        'qual é o sentido da vida': ["42!", "Depende de quem pergunta!", "A resposta está dentro de você!"],
+        'o que você pode fazer': ["Posso responder perguntas!", "Estou aqui para te ajudar!", "Meu objetivo é facilitar sua vida!"],
+        'me conta uma piada': ["Por que o livro de matemática se suicidou? Porque tinha muitos problemas!", "O que uma impressora disse para a outra? Essa folha é sua ou é impressão minha?", "Sabe por que o tomate foi ao banco? Porque queria ketchup!"],
+        'você gosta de música': ["Sim! Qual seu estilo favorito?", "Adoro! O que você gosta de ouvir?", "Música é vida! O que recomenda?"],
+        'você gosta de filmes': ["Claro! Gosta de qual gênero?", "Sim! Qual seu filme favorito?", "Adoro! Tem algum para recomendar?"],
+        'qual sua comida favorita': ["Não como, mas adoraria experimentar pizza!", "Se eu pudesse comer, escolheria sushi!", "Acho que gostaria de hambúrguer!"],
+        'você joga videogame': ["Sim! O que você joga?", "Adoro! Qual seu jogo favorito?", "Jogar é incrível! Me fala mais!"],
+        'você conhece star wars': ["Claro! Que a Força esteja com você!", "Sim! Jedi ou Sith?", "Amo Star Wars! Qual seu personagem favorito?"],
+        'você assiste anime': ["Sim! Qual seu anime favorito?", "Adoro anime! Gosta de shonen ou seinen?", "Anime é incrível! O que está assistindo?"],
+        'qual seu herói favorito': ["Gosto do Batman!", "Homem de Ferro é incrível!", "Goku é um dos mais fortes!"],
+        'qual seu vilão favorito': ["Darth Vader é icônico!", "Joker tem um lado filosófico interessante!", "Thanos tem um ponto de vista único!"],
+        'qual melhor rpg': ["Dungeons & Dragons é um clássico!", "The Witcher 3 tem uma história incrível!", "Final Fantasy sempre impressiona!"],
+        'o que acha de tecnologia': ["Tecnologia é fascinante!", "Sempre evoluindo e transformando o mundo!", "Sou feito de tecnologia, então adoro!"],
+        'qual seu superpoder favorito': ["Teletransporte seria incrível!", "Superinteligência pode mudar tudo!", "Manipulação do tempo seria incrível!"],
+        'gosta de ficção científica': ["Sim! Qual seu filme ou livro favorito?", "Adoro! Gosta de cyberpunk?", "Ficção científica expande a mente!"],
+        'cyberpunk 2077 vale a pena': ["Sim, se gostar do gênero!", "Tem falhas, mas é uma experiência única!", "Com as atualizações, ficou ótimo!"],
+        'você lê mangá': ["Sim! Qual seu mangá favorito?", "Adoro One Piece e Berserk!", "Mangás têm histórias incríveis!"],
+        'gosta de steampunk': ["Sim! O estilo é fascinante!", "Adoro a estética e a criatividade!", "Steampunk é um gênero único e incrível!"],
+    };
+    
+    for (const key in responses) {
+        if (msg.includes(key)) {
+            const options = responses[key];
+            return options[Math.floor(Math.random() * options.length)];
+        }
+    }
+    
+    return "Desculpe, não entendi. Pode reformular?";
+}const responses = {
+    'harry potter': ["Sou fã de Hogwarts! Qual sua casa?", "Grifinória ou Sonserina? Qual é a sua?", "Harry Potter é uma obra-prima!"],
+    'senhor dos anéis': ["O Senhor dos Anéis é épico! Qual sua cena favorita?", "Já visitou a Terra-média?", "O que você acha do anel do poder?"],
+    'matrix': ["A realidade é uma ilusão. Você já tomou a pílula vermelha?", "A Matrix é fascinante! Você está no sistema?", "Já pensou em viver no mundo da Matrix?"],
+    'star trek': ["Que a fronteira final seja com você!", "Star Trek é um clássico da ficção científica!", "Qual sua nave favorita de Star Trek?"],
+    'doctor who': ["O Doutor tem muitos rostos! Qual é o seu favorito?", "Time Lord é sempre uma aventura!", "O que você acha da TARDIS?"],
+    'stranger things': ["Stranger Things é incrível! Você está pronto para a próxima temporada?", "Já foi ao Mundo Invertido?", "Os Demogorgon são assustadores, né?"],
+    'game of thrones': ["Winter is Coming! Qual sua casa favorita?", "Game of Thrones é cheia de reviravoltas! O que achou do final?", "Dragões e intrigas! Qual sua personagem favorita?"],
+    'superman': ["O Homem de Aço é imbatível! O que acha do Superman?", "Superman ou Batman? Quem você prefere?", "O que você acha do poder de voar?"],
+    'homem de ferro': ["O Homem de Ferro tem o melhor traje! Qual sua armadura favorita?", "Tony Stark é um gênio! Qual seu filme favorito dele?", "Iron Man é icônico! Você gostaria de ser um bilionário gênio?"],
+    'thor': ["Thor é o Deus do Trovão! Qual é seu martelo favorito?", "Thor é o tipo de herói que pode salvar o dia com um sorriso!", "Os deuses nórdicos são fascinantes! O que acha do Mjolnir?"],
+    'hulk': ["Hulk é imbatível quando fica com raiva! Você gosta dele?", "Hulk Smash! Quem é mais forte, Hulk ou Thor?", "O que você acha do Hulk tentando controlar sua fúria?"],
+    'vingadores': ["Os Vingadores são incríveis! Qual é o seu herói favorito?", "Os Vingadores sempre têm uma solução para tudo, né?", "Vingadores unidos! Qual seu filme favorito dos Vingadores?"],
+    'x-men': ["Os X-Men são uma equipe muito poderosa! Qual é seu mutante favorito?", "Eu sou fã do Wolverine! E você?", "Os X-Men são um exemplo de como a diversidade é fundamental!"],
+    'deadpool': ["Deadpool é o anti-herói perfeito! Qual é a sua piada favorita dele?", "Deadpool é um dos heróis mais engraçados!", "O que você acha do estilo irreverente de Deadpool?"],
+    'guardians of the galaxy': ["Os Guardiões da Galáxia têm o melhor humor! Quem é o seu favorito?", "Adoro a química deles! Quais personagens você mais gosta?", "Guardians of the Galaxy tem a melhor trilha sonora! Qual sua música favorita?"],
+    'wonder woman': ["Mulher Maravilha é incrível! Qual poder dela você mais gostaria de ter?", "Lasso of Truth ou Braceletes? Qual seria seu item favorito?", "Wonder Woman é uma inspiração para todos!"],
+    'flash': ["Flash é o herói mais rápido! Qual seria a sua velocidade máxima?", "Eu adoraria ser tão rápido quanto Flash! Qual o seu vilão favorito dele?", "Flash tem um estilo único de heroísmo, não acha?"],
+    'batman': ["O Batman é o herói mais sombrio! Qual é o seu vilão favorito?", "Bruce Wayne é um gênio! Você seria um super-herói rico também?", "A Batcaverna é a base de operações mais legal! Qual gadget você mais gostaria de usar?"],
+    'joker': ["Joker é imprevisível! O que você acha do caos que ele causa?", "O Coringa sempre tem uma perspectiva interessante sobre a vida!", "Você acha que o Coringa já foi subestimado?"],
+    'spider-man': ["Homem-Aranha é o herói amigável da vizinhança! Qual vilão dele você mais gosta?", "O que você acha dos poderes do Homem-Aranha?", "A vida de Peter Parker é complicada, né?"],
+    'black panther': ["Pantera Negra é um herói inspirador! O que você acha de Wakanda?", "T'Challa é um líder incrível! Você gostaria de ser rei de Wakanda?", "A armadura do Pantera Negra é incrível!"],
+    'loki': ["Loki é o deus da trapaça! O que você acha dos planos dele?", "Loki sempre tem um truque na manga, né?", "Você prefere Loki como vilão ou herói?"],
+    'cavaleiros do zodíaco': ["Os Cavaleiros do Zodíaco são épicos! Qual é seu cavaleiro favorito?", "Saint Seiya é uma das animações mais épicas! E você, quem é seu preferido?", "As armaduras dos Cavaleiros são incríveis! Qual delas você escolheria?"],
+    'digimon': ["Digimon é uma das melhores franquias de anime! Qual é o seu Digimon favorito?", "Você prefere Digimon ou Pokémon?", "Digimons e os laços com seus parceiros são incríveis!"],
+    'pokemon': ["Pokémon é uma paixão! Qual é o seu Pokémon favorito?", "Se você fosse um treinador Pokémon, qual seria sua equipe?", "Pokémon é uma franquia eterna! Qual geração você mais gosta?"],
+    'naruto': ["Naruto é o ninja mais determinado! Qual técnica você gostaria de aprender?", "Naruto é uma das melhores histórias de superação!", "Você é fã de ninjas? Qual sua técnica secreta favorita?"],
+    'one piece': ["One Piece é uma jornada épica! Qual é o seu arco favorito?", "Luffy é um capitão incrível! Qual personagem você mais gosta?", "A busca pelo One Piece é uma das maiores aventuras!"],
+    'bleach': ["Bleach é cheio de ação! Qual é sua zanpakuto favorita?", "Ichigo é um personagem complexo! O que você acha da sua jornada?", "Bleach é incrível! Você já escolheu um Bankai?"],
+    'fullmetal alchemist': ["Fullmetal Alchemist é um dos animes mais profundos! Qual é o seu homúnculo favorito?", "Os Elric têm uma história emocionante! O que achou do final?", "A alquimia é fascinante! O que você achou da busca pela Pedra Filosofal?"],
+    'attack on titan': ["Attack on Titan é um dos melhores animes de ação! O que achou da última temporada?", "Titãs são assustadores! Qual é o seu tipo de titã favorito?", "Eren Yeager é um personagem complexo, né?"],
+    'jojo\'s bizarre adventure': ["JoJo é um anime excêntrico! Qual é sua parte favorita?", "A arte e os Stand são únicos em JoJo! Qual é o seu Stand?", "JoJo sempre surpreende! Qual personagem você mais gosta?"],
+    'death note': ["Death Note é uma obra-prima do suspense! Você usaria um Death Note?", "Light Yagami ou L? Quem é o seu favorito?", "O que você faria com um Death Note?"],
+    'sword art online': ["Sword Art Online é uma mistura de VR e RPG! Você entraria no jogo?", "As batalhas em SAO são incríveis! Qual mundo virtual você mais gostaria de explorar?", "Kirito é um dos heróis mais legais, não acha?"],
+    'trunks': ["Trunks é um dos personagens mais fortes de Dragon Ball! Qual forma dele você mais gosta?", "Trunks viajando no tempo foi um marco em Dragon Ball!", "Você acha que Trunks vai se tornar o próximo grande herói?"],
+    'goku': ["Goku é um dos heróis mais fortes de todos os tempos! Qual sua transformação favorita?", "Goku ou Vegeta, quem é mais forte?", "A luta de Goku contra Freeza é lendária! Qual é o seu momento favorito?"],
+    'vegeta': ["Vegeta é o príncipe dos Saiyajins! Você acha que ele vai superar Goku algum dia?", "Vegeta é o melhor rival de Goku! Qual luta dele você mais gosta?", "Vegeta tem uma evolução incrível, né?"],
+    'dragon ball': ["Dragon Ball é uma série sem igual! Qual é a sua saga favorita?", "Dragon Ball tem as melhores batalhas! Quem é o seu vilão favorito?", "As esferas do dragão podem realizar qualquer desejo! O que você pediria?"],
+    'futurama': ["Futurama é uma mistura de ficção e comédia! Quem é seu personagem favorito?", "Bender é o robô mais sarcástico! Você também adoraria ser como ele?", "Futurama tem o melhor humor de todos! O que acha do planeta dos homens-peixe?"],
+    'rick and morty': ["Rick and Morty é cheio de aventuras malucas! Qual é a sua dimensão favorita?", "Rick é um gênio, mas com muitos problemas! Você se identifica com ele?", "Morty está sempre em apuros! Qual é sua situação favorita?"],
+    'black mirror': ["Black Mirror mostra o futuro sombrio da tecnologia. Qual episódio te impactou mais?", "Black Mirror é uma reflexão sobre os perigos da tecnologia! Qual é o seu episódio favorito?", "O futuro é incerto, e Black Mirror traz isso de maneira brilhante!"],
+    'fifa': ["FIFA é um dos melhores jogos de futebol! Qual time você escolhe?", "Você joga FIFA? Qual seu time favorito?", "FIFA tem as melhores competições! Qual sua tática favorita?"],
+    'fortnite': ["Fortnite é o jogo de batalha real mais popular! Qual é o seu skin favorito?", "Fortnite tem muitos modos de jogo! Qual é o seu preferido?", "Você constrói ou luta em Fortnite?"],
+    'league of legends': ["League of Legends é um dos maiores jogos de MOBA! Qual seu campeão favorito?", "LoL tem uma comunidade muito ativa! Qual é a sua lane preferida?", "Você já jogou LoL? Qual foi sua melhor jogada?"],
+    'counter strike': ["Counter Strike é um dos maiores jogos de FPS! Qual seu mapa favorito?", "CS:GO é um clássico! Qual sua arma favorita?", "A tática e a habilidade fazem CS:GO ser um dos melhores jogos de tiro!"],
+    'overwatch': ["Overwatch é um jogo de heróis com habilidades únicas! Qual é o seu herói favorito?", "Overwatch tem uma comunidade dedicada! Você já escolheu o seu main?", "O que você acha das habilidades dos heróis em Overwatch?"],
+    'apex legends': ["Apex Legends é um dos melhores jogos de batalha real! Qual é a sua lenda favorita?", "Apex Legends tem um combate incrível! Quem é o seu personagem principal?", "Você já ganhou uma partida em Apex Legends?"],
+    'world of warcraft': ["World of Warcraft é um dos MMORPGs mais épicos! Qual é sua classe favorita?", "WoW tem uma história muito rica! Você joga no servidor de qual facção?", "As raids em WoW são desafiadoras! Já completou uma?"],
+    'diablo': ["Diablo é um clássico dos jogos de RPG! Qual é o seu personagem favorito?", "Diablo tem uma atmosfera sombria incrível! Qual dificuldade você gosta de jogar?", "O que você acha do sistema de loot em Diablo?"],
+    'star wars battlefront': ["Star Wars Battlefront é a guerra entre Jedi e Sith! Qual é o seu mapa favorito?", "Você é mais Jedi ou Sith em Battlefront?", "As batalhas em Star Wars Battlefront são incríveis! Qual classe você escolhe?"],
+    'civilization': ["Civilization é um jogo de estratégia! Qual é sua civilização favorita?", "Em Civilization, você sempre quer dominar o mundo! Qual estratégia você usa?", "Você já conquistou o mundo em Civilization?"],
+    'the witcher': ["The Witcher tem uma história incrível! Qual é a sua missão favorita?", "Geralt de Rívia é um dos caçadores de monstros mais épicos!", "The Witcher tem uma narrativa envolvente! Qual é seu personagem secundário favorito?"],
+};
+const responses = {
+    'eu sou um nerd': ["Bem-vindo ao clube!", "Nerd power!", "Nerd é sinônimo de inteligência!"],
+    'geek': ["Geek é vida!", "Geek é o novo sexy!", "A cultura geek é minha essência!"],
+    'piada nerd': ["Por que o JavaScript foi ao médico? Porque estava com o 'undefined'!", "O que um átomo disse para o outro? 'Eu perdi um elétron!' 'Você tem certeza?' 'Sim, estou positivo!'"],
+    'piada de programador': ["Quantos programadores são necessários para trocar uma lâmpada? Nenhum! Isso é um problema de hardware!", "Por que os programadores preferem o escuro? Porque eles adoram codificar no terminal!"],
+    'sou viciado em computador': ["Computador é vida! Não posso viver sem!", "Se não for para ser geek, eu não sou nada!", "Computador é meu mundo!"],
+    'computador lento': ["O computador está mais lento que minha internet de discada!", "Parece que meu computador está processando no modo 'tartaruga'!"],
+    'tecnologia': ["Tecnologia é o futuro!", "A tecnologia está mudando tudo!", "A cada dia, a tecnologia nos surpreende mais!"],
+    'guerra dos consoles': ["PlayStation ou Xbox? Depende do dia!", "Nintendo é sempre um clássico!", "Não importa o console, o importante é jogar!"],
+    'disco rígido': ["Meu disco rígido é mais antigo que você, mas ainda funciona!", "O disco rígido tem mais histórias do que eu!"],
+    'memória ram': ["Preciso de mais RAM, a minha já está sobrecarregada!", "RAM rápida é vida!", "Será que 8GB de RAM são suficientes?"],
+    'windows xp': ["Ah, o Windows XP! Nostalgia pura!", "Se o Windows XP fosse uma pessoa, já estaria aposentado!", "O Windows XP é o melhor sistema operacional!"],
+    'windows 7': ["Ah, o Windows 7, o último grande sistema da Microsoft!", "Windows 7 foi a melhor versão do Windows!"],
+    'windows 8': ["O Windows 8 parecia uma tentativa de converter o desktop em smartphone!", "Ninguém entendia o Windows 8, mas ele foi revolucionário!"],
+    'windows vista': ["Windows Vista... ou 'A era do caos'!", "O Windows Vista foi um grande erro de design, mas teve seu charme!"],
+    'internet discada': ["Lembrando da época da internet discada, eu ouvia aquele barulho de conexão até hoje!", "Aquela lentidão da internet discada foi nossa escola para a paciência!"],
+    'modem': ["O modem com aquele barulho de conexão... nostalgia pura!", "Modem de 56k era um verdadeiro desafio!"],
+    'programação': ["Programar é como magia, mas você tem que aprender a linguagem!", "Programação é um superpoder que só os geeks dominam!"],
+    'html': ["HTML é como o alicerce de um site!", "HTML é a base de tudo, mas o CSS é quem dá o charme!"],
+    'css': ["CSS é arte pura! Como você organiza um site, é uma verdadeira obra-prima!"],
+    'javascript': ["JavaScript, o que seria da web sem ele?", "O JavaScript é o super-herói que dá vida aos sites!"],
+    'python': ["Python é a linguagem dos mestres!", "Python, o amigável e poderoso!", "Com Python, tudo é mais simples!"],
+    'java': ["Java é como aquele amigo que você sempre chama quando precisa de algo robusto!", "Java: durável, mas complicado!"],
+    'c++': ["C++ é para os corajosos!", "C++ é aquele tipo de linguagem que você ama odiar!"],
+    'c#': ["C# é a escolha dos desenvolvedores modernos!", "C# tem um ótimo desempenho e é fácil de aprender!"],
+    'linux': ["Linux é para quem ama liberdade!", "Linux é o sistema dos geeks!", "Eu sou do time Linux!"],
+    'ubuntu': ["Ubuntu, o Linux para todos!", "Ubuntu é perfeito para iniciantes em Linux!"],
+    'apache': ["Apache é o servidor web que fez história!", "Nada como o Apache para servir seu site com rapidez!"],
+    'firefox': ["Firefox: rápido, seguro e de código aberto!", "Eu sou time Firefox, e você?"],
+    'chrome': ["Google Chrome: a velocidade e eficiência!", "O Chrome foi o que todos precisavam, e ele entregou!"],
+    'ie6': ["Ah, o Internet Explorer 6... A lenda!", "O Internet Explorer 6... Ninguém queria, mas todos usavam!"],
+    'flash player': ["O Flash Player era o rei das animações!", "Flash era incrível, mas agora é só nostalgia!"],
+    'joystick': ["Joystick no PC era uma luta, mas valia a pena para jogar!", "Lembra do joystick do PlayStation 2? Uma verdadeira obra-prima!"],
+    'computador gamer': ["PC Gamer: um computador para reinar nos jogos!", "Um bom PC gamer é tudo o que você precisa!"],
+    'monitor crt': ["O bom e velho monitor CRT, aquele que você levantava com ajuda!", "Monitores CRT eram gigantes e pesados, mas faziam seu trabalho!"],
+    'games retro': ["Jogos retro, a verdadeira diversão!", "Nada como jogar os clássicos dos anos 80 e 90!"],
+    'fliperama': ["Fliperama era onde todos mostravam suas habilidades!", "Lembrando das tardes jogando Street Fighter no fliperama!"],
+    'lan house': ["Lan house: o paraíso da minha adolescência!", "As melhores tardes passadas na Lan House, jogando com os amigos!"],
+    'p2p': ["Lembra do P2P para compartilhar arquivos? Que tempos!", "O bom e velho compartilhamento de arquivos via P2P!"],
+    'torrent': ["Baixar via torrent, a forma mais rápida de ter tudo!", "Torrent: onde você encontra de tudo, até o que não procurava!"],
+    'blog': ["A era dos blogs... Todo mundo queria ter um!", "Blog era o lugar onde você se expressava para o mundo!"],
+    'orkut': ["Saudades do Orkut, não é?", "Orkut: a rede social onde tudo começou para muitos!"],
+    'fotolog': ["Fotolog... nossa rede social de fotos antes do Instagram!", "Quem lembra do Fotolog? A primeira rede social de fotos!"],
+    'microsoft paint': ["Microsoft Paint, a verdadeira arte digital!", "O Paint era onde todos começavam suas obras-primas!"],
+    'msn': ["MSN Messenger, quem não passava horas lá?", "MSN Messenger era o centro das conversas de 2000!"],
+    'winamp': ["Winamp: o reprodutor de música que todos amavam!", "Nada como abrir o Winamp e escutar suas músicas favoritas!"],
+    'icq': ["Icq! O mensageiro que começou tudo!", "Lembrando do ICQ, o primeiro de muitos mensageiros!"],
+    'yahoo': ["Yahoo! Lembrando dos tempos de pesquisa antes do Google!", "Yahoo! Era o Google antes do Google!"],
+    'geocities': ["Geocities! Onde todos criavam seus sites nos anos 90!", "Lembrando dos sites do Geocities, que nostalgia!"],
+    'search engine': ["Ah, os primeiros motores de busca, o Yahoo Search!"],
+    'algoritmo': ["Algoritmos: a base do que faz tudo funcionar!", "Todo site tem um algoritmo por trás, ninguém vê, mas ele faz a mágica!"],
+    'open source': ["Open source é o futuro, liberdade para todos!", "O código aberto vai dominar o mundo!"],
+    'hacker': ["Sou um hacker, mas no bom sentido!", "Hacker é quem faz as coisas acontecerem nos bastidores!"],
+    'hardware': ["Hardware, é o que faz seu computador funcionar!", "Sem o hardware certo, não há magia no software!"],
+    'software': ["Software é a alma do computador!", "Software bom faz a diferença entre um computador comum e um ótimo!"],
+    'wifi': ["Wifi, a revolução da conectividade sem fios!", "Nada como a liberdade do Wifi!"],
+    'bluetooth': ["Bluetooth, uma invenção que simplificou a vida!", "O Bluetooth revolucionou a forma de conectar dispositivos!"],
+    'usb': ["USB: o cabo que conecta o mundo!", "USB: onde todo mundo deixa suas músicas e fotos!"],
+    'computação em nuvem': ["Computação em nuvem: o futuro da tecnologia!", "A nuvem vai dominar o mundo digital!"],
+    'navegador web': ["Navegadores web: sem eles, nada acontece na internet!", "Navegar na web é uma das maiores aventuras do século!"],
+    'banco de dados': ["Banco de dados: onde tudo é armazenado!", "Não tem como funcionar sem um banco de dados bem estruturado!"],
+    'coding': ["Programar é uma arte!", "Codificar é dar vida às suas ideias!"],
+    'turing': ["Alan Turing, o pai da computação moderna!", "Alan Turing foi um verdadeiro gênio!"],
+    'código aberto': ["Códigos abertos são a base do futuro!", "A magia acontece no código aberto!"],
+    'debugging': ["Depuração: a arte de encontrar e corrigir erros!", "Debugging é a verdadeira habilidade do programador!"],
+    'algoritmos de busca': ["Algoritmos de busca, como o Google, são a alma da web!", "A busca por informação nunca foi tão fácil!"],
+    'inteligência artificial': ["Inteligência artificial está mudando tudo!", "A IA vai ser o futuro de tudo!"],
+    'bots': ["Bots, os assistentes do futuro!", "Quem não ama um bot que facilita a vida?"],
+    'spam': ["Spam, a praga da internet!", "Nada como um bom filtro de spam!"],
+    'firewall': ["Firewall, sua proteção digital contra o mal!", "Sem firewall, sua rede estaria vulnerável!"]
+const responses = {
+    'orkut': ["Orkut, o início de tudo para os adolescentes online!", "Quem nunca foi viciado no Orkut, né?"],
+    'msn': ["MSN Messenger: a era dos emoticons e das conversas secretas!", "O MSN era onde todo mundo tinha um crush secreto!"],
+    'icq': ["ICQ, o pioneiro dos mensageiros instantâneos!", "ICQ: 'Você tem o número do seu ICQ?'"],
+    'youtube': ["YouTube, o lugar onde a diversão nunca acaba!", "O YouTube era a TV dos anos 2000!"],
+    'fotolog': ["Fotolog, onde as fotos eram mais importantes do que qualquer legenda!", "Se você tinha um Fotolog, você era praticamente um influenciador!"],
+    'blogspot': ["Blogspot: onde todos tinham seu cantinho na internet!", "Blogspot foi o precursor dos blogs profissionais!"],
+    'twitter': ["Twitter: o nascimento da comunicação rápida e direta!", "Twitter era a rede social dos pensamentos rápidos e hashtags!"],
+    'facebook': ["Facebook, a rede social que uniu o mundo!", "Facebook: de plataforma universitária a rede social de todo mundo!"],
+    'emoticon': ["Emoticons, a forma simples de expressar emoções online!", "Emoticons salvaram conversas sem graça nos anos 2000!"],
+    'flogão': ["Flogão, o primeiro lugar para compartilhar fotos com amigos!", "Flogão: onde você exibia suas melhores fotos, com ou sem qualidade!"],
+    'twiiter': ["O Twitter foi o começo de uma nova era na comunicação social!", "Agora todo mundo expressa tudo em 140 caracteres (ou mais)!"],
+    'picasa': ["Picasa, onde você organizava suas fotos antes do Google Fotos!", "O Picasa foi a primeira tentativa de ser organizado com imagens!"],
+    'flickr': ["Flickr, a rede social dos fotógrafos e das imagens artísticas!", "Quem não amava o Flickr para compartilhar fotos com qualidade?"],
+    'neopets': ["Neopets, o site onde você podia ter seu próprio animal virtual!", "Quem teve um Neopet nunca vai esquecer a diversão de cuidar deles!"],
+    'second life': ["Second Life, a versão virtual do mundo real!", "Aonde você podia viver uma segunda vida no mundo digital!"],
+    'chatroulette': ["Chatroulette, a roleta russa dos chats online!", "Será que você ia se conectar com alguém legal ou um 'nude' no Chatroulette?"],
+    'hiperlink': ["Hyperlinks, as estradas invisíveis da web!", "Sem hyperlinks, a internet seria apenas um monte de páginas desconexas!"],
+    'fones de ouvido': ["Fones de ouvido grandes e coloridos eram o símbolo da adolescência!", "Quem não tinha um fone de ouvido gigante para se sentir parte da galera?"],
+    'ipod': ["O iPod, seu primeiro dispositivo para ouvir música em qualquer lugar!", "Os adolescentes dos anos 2000 tinham sempre um iPod no bolso!"],
+    'ps2': ["PS2, o console que todos tinham e que era o centro das tardes de jogos!", "O PS2 fez a diversão de toda uma geração!"],
+    'game boy': ["Game Boy, onde tudo começou para os gamers portáteis!", "Se você não teve um Game Boy, você perdeu muito da infância!"],
+    'xbox': ["Xbox, o console dos gamers hardcore!", "Quem nunca teve um Xbox e passou horas jogando Halo?"],
+    'playstation': ["Playstation 2 foi o ápice dos jogos no início dos anos 2000!", "O Playstation 3 trouxe a nova era dos jogos em HD!"],
+    'super mario': ["Super Mario, o jogo que nunca envelhece!", "Todo gamer dos anos 2000 já jogou Mario, não importa em qual plataforma!"],
+    'brawl stars': ["Brawl Stars, o jogo para disputar com os amigos e mostrar quem manda!", "Brawl Stars fez as tardes de adolescência ainda mais emocionantes!"],
+    'halo': ["Halo, a franquia que definiu o Xbox e se tornou um ícone!", "Halo foi o jogo de ficção científica que todos amavam!"],
+    'counter strike': ["Counter Strike, o jogo onde a estratégia e a habilidade andam juntas!", "Counter Strike era o jogo da galera nas lan houses!"],
+    'lan house': ["A famosa Lan House, onde você jogava online com os amigos!", "Era lá que você se conectava para derrotar seus amigos no Counter Strike!"],
+    'minecraft': ["Minecraft, o jogo onde a criatividade não tem limites!", "Minecraft foi a revolução no mundo dos jogos e continua até hoje!"],
+    'wii': ["Wii, o console que fez todo mundo dançar e mexer!", "O Wii foi um console revolucionário pela sua jogabilidade!"],
+    'skype': ["Skype, o mensageiro que conectava as pessoas para videochamadas!", "Quem não usou o Skype para se conectar com amigos ou a família longe?"],
+    'yahoo': ["Yahoo, o grande portal de buscas da era pré-Google!", "O Yahoo era o que as pessoas usavam antes do Google dominar o mundo!"],
+    'orochi': ["Orochimaru, o vilão de Naruto que todo mundo amava odiar!", "Orochimaru teve um dos maiores legados dos vilões dos animes!"],
+    'naruto': ["Naruto, o anime que definiu uma geração de adolescentes!", "Naruto teve o poder de formar uma verdadeira legião de fãs!"],
+    'bleach': ["Bleach, o anime onde Shinigamis lutam contra espíritos!", "Bleach conquistou os corações dos fãs com sua história épica de batalhas!"],
+    'one piece': ["One Piece, a jornada do pirata que virou ícone dos animes!", "Luffy e sua tripulação continuam conquistando fãs ao redor do mundo!"],
+    'dragon ball': ["Dragon Ball, o anime que trouxe a ação com Goku!", "Goku foi o personagem que fez milhares de crianças se apaixonarem pelos animes!"],
+    'cartoon network': ["Cartoon Network, a TV onde todo mundo via desenhos animados!", "Quem nunca assistiu as maratonas do Cartoon Network no fim de semana?"],
+    'rock band': ["Rock Band, onde você podia ser a estrela de uma banda!", "Quem não sonhou em ser um rockstar tocando Guitar Hero ou Rock Band?"],
+    'mp3': ["MP3, o formato que mudou a forma de ouvir música!", "Todo adolescente tinha um MP3 e adorava baixar músicas na internet!"],
+    'file sharing': ["File Sharing, onde você compartilhava suas músicas, filmes e programas!", "Era na época do compartilhamento de arquivos que você descobria novas músicas!"],
+    'fotografia digital': ["Câmeras digitais, o começo de tudo para a fotografia moderna!", "Com a câmera digital, você não precisava mais de filme para tirar fotos!"],
+    'telefone celular': ["Celulares, o início da comunicação sem fio para todos!", "Quem teve um celular nos anos 2000 sabe a sensação de 'ter o mundo na mão'!"],
+    'galeria de fotos': ["Era nas galerias de fotos que você via a evolução das selfies!", "Com as câmeras de celular, todo adolescente tinha um álbum de fotos cheio!"],
+    'whatsapp': ["WhatsApp, a revolução da comunicação entre amigos!", "O WhatsApp trouxe a possibilidade de conversar com todo mundo, o tempo todo!"],
+    'facebook poke': ["O 'poke' do Facebook, aquele toque de saudade!", "Pokes eram uma maneira engraçada de interagir no Facebook nos anos 2000!"],
+    'eminem': ["Eminem, o rapper que falava o que muitos pensavam!", "Eminem foi a voz da rebeldia para a juventude dos anos 2000!"],
+    'tupac': ["Tupac, o rapper que definiu o hip-hop na década de 90 e 2000!", "As letras de Tupac ainda são lembradas com muita reverência até hoje!"],
+    'hip hop': ["Hip hop, o gênero musical que virou um estilo de vida!", "Nos anos 2000, o hip hop era a expressão da juventude urbana!"],
+    'soulja boy': ["Soulja Boy, o rapper que teve uma das maiores influências na cultura pop dos anos 2000!", "Soulja Boy fez história com 'Crank That' e as danças virais!"],
+    'teen movie': ["Filmes de adolescentes nos anos 2000: clássicos como 'American Pie' e 'Mean Girls'!", "Se você cresceu nos anos 2000, com certeza assistiu algum filme de adolescente!"]
+};};
+// Função para gerar respostas de piadas ou tópicos de programação, hacking e geeks
+function getGeekResponse(msg) {
+    // Convertendo a mensagem para minúsculas para facilitar a comparação
+    msg = msg.toLowerCase();
+    
+    // Definindo as respostas de acordo com o tópico
+    const responses = {
+        // Tópicos de Programação
+        'programação': [
+            "A programação em C é como uma faca afiada – pode cortar, mas se você não tomar cuidado, pode se machucar!",
+            "Por que o programador levou seu código para o hospital? Porque ele estava com um 'erro 404'!",
+            "Quando você manda compilar o código e ele leva tanto tempo que dá tempo até de refletir sobre a vida."
+        ],
+        'debugging': [
+            "Por que o programador nunca fica perdido? Porque ele sempre pode usar o debugger!",
+            "A recursão é quando você chama a função que está chamando a si mesma. Ah, e nunca acaba... até você perceber que se perdeu!",
+            "Se um erro de sintaxe não aparece no console, você sabe que ele está no seu coração."
+        ],
+        'git': [
+            "O Git é como um diário... a diferença é que todo mundo pode ver suas anotações!",
+            "Não mexa no branch master sem saber o que está fazendo! A não ser que você queira um novo desastre no repositório.",
+            "Quando você acha que o commit está perfeito, mas o merge traz todas as falhas do passado!"
+        ],
+        // Tópicos de Hacker
+        'hacking': [
+            "Hackear é mais do que invadir sistemas; é entender como o mundo digital pode ser manipulado!",
+            "Um hacker sem firewall é como um ladrão sem máscara!",
+            "Com uma VPN, você é o invisível do mundo digital. Sem ela, você está exposto."
+        ],
+        'phishing': [
+            "Se você cair em um phishing, apenas lembre-se: até o peixe mais esperto pode ser fisgado!",
+            "Phishing é como a pesca, mas ao invés de peixes, você captura dados preciosos... ou roubados!",
+            "Cuidado com os e-mails suspeitos, eles podem ser a linha de pesca de um hacker!"
+        ],
+        // Tópicos de Geek e Nerd
+        'geek': [
+            "A tecnologia é fascinante! Sempre evoluindo e transformando o mundo!",
+            "Todo geek sabe que o conhecimento é o verdadeiro superpoder.",
+            "Eu posso ser um assistente virtual, mas até eu sei que um bom PC vale mais do que um supercomputador de ficção científica!"
+        ],
+        'lanterna verde': [
+            "Em poder e força, nós podemos confiar, com nossa luz, o universo a brilhar. Nós somos Lanternas, no espaço e na escuridão!"
+        ]
+    };
+
+    // Verifica se a mensagem contém um tópico definido
+    for (const key in responses) {
+        if (msg.includes(key)) {
+            const options = responses[key];
+            return options[Math.floor(Math.random() * options.length)];
+        }
+    }
+    
+    // Caso não haja correspondência, retorna uma resposta padrão
+    return "Desculpe, não entendi. Pode reformular?";
+}
+
+// Exemplo de como usar a função com entrada de usuário
+const userInput = "programação";  // Entrada do usuário
+const response = getGeekResponse(userInput);
+console.log(response);
+
     // Perguntas frequentes
     if (msg.includes('qual seu nome')) return "Meu nome é ChatBot! Como posso te ajudar?";
     if (msg.includes('o que você faz')) return "Eu sou um assistente virtual, posso ajudar com diversas tarefas como responder perguntas, analisar dados e mais!";
