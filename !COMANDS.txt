@@ -454,3 +454,136 @@ if (msg.includes('como posso melhorar minha capacidade de liderança no trabalho
 if (msg.includes('como posso aprender a ser mais proativo no trabalho')) return "Antecipe necessidades, busque soluções antes que os problemas surjam e mostre iniciativa para fazer as coisas acontecerem!";
 if (msg.includes('como posso melhorar minha capacidade de resolver problemas no trabalho')) return "Identifique a causa raiz do problema, analise todas as opções e tome decisões baseadas em dados objetivos para encontrar a melhor solução!";
 if (msg.includes('como posso aumentar minha capacidade de concentração no trabalho')) return "Crie um ambiente de trabalho sem distrações, defina metas claras e use técnicas como Pomodoro para manter o foco!";
+// Função de respostas personalizadas com base em palavras-chave
+function getRespostaPersonalizada(msg) {
+    msg = msg.toLowerCase();
+    if (msg.includes('oi')) return "Olá! Como posso ajudar você hoje?";
+    if (msg.includes('dados')) return "Você quer analisar dados? Envie os dados ou escolha uma opção!";
+    if (msg.includes('jogo')) return "Você gosta de jogos? Tenho algumas recomendações de jogos multiplayer. Deseja ver?";
+    if (msg.includes('limpar dados')) return "Certo! Seus dados foram limpos e padronizados!";
+    if (msg.includes('normalizar texto')) return "Texto formatado para minúsculas e acentos removidos!";
+    if (msg.includes('validar email')) return "Verifiquei e sim, o email parece estar correto!";
+    if (msg.includes('gerar hash')) return "Senha protegida com hash SHA-256!";
+    if (msg.includes('analisar sentimento')) return "O sentimento do texto é positivo!";
+    if (msg.includes('detectar anomalias')) return "Detectei padrões incomuns nos seus dados!";
+    if (msg.includes('clima')) return "Digite sua cidade para que eu possa verificar a previsão do tempo!";
+    if (msg.includes('horário')) return "O horário atual é: " + new Date().toLocaleTimeString();
+    if (msg.includes('notícia')) return "Aqui estão as últimas notícias: [link para um feed de notícias]";
+    if (msg.includes('moeda')) return "Digite a moeda que deseja converter e eu fornecerei a taxa de câmbio!";
+function getRespostaPersonalizada(msg) {
+    msg = msg.toLowerCase();
+    if (msg.includes('oi')) return "Olá! Como posso ajudar você hoje?";
+    if (msg.includes('dados')) return "Você quer analisar dados? Envie os dados ou escolha uma opção!";
+    if (msg.includes('jogo')) return "Você gosta de jogos? Tenho algumas recomendações de jogos multiplayer. Deseja ver?";
+    if (msg.includes('limpar dados')) return "Certo! Seus dados foram limpos e padronizados!";
+    if (msg.includes('normalizar texto')) return "Texto formatado para minúsculas e acentos removidos!";
+    if (msg.includes('validar email')) return "Verifiquei e sim, o email parece estar correto!";
+    if (msg.includes('gerar hash')) return "Senha protegida com hash SHA-256!";
+    if (msg.includes('analisar sentimento')) return "O sentimento do texto é positivo!";
+    if (msg.includes('detectar anomalias')) return "Detectei padrões incomuns nos seus dados!";
+    if (msg.includes('clima')) return "Digite sua cidade para que eu possa verificar a previsão do tempo!";
+    if (msg.includes('horário')) return "O horário atual é: " + new Date().toLocaleTimeString();
+    if (msg.includes('notícia')) return "Aqui estão as últimas notícias: [link para um feed de notícias]";
+    if (msg.includes('moeda')) return "Digite a moeda que deseja converter e eu fornecerei a taxa de câmbio!";
+    if (msg.includes('qual é o seu nome')) return "Eu sou um assistente virtual! Em que posso te ajudar?";
+    if (msg.includes('como você está')) return "Estou bem, obrigado! E você, como está?";
+    if (msg.includes('quem é você')) return "Eu sou um assistente criado para ajudar com várias tarefas. O que posso fazer por você?";
+    if (msg.includes('o que você faz')) return "Posso ajudar a analisar dados, fornecer informações sobre clima, e muito mais!";
+    if (msg.includes('ajuda')) return "Claro! O que você precisa? Estou aqui para ajudar!";
+    if (msg.includes('assistente virtual')) return "Sou um assistente digital e posso te ajudar com várias tarefas. Como posso te ajudar hoje?";
+    if (msg.includes('informações')) return "Você gostaria de mais informações sobre o quê?";
+    if (msg.includes('recomendação')) return "Em que área você gostaria de receber uma recomendação? Jogos, filmes, livros?";
+    if (msg.includes('calculadora')) return "Você quer fazer algum cálculo específico?";
+    if (msg.includes('vídeo')) return "Você quer assistir a um vídeo? Posso te recomendar alguns!";
+    if (msg.includes('notícias de tecnologia')) return "Aqui estão as últimas notícias sobre tecnologia: [link para um feed de tecnologia]";
+    if (msg.includes('compartilhar')) return "Você gostaria de compartilhar algo comigo? Posso ajudar!";
+    if (msg.includes('documento')) return "Você quer fazer upload ou verificar algum documento?";
+    if (msg.includes('link')) return "Aqui está o link solicitado: [insira o link].";
+    if (msg.includes('gostei')) return "Que bom que gostou! Como mais posso te ajudar?";
+    if (msg.includes('não gostei')) return "Sinto muito que não tenha gostado. Como posso melhorar?";
+    if (msg.includes('excluir conta')) return "Você tem certeza de que deseja excluir sua conta? Posso ajudar com o processo.";
+    if (msg.includes('criar conta')) return "Você quer criar uma nova conta? Posso te ajudar com isso!";
+    if (msg.includes('rede social')) return "Qual rede social você gostaria de saber mais?";
+    if (msg.includes('spotify')) return "Você quer ouvir algo no Spotify? Posso sugerir uma playlist!";
+    if (msg.includes('email de contato')) return "Você pode nos contatar pelo email: contato@exemplo.com.";
+    if (msg.includes('redefinir senha')) return "Eu posso te ajudar a redefinir sua senha. Você quer continuar?";
+    if (msg.includes('conta bloqueada')) return "Sua conta foi bloqueada? Eu posso ajudar a resolver isso.";
+    if (msg.includes('esqueci minha senha')) return "Não se preocupe! Posso te ajudar a recuperar sua senha.";
+    if (msg.includes('atualizar dados')) return "Você gostaria de atualizar suas informações pessoais?";
+    if (msg.includes('carregar mais')) return "Carregando mais informações... Aguarde um momento.";
+    if (msg.includes('ajustes de perfil')) return "Quer atualizar seu perfil? Posso te ajudar com isso!";
+    if (msg.includes('compra confirmada')) return "Sua compra foi confirmada com sucesso!";
+    if (msg.includes('cancelar compra')) return "Você deseja cancelar a compra? Eu posso ajudar com isso.";
+    if (msg.includes('dúvida')) return "Qual é a sua dúvida? Vou tentar te ajudar da melhor maneira!";
+    if (msg.includes('erro')) return "Parece que ocorreu um erro. Posso tentar corrigir isso para você!";
+    if (msg.includes('agendar')) return "Gostaria de agendar uma reunião ou compromisso?";
+    if (msg.includes('compartilhar dados')) return "Você quer compartilhar seus dados comigo? Vou garantir que tudo esteja seguro!";
+    if (msg.includes('tradução')) return "Você precisa traduzir algo? Posso ajudar com isso.";
+    if (msg.includes('agradeço')) return "De nada! Se precisar de mais alguma coisa, estarei por aqui!";
+    if (msg.includes('livro')) return "Está procurando um bom livro para ler? Posso te recomendar alguns!";
+    if (msg.includes('filme')) return "Quer assistir a um bom filme? Posso sugerir alguns títulos!";
+    if (msg.includes('série')) return "Procurando uma boa série para maratonar? Tenho algumas sugestões!";
+    if (msg.includes('música')) return "Qual tipo de música você gosta? Posso sugerir algo!";
+    if (msg.includes('saudação')) return "Olá! Como posso te ajudar hoje?";
+    if (msg.includes('desconectar')) return "Você quer se desconectar da conta? Posso ajudar!";
+    if (msg.includes('feedback')) return "Gostaria de deixar um feedback? Sua opinião é muito importante para nós!";
+    if (msg.includes('dados pessoais')) return "Você quer atualizar seus dados pessoais? Eu posso te ajudar.";
+    if (msg.includes('documento necessário')) return "Precisa de algum documento específico? Posso ajudar a encontrá-lo!";
+    if (msg.includes('gerar relatório')) return "Eu posso gerar um relatório para você. O que você precisa no relatório?";
+    if (msg.includes('histórico de compras')) return "Você quer visualizar seu histórico de compras? Eu posso te ajudar!";
+    if (msg.includes('consultar saldo')) return "Quer consultar o saldo da sua conta? Vou verificar para você!";
+    if (msg.includes('status de pedido')) return "Você quer saber o status de um pedido? Me envie o número do pedido!";
+    if (msg.includes('informações de pagamento')) return "Você precisa de informações sobre um pagamento? Eu posso te ajudar!";
+    if (msg.includes('dúvida sobre produto')) return "Tem alguma dúvida sobre um produto? Posso ajudar com as especificações!";
+    if (msg.includes('preço de produto')) return "Você quer saber o preço de um produto? Eu posso consultar para você!";
+    if (msg.includes('recomendações de investimento')) return "Você quer recomendações de investimento? Posso sugerir opções de acordo com seu perfil!";
+    if (msg.includes('planos de investimento')) return "Eu tenho várias opções de planos de investimento. Quer ver mais detalhes?";
+    if (msg.includes('escolher plano')) return "Quer ajuda para escolher o melhor plano de investimento?";
+    if (msg.includes('resultado financeiro')) return "Você quer ver o seu resultado financeiro? Eu posso gerar um relatório!";
+    if (msg.includes('criar orçamento')) return "Quer criar um orçamento? Eu posso ajudar com isso!";
+    if (msg.includes('perguntas frequentes')) return "Aqui estão as perguntas frequentes: [link para FAQ]";
+    if (msg.includes('suporte técnico')) return "Você precisa de suporte técnico? Posso direcioná-lo para o time adequado!";
+    if (msg.includes('feedback do sistema')) return "Você gostaria de deixar um feedback sobre o sistema? Adoraríamos ouvir sua opinião!";
+    if (msg.includes('recarregar página')) return "Recarregando a página para atualizar as informações!";
+    if (msg.includes('solicitar suporte')) return "Você pode solicitar suporte clicando no botão 'Suporte' ou me dizendo o que precisa!";
+    if (msg.includes('opções de pagamento')) return "Quais opções de pagamento você deseja? Posso mostrar as disponíveis!";
+    if (msg.includes('tempo de entrega')) return "O tempo estimado de entrega é de X dias úteis. Posso verificar mais detalhes para você!";
+    if (msg.includes('opções de entrega')) return "Você quer saber as opções de entrega? Eu posso te ajudar!";
+    if (msg.includes('agendar reunião')) return "Você quer agendar uma reunião com nossa equipe? Eu posso organizar isso!";
+    if (msg.includes('avisos importantes')) return "Aqui estão os avisos importantes: [link ou lista de avisos]";
+    if (msg.includes('ajuda com uso do sistema')) return "Está com dificuldades para usar o sistema? Posso te guiar no processo!";
+    if (msg.includes('tempo de resposta')) return "O tempo de resposta pode variar, mas vou tentar responder o mais rápido possível!";
+}
+
+    // Quizzes
+    if (msg.includes('harry potter quiz')) {
+        return "Vamos testar seus conhecimentos sobre Harry Potter! 🎩⚡\n\n" +
+            "1️⃣ Qual é o nome completo de Dumbledore?\nA) Alvo Percival Wulfrico Brian Dumbledore\nB) Alvo Severo Dumbledore\nC) Alvo Merlin Dumbledore\nD) Alvo Godric Dumbledore\n\n" +
+            "2️⃣ Qual é o animal de estimação de Rony Weasley?\nA) Coruja\nB) Rato\nC) Sapo\nD) Cachorro\n\n" +
+            "3️⃣ Qual feitiço é usado para desarmar um oponente?\nA) Expelliarmus\nB) Avada Kedavra\nC) Lumos\nD) Crucio\n\n" +
+            "4️⃣ Quem traiu os pais de Harry Potter?\nA) Sirius Black\nB) Pedro Pettigrew\nC) Severo Snape\nD) Lúcio Malfoy\n\n" +
+            "5️⃣ Qual é o nome do poltergeist de Hogwarts?\nA) Pirraça\nB) Dobby\nC) Nick Quase Sem Cabeça\nD) Barão Sangrento\n\n" +
+            "6️⃣ Qual é o nome do elfo doméstico de Harry?\nA) Kreacher\nB) Dobby\nC) Winky\nD) Monstro\n\n" +
+            "7️⃣ Qual das Relíquias da Morte é um símbolo da imortalidade?\nA) Pedra da Ressurreição\nB) Capa da Invisibilidade\nC) Varinha das Varinhas\nD) Medalhão de Sonserina\n\n" +
+            "8️⃣ Em qual casa Luna Lovegood pertence?\nA) Grifinória\nB) Corvinal\nC) Lufa-Lufa\nD) Sonserina\n\n" +
+            "9️⃣ Qual é o nome do Patrono de Hermione?\nA) Cervo\nB) Lebre\nC) Lobo\nD) Lontra\n\n" +
+            "🔟 Qual foi o primeiro Horcrux destruído?\nA) Diário de Tom Riddle\nB) Anel de Marvolo Gaunt\nC) Medalhão de Sonserina\nD) Taça de Helga Lufa-Lufa\n\n" +
+            "Responda com o número e a letra da resposta correta! Exemplo: 1A, 2B...";
+    } else if (msg.includes('league of legends quiz')) {
+        return "Vamos ver se você é um verdadeiro Invocador! 🏆🎮\n\n" +
+            "1️⃣ Qual é o nome do criador de League of Legends?\nA) Riot Games\nB) Tencent\nC) Blizzard\nD) Valve\n\n" +
+            "2️⃣ Qual é o campeão conhecido como 'O Curandeiro de Zaun'?\nA) Soraka\nB) Singed\nC) Dr. Mundo\nD) Warwick\n\n" +
+            "3️⃣ Qual foi o primeiro campeão criado no LoL?\nA) Ryze\nB) Teemo\nC) Ashe\nD) Alistar\n\n" +
+            "4️⃣ Qual é o nome do Dragão que concede buffs específicos?\nA) Dragão Ancião\nB) Dragão Infernal\nC) Dragão Hextech\nD) Dragão das Nuvens\n\n" +
+            "5️⃣ Qual é a classe principal do campeão Thresh?\nA) Assassino\nB) Lutador\nC) Suporte\nD) Mago\n\n" +
+            "6️⃣ Qual é o nome do modo de jogo principal do LoL?\nA) ARAM\nB) Summoner’s Rift\nC) Twisted Treeline\nD) Nexus Blitz\n\n" +
+            "7️⃣ Quem é a rival de Caitlyn em Piltover?\nA) Vi\nB) Jinx\nC) Ekko\nD) Jayce\n\n" +
+            "8️⃣ Qual campeão é conhecido por sua habilidade 'R - Cataclismo'?\nA) Garen\nB) Jarvan IV\nC) Darius\nD) Riven\n\n" +
+            "9️⃣ Qual item concede escudo e roubo de vida para ADCs?\nA) Mata-Cráquens\nB) Gume do Infinito\nC) Arco-escudo Imortal\nD) Lâmina Fantasma de Youmuu\n\n" +
+            "🔟 Qual é o nome da skin lendária de Ezreal que o transforma em um explorador do futuro?\nA) Ezreal TPA\nB) Ezreal Pulsefire\nC) Ezreal Guardião Estelar\nD) Ezreal Frosted\n\n" +
+            "Responda com o número e a letra da resposta correta! Exemplo: 1A, 2B...";
+    }
+
+    // Se o comando não for reconhecido
+    return "Desculpe, não entendi sua mensagem. Tente novamente!";
+}
