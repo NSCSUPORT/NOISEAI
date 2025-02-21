@@ -161,121 +161,121 @@ footer {
     </style>
 </head>
 <body>
-<img src="banner.png" alt="Noise AI Banner" class="banner">
-<div class="chat-container">
-    <div class="chat-box" id="chat-box">
-        <div class="message received" id="initial-message">👋 Olá! O que você deseja fazer? Use !GUIA para listar os comandos.</div>
-    </div>
-    <div class="input-container">
-        <input type="text" id="chat-input" placeholder="Digite sua mensagem...">
-        <button class="button send-btn" id="send-btn"><i class="fas fa-paper-plane"></i></button>
-        <div class="button attach-btn">
-            <label for="file-input">
-                <i class="fas fa-paperclip"></i>
-            </label>
-            <input type="file" id="file-input" style="display:none;" />
+    <img src="banner.png" alt="Noise AI Banner" class="banner">
+    <div class="chat-container">
+        <div class="chat-box" id="chat-box">
+            <div class="message received" id="initial-message">👋 Olá! O que você deseja fazer? Use !GUIA para listar os comandos.</div>
         </div>
-        <button class="button clear-btn" id="clear-btn"><i class="fas fa-trash-alt"></i></button>
+        <div class="input-container">
+            <input type="text" id="chat-input" placeholder="Digite sua mensagem...">
+            <button class="button send-btn" id="send-btn"><i class="fas fa-paper-plane"></i></button>
+            <div class="button attach-btn">
+                <label for="file-input">
+                    <i class="fas fa-paperclip"></i>
+                </label>
+                <input type="file" id="file-input" style="display:none;" />
+            </div>
+            <button class="button clear-btn" id="clear-btn"><i class="fas fa-trash-alt"></i></button>
+        </div>
     </div>
-</div>
- 
-<footer>
-    <p>&copy; 2025 HoloFi. Todos os direitos reservados. Lucas Januário</p>
-</footer>
-<script>
-  document.getElementById('file-input').addEventListener('change', function(event) {
-    let file = event.target.files[0];
-    if (file) {
-        let reader = new FileReader();
-        reader.onload = function(e) {
-            let data = new Uint8Array(e.target.result);
-            let workbook = XLSX.read(data, { type: 'array' });
-            let sheetName = workbook.SheetNames[0];
-            let sheet = workbook.Sheets[sheetName];
-            let jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
 
-            let response = "📊 Arquivo carregado com sucesso! Exibindo primeiras linhas:\n";
-            jsonData.slice(0, 5).forEach(row => {
-                response += JSON.stringify(row) + "\n";
+    <footer>
+        <p>&copy; 2025 HoloFi. Todos os direitos reservados. Lucas Januário</p>
+    </footer>
+
+    <script>
+        // Função para enviar mensagem
+        function sendMessage() {
+            let input = document.getElementById('chat-input');
+            let messageText = input.value.trim();
+            if (!messageText) return;
+
+            appendMessage(messageText, 'sent');
+            input.value = '';
+
+            // Envia a mensagem para o backend ou executa comando
+            fetchComando(messageText);
+        }
+
+        // Função para adicionar mensagens ao chat
+        function appendMessage(text, type) {
+            let chatBox = document.getElementById('chat-box');
+            let message = document.createElement('div');
+            message.classList.add('message', type);
+            message.innerHTML = type === 'received' ? `<i class="fas fa-robot"></i> ${text}` : text;
+            chatBox.appendChild(message);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        // Função para processar os comandos
+        function fetchComando(messageText) {
+            fetch('/processar-comando', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: messageText })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Mostra a resposta recebida
+                appendMessage(data.response, 'received');
+            })
+            .catch(error => {
+                console.error('Erro ao processar comando:', error);
+                appendMessage('Erro ao processar comando. Tente novamente!', 'received');
             });
+        }
 
-            appendMessage(response, 'received');
-        };
-        reader.readAsArrayBuffer(file);
-    }
-});
+        // Função para falar a mensagem
+        function speakMessage(message) {
+            const speech = new SpeechSynthesisUtterance(message);
+            speech.lang = 'pt-BR';
+            speech.volume = 1;
+            speech.rate = 1;
+            speech.pitch = 1;
+            speechSynthesis.speak(speech);
+        }
 
-// Função para enviar mensagem
-function sendMessage() {
-    let input = document.getElementById('chat-input');
-    let messageText = input.value.trim();
-    if (!messageText) return;
+        // Evento de clique do botão de envio
+        document.getElementById('send-btn').addEventListener('click', function() {
+            sendMessage();  // Usa a função centralizada
+        });
 
-    appendMessage(messageText, 'sent');
-    input.value = '';
+        // Evento de pressionar "Enter" para enviar a mensagem
+        document.getElementById('chat-input').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                sendMessage();  // Envia a mensagem quando pressionar Enter
+            }
+        });
 
-    // Envia a mensagem para o backend ou executa comando
-    fetchComando(messageText);
-}
+        // Evento de clique do botão de limpar
+        document.getElementById('clear-btn').addEventListener('click', function() {
+            document.getElementById('chat-box').innerHTML = ''; // Limpa o chat
+            appendMessage('👋 Olá! O que você deseja fazer? Use !GUIA para listar os comandos.', 'received');  // Recarrega a mensagem inicial
+        });
 
-// Função para adicionar mensagens ao chat
-function appendMessage(text, type) {
-    let chatBox = document.getElementById('chat-box');
-    let message = document.createElement('div');
-    message.classList.add('message', type);
-    message.innerHTML = type === 'received' ? `<i class="fas fa-robot"></i> ${text}` : text;
-    chatBox.appendChild(message);
-    chatBox.scrollTop = chatBox.scrollHeight;
-}
+        // Evento para carregar o arquivo (excel ou outros tipos)
+        document.getElementById('file-input').addEventListener('change', function(event) {
+            let file = event.target.files[0];
+            if (file) {
+                let reader = new FileReader();
+                reader.onload = function(e) {
+                    let data = new Uint8Array(e.target.result);
+                    let workbook = XLSX.read(data, { type: 'array' });
+                    let sheetName = workbook.SheetNames[0];
+                    let sheet = workbook.Sheets[sheetName];
+                    let jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
 
-// Função para processar os comandos
-function fetchComando(messageText) {
-    fetch('/processar-comando', {  // Supondo que você tenha um endpoint backend para processar comandos
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: messageText })
-    })
-    .then(response => response.json())
-    .then(data => {
-        // Mostra a resposta recebida
-        appendMessage(data.response, 'received');
-    })
-    .catch(error => {
-        console.error('Erro ao processar comando:', error);
-        appendMessage('Erro ao processar comando. Tente novamente!', 'received');
-    });
-}
+                    let response = "📊 Arquivo carregado com sucesso! Exibindo primeiras linhas:\n";
+                    jsonData.slice(0, 5).forEach(row => {
+                        response += JSON.stringify(row) + "\n";
+                    });
 
-// Função para falar a mensagem
-function speakMessage(message) {
-    const speech = new SpeechSynthesisUtterance(message);
-    speech.lang = 'pt-BR';
-    speech.volume = 1;
-    speech.rate = 1;
-    speech.pitch = 1;
-    speechSynthesis.speak(speech);
-}
-
-// Evento de clique do botão de envio
-document.getElementById('send-btn').addEventListener('click', function() {
-    const input = document.getElementById('chat-input');
-    const message = input.value;
-    if (message) {
-        // Exibe a mensagem no chat
-        appendMessage(message, 'sent');
-        input.value = '';
-        // Fala a mensagem
-        speakMessage(message);
-        fetchComando(message);
-    }
-});
-
-// Evento de clique do botão de limpar
-document.getElementById('clear-btn').addEventListener('click', function() {
-    document.getElementById('chat-box').innerHTML = '';
-});
-
-</script>
-
+                    appendMessage(response, 'received');
+                };
+                reader.readAsArrayBuffer(file);
+            }
+        });
+    </script>
 </body>
+
 </html>
