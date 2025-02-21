@@ -9,15 +9,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
       <style>
-    body {
+   body {
     background-color: #000;
     color: #fff;
     font-family: 'Courier New', Courier, monospace;
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     height: 100vh;
     flex-direction: column;
     position: relative;
@@ -32,7 +32,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    height: 80vh;
+    height: calc(80vh - 50px); /* Ajusta o tamanho do chat para não invadir o footer */
     width: 100%;
     max-width: 450px;
     padding: 20px;
