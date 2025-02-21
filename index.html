@@ -211,116 +211,89 @@ document.getElementById('file-input').addEventListener('change', function(event)
         reader.readAsArrayBuffer(file);
     }
 });
+// Função para enviar mensagem
+function sendMessage() {
+    let input = document.getElementById('chat-input');
+    let messageText = input.value.trim();
+    if (!messageText) return;
 
-      // Função para enviar mensagem
-        function sendMessage() {
-            let input = document.getElementById('chat-input');
-            let messageText = input.value.trim();
-            if (!messageText) return;
+    appendMessage(messageText, 'sent');
+    input.value = '';
 
-            // Exibe a mensagem enviada
-            appendMessage(messageText, 'sent');
-            input.value = '';
+    if (comandos[messageText]) {
+        setTimeout(() => {
+            appendMessage(comandos[messageText], 'received');
+        }, 500);
+    }
+}
 
-            // Processa a mensagem e busca por comandos
-            const response = processMessage(messageText);
-            if (response) {
-                setTimeout(() => {
-                    appendMessage(response, 'received');
-                }, 500);
-            }
-        }
+// Função para adicionar mensagens ao chat
+function appendMessage(text, type) {
+    let chatBox = document.getElementById('chat-box');
+    let message = document.createElement('div');
+    message.classList.add('message', type);
+    message.innerHTML = type === 'received' ? `<i class="fas fa-robot"></i> ${text}` : text;
+    chatBox.appendChild(message);
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
 
-        // Função para adicionar mensagens ao chat
-        function appendMessage(text, type) {
-            let chatBox = document.getElementById('chat-box');
-            let message = document.createElement('div');
-            message.classList.add('message', type);
-            message.innerHTML = type === 'received' ? `<i class="fas fa-robot"></i> ${text}` : text;
-            chatBox.appendChild(message);
-            chatBox.scrollTop = chatBox.scrollHeight;  // Rola para a última mensagem
-        }
+// Eventos do chat
+document.getElementById('send-btn').addEventListener('click', sendMessage);
+document.getElementById('chat-input').addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') sendMessage();
+});
 
-        // Função para processar a mensagem (caso haja comandos)
-        function processMessage(messageText) {
-            // Exemplo simples de processamento de comando
-            if (messageText.startsWith("!GUIA")) {
-                return "Comandos disponíveis:\n- !GUIA: Exibe os comandos\n- !SAIR: Encerra a conexão";
-            }
-            if (messageText.startsWith("!SAIR")) {
-                return "Desconectando... Até logo!";
-            }
-            return "Mensagem recebida!";
-        }
+document.getElementById('clear-btn').addEventListener('click', function() {
+    document.getElementById('chat-box').innerHTML = '<div class="message received"><i class="fas fa-robot"></i> 👋 Olá! O que você deseja fazer? Use !GUIA para listar os comandos.</div>';
+});
+    // Function to speak the message
+function speakMessage(message) {
+    const speech = new SpeechSynthesisUtterance(message);
+    speech.lang = 'pt-BR';  // Set language to Brazilian Portuguese
+    speech.volume = 1;      // Full volume
+    speech.rate = 1;        // Normal speech rate
+    speech.pitch = 1;       // Normal pitch
+    speechSynthesis.speak(speech);
+}
 
-        // Evento para carregar o arquivo Excel
-        document.getElementById('file-input').addEventListener('change', function(event) {
-            let file = event.target.files[0];
-            if (file) {
-                let reader = new FileReader();
-                reader.onload = function(e) {
-                    let data = new Uint8Array(e.target.result);
-                    let workbook = XLSX.read(data, { type: 'array' });
-                    let sheetName = workbook.SheetNames[0];
-                    let sheet = workbook.Sheets[sheetName];
-                    let jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+// Add event listener to the send button
+document.getElementById('send-btn').addEventListener('click', function() {
+    const input = document.getElementById('chat-input');
+    const message = input.value;
+    if (message) {
+        // Display the message in the chat
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message', 'sent');
+        messageDiv.textContent = message;
+        document.getElementById('chat-box').appendChild(messageDiv);
 
-                    let response = "📊 Arquivo carregado com sucesso! Exibindo primeiras linhas:\n";
-                    jsonData.slice(0, 5).forEach(row => {
-                        response += JSON.stringify(row) + "\n";
-                    });
+        // Clear the input field
+        input.value = '';
 
-                    appendMessage(response, 'received');
-                };
-                reader.readAsArrayBuffer(file);
-            }
-        });
+        // Use the speak function to narrate the message
+        speakMessage(message);
+    }
+});
 
-        // Conectar aos kernels
-        let kernelSocket, setep2Socket;
+// Add event listener to the clear button
+document.getElementById('clear-btn').addEventListener('click', function() {
+    document.getElementById('chat-box').innerHTML = '';
+});
+    function processMessage(msg) {
+    const commands = {
+        '!GUIA': 'Lista de comandos disponíveis: !AJUDA, !DATA, !HORA, !RANDOM, !MOEDA',
+        '!AJUDA': 'Comandos disponíveis: !GUIA, !DATA, !HORA, !RANDOM, !MOEDA',
+        '!DATA': new Date().toLocaleDateString(),
+        '!HORA': new Date().toLocaleTimeString(),
+        '!RANDOM': Math.floor(Math.random() * 100),
+        '!MOEDA': Math.random() < 0.5 ? 'Cara' : 'Coroa',
+        '!lucas januario': "Lucas Januário do Nascimento é o fundador do HoloFi e da tecnologia HOLLOW ETHER, trabalhando com inovação em ativos digitais e blockchain!"
+    };
 
-        // Conecta ao kernel (kernel.js - porta 9090)
-        document.getElementById('connect-kernel-btn').addEventListener('click', () => {
-            kernelSocket = new WebSocket('ws://localhost:9090');
-            kernelSocket.onopen = () => {
-                appendMessage('Conectado ao Kernel (9090)', 'received');
-            };
-            kernelSocket.onmessage = (e) => {
-                const data = JSON.parse(e.data);
-                appendMessage('Kernel: ' + data.response, 'received');
-            };
-            kernelSocket.onerror = (e) => {
-                appendMessage('Erro no Kernel: ' + e, 'received');
-            };
-        });
-
-        // Conecta ao setep2 (setep2.js - porta 9091)
-        document.getElementById('connect-setep2-btn').addEventListener('click', () => {
-            setep2Socket = new WebSocket('ws://localhost:9091');
-            setep2Socket.onopen = () => {
-                appendMessage('Conectado ao Setep2 (9091)', 'received');
-            };
-            setep2Socket.onmessage = (e) => {
-                const data = JSON.parse(e.data);
-                appendMessage('Setep2: ' + data.response, 'received');
-            };
-            setep2Socket.onerror = (e) => {
-                appendMessage('Erro no Setep2: ' + e, 'received');
-            };
-        });
-
-        // Envia a mensagem para ambos os kernels (se conectados)
-        document.getElementById('send-btn').addEventListener('click', sendMessage);
-        document.getElementById('chat-input').addEventListener('keypress', function(event) {
-            if (event.key === 'Enter') {
-                sendMessage();
-            }
-        });
-
-        // Adiciona evento ao botão de limpar
-        document.getElementById('clear-btn').addEventListener('click', function() {
-            document.getElementById('chat-box').innerHTML = '<div class="message received"><i class="fas fa-robot"></i> 👋 Olá! O que você deseja fazer? Use !GUIA para listar os comandos.</div>';
-        });
+    // Verificar comandos simples
+    if (commands[msg]) {
+        return commands[msg];
+    }
     // Respostas personalizadas baseadas em palavras-chave
     // Quizzes
     if (msg.includes('harry potter quiz')) {
