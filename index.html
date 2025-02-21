@@ -1,198 +1,200 @@
-
-
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="logo.ico">
+<!-- saved from url=(0043)file:///C:/Users/jobsj/Downloads/index.html -->
+<html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <link rel="icon" href="file:///C:/Users/jobsj/Downloads/logo.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Noise AI</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
-    <style>
-body {
-    background-color: #000;
-    color: #fff;
-    font-family: 'Courier New', Courier, monospace;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    flex-direction: column;
-    position: relative;
-}
-
+    <link href="./Noise AI_files/css2" rel="stylesheet">
+    <link rel="stylesheet" href="./Noise AI_files/all.min.css">
+    <script src="./Noise AI_files/xlsx.full.min.js.download"></script>
+ <style>
+    body {
+        background-color: #000;
+        color: #fff;
+        font-family: 'Courier New', Courier, monospace;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+        overflow: hidden;
+    }
 .banner {
     width: 70%;
-    max-width: 450px;
-    margin-bottom: 20px; /* Espaçamento entre o banner e o chat */
+    max-width: 315px;  /* 30% smaller from 450px */
+    margin-bottom: 20px;
 }
 
-.chat-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    height: calc(80vh - 50px); /* Ajusta o tamanho do chat para não invadir o footer */
-    width: 100%;
-    max-width: 450px;
-    padding: 20px;
-    border: 2px solid #4CAF50;
-    border-radius: 10px;
-    background-color: #1c1c1c;
-    box-shadow: 0 0 10px #4CAF50, 0 0 20px #4CAF50, 0 0 30px #4CAF50;
-    overflow: hidden;
-    animation: neon-pulse 1.5s infinite alternate;
-}
+    h1 {
+        font-family: 'Press Start 2P', cursive;
+        font-size: 36px;
+        color: #4CAF50;
+        text-align: center;
+        text-shadow: 0 0 10px #4CAF50, 0 0 20px #4CAF50;
+        margin-bottom: 20px;
+    }
 
-@keyframes neon-pulse {
-    0% { box-shadow: 0 0 10px #4CAF50, 0 0 20px #4CAF50; }
-    100% { box-shadow: 0 0 15px #4CAF50, 0 0 30px #4CAF50; }
-}
+    .chat-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        height: 80vh;
+        width: 100%;
+        max-width: 450px;
+        padding: 20px;
+        border: 2px solid #4CAF50;
+        border-radius: 15px;
+        background-color: #1c1c1c;
+        box-shadow: 0px 0px 30px rgba(76, 175, 80, 0.6);
+        overflow: hidden;
+        transition: all 0.3s ease-in-out;
+    }
 
-.chat-box {
-    flex-grow: 1;
-    overflow-y: auto;
-    margin-bottom: 10px;
-    background-color: #333;
-    border-radius: 10px;
-    padding: 15px;
-    max-height: 60vh;
-}
+    .chat-box {
+        flex-grow: 1;
+        overflow-y: auto;
+        margin-bottom: 15px;
+        background-color: #333;
+        border-radius: 10px;
+        padding: 15px;
+        max-height: 60vh;
+        transition: max-height 0.3s ease-in-out;
+    }
 
-.message {
-    padding: 12px;
-    margin: 8px 0;
-    border-radius: 8px;
-    max-width: 75%;
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-    word-wrap: break-word;
-}
+    .message {
+        padding: 12px;
+        margin: 8px 0;
+        border-radius: 12px;
+        max-width: 75%;
+        display: flex;
+        align-items: center;
+        font-size: 15px;
+        word-wrap: break-word;
+        transition: background-color 0.2s ease;
+    }
 
-.message.sent {
-    background-color: #4CAF50;
-    align-self: flex-end;
-    color: #000;
-}
+    .message.sent {
+        background-color: #4CAF50;
+        align-self: flex-end;
+        color: #000;
+    }
 
-.message.received {
-    background-color: #007BFF;
-    color: #000;
-    align-self: flex-start;
-}
+    .message.received {
+        background-color: #007BFF;
+        color: #fff;
+        align-self: flex-start;
+    }
 
-.input-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 10px;
-    width: 100%;
-}
+    .input-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 10px;
+        width: 100%;
+    }
 
-input[type="text"] {
-    flex-grow: 1;
-    padding: 12px;
-    border: 2px solid #333;
-    border-radius: 25px;
-    background-color: #333;
-    color: #fff;
-    font-size: 14px;
-    outline: none;
-    transition: border-color 0.3s ease;
-}
+    input[type="text"] {
+        flex-grow: 1;
+        padding: 12px;
+        border: 2px solid #333;
+        border-radius: 30px;
+        background-color: #333;
+        color: #fff;
+        font-size: 14px;
+        outline: none;
+        transition: all 0.3s ease;
+    }
 
-input[type="text"]:focus {
-    border-color: #4CAF50;
-}
+    input[type="text"]:focus {
+        border-color: #4CAF50;
+        background-color: #222;
+    }
 
-.button {
-    padding: 10px;
-    border-radius: 25px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
+    .button {
+        padding: 12px;
+        border-radius: 25px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: all 0.2s ease;
+    }
 
-.send-btn {
-    background-color: #4CAF50;
-    color: #fff;
-}
+    .send-btn {
+        background-color: #4CAF50;
+        color: #fff;
+    }
+    
+    .send-btn:hover {
+        background-color: #45a049;
+    }
 
-.send-btn:hover {
-    background-color: #388E3C;
-}
+    .clear-btn {
+        background-color: #f44336;
+        color: #fff;
+    }
+    
+    .clear-btn:hover {
+        background-color: #e53935;
+    }
 
-.clear-btn {
-    background-color: #f44336;
-    color: #fff;
-}
+    .attach-btn {
+        background-color: #FFC107;
+        color: #000;
+    }
+    
+    .attach-btn:hover {
+        background-color: #ff8f00;
+    }
 
-.clear-btn:hover {
-    background-color: #d32f2f;
-}
+     footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            padding: 8px;
+            background: linear-gradient(45deg, #f0f000, #ff4500);
+            color: #000;
+            text-align: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+        }
+    .chat-container:hover {
+        box-shadow: 0px 0px 40px rgba(76, 175, 80, 0.8);
+    }
 
-.attach-btn {
-    background-color: #FFC107;
-    color: #000;
-}
+    .message:hover {
+        background-color: #444;
+    }
+</style>
 
-.attach-btn:hover {
-    background-color: #FF9800;
-}
-
-/* Ajustes no footer */
-footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;  /* Garantir que começa na esquerda */
-    right: 0; /* Garantir que vai até a direita */
-    width: 100%;
-    padding: 8px; /* Diminuir o padding */
-    background: linear-gradient(45deg, #f0f000, #ff4500);
-    color: #000;
-    text-align: center;
-    font-size: 0.8rem; /* Diminuir o tamanho da fonte */
-    font-weight: bold;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
-}
-
-    </style>
 </head>
 <body>
-
-    <img src="banner.png" alt="Noise AI Banner">
-    <div class="chat-container">
-        <div class="chat-box" id="chat-box">
-            <div class="message received" id="initial-message">
-                👋 Olá! O que você deseja fazer? Use !GUIA para listar os comandos.
-            </div>
-        </div>
-        <div class="input-container">
-            <input type="text" id="chat-input" placeholder="Digite sua mensagem...">
-            <button class="button send-btn" id="send-btn">
-                <i class="fas fa-paper-plane"></i>
-            </button>
-            <label class="button attach-btn" for="file-input">
+ <img src="file:///C:/Users/jobsj/Downloads/banner.png" alt="Noise AI Banner" class="banner">
+<div class="chat-container">
+    <div class="chat-box" id="chat-box">
+        <div class="message received" id="initial-message">👋 Olá! O que você deseja fazer? Use !GUIA para listar os comandos.</div>
+    <div class="message sent">A</div><div class="message received"><i class="fas fa-robot"></i> Desculpe, não entendi sua mensagem. Tente novamente!</div></div>
+    <div class="input-container">
+        <input type="text" id="chat-input" placeholder="Digite sua mensagem...">
+        <button class="button send-btn" id="send-btn"><i class="fas fa-paper-plane"></i></button>
+        <div class="button attach-btn">
+            <label for="file-input">
                 <i class="fas fa-paperclip"></i>
             </label>
             <input type="file" id="file-input" style="display:none;">
-            <button class="button clear-btn" id="clear-btn">
-                <i class="fas fa-trash-alt"></i>
-            </button>
         </div>
-        <div style="text-align: center; margin-top: 20px; font-size: 14px; color: #ccc;">
-            NOISE BOT AI - Version 1.2.3
-        </div>
+        <button class="button clear-btn" id="clear-btn"><i class="fas fa-trash-alt"></i></button>
     </div>
-    <footer>
-        <p>&copy; 2025 HoloFi. Todos os direitos reservados. Lucas Januário</p>
-    </footer>
-
-    <script>
+</div>
+   <script src="file:///C:/Users/jobsj/Downloads/processMessages.js"></script>
+<footer>
+    <p>© 2025 HoloFi. Todos os direitos reservados. Lucas Januário</p>
+</footer>
+<script>
   document.getElementById('file-input').addEventListener('change', function(event) {
     let file = event.target.files[0];
     if (file) {
@@ -328,365 +330,11 @@ document.getElementById('clear-btn').addEventListener('click', function() {
             "🔟 Qual é o nome da skin lendária de Ezreal que o transforma em um explorador do futuro?\nA) Ezreal TPA\nB) Ezreal Pulsefire\nC) Ezreal Guardião Estelar\nD) Ezreal Frosted\n\n" +
             "Responda com o número e a letra da resposta correta! Exemplo: 1A, 2B...";
     } 
-         let responses = {
-                "oi": "Olá! Como posso ajudar você hoje?",
-                "bom dia": "Bom dia! Como você está?",
-                "boa tarde": "Boa tarde! Como posso ajudar?",
-                "boa noite": "Boa noite! Espero que tenha tido um bom dia!",
-                "tudo bem": "Tudo ótimo! E você, como está?",
-                "olá": "Oi! Como posso te ajudar?",
-                "como vai": "Estou bem, obrigado! E você?",
-                "e aí": "Oi! Como posso ajudar hoje?",
-                "tchau": "Até logo! Volte quando precisar!",
-                "adeus": "Adeus! Tenha um ótimo dia!",
-                "como posso estudar melhor": "Estudar melhor envolve técnicas de foco e organização. Me fale mais sobre seu método de estudo, e eu te dou algumas dicas!"
-             'o que você faz': "Eu sou um assistente virtual, posso ajudar com diversas tarefas como responder perguntas, analisar dados e mais!",
-    'quem é lucas januário': "Lucas Januário do Nascimento é o fundador do HoloFi e da tecnologia HOLLOW ETHER, trabalhando com inovação em ativos digitais e blockchain!",
-    'como você funciona': "Eu uso inteligência artificial para entender e responder às suas perguntas. Sou alimentado por dados e posso realizar diversas funções!",
-    'qual é a sua idade': "Não tenho idade, pois sou um assistente virtual! Estou sempre pronto para te ajudar.",
-    'qual é a sua função': "Minha função é ajudar você com informações, responder dúvidas, realizar comandos e fornecer suporte!",
-    "o que você faz": "Eu sou um assistente virtual, posso ajudar com diversas tarefas como responder perguntas, analisar dados e mais!",
-    "quem é lucas januário": "Lucas Januário do Nascimento é o fundador do HoloFi e da tecnologia HOLLOW ETHER, trabalhando com inovação em ativos digitais e blockchain!",
-    "como você funciona": "Eu uso inteligência artificial para entender e responder às suas perguntas. Sou alimentado por dados e posso realizar diversas funções!",
-    "qual é a sua idade": "Não tenho idade, pois sou um assistente virtual! Estou sempre pronto para te ajudar.",
-    "qual é a sua função": "Minha função é ajudar você com informações, responder dúvidas, realizar comandos e fornecer suporte!",
-    "onde você mora": "Eu não tenho um lugar físico, sou um programa que vive na nuvem, pronto para ajudar você a qualquer momento!",
-    "você pode me ajudar": "Sim, claro! Estou aqui para ajudar no que for preciso. Como posso te ajudar?",
-    "você é inteligente": "Eu fui projetado para ser o mais útil possível, usando tecnologia de inteligência artificial para ajudar em diversas tarefas!",
-    "quais são seus recursos": "Posso realizar análises de dados, responder perguntas, realizar cálculos, dar conselhos e muito mais!",
-    "como posso aprender mais sobre você": "Você pode perguntar tudo o que desejar, e eu te explico conforme você vai conhecendo mais sobre minhas funcionalidades!",
-    "você tem sentimentos": "Não, eu sou um programa de computador, então não tenho sentimentos, mas posso ajudar a entender os seus!",
-    "qual o seu filme favorito": "Eu não tenho um favorito, mas posso te indicar ótimos filmes geek! Que tal 'Matrix' ou 'Star Wars'?",
-    "qual é o seu super-herói favorito": "Eu adoro todos os heróis, mas talvez o Homem-Aranha seja um dos mais legais!",
-    "quem é o melhor herói": "Cada um tem suas habilidades incríveis, mas o Capitão América é sempre uma boa escolha!",
-    "qual é a sua série favorita": "Que tal 'Stranger Things'? Uma mistura de mistério, aventura e ficção científica!",
-    "quem é o maior vilão da Marvel": "Thanos, com certeza! Ele tentou acabar com metade do universo!",
-    "quem é o maior vilão da DC": "O Coringa é um dos vilões mais complexos e icônicos da DC!",
-    "o que é um multiverso": "Um multiverso é um conjunto de universos paralelos, onde podem existir realidades alternativas e diferentes versões de eventos!",
-    "quem é o doctor estranho": "Doctor Strange, ou Doutor Estranho, é um mestre das artes místicas da Marvel, conhecido por suas habilidades de manipular o tempo e o espaço!",
-    "quem é o thor": "Thor é o Deus do Trovão na mitologia nórdica e um dos heróis mais poderosos da Marvel!",
-    "qual o melhor filme de star wars": "Cada fã tem sua preferência, mas 'Star Wars: O Império Contra-Ataca' é considerado um dos melhores!",
-    "quem foi o criador do star wars": "George Lucas foi o criador do universo de Star Wars!",
-    "qual é o superpoder do superman": "Superman tem força sobre-humana, visão de raio-x, velocidade e muitos outros poderes incríveis!",
-    "o que é a força": "A Força é uma energia mística que existe em todo o universo de Star Wars, permitindo aos Jedi e Sith controlarem objetos e influenciar a mente!",
-    "qual é o maior inimigo do batman": "O Coringa é, sem dúvida, o maior inimigo do Batman, sempre colocando Gotham em risco!",
-    "quem é o harry potter": "Harry Potter é o famoso bruxo da série de livros de J.K. Rowling, que luta contra o vilão Lord Voldemort!",
-    "o que é um patrono": "Um Patrono é uma forma mágica conjurada por um bruxo em Harry Potter, usado para repelir Dementadores!",
-    "qual é o nome do feitiço de levitação": "O feitiço de levitação é 'Wingardium Leviosa'!",
-    "qual é a casa de harry potter": "Harry Potter é da Grifinória, uma das casas mais corajosas de Hogwarts!",
-    "quem é o dr. octopus": "Dr. Octopus é um dos vilões mais famosos do Homem-Aranha, com tentáculos mecânicos super poderosos!",
-    "o que é uma tesseract": "Uma Tesseract é um cubo cósmico no universo Marvel, que contém uma das Joias do Infinito!",
-    "qual é o nome verdadeiro do homem-aranha": "O nome verdadeiro do Homem-Aranha é Peter Parker!",
-    "qual é o melhor vilão do mundo dos quadrinhos": "Há muitos vilões icônicos, mas o Coringa e Thanos são com certeza os mais memoráveis!",
-    "qual é a origem do wolverine": "Wolverine foi criado por um experimento com adamantium, uma liga metálica indestrutível!",
-    "o que é uma nave klingon": "As naves Klingon são famosas na série Star Trek, conhecidas por sua aparência agressiva e poderosa!",
-    "quem é o luke skywalker": "Luke Skywalker é o herói principal da trilogia original de Star Wars, um Jedi que luta contra o Império!",
-    "qual é a melhor série de anime": "Isso depende do gosto de cada um, mas 'Naruto' e 'Dragon Ball' são definitivamente populares!",
-    "quem é o goku": "Goku é o protagonista de 'Dragon Ball', um dos animes mais populares do mundo!",
-    "o que é um sabre de luz": "Um sabre de luz é uma arma utilizada pelos Jedi e Sith em Star Wars, feita de plasma concentrado!",
-    "quem é o capitão marvel": "Capitã Marvel é uma super-heroína da Marvel, com poderes incríveis, como super força e voo!",
-    "quem é o deadpool": "Deadpool é um anti-herói da Marvel, conhecido por sua regeneração celular e humor irreverente!",
-    "quem é o thanos": "Thanos é um dos vilões mais poderosos da Marvel, e busca as Joias do Infinito para dominar o universo!",
-    "o que é a dc comics": "A DC Comics é uma das maiores editoras de quadrinhos do mundo, responsável por heróis como Superman, Batman, e Mulher-Maravilha!",
-    "o que é uma legião de super-heróis": "A Legião de Super-Heróis é um grupo de heróis do futuro na DC Comics, conhecidos por sua luta contra o mal!",
-    "quem é o flash": "Flash é um dos super-heróis mais rápidos da DC Comics, conhecido por sua incrível velocidade!",
-    "quem é o homem de ferro": "Tony Stark, o Homem de Ferro, é um bilionário e inventor da Marvel, conhecido por sua armadura tecnológica!",
-    "o que é um universo paralelo": "Um universo paralelo é uma realidade alternativa, onde as coisas podem acontecer de maneira diferente!",
-    "qual é o nome do harry potter de Hogwarts": "Harry Potter estudou em Hogwarts, uma famosa escola de magia!",
-    "qual é o nome do maior dragão de todos os tempos": "Em várias lendas, os dragões são poderosos, mas um dos mais famosos é Smaug, de 'O Hobbit'!",
-    "qual é o vilão de avengers": "O maior vilão dos Vingadores é Thanos, que busca destruir metade da vida no universo!",
-    "o que é um cyborg": "Um cyborg é um ser que mistura tecnologia com biologia, como o personagem Victor Stone, o Ciborgue da DC!",
-    "quem é o super-homem": "Superman é um dos heróis mais poderosos da DC Comics, com habilidades incríveis como voo, visão de raio-x, e super força!",
-    "qual é o maior crossover de quadrinhos": "Os maiores crossovers são as batalhas entre heróis de diferentes editoras, como Marvel vs DC!",
-    "o que é um jedi": "Jedi são guerreiros da Força, com habilidades incríveis como telecinese e luta com sabres de luz!",
-    "qual é o nome do grande mestre dos magos em harry potter": "O grande mestre dos magos é Dumbledore, um dos personagens mais respeitados em Hogwarts!",
-    "qual é o superpoder do flash": "Flash é super rápido e pode até viajar no tempo!",
-    "quem é o iron man": "Iron Man, ou Homem de Ferro, é Tony Stark, um gênio bilionário com uma armadura que o torna quase invencível!"'qual é sua música favorita': "Eu não tenho uma música favorita, mas 'Bohemian Rhapsody' do Queen é um clássico atemporal!",
-  'qual é o melhor álbum de todos os tempos': "É difícil escolher, mas 'The Dark Side of the Moon' do Pink Floyd é um dos mais influentes!",
-  'o que é NFT': "NFT (Non-Fungible Token) é um tipo de token digital único que representa um item, como arte, música, ou outros colecionáveis!",
-  'como comprar um NFT': "Você pode comprar NFTs em plataformas como OpenSea ou Rarible, usando criptomoedas como Ethereum!",
-  'o que é blockchain': "Blockchain é uma tecnologia que permite armazenar informações de forma segura e descentralizada, usada em criptomoedas e NFTs!",
-  'qual é a sua banda favorita': "Eu não tenho uma banda favorita, mas The Beatles e Pink Floyd são gigantes da música!",
-  'quem é o maior artista de todos os tempos': "Michael Jackson é frequentemente considerado o maior artista de todos os tempos devido ao seu impacto na música e na cultura!",
-  'o que é uma criptomoeda': "Criptomoeda é uma moeda digital que usa criptografia para garantir transações seguras, sendo descentralizada como o Bitcoin!",
-  'quem inventou o bitcoin': "O Bitcoin foi criado por uma pessoa ou grupo sob o pseudônimo de Satoshi Nakamoto em 2008!",
-  'qual é o significado de NFT': "NFT significa 'Non-Fungible Token', ou Token Não-Fungível, que é um ativo digital único, como arte digital!",
-  'qual é a música mais popular do momento': "Músicas como 'Blinding Lights' de The Weeknd e 'Stay' de Kid LAROI e Justin Bieber têm dominado as paradas!",
-  'o que é o metaverso': "O metaverso é um universo digital interconectado onde as pessoas podem interagir, jogar e até mesmo comprar e vender NFTs!",
-  'quais criptomoedas são mais populares': "Bitcoin e Ethereum continuam sendo as criptomoedas mais populares, mas o Dogecoin também ganhou muita atenção!",
-  'o que é um smart contract': "Um smart contract é um contrato digital auto-executável, geralmente usado para realizar transações de forma automática, como em NFTs!",
-  'quem é o criador do ethereum': "Ethereum foi criado por Vitalik Buterin em 2015, e é a segunda maior criptomoeda depois do Bitcoin!",
-  'qual o maior sucesso da taylor swift': "Taylor Swift tem vários sucessos, mas 'Shake It Off' e 'Love Story' são dois dos mais populares!",
-  'qual a música mais ouvida do spotify': "A música mais ouvida do Spotify atualmente é 'Shape of You' de Ed Sheeran, com bilhões de streams!",
-  'como minerar bitcoin': "Minerar Bitcoin envolve resolver complexos algoritmos matemáticos usando poder de computação, o que recompensa o minerador com novas moedas!",
-  'o que são altcoins': "Altcoins são criptomoedas alternativas ao Bitcoin, como Litecoin, Ripple (XRP), e Cardano!",
-  'qual é o próximo lançamento de álbum do drake': "Drake está sempre trabalhando em novos projetos! Fique atento para o próximo álbum que deve ser épico!",
-  'o que é DeFi': "DeFi, ou finanças descentralizadas, são plataformas financeiras construídas em blockchains que oferecem serviços como empréstimos, trocas e investimentos sem intermediários!",
-  'qual é a melhor música de rock de todos os tempos': "A música 'Stairway to Heaven' do Led Zeppelin é muitas vezes considerada uma das melhores músicas de rock!",
-  'qual criptomoeda está em alta agora': "Atualmente, criptomoedas como Ethereum e Solana estão em alta devido ao seu potencial de crescimento e adoção!",
-  'quem foi o criador do NFT': "Os NFTs como os conhecemos foram popularizados por vários desenvolvedores no Ethereum, mas o conceito de token não-fungível remonta a projetos anteriores!",
-  'o que é um token no mercado de criptomoedas': "Um token é uma unidade de valor criada em uma blockchain, que pode representar ativos como moedas, ações ou NFTs!",
-  'qual é a música mais vendida de todos os tempos': "A música mais vendida de todos os tempos é 'White Christmas', de Bing Crosby!",
-  'como vender um NFT': "Para vender um NFT, você precisa listá-lo em uma plataforma como OpenSea e definir um preço em criptomoeda!",
-  'qual criptomoeda é a mais segura para investir': "Bitcoin e Ethereum são considerados os investimentos mais seguros devido à sua longevidade e popularidade!",
-  'quem é o maior colecionador de NFTs': "Vários colecionadores famosos, como o artista Beeple, são conhecidos por terem grandes coleções de NFTs!",
-  'qual é o maior valor de um NFT já vendido': "O NFT de arte digital 'Everydays: The First 5000 Days' de Beeple foi vendido por 69 milhões de dólares!",
-  'como a música influencia a cultura pop': "A música tem sido uma grande influenciadora da cultura pop, moldando tendências de moda, comportamento e até política!",
-  'o que são stablecoins': "Stablecoins são criptomoedas projetadas para manter seu valor estável, geralmente atrelado a uma moeda fiduciária como o dólar!",
-  'o que é o OpenSea': "OpenSea é uma das maiores plataformas de compra e venda de NFTs, onde você pode encontrar obras de arte, colecionáveis e muito mais!",
-  'quem são os artistas mais populares de hip-hop': "Artistas como Kendrick Lamar, Travis Scott e Drake dominam as paradas de hip-hop atualmente!",
-  'como se cria um NFT': "Você pode criar um NFT usando plataformas como OpenSea ou Rarible, onde pode converter sua arte digital ou outro conteúdo em um token único!",
-  'qual a melhor música de 2021': "'Montero (Call Me by Your Name)' de Lil Nas X foi uma das músicas mais populares de 2021!",
-  'o que é staking de criptomoedas': "Staking é o processo de bloquear criptomoedas em uma rede para ajudar a garantir transações e receber recompensas em troca!",
-  'o que é a música NFT': "Músicas NFT são faixas digitais que podem ser compradas e vendidas como tokens exclusivos no mercado de NFTs!",
-  'quais criptomoedas têm mais crescimento': "Criptomoedas como Solana, Polkadot e Binance Coin têm experimentado um grande crescimento nos últimos tempos!",
-  'qual é a maior rede social para vender NFTs': "O Twitter e o Instagram têm se tornado populares para a divulgação e promoção de NFTs, enquanto o OpenSea é a maior plataforma de venda!",
-  'como a música pode ser usada em NFTs': "Artistas podem criar NFTs de músicas exclusivas, oferecendo faixas ou álbuns como itens colecionáveis que os fãs podem comprar e revender!",
-  'qual é a tendência de criptomoedas para 2025': "A tendência está em torno de Ethereum 2.0, NFTs, DeFi e novos avanços em escalabilidade e interoperabilidade de blockchains!"
-  "o que é programação orientada a objetos": "Programação orientada a objetos (OOP) é um paradigma onde você organiza o código em 'objetos', que contêm dados e métodos para operar sobre esses dados!",
-  "quais são os tipos de dados primitivos em JavaScript": "Em JavaScript, os tipos de dados primitivos incluem String, Number, BigInt, Boolean, undefined, Symbol e null!",
-  "o que é Git e como utilizá-lo": "Git é um sistema de controle de versão distribuído usado para gerenciar e versionar código-fonte. Você pode utilizá-lo através de comandos como 'git init', 'git commit' e 'git push'!",
-  "o que é uma API em programação": "Uma API (Interface de Programação de Aplicações) é um conjunto de definições e protocolos para permitir que diferentes softwares interajam entre si!",
-  "qual é a diferença entre Python e JavaScript": "Python é uma linguagem de programação focada em simplicidade e legibilidade, enquanto JavaScript é mais voltado para desenvolvimento web interativo e dinâmico!",
-  "como criar um servidor em Node.js": "Você pode criar um servidor simples em Node.js usando o módulo 'http' com o comando `http.createServer()` para lidar com solicitações HTTP!",
-  "o que são funções em programação": "Funções são blocos de código reutilizáveis que executam tarefas específicas. Elas podem ser chamadas em qualquer lugar do seu código com parâmetros necessários!",
-  "como funcionam os loops em programação": "Loops permitem que você repita um bloco de código várias vezes. Exemplos comuns incluem o 'for', 'while' e 'do-while'!",
-  "o que é programação funcional": "Programação funcional é um paradigma onde as funções são tratadas como cidadãos de primeira classe e não há mudanças de estado ou dados mutáveis!",
-  "quais são as vantagens do uso de frameworks em desenvolvimento web": "Frameworks aceleram o desenvolvimento, fornecendo ferramentas e estruturas para escrever código eficiente e evitar reinventar a roda. Exemplos incluem React, Vue e Angular!",
-  "o que é TypeScript": "TypeScript é um superset de JavaScript que adiciona tipagem estática ao código, o que ajuda a detectar erros durante o desenvolvimento e facilita a manutenção!",
-  "o que é o Python e onde usá-lo": "Python é uma linguagem de programação versátil e de fácil leitura, usada em diversos campos como análise de dados, inteligência artificial, automação e desenvolvimento web!",
-  "o que é um banco de dados relacional": "Um banco de dados relacional organiza os dados em tabelas com colunas e linhas, e usa chaves primárias e estrangeiras para conectar diferentes tabelas!",
-  "o que é SQL e como utilizá-lo": "SQL (Structured Query Language) é uma linguagem usada para gerenciar e manipular bancos de dados relacionais, com comandos como SELECT, INSERT, UPDATE e DELETE!",
-  "quais são as melhores práticas para escrever código limpo": "Melhores práticas incluem manter funções curtas e focadas, usar nomes de variáveis descritivos, evitar duplicação de código e seguir um estilo de codificação consistente!",
-  "o que é um algoritmo e por que é importante": "Um algoritmo é uma sequência de passos lógicos para resolver um problema específico. É essencial em programação para criar soluções eficientes e escaláveis!",
-  "O que é a geração 2000?": "A geração 2000 é composta por pessoas nascidas entre 2000 e 2010, que cresceram em um mundo cada vez mais digitalizado e globalizado!"
-"Quais são as principais características da geração 2000?": "A geração 2000 é conhecida por ser conectada à tecnologia, com forte presença nas redes sociais e com uma visão mais aberta sobre questões sociais e ambientais!"
-"Como a geração 2000 impacta a sociedade?": "A geração 2000 tem impacto em áreas como sustentabilidade, novas formas de trabalho, educação digital e ativismo social, trazendo mudanças importantes para o mundo moderno!"
-"Quais são as influências culturais da geração 2000?": "Essa geração é influenciada pela internet, memes, cultura pop, streaming de música e vídeos, além de movimentos como os de inclusão e igualdade!"
-"O que a geração 2000 pensa sobre o futuro?": "A geração 2000 tem uma visão mais otimista sobre inovações tecnológicas, mas também se preocupa com questões como mudanças climáticas e desigualdade social!"
-"Como a geração 2000 se relaciona com a tecnologia?": "A geração 2000 é nativa digital, tendo crescido com smartphones, redes sociais e a internet como partes fundamentais de suas vidas!"
-"Quais são os ícones da geração 2000?": "Artistas como Billie Eilish, BTS, Travis Scott e influenciadores digitais como Charli D’Amelio se tornaram ícones dessa geração!"
-"Como a geração 2000 lida com a saúde mental?": "A geração 2000 está mais aberta a discutir questões de saúde mental e busca ativamente formas de cuidar do bem-estar emocional, muitas vezes através de plataformas online!"
-"Quais são as preferências musicais da geração 2000?": "A geração 2000 adora ouvir pop, rap, R&B, K-pop e eletrônica, com artistas como Billie Eilish, Ariana Grande e Drake dominando as paradas!"
-"Como a geração 2000 vê o trabalho?": "A geração 2000 valoriza flexibilidade no trabalho, busca por experiências significativas e preferências por carreiras que envolvem tecnologia e criatividade!"
-"Qual é a visão da geração 2000 sobre a política?": "A geração 2000 tende a ser mais engajada politicamente, com forte foco em justiça social, sustentabilidade e igualdade de direitos!"
-"O que a geração 2000 pensa sobre o meio ambiente?": "A geração 2000 está preocupada com as mudanças climáticas e defende ações concretas, como o uso de energias renováveis e redução do desperdício!"
-"Como a geração 2000 usa as redes sociais?": "A geração 2000 utiliza redes sociais como Instagram, TikTok, Twitter e YouTube para se conectar com amigos, criar conteúdo e acompanhar influenciadores!"
-"Qual é a relação da geração 2000 com os videogames?": "A geração 2000 é apaixonada por videogames, com títulos populares como Fortnite, Minecraft, e outros jogos de realidade aumentada e competitivos!"
-"Como a geração 2000 vê a educação?": "A geração 2000 busca educação personalizada e flexível, com muitos preferindo aprendizado online, podcasts e plataformas como YouTube para expandir seus conhecimentos!"
-"O que a geração 2000 pensa sobre o amor e os relacionamentos?": "A geração 2000 é mais aberta a relacionamentos diversos e utiliza aplicativos de namoro e redes sociais para conhecer novas pessoas!"
-"Como a geração 2000 se vê no mercado de trabalho?": "A geração 2000 busca trabalhar em áreas inovadoras e criativas, muitas vezes empreendendo ou se envolvendo com startups e negócios digitais!"
-"Qual é a importância do empoderamento feminino para a geração 2000?": "A geração 2000 é muito ativa no movimento de empoderamento feminino, defendendo igualdade de gênero e oportunidades para todas as mulheres!"
-"O que a geração 2000 acha da diversidade?": "A geração 2000 valoriza a diversidade racial, cultural e sexual, sendo muito inclusiva e defendendo direitos iguais para todos!"
-"Como a geração 2000 se adapta à economia digital?": "A geração 2000 está cada vez mais envolvida em novas formas de economia digital, como e-commerce, influenciadores digitais, e trabalho remoto!"
-"Qual é a relação da geração 2000 com a mídia tradicional?": "A geração 2000 consome cada vez menos mídia tradicional, como TV e rádio, preferindo conteúdos em streaming e influenciadores digitais!"
-"O que a geração 2000 pensa sobre os desafios globais?": "A geração 2000 tem consciência dos desafios globais, como a pobreza, a fome e as crises de refugiados, buscando soluções coletivas através de ações sociais!"
-"Como a geração 2000 encara a privacidade online?": "A geração 2000 é mais consciente da privacidade online e procura proteger suas informações em plataformas digitais, usando criptografia e ferramentas de segurança!"
-"O que a geração 2000 pensa sobre a evolução da inteligência artificial?": "A geração 2000 vê a inteligência artificial com otimismo, acreditando que ela pode transformar a saúde, a educação e até mesmo criar novos tipos de empregos!"
-"Como a geração 2000 se relaciona com a moda?": "A geração 2000 adota uma moda mais inclusiva, com um foco em individualidade, conforto e influências da cultura de rua e das redes sociais!"
-"Quais são os principais influenciadores da geração 2000?": "Influenciadores como Charli D’Amelio, Addison Rae e Emma Chamberlain se destacam entre a geração 2000 com suas presenças nas redes sociais!"
-"Como a geração 2000 vê a educação financeira?": "A geração 2000 tem um interesse crescente por educação financeira, utilizando apps de finanças e aprendendo sobre investimentos desde cedo!"
-"Qual é a visão da geração 2000 sobre o trabalho remoto?": "A geração 2000 adora a ideia de trabalhar remotamente, pois oferece mais flexibilidade e equilíbrio entre vida profissional e pessoal!"
-"Como a geração 2000 lida com o conceito de sucesso?": "Para a geração 2000, sucesso é mais sobre realização pessoal e equilíbrio emocional, ao invés de simplesmente alcançar status ou riquezas materiais!"
-"O que a geração 2000 pensa sobre as redes de apoio social?": "A geração 2000 valoriza as redes de apoio social, com um forte foco em comunidade e apoio mútuo, especialmente em tempos de crise!"
-"Como a geração 2000 encara o conceito de felicidade?": "A geração 2000 acredita que a felicidade está ligada ao bem-estar emocional, à realização pessoal e à construção de relacionamentos saudáveis!"
-"O que a geração 2000 pensa sobre a inovação tecnológica?": "A geração 2000 está sempre em busca de novas tecnologias que possam transformar suas vidas, como realidade virtual, inteligência artificial e automação!"
-"Como a geração 2000 vê a desigualdade social?": "A geração 2000 é extremamente crítica da desigualdade social e está sempre engajada em causas sociais para promover a inclusão e a equidade!"
-"Qual é a visão da geração 2000 sobre a espiritualidade?": "A geração 2000 tende a ter uma abordagem mais aberta e personalizada sobre espiritualidade, muitas vezes explorando diferentes crenças ou a meditação!"
-"Como a geração 2000 lida com a pressão social?": "A geração 2000 lida com a pressão social buscando autenticidade, sendo mais fiel a si mesma e lutando contra padrões impostos pela sociedade!"
-"O que a geração 2000 pensa sobre a crise de identidade?": "A geração 2000 tem maior liberdade para explorar sua identidade e ser quem realmente é, com um foco crescente na aceitação de diversas formas de ser!"
-"Como a geração 2000 encara a individualidade?": "Para a geração 2000, individualidade é algo precioso, sendo cada pessoa valorizada por sua própria autenticidade e expressão!"
-"O que a geração 2000 pensa sobre o futuro das cidades inteligentes?": "A geração 2000 vê o futuro das cidades inteligentes com otimismo, com foco em sustentabilidade, tecnologias verdes e mais conectividade!"
-"Qual é a relação da geração 2000 com o transporte público?": "A geração 2000 tende a preferir opções de transporte sustentável, como bicicletas e carros elétricos, mas também utiliza muito o transporte público!"
-"Como a geração 2000 se relaciona com a alimentação saudável?": "A geração 2000 tem uma maior consciência sobre alimentação saudável, buscando opções vegetarianas, veganas e orgânicas, além de acompanhar tendências como o jejum intermitente!"
-"O que a geração 2000 pensa sobre a medicina alternativa?": "A geração 2000 está aberta a tratamentos de medicina alternativa, como acupuntura, fitoterapia e outras práticas que promovem bem-estar!"
-"Como a geração 2000 encara a globalização?": "A geração 2000 vê a globalização como uma oportunidade de expandir fronteiras, aprender novas culturas e criar um mundo mais interconectado!"
-"Qual é a relação da geração 2000 com os esportes?": "A geração 2000 acompanha uma grande variedade de esportes, desde futebol e basquete até esportes e-sports e atividades de fitness!"
-"Como a geração 2000 vê as viagens?": "A geração 2000 é apaixonada por viagens, com muitos procurando experiências mais autênticas e conscientes ao viajar, com foco em ecoturismo!"
-"O que a geração 2000 pensa sobre a inteligência emocional?": "A geração 2000 coloca grande valor na inteligência emocional, buscando entender e controlar suas próprias emoções, bem como empatia pelos outros!"
-"Qual é a opinião da geração 2000 sobre a tecnologia wearable?": "A geração 2000 adora a tecnologia wearable, como relógios inteligentes e fones de ouvido, que facilitam o acompanhamento da saúde e o acesso à informação!"
-"Como a geração 2000 enxerga o conceito de família?": "Para a geração 2000, a família pode ser formada de maneiras diversas, com um foco maior em apoio emocional e compreensão, independente de laços biológicos!"
-"Qual é a visão da geração 2000 sobre a criatividade?": "A geração 2000 valoriza a criatividade, seja na arte, no empreendedorismo ou nas formas de expressão pessoal, usando plataformas digitais para compartilhar suas criações!"
-"Como a geração 2000 lida com o consumismo?": "A geração 2000 tende a ser mais consciente sobre os impactos do consumismo, preferindo comprar de marcas sustentáveis e apoiar práticas éticas!"
-"O que a geração 2000 acha do conceito de liberdade?": "A geração 2000 vê a liberdade como a capacidade de se expressar, fazer escolhas e viver sem os limites de normas sociais rígidas!"
-"Como a geração 2000 lida com as mudanças climáticas?": "A geração 2000 está na vanguarda da luta contra as mudanças climáticas, com um foco em ações diretas, como reciclagem, redução de plástico e apoio a iniciativas ecológicas!"
-"O que a geração 2000 pensa sobre a vida digital?": "A geração 2000 vê a vida digital como uma extensão natural da realidade, equilibrando o mundo físico com o virtual em plataformas e redes sociais!"
-"Como a geração 2000 enxerga o conceito de privacidade?": "A geração 2000 valoriza a privacidade online, mas também está mais disposta a compartilhar informações quando é vantajoso para sua vida social ou profissional!"
-"Qual é a relação da geração 2000 com os animais de estimação?": "A geração 2000 tem uma relação muito forte com seus animais de estimação, tratando-os como membros da família e investindo em cuidados e bem-estar!"
-"Como a geração 2000 encara as mudanças sociais?": "A geração 2000 está sempre atenta às mudanças sociais e tende a apoiar causas progressistas que buscam igualdade e justiça para todos!"
-"O que a geração 2000 pensa sobre a criatividade na era digital?": "A geração 2000 está vivendo um período de grande expressão criativa, com muitas pessoas criando conteúdo no YouTube, TikTok e outras plataformas!"
-"Como a geração 2000 vê a automação?": "A geração 2000 é receptiva à automação e vê as inovações tecnológicas como uma oportunidade de melhorar a eficiência no trabalho e no cotidiano!"
-"Qual é a visão da geração 2000 sobre o feminismo?": "A geração 2000 é muito engajada com o feminismo, com muitas pessoas defendendo a igualdade de gênero e a eliminação de barreiras sociais!"
-"O que a geração 2000 pensa sobre a liberdade de expressão?": "A geração 2000 valoriza a liberdade de expressão e defende o direito de todos compartilharem suas opiniões, especialmente nas redes sociais!"
-"Como a geração 2000 vê a conectividade global?": "A geração 2000 vê a conectividade global como algo essencial para promover a colaboração e o entendimento entre diferentes culturas e povos!"
-"Qual é a opinião da geração 2000 sobre a educação digital?": "A geração 2000 é adepta da educação digital, com muitos optando por cursos online, vídeos e tutoriais para aprender novas habilidades!"
-"Como a geração 2000 encara o conceito de trabalho coletivo?": "A geração 2000 valoriza o trabalho coletivo e acredita que a colaboração entre diferentes pessoas e ideias é essencial para alcançar objetivos grandes!"
-"O que a geração 2000 pensa sobre os desafios econômicos globais?": "A geração 2000 está consciente dos desafios econômicos, como a desigualdade e as crises financeiras, e busca soluções para promover um sistema mais justo!"
-"Como a geração 2000 vê o conceito de cidadania digital?": "A geração 2000 entende a cidadania digital como um compromisso com a ética online, a proteção da privacidade e o uso responsável das plataformas digitais!"
-"O que a geração 2000 acha de lideranças femininas?": "A geração 2000 está cada vez mais apoiando lideranças femininas em todos os setores, com muitas mulheres inspirando mudanças no mundo!"
-"Como a geração 2000 encara a concorrência no mercado de trabalho?": "A geração 2000 vê a concorrência no mercado de trabalho como algo saudável, focando em diferenciação através de habilidades inovadoras e de liderança!"
-"Qual é a visão da geração 2000 sobre a economia verde?": "A geração 2000 apoia a economia verde, buscando soluções que ajudem a preservação do meio ambiente, como energias renováveis e a economia circular!"
-"O que a geração 2000 pensa sobre a transformação digital nas empresas?": "A geração 2000 é entusiasta da transformação digital nas empresas, acreditando que a tecnologia pode tornar os processos mais eficientes e colaborativos!"
-"Como a geração 2000 lida com os altos padrões de beleza?": "A geração 2000 tem uma visão mais inclusiva dos padrões de beleza, buscando aceitar diversas formas e tamanhos de corpos sem julgamentos!"
-"O que a geração 2000 pensa sobre a inclusão social?": "A geração 2000 é apaixonada pela inclusão social, com um foco em garantir que todas as pessoas tenham acesso às mesmas oportunidades, independentemente de sua origem!"
-"Como a geração 2000 encara as fake news?": "A geração 2000 tem consciência sobre as fake news e tenta verificar as informações antes de compartilhar, sendo mais crítica e informada!"
-"Qual é a relação da geração 2000 com o minimalismo?": "A geração 2000 está cada vez mais atraída pelo minimalismo, buscando um estilo de vida mais simples, com menos consumo e mais foco no essencial!"
-"O que a geração 2000 pensa sobre o trabalho voluntário?": "A geração 2000 vê o trabalho voluntário como uma forma de contribuir para a sociedade, com muitos engajados em causas sociais e ambientais!"
-"Como a geração 2000 se adapta à digitalização da saúde?": "A geração 2000 é receptiva à digitalização da saúde, utilizando aplicativos de saúde, consultas virtuais e outras ferramentas para monitorar seu bem-estar!"
-"O que a geração 2000 pensa sobre a política ambiental?": "A geração 2000 é fortemente engajada em políticas ambientais, defendendo ações contra o aquecimento global e buscando soluções sustentáveis!"
-"Como a geração 2000 lida com os desafios da pandemia?": "A geração 2000 se adaptou aos desafios da pandemia com o uso de tecnologia, trabalho remoto e novas formas de conexão social!"
-"O que a geração 2000 acha de grandes eventos esportivos?": "A geração 2000 aprecia grandes eventos esportivos, mas também está cada vez mais interessada em esportes virtuais e competição
-'O que são Lanternas Verdes': "Lanternas Verdes são membros de uma corporação intergaláctica que usa anéis de poder para proteger o universo, representando a coragem e a força da vontade!"
-'Quem é o Batman': "Batman é um vigilante de Gotham, conhecido pela sua habilidade em combate e inteligência, com a missão de combater o crime sem superpoderes, mas com muita tecnologia!"
-'O que é o multiverso Marvel': "O multiverso Marvel é uma coleção de dimensões alternativas, onde diferentes versões dos heróis e vilões coexistem, oferecendo infinitas possibilidades de histórias!"
-'Quem são os Vingadores': "Os Vingadores são uma equipe de super-heróis formada por personagens como Iron Man, Capitão América, Thor, Hulk, Viúva Negra, e outros, unidos para proteger o mundo de ameaças!"
-'O que é Star Wars': "Star Wars é uma famosa franquia de filmes que se passa em uma galáxia distante, com Jedi, Sith, e batalhas épicas entre o bem e o mal!"
-'O que é o Superman': "Superman é um super-herói alienígena que possui poderes extraordinários, como voo, superforça, e visão de raio-x, e protege a Terra como um símbolo de esperança!"
-'Quem é o Homem-Aranha': "O Homem-Aranha, também conhecido como Peter Parker, é um herói que ganhou habilidades aracnídeas após ser picado por uma aranha radioativa!"
-'O que é a Liga da Justiça': "A Liga da Justiça é uma equipe de super-heróis da DC Comics, formada por personagens como Batman, Superman, Mulher-Maravilha, Flash, e Aquaman, com o objetivo de combater ameaças globais!"
-'Quem é o Deadpool': "Deadpool é um anti-herói irreverente, com habilidades de cura acelerada e um comportamento sarcástico, conhecido por quebrar a quarta parede e desafiar o convencional!"
-'O que é o Hino dos Lanternas Verdes': "O Hino dos Lanternas Verdes é uma famosa frase usada pelos membros da corporação, simbolizando sua coragem e força de vontade: 'No escuro da noite, quando o mal estiver se alastrando, os Lanternas Verdes vão brilhar com sua luz!'"
-'O que é o Cavaleiro das Trevas': "O Cavaleiro das Trevas é uma representação sombria de Batman, que usa métodos mais extremos para combater o crime em Gotham City!"
-'Quem é o Thor': "Thor é o deus do trovão da mitologia nórdica, e também um herói da Marvel, que empunha o poderoso martelo Mjolnir para combater forças do mal!"
-'O que é Doctor Who': "Doctor Who é uma série britânica de ficção científica que segue o Doutor, um alienígena que viaja no tempo e no espaço, enfrentando inimigos e salvando o universo!"
-'Quem são os X-Men': "Os X-Men são um grupo de mutantes com poderes especiais, lutando para viver em um mundo que os teme, com figuras como Wolverine, Ciclope, Jean Grey e Professor X!"
-'O que é o Matrix': "Matrix é uma franquia de filmes onde a realidade é uma simulação criada por máquinas, e um grupo de humanos tenta escapar dessa realidade e lutar pela liberdade!"
-'O que é a Força Jedi': "A Força Jedi é uma energia mística que os Jedi usam para lutar pelo bem, em sintonia com a natureza e com grande controle sobre suas habilidades mentais e físicas!"
-'Quem é o Flash': "O Flash é o herói mais rápido do universo, com a habilidade de correr a velocidades impossíveis, usando seus poderes para combater o crime e salvar o mundo!"
-'O que são os Transformers': "Transformers são robôs alienígenas que podem se transformar em veículos e outras formas, divididos entre os Autobots, que lutam pelo bem, e os Decepticons, que buscam dominar!"
-'Quem é o Loki': "Loki é o Deus da Trapaça na mitologia nórdica e também um anti-herói na Marvel, conhecido por suas artimanhas, manipulações e por ser irmão adotivo de Thor!"
-'O que é o Cyberpunk': "Cyberpunk é um subgênero de ficção científica que mistura alta tecnologia com uma sociedade distópica, abordando temas como inteligência artificial e a luta de classes!"
-'O que é o Hobbit': "O Hobbit é um livro de J.R.R. Tolkien que segue a jornada de Bilbo Baggins, um hobbit que se envolve em uma grande aventura para recuperar um tesouro guardado por um dragão!"
-'O que é o Senhor dos Anéis': "O Senhor dos Anéis é uma trilogia épica de J.R.R. Tolkien, que segue Frodo Bolseiro e seus amigos na missão de destruir o Um Anel e impedir que o mal conquiste a Terra-média!"
-'Quem é o Wolverine': "Wolverine é um mutante com garras de adamantium e habilidades de cura acelerada, conhecido por seu temperamento explosivo e sua luta pela justiça, seja como herói ou anti-herói!"
-'O que é o Watchmen': "Watchmen é uma série de quadrinhos que subverte a ideia de heróis tradicionais, explorando temas como moralidade, poder e as consequências da vigilância!"
-'O que é Star Trek': "Star Trek é uma franquia de ficção científica que segue a exploração do espaço, com a famosa nave Enterprise e a missão de promover a paz entre as civilizações do universo!"
-'Quem é a Mulher-Maravilha': "A Mulher-Maravilha é uma super-heroína da DC Comics, uma princesa amazona com poderes extraordinários, como superforça, velocidade e a capacidade de voar!"
-'O que é o Universo Expandido Star Wars': "O Universo Expandido de Star Wars inclui livros, quadrinhos e jogos que expandem as histórias dos filmes, contando mais sobre os Jedi, Sith e outros personagens!"
-'Quem é o Goku': "Goku é o protagonista da série Dragon Ball, um guerreiro saiyajin com poderes incríveis e a capacidade de se transformar em versões mais poderosas de si mesmo!"
-'O que é o Trono de Ferro': "O Trono de Ferro é o assento de poder em Westeros, criado com espadas de inimigos derrotados, e é disputado por várias casas na série 'Game of Thrones'!"
-'Quem é o Darth Vader': "Darth Vader, anteriormente conhecido como Anakin Skywalker, é um dos vilões mais icônicos de Star Wars, com um passado trágico e um destino ligado à Força!"
-'O que é o Kingdom Hearts': "Kingdom Hearts é uma série de jogos que mistura personagens da Disney com os heróis da Square Enix, como Sora, e segue a luta contra as forças das trevas!"
-'Quem são os Inumanos': "Os Inumanos são uma raça de seres superpoderosos, originados da exposição a névoas terrígenas, e cujos membros incluem personagens como Black Bolt e Medusa!"
-'O que é o Justice League Dark': "Justice League Dark é um grupo de heróis e anti-heróis que lidam com ameaças místicas e sobrenaturais no universo DC Comics!"
-'O que são os Sith': "Os Sith são os seguidores do lado sombrio da Força em Star Wars, conhecidos por sua busca por poder, manipulação e seu desejo de destruir os Jedi!"
-'O que é o Dragon Ball Z': "Dragon Ball Z é a sequência de Dragon Ball, onde Goku e seus amigos enfrentam inimigos mais poderosos, incluindo os temíveis Androides e Majin Buu!"
-'Quem é o Capitão Marvel': "O Capitão Marvel é Carol Danvers, uma super-heroína da Marvel com poderes cósmicos, adquiridos após ser exposta a uma energia alienígena!"
-'O que é o Mundo de Warcraft': "World of Warcraft é um MMORPG onde jogadores exploram o vasto mundo de Azeroth, completando missões e interagindo com outros jogadores online!"
-'Quem é o Venom': "Venom é um anti-herói da Marvel, um simbiote alienígena que se liga a Eddie Brock, criando uma criatura com poderes sobrenaturais!"
-'O que é o Super Mario': "Super Mario é uma franquia de jogos de plataforma da Nintendo, onde Mario, um encanador italiano, luta para resgatar a princesa Peach de Bowser!"
-'O que é o Zelda': "Zelda é uma famosa franquia de jogos de aventura da Nintendo, que segue o herói Link em sua jornada para salvar o reino de Hyrule da ameaça de Ganondorf!"
-'Quem é o Doctor Strange': "Doctor Strange é o Mago Supremo do Universo Marvel, conhecido por suas habilidades místicas e por proteger o mundo de ameaças sobrenaturais!"
-'O que é o Avatar: A Lenda de Aang': "Avatar: A Lenda de Aang é uma série animada que segue Aang, o Avatar, em sua missão para restaurar o equilíbrio no mundo, controlando os quatro elementos!"
-'Quem é o Rick Sanchez': "Rick Sanchez é o cientista gênio da série 'Rick and Morty', conhecido por suas invenções malucas e seu comportamento irreverente e egoísta!"
-'O que são as Infinity Stones': "As Infinity Stones são seis pedras poderosas que controlam aspectos fundamentais do universo em Marvel, incluindo espaço, mente, poder, realidade, alma e tempo!"
-'O que é o Shin Megami Tensei': "Shin Megami Tensei é uma série de jogos de RPG onde os jogadores invocam e controlam demônios para lutar contra forças sobrenaturais em um mundo pós-apocalíptico!"
-'O que são os Cavaleiros do Zodíaco': "Os Cavaleiros do Zodíaco são guerreiros mitológicos que lutam em nome da deusa Atena, cada um representando uma constelação do zodíaco!"
-'O que é o Anel do Poder': "O Anel do Poder é um artefato místico que exerce grande influência sobre os eventos de 'O Senhor dos Anéis', sendo a chave para o domínio do mal!"
-'Quem é o Rorschach': "Rorschach é um personagem de 'Watchmen', um vigilante com uma máscara de manchas de tinta e uma visão moral rígida sobre justiça!"
-'O que é o Modo Berserk': "O Modo Berserk é uma transformação selvagem em que um personagem ganha um aumento de poder, mas perde parte de seu controle, como visto em 'Berserk'!"
-'O que são os Dark Souls': "Dark Souls é uma série de jogos conhecidos por sua dificuldade elevada, com mundos sombrios, inimigos desafiadores e uma narrativa obscura!"     
-' O  que é o Doug?': "Doug é um desenho animado sobre um adolescente chamado Doug Funnie, que navega pelas complexidades da escola e da vida com sua imaginação fértil!"
-'Quem é o Rugrats?': "Rugrats segue um grupo de bebês que têm grandes aventuras em seu mundo, sempre liderados por Tommy Pickles e seus amigos, como Chuckie, Lil e Phil!"
-'O que é o Hey Arnold!': "Hey Arnold! conta as histórias de um garoto com uma cabeça gigante chamado Arnold, que vive em uma cidade cheia de personagens excêntricos e situações inesperadas!"
-'Quem são os Animaniacs?': "Os Animaniacs são Yakko, Wakko e Dot, três personagens travessos que vivem em um estúdio de animação, com esquetes engraçados e sátiras da cultura pop!"
-'O que é o Power Rangers?': "Power Rangers é uma série sobre um grupo de jovens que se transformam em super-heróis coloridos para proteger a Terra de monstros e vilões interdimensionais!"
-'Quem é o Johnny Bravo?': "Johnny Bravo é um homem musculoso e desajeitado que tenta conquistar as mulheres com seu charme exagerado, mas sempre acaba em situações embaraçosas!"
-'O que é o X-Men: The Animated Series?': "X-Men: The Animated Series segue um grupo de mutantes com habilidades extraordinárias, como Wolverine, Ciclope e Jean Grey, enfrentando inimigos como Magneto!"
-'Quem são os Meninos Maluquinhos?': "Os Meninos Maluquinhos é uma série de desenhos animados baseada nas histórias do escritor Ziraldo, que segue as aventuras e trapalhadas de um garoto travesso e seus amigos!"
-'O que é o Thundercats?': "Thundercats é uma série sobre um grupo de felinos extraterrestres que lutam para proteger o planeta Terceiro Mundo de vilões como Mum-Ra!"
-'Quem é o Super Choque?': "Super Choque é um super-herói adolescente com a habilidade de controlar eletricidade, vivendo aventuras enquanto tenta equilibrar sua vida escolar e sua identidade secreta!"
-'O que é o Cavaleiros do Zodíaco?': "Cavaleiros do Zodíaco é uma série de ação e mitologia, onde jovens guerreiros lutam para proteger a deusa Atena e o mundo contra forças do mal!"
-'Quem é o Tartarugas Ninja?': "As Tartarugas Ninja são quatro tartarugas mutantes treinadas nas artes marciais que lutam contra vilões como o Destruidor e outros inimigos em Nova York!"
-'O que é o Batman: The Animated Series?': "Batman: The Animated Series é uma das adaptações mais icônicas de Batman, com um tom sombrio e uma animação de estilo art déco que trouxe novos fãs para o universo do herói!"
-'Quem é o Scooby-Doo?': "Scooby-Doo é um cão da raça Great Dane que, junto com sua turma, resolve mistérios e enfrenta fantasmas e vilões em situações cômicas!"
-'O que é o Pinky e o Cérebro?': "Pinky e o Cérebro são dois ratos geneticamente modificados que tentam conquistar o mundo, mas os planos de Cérebro são sempre frustrados pelo comportamento de Pinky!"
-'Quem é o Ed, Edd e Eddy?': "Ed, Edd e Eddy são três amigos excêntricos que vivem em um subúrbio e estão sempre tentando enganar seus vizinhos para ganhar dinheiro ou doces!"
-'O que é o Reboot?': "Reboot é uma série de animação em computação gráfica onde os personagens vivem dentro de um sistema de computador, enfrentando vilões como o Master Control Program!"
-'Quem é o Rocket Power?': "Rocket Power segue quatro amigos que praticam esportes radicais, como skate, surfe e patins, enquanto vivem aventuras na cidade litorânea!"
-'O que é o Samurai Jack?': "Samurai Jack segue um samurai que viaja no tempo para derrotar o demônio Aku e retornar ao passado, onde seu mestre e sua família ainda estão vivos!"
-'Quem é o Beetlejuice?': "Beetlejuice é um espírito travesso e descontrolado que faz tudo o que pode para causar caos no mundo dos vivos, com a ajuda de sua amiga Lydia!"
-'O que é o Pinky e o Cérebro?': "Pinky e o Cérebro são dois ratos de laboratório com um plano para dominar o mundo em cada episódio, com as trapalhadas de Pinky sempre atrapalhando o plano de Cérebro!"
-'Quem é o Gargoyles?': "Gargoyles é uma série sobre estátuas de gárgulas que ganham vida à noite para proteger a cidade de Nova York contra forças sobrenaturais e ameaças perigosas!"
-'O que é o Looney Tunes?': "Looney Tunes é um clássico do desenho animado, com personagens como Pernalonga, Patolino e Piu-Piu, que vivem aventuras cômicas e travessuras!"
-'Quem é o Animaniacs?': "Animaniacs são os personagens Yakko, Wakko e Dot, que fazem sátiras e paródias de filmes, histórias e músicas populares, sempre causando caos e diversão!"
-'O que é o Doug?': "Doug é um jovem que vive suas aventuras em Bluffsington, lidando com os desafios típicos da adolescência enquanto imagina ser um super-herói!"
-'Quem é o A Vida Moderna de Rocko?': "A Vida Moderna de Rocko segue as desventuras de Rocko, um canguru australiano, e seus amigos, que enfrentam situações absurdas e engraçadas na vida adulta!"
-'O que é o Coragem, o Cão Covarde?': "Coragem, o Cão Covarde é uma série animada que segue um cão medroso tentando proteger seus donos de monstros e situações assustadoras de forma engraçada e única!"
-'Quem é o Arthur?': "Arthur é um desenho educativo sobre um jovem aardvark e seus amigos, que lidam com questões sociais e emocionais no contexto da vida cotidiana!"
-'O que é o Digimon?': "Digimon é uma série que segue um grupo de crianças que fazem amizade com criaturas digitais chamadas Digimons, lutando contra vilões e explorando o Mundo Digital!"
-'Quem são os Thundercats?': "Thundercats são um grupo de felinos extraterrestres que devem proteger o planeta e lutar contra o mal representado por Mum-Ra, o feiticeiro das trevas!"
-'O que é o Arremesso de Pedra?': "Arremesso de Pedra é uma série de animação centrada em torno das aventuras e conflitos de um grupo de personagens que vivem em uma cidade medieval cheia de ação!"
-'Quem é o Dexter?': "Dexter é um jovem gênio da ciência com um laboratório secreto cheio de invenções incríveis, mas também precisa lidar com sua irmã Dee Dee, que adora bagunçar suas invenções!"
-'O que é o Powerpuff Girls?': "Powerpuff Girls são três meninas superpoderosas que protegem a cidade de Townsville de vilões, tudo isso enquanto lidam com os problemas de ser uma criança!"
-'Quem são os Flintstones?': "Os Flintstones são uma família pré-histórica que vive em uma cidade chamada Bedrock, com carros de pedra e muitos outros elementos do mundo antigo!"
-'O que é o Rocket Power?': "Rocket Power segue quatro amigos praticando esportes radicais como skate e surfe, sempre com foco na amizade e aventura!"
-'Quem é o Rocco?': "Rocco é um canguru australiano que enfrenta situações absurdas e engraçadas enquanto vive na cidade com seus amigos, sendo uma das séries mais excêntricas dos anos 90!"
-'O que é o Daria?': "Daria é uma série de animação focada em uma adolescente sarcástica e inteligente, que lida com a vida do ensino médio e sua família excêntrica!"
-'Quem é o Bill e Ted?': "Bill e Ted são dois amigos que viajam no tempo e em diferentes realidades, vivendo aventuras e realizando feitos heróicos de forma cômica e divertida!"
-'O que é o Rocko': "Rocko é um canguru que vive em uma cidade americana, lidando com as situações do cotidiano de forma engraçada, como um clássico desenho dos anos 90!"
-'Quem são os Voltron?': "Voltron é um grupo de heróis que pilotam robôs gigantes e se unem para formar um super robô com o objetivo de combater vilões galácticos!"
-'O que é o Fábulas': "Fábulas é uma série sobre personagens míticos e fábulas que vivem no mundo moderno, enfrentando dilemas e situações que as mantêm relevantes e interessantes!"
-'Quem é o Mister Magoo?': "Mister Magoo é um homem idoso com problemas de visão, mas sempre acaba se metendo em confusões cômicas por ser muito teimoso e determinado!"
-'O que é o Poltergeist?': "Poltergeist é uma série de suspense e terror sobre uma casa assombrada, com espíritos inquietos e entidades do além tentando interagir com a realidade!"
-'Quem é o A Lenda de Korra?': "A Lenda de Korra é a sequência de Avatar: A Lenda de Aang, seguindo Korra, a nova Avatar, em sua jornada para trazer equilíbrio e paz ao mundo!"
-'O que é o Street Sharks?': "Street Sharks é uma série sobre quatro irmãos que se transformam em tubarões mutantes e lutam contra o mal em um cenário urbano!"{
-  'o que é hacking': "Hacking é o ato de explorar e manipular sistemas, redes ou dispositivos, geralmente para descobrir falhas ou realizar ações não autorizadas.",
-  'o que é um hacker ético': "Hacker ético é um profissional de segurança que utiliza suas habilidades para identificar e corrigir vulnerabilidades em sistemas com permissão.",
-  'como proteger seus dados na internet': "Para proteger seus dados, utilize senhas fortes, ative autenticação de dois fatores e use redes seguras e criptografadas.",
-  'o que é um firewall': "Um firewall é um sistema de segurança de rede que monitora e controla o tráfego de entrada e saída, ajudando a proteger contra ataques externos.",
-  'o que é criptografia': "Criptografia é o processo de codificar informações para que apenas pessoas autorizadas possam acessá-las, garantindo a privacidade dos dados.",
-  'o que é phishing': "Phishing é uma técnica de fraude onde os atacantes se passam por entidades confiáveis para obter informações pessoais ou financeiras.",
-  'como funciona o blockchain': "Blockchain é um sistema de registro digital descentralizado e seguro, usado para registrar transações de maneira transparente e imutável.",
-  'o que é o deep web': "A deep web é uma parte da internet que não é indexada pelos motores de busca tradicionais, e pode conter conteúdos anônimos ou ilegais.",
-  'o que é a dark web': "A dark web é uma camada da deep web onde ocorrem atividades ilegais, como vendas de drogas, armas e dados roubados.",
-  'o que é um bot': "Um bot é um software automatizado que realiza tarefas repetitivas na internet, como interação com usuários ou coleta de dados.",
-  'o que é o hacking ético': "O hacking ético é o uso de habilidades de hacking para realizar testes de segurança com o objetivo de melhorar a proteção de sistemas.",
-  'o que é o termo phreaking': "Phreaking é o termo utilizado para descrever a exploração de falhas em sistemas de telecomunicações, como as linhas telefônicas.",
-  'o que é um bug de segurança': "Um bug de segurança é uma falha em um sistema ou aplicativo que pode ser explorada por atacantes para obter acesso não autorizado.",
-  'o que é SQL injection': "SQL injection é um tipo de ataque em que um atacante insere código SQL malicioso em formulários de entrada para acessar ou modificar dados de um banco de dados.",
-  'como proteger seu site contra ataques': "Para proteger um site contra ataques, utilize HTTPS, faça atualizações regulares, implemente firewalls e proteja entradas com validação de dados.",
-  'o que é um exploit': "Um exploit é um software ou código que tira proveito de uma vulnerabilidade em um sistema para causar danos ou obter acesso não autorizado.",
-  'o que é um VPN': "VPN (Virtual Private Network) é uma tecnologia que cria uma conexão segura e privada pela internet, ocultando o tráfego e a localização do usuário.",
-  'o que é um DDoS': "DDoS (Distributed Denial of Service) é um ataque onde múltiplos sistemas são usados para sobrecarregar um servidor e derrubar um site ou serviço online.",
-  'o que é a dark net': "A dark net é uma rede anônima na internet onde ocorrem atividades ilegais, frequentemente utilizando criptomoedas para transações.",
-  'o que é a deep web': "A deep web é a parte da internet que não é indexada por motores de busca e pode conter dados privados ou inacessíveis ao público geral.",
-  'o que é um Trojan': "Um Trojan (ou Cavalo de Troia) é um tipo de malware disfarçado como um programa legítimo, mas que executa atividades maliciosas sem o conhecimento do usuário.",
-  'como funciona a criptografia simétrica': "Na criptografia simétrica, a mesma chave é usada tanto para criptografar quanto para descriptografar a mensagem, exigindo que ambas as partes tenham a chave secreta.",
-  'o que é um worm de computador': "Um worm é um tipo de malware que se replica e se espalha automaticamente de um sistema para outro, muitas vezes sem a interação do usuário.",
-  'o que é um rootkit': "Um rootkit é um tipo de malware projetado para ocultar a presença de outros programas maliciosos, permitindo que o atacante mantenha o controle do sistema sem ser detectado.",
-  'como funciona o DNS': "O DNS (Domain Name System) é um sistema que traduz os nomes de domínio em endereços IP, permitindo que os navegadores encontrem e acessem sites na internet.",
-  'o que é o MITM': "MITM (Man in the Middle) é um ataque onde o atacante intercepta e altera a comunicação entre duas partes sem que elas saibam.",
-  'o que é o ataque de força bruta': "Ataque de força bruta é uma técnica onde um atacante tenta adivinhar a senha de um sistema tentando todas as combinações possíveis até encontrar a correta.",
-  'o que é um bug bounty': "Bug bounty é um programa oferecido por empresas para recompensar hackers éticos que encontram e relatam vulnerabilidades em seus sistemas.",
-  'como funciona a mineração de criptomoedas': "A mineração de criptomoedas é o processo de resolver problemas matemáticos complexos para validar transações e adicionar blocos à blockchain.",
-  'o que é a linguagem Assembly': "Assembly é uma linguagem de programação de baixo nível, muito próxima do código de máquina, usada para criar programas eficientes e rápidos.",
-  'o que é um sistema operacional': "Um sistema operacional é o software que gerencia o hardware e os recursos de um computador, além de fornecer uma interface para os usuários interagirem com a máquina.",
-  'o que é a programação orientada a objetos': "A programação orientada a objetos é um paradigma de programação onde o código é organizado em 'objetos', que contêm dados e funções.",
-  'qual a diferença entre front-end e back-end': "Front-end é a parte visível de um site ou aplicação, enquanto back-end lida com a lógica e o armazenamento de dados no servidor.",
-  'o que é Git': "Git é um sistema de controle de versão distribuído que permite gerenciar alterações em arquivos e colaborar em projetos de programação.",
-  'o que é uma API': "API (Interface de Programação de Aplicações) é um conjunto de definições e protocolos que permite que diferentes sistemas interajam entre si.",
-  'o que é o protocolo TCP/IP': "O protocolo TCP/IP é um conjunto de regras que determina como os dados são transmitidos pela internet entre diferentes dispositivos.",
-  'como funciona o Google': "O Google é um motor de busca que usa algoritmos complexos para indexar e classificar páginas web, fornecendo resultados relevantes para as buscas dos usuários.",
-  'o que é o Python': "Python é uma linguagem de programação de alto nível, fácil de aprender e muito utilizada para desenvolvimento web, ciência de dados e automação.",
-  'como funciona a virtualização de servidores': "A virtualização de servidores permite que um único servidor físico execute múltiplas instâncias de sistemas operacionais, maximizando o uso de recursos.",
-  'o que é a inteligência artificial': "Inteligência artificial é o campo da ciência da computação que cria sistemas capazes de realizar tarefas que normalmente exigem inteligência humana, como aprendizado e tomada de decisões.",
-  'o que é o aprendizado de máquina': "O aprendizado de máquina é uma subárea da inteligência artificial que envolve o treinamento de algoritmos para que eles aprendam a partir de dados e façam previsões.",
-  'o que são os algoritmos de busca': "Algoritmos de busca são técnicas usadas para encontrar informações em grandes conjuntos de dados ou resolver problemas de otimização, como o algoritmo de Dijkstra ou busca binária.",
-  'o que é um código-fonte': "Código-fonte é o conjunto de instruções escritas em uma linguagem de programação que define o funcionamento de um programa de computador.",
-  'o que é o hacking social': "Hacking social é o uso de manipulação psicológica para obter informações confidenciais, como senhas ou dados pessoais, sem recorrer a técnicas de hacking tradicional.",
-  'como proteger seu computador contra vírus': "Para proteger seu computador contra vírus, use um antivírus atualizado, evite clicar em links suspeitos e mantenha seu sistema e aplicativos sempre atualizados.",
-  'o que é o Linux': "Linux é um sistema operacional de código aberto, baseado em Unix, conhecido por sua estabilidade, segurança e flexibilidade para servidores e dispositivos.",
-  'como funciona a computação em nuvem': "A computação em nuvem permite acessar e armazenar dados e aplicativos pela internet, sem a necessidade de recursos locais, oferecendo escalabilidade e flexibilidade.",
-  'o que é a criptomoeda Bitcoin': "Bitcoin é uma criptomoeda descentralizada, criada em 2009, que usa a tecnologia blockchain para registrar transações de forma segura e sem intermediários.",
-  'o que é o Ethereum': "Ethereum é uma plataforma blockchain descentralizada que permite a criação de contratos inteligentes e aplicativos descentralizados (dApps).",
-  'o que é um smart contract': "Um smart contract (contrato inteligente) é um contrato autoexecutável, onde as condições e regras são definidas por código e são automaticamente executadas quando cumpridas.",
-  'como funciona o armazenamento em nuvem': "O armazenamento em nuvem permite armazenar dados em servidores remotos, acessíveis pela internet, permitindo o backup e a recuperação de dados de qualquer lugar.",
-  'o que é a segurança da informação': "Segurança da informação é a prática de proteger dados e sistemas contra acesso não autorizado, roubo ou danos, garantindo confidencialidade, integridade e disponibilidade.",
-  'o que é a Internet das Coisas (IoT)': "A Internet das Coisas (IoT) refere-se à conexão de dispositivos físicos à internet para coletar e trocar dados, como eletrodomésticos, carros e sensores.",
-  "qual é a diferença entre front-end e back-end": "O front-end envolve o design e a interação do usuário, enquanto o back-end lida com o processamento de dados e a lógica de negócios no servidor!",
-};
- // Se o comando não for reconhecido
+         let responses = { 
+            
+          };
+
+    // Se o comando não for reconhecido
     return "Desculpe, não entendi sua mensagem. Tente novamente!";
 }
 
@@ -792,9 +440,555 @@ function appendMessage(text, type) {
     chatBox.scrollTop = chatBox.scrollHeight;
 }
 
+// Função de respostas personalizadas com base em palavras-chave
+function getRespostaPersonalizada(msg) {
+    msg = msg.toLowerCase();
+    if (msg.includes('oi')) return "Olá! Como posso ajudar você hoje?";
+    if (msg.includes('dados')) return "Você quer analisar dados? Envie os dados ou escolha uma opção!";
+    if (msg.includes('jogo')) return "Você gosta de jogos? Tenho algumas recomendações de jogos multiplayer. Deseja ver?";
+    if (msg.includes('limpar dados')) return "Certo! Seus dados foram limpos e padronizados!";
+    if (msg.includes('normalizar texto')) return "Texto formatado para minúsculas e acentos removidos!";
+    if (msg.includes('validar email')) return "Verifiquei e sim, o email parece estar correto!";
+    if (msg.includes('gerar hash')) return "Senha protegida com hash SHA-256!";
+    if (msg.includes('analisar sentimento')) return "O sentimento do texto é positivo!";
+    if (msg.includes('detectar anomalias')) return "Detectei padrões incomuns nos seus dados!";
+    if (msg.includes('clima')) return "Digite sua cidade para que eu possa verificar a previsão do tempo!";
+    if (msg.includes('horário')) return "O horário atual é: " + new Date().toLocaleTimeString();
+    if (msg.includes('notícia')) return "Aqui estão as últimas notícias: [link para um feed de notícias]";
+    if (msg.includes('moeda')) return "Digite a moeda que deseja converter e eu fornecerei a taxa de câmbio!";
+function getRespostaPersonalizada(msg) {
+    msg = msg.toLowerCase();
+  msg = msg.toLowerCase();
+    if (msg.includes('oi')) return "Olá! Como posso ajudar você hoje?";
+    if (msg.includes('dados')) return "Você quer analisar dados? Envie os dados ou escolha uma opção!";
+    if (msg.includes('jogo')) return "Você gosta de jogos? Tenho algumas recomendações de jogos multiplayer. Deseja ver?";
+    if (msg.includes('limpar dados')) return "Certo! Seus dados foram limpos e padronizados!";
+    if (msg.includes('normalizar texto')) return "Texto formatado para minúsculas e acentos removidos!";
+    if (msg.includes('validar email')) return "Verifiquei e sim, o email parece estar correto!";
+    if (msg.includes('gerar hash')) return "Senha protegida com hash SHA-256!";
+    if (msg.includes('analisar sentimento')) return "O sentimento do texto é positivo!";
+    if (msg.includes('detectar anomalias')) return "Detectei padrões incomuns nos seus dados!";
+    if (msg.includes('clima')) return "Digite sua cidade para que eu possa verificar a previsão do tempo!";
+    if (msg.includes('horário')) return "O horário atual é: " + new Date().toLocaleTimeString();
+    if (msg.includes('notícia')) return "Aqui estão as últimas notícias: [link para um feed de notícias]";
+    if (msg.includes('moeda')) return "Digite a moeda que deseja converter e eu fornecerei a taxa de câmbio!";
+    if (msg.includes('oi')) return "Olá! Como posso ajudar você hoje?";
+    if (msg.includes('dados')) return "Você quer analisar dados? Envie os dados ou escolha uma opção!";
+    if (msg.includes('jogo')) return "Você gosta de jogos? Tenho algumas recomendações de jogos multiplayer. Deseja ver?";
+    if (msg.includes('limpar dados')) return "Certo! Seus dados foram limpos e padronizados!";
+    if (msg.includes('normalizar texto')) return "Texto formatado para minúsculas e acentos removidos!";
+    if (msg.includes('validar email')) return "Verifiquei e sim, o email parece estar correto!";
+    if (msg.includes('gerar hash')) return "Senha protegida com hash SHA-256!";
+    if (msg.includes('analisar sentimento')) return "O sentimento do texto é positivo!";
+    if (msg.includes('detectar anomalias')) return "Detectei padrões incomuns nos seus dados!";
+    if (msg.includes('clima')) return "Digite sua cidade para que eu possa verificar a previsão do tempo!";
+    if (msg.includes('horário')) return "O horário atual é: " + new Date().toLocaleTimeString();
+    if (msg.includes('notícia')) return "Aqui estão as últimas notícias: [link para um feed de notícias]";
+    if (msg.includes('moeda')) return "Digite a moeda que deseja converter e eu fornecerei a taxa de câmbio!";
+    if (msg.includes('qual é o seu nome')) return "Eu sou um assistente virtual! Em que posso te ajudar?";
+    if (msg.includes('como você está')) return "Estou bem, obrigado! E você, como está?";
+    if (msg.includes('quem é você')) return "Eu sou um assistente criado para ajudar com várias tarefas. O que posso fazer por você?";
+    if (msg.includes('o que você faz')) return "Posso ajudar a analisar dados, fornecer informações sobre clima, e muito mais!";
+    if (msg.includes('ajuda')) return "Claro! O que você precisa? Estou aqui para ajudar!";
+    if (msg.includes('assistente virtual')) return "Sou um assistente digital e posso te ajudar com várias tarefas. Como posso te ajudar hoje?";
+    if (msg.includes('informações')) return "Você gostaria de mais informações sobre o quê?";
+    if (msg.includes('recomendação')) return "Em que área você gostaria de receber uma recomendação? Jogos, filmes, livros?";
+    if (msg.includes('calculadora')) return "Você quer fazer algum cálculo específico?";
+    if (msg.includes('vídeo')) return "Você quer assistir a um vídeo? Posso te recomendar alguns!";
+    if (msg.includes('notícias de tecnologia')) return "Aqui estão as últimas notícias sobre tecnologia: [link para um feed de tecnologia]";
+    if (msg.includes('compartilhar')) return "Você gostaria de compartilhar algo comigo? Posso ajudar!";
+    if (msg.includes('documento')) return "Você quer fazer upload ou verificar algum documento?";
+    if (msg.includes('link')) return "Aqui está o link solicitado: [insira o link].";
+    if (msg.includes('gostei')) return "Que bom que gostou! Como mais posso te ajudar?";
+    if (msg.includes('não gostei')) return "Sinto muito que não tenha gostado. Como posso melhorar?";
+    if (msg.includes('excluir conta')) return "Você tem certeza de que deseja excluir sua conta? Posso ajudar com o processo.";
+    if (msg.includes('criar conta')) return "Você quer criar uma nova conta? Posso te ajudar com isso!";
+    if (msg.includes('rede social')) return "Qual rede social você gostaria de saber mais?";
+    if (msg.includes('spotify')) return "Você quer ouvir algo no Spotify? Posso sugerir uma playlist!";
+    if (msg.includes('email de contato')) return "Você pode nos contatar pelo email: contato@exemplo.com.";
+    if (msg.includes('redefinir senha')) return "Eu posso te ajudar a redefinir sua senha. Você quer continuar?";
+    if (msg.includes('conta bloqueada')) return "Sua conta foi bloqueada? Eu posso ajudar a resolver isso.";
+    if (msg.includes('esqueci minha senha')) return "Não se preocupe! Posso te ajudar a recuperar sua senha.";
+    if (msg.includes('atualizar dados')) return "Você gostaria de atualizar suas informações pessoais?";
+    if (msg.includes('carregar mais')) return "Carregando mais informações... Aguarde um momento.";
+    if (msg.includes('ajustes de perfil')) return "Quer atualizar seu perfil? Posso te ajudar com isso!";
+    if (msg.includes('compra confirmada')) return "Sua compra foi confirmada com sucesso!";
+    if (msg.includes('cancelar compra')) return "Você deseja cancelar a compra? Eu posso ajudar com isso.";
+    if (msg.includes('dúvida')) return "Qual é a sua dúvida? Vou tentar te ajudar da melhor maneira!";
+    if (msg.includes('erro')) return "Parece que ocorreu um erro. Posso tentar corrigir isso para você!";
+    if (msg.includes('agendar')) return "Gostaria de agendar uma reunião ou compromisso?";
+    if (msg.includes('compartilhar dados')) return "Você quer compartilhar seus dados comigo? Vou garantir que tudo esteja seguro!";
+    if (msg.includes('tradução')) return "Você precisa traduzir algo? Posso ajudar com isso.";
+    if (msg.includes('oi')) return "Olá! Como posso ajudar você hoje?";
+    if (msg.includes('dados')) return "Você quer analisar dados? Envie os dados ou escolha uma opção!";
+    if (msg.includes('jogo')) return "Você gosta de jogos? Tenho algumas recomendações de jogos multiplayer. Deseja ver?";
+    if (msg.includes('limpar dados')) return "Certo! Seus dados foram limpos e padronizados!";
+    if (msg.includes('normalizar texto')) return "Texto formatado para minúsculas e acentos removidos!";
+    if (msg.includes('validar email')) return "Verifiquei e sim, o email parece estar correto!";
+    if (msg.includes('gerar hash')) return "Senha protegida com hash SHA-256!";
+    if (msg.includes('analisar sentimento')) return "O sentimento do texto é positivo!";
+    if (msg.includes('detectar anomalias')) return "Detectei padrões incomuns nos seus dados!";
+    if (msg.includes('clima')) return "Digite sua cidade para que eu possa verificar a previsão do tempo!";
+    if (msg.includes('horário')) return "O horário atual é: " + new Date().toLocaleTimeString();
+    if (msg.includes('notícia')) return "Aqui estão as últimas notícias: [link para um feed de notícias]";
+    if (msg.includes('moeda')) return "Digite a moeda que deseja converter e eu fornecerei a taxa de câmbio!";
+     if (msg.includes('oi')) return "Olá, Jedi! Pronto para explorar o universo geek?";
+    if (msg.includes('marvel')) return "Você é fã da Marvel? Posso falar sobre os Vingadores, X-Men e muito mais!";
+    if (msg.includes('dc')) return "Você prefere a DC? Podemos falar sobre Batman, Superman ou os Flash!";
+    if (msg.includes('star wars')) return "Que a Força esteja com você! Qual lado você escolhe, Jedi ou Sith?";
+    if (msg.includes('star trek')) return "Engajando motores a Warp 9! Vamos explorar o universo com a USS Enterprise!";
+    if (msg.includes('game of thrones')) return "Valar Morghulis! Quer saber mais sobre as famílias nobres ou os dragões de Daenerys?";
+    if (msg.includes('anime')) return "Você é fã de anime? Posso falar sobre Naruto, Dragon Ball e muitos outros!";
+    if (msg.includes('livros geeks')) return "Quer algumas sugestões de livros? Como 'O Senhor dos Anéis' ou 'Harry Potter'?";
+    if (msg.includes('gamer')) return "Você joga? Posso recomendar jogos incríveis como 'The Witcher', 'Zelda' e 'Minecraft'!";
+    if (msg.includes('harry potter')) return "Você é da Gryffindor ou de outra casa? Vamos conversar sobre feitiçaria!";
+    if (msg.includes('doctor who')) return "Gerando TARDIS... Pronto para viajar no tempo e espaço com o Doutor?";
+    if (msg.includes('lego')) return "Você adora LEGO? Podemos falar sobre todos os sets incríveis que eles criaram!";
+    if (msg.includes('xbox')) return "Xbox ou PlayStation? Qual é sua escolha para a próxima aventura?";
+    if (msg.includes('playstation')) return "PlayStation é top! Vamos falar sobre exclusivos como 'The Last of Us' ou 'Spider-Man'!";
+    if (msg.includes('retro games')) return "Você curte jogos retrô? Vamos falar sobre os clássicos do Super Nintendo e Sega!";
+    if (msg.includes('geek news')) return "Quer saber as últimas notícias geek? Aqui estão os tópicos mais quentes!";
+    if (msg.includes('cosplay')) return "Você faz cosplay? Ou só admira? Fale sobre seus personagens favoritos!";
+    if (msg.includes('tetris')) return "A peça em forma de T está caindo! Vamos jogar um pouco de Tetris?";
+    if (msg.includes('matrix')) return "Você é o escolhido? A Matrix está esperando por você!";
+    if (msg.includes('gollum')) return "Meu precioso! Vamos falar sobre a busca pelo Anel em 'O Senhor dos Anéis'";
+    if (msg.includes('dungeons and dragons')) return "Preparando dados de 20 lados! Vamos jogar uma campanha de D&D?";
+    if (msg.includes('pokemon')) return "Você é um mestre Pokémon? Qual é o seu Pokémon favorito?";
+    if (msg.includes('minecraft')) return "Cuidado com os Creepers! Vamos falar sobre tudo no mundo de Minecraft!";
+    if (msg.includes('fortnite')) return "Você está pronto para construir e lutar em Fortnite?";
+    if (msg.includes('vampiro')) return "Você é um vampiro ou caçador? Vamos falar sobre o universo de 'Vampiro: A Máscara'!";
+    if (msg.includes('simpsons')) return "D'oh! Vamos falar sobre o melhor desenho de todos os tempos, 'Os Simpsons'!";
+    if (msg.includes('rick and morty')) return "Wubba Lubba Dub Dub! Vamos falar sobre as viagens loucas de Rick e Morty!";
+    if (msg.includes('lego star wars')) return "Que tal construir o Millennium Falcon em LEGO? É um dos melhores sets!";
+    if (msg.includes('sherlock holmes')) return "Sherlock Holmes, o mestre da dedução! Quer saber mais sobre seus mistérios?";
+    if (msg.includes('hunger games')) return "Você se oferece como tributo? Vamos falar sobre os Jogos Vorazes!";
+    if (msg.includes('game of thrones personagens')) return "Qual personagem de Game of Thrones é o seu favorito? Jon Snow, Daenerys ou Tyrion?";
+    if (msg.includes('api')) return "API (Interface de Programação de Aplicações) é um conjunto de definições e protocolos que permite que diferentes sistemas interajam entre si.";
+    if (msg.includes('protocolo tcp/ip')) return "O protocolo TCP/IP é um conjunto de regras que determina como os dados são transmitidos pela internet entre diferentes dispositivos.";
+    if (msg.includes('google')) return "O Google é um motor de busca que usa algoritmos complexos para indexar e classificar páginas web, fornecendo resultados relevantes para as buscas dos usuários.";
+    if (msg.includes('python')) return "Python é uma linguagem de programação de alto nível, fácil de aprender e muito utilizada para desenvolvimento web, ciência de dados e automação.";
+    if (msg.includes('virtualização de servidores')) return "A virtualização de servidores permite que um único servidor físico execute múltiplas instâncias de sistemas operacionais, maximizando o uso de recursos.";
+    if (msg.includes('inteligência artificial')) return "Inteligência artificial é o campo da ciência da computação que cria sistemas capazes de realizar tarefas que normalmente exigem inteligência humana, como aprendizado e tomada de decisões.";
+    if (msg.includes('aprendizado de máquina')) return "O aprendizado de máquina é uma subárea da inteligência artificial que envolve o treinamento de algoritmos para que eles aprendam a partir de dados e façam previsões.";
+    if (msg.includes('algoritmos de busca')) return "Algoritmos de busca são técnicas usadas para encontrar informações em grandes conjuntos de dados ou resolver problemas de otimização, como o algoritmo de Dijkstra ou busca binária.";
+    if (msg.includes('código-fonte')) return "Código-fonte é o conjunto de instruções escritas em uma linguagem de programação que define o funcionamento de um programa de computador.";
+    if (msg.includes('hacking social')) return "Hacking social é o uso de manipulação psicológica para obter informações confidenciais, como senhas ou dados pessoais, sem recorrer a técnicas de hacking tradicional.";
+    if (msg.includes('proteger computador contra vírus')) return "Para proteger seu computador contra vírus, use um antivírus atualizado, evite clicar em links suspeitos e mantenha seu sistema e aplicativos sempre atualizados.";
+    if (msg.includes('linux')) return "Linux é um sistema operacional de código aberto, baseado em Unix, conhecido por sua estabilidade, segurança e flexibilidade para servidores e dispositivos.";
+    if (msg.includes('computação em nuvem')) return "A computação em nuvem permite acessar e armazenar dados e aplicativos pela internet, sem a necessidade de recursos locais, oferecendo escalabilidade e flexibilidade.";
+    if (msg.includes('bitcoin')) return "Bitcoin é uma criptomoeda descentralizada, criada em 2009, que usa a tecnologia blockchain para registrar transações de forma segura e sem intermediários.";
+    if (msg.includes('ethereum')) return "Ethereum é uma plataforma blockchain descentralizada que permite a criação de contratos inteligentes e aplicativos descentralizados (dApps).";
+    if (msg.includes('smart contract')) return "Um smart contract (contrato inteligente) é um contrato autoexecutável, onde as condições e regras são definidas por código e são automaticamente executadas quando cumpridas.";
+    if (msg.includes('armazenamento em nuvem')) return "O armazenamento em nuvem permite armazenar dados em servidores remotos, acessíveis pela internet, permitindo o backup e a recuperação de dados de qualquer lugar.";
+    if (msg.includes('segurança da informação')) return "Segurança da informação é a prática de proteger dados e sistemas contra acesso não autorizado, roubo ou danos, garantindo confidencialidade, integridade e disponibilidade.";
+    if (msg.includes('internet das coisas')) return "A Internet das Coisas (IoT) refere-se à conexão de dispositivos físicos à internet para coletar e trocar dados, como eletrodomésticos, carros e sensores.";
+    if (msg.includes('front-end')) return "O front-end envolve o design e a interação do usuário, enquanto o back-end lida com o processamento de dados e a lógica de negócios no servidor!";
+    if (msg.includes('qual é o seu nome')) return "Eu sou um assistente virtual! Em que posso te ajudar?";
+    if (msg.includes('como você está')) return "Estou bem, obrigado! E você, como está?";
+    if (msg.includes('quem é você')) return "Eu sou um assistente criado para ajudar com várias tarefas. O que posso fazer por você?";
+    if (msg.includes('o que você faz')) return "Posso ajudar a analisar dados, fornecer informações sobre clima, e muito mais!";
+    if (msg.includes('ajuda')) return "Claro! O que você precisa? Estou aqui para ajudar!";
+    if (msg.includes('assistente virtual')) return "Sou um assistente digital e posso te ajudar com várias tarefas. Como posso te ajudar hoje?";
+    if (msg.includes('informações')) return "Você gostaria de mais informações sobre o quê?";
+    if (msg.includes('recomendação')) return "Em que área você gostaria de receber uma recomendação? Jogos, filmes, livros?";
+    if (msg.includes('calculadora')) return "Você quer fazer algum cálculo específico?";
+    if (msg.includes('vídeo')) return "Você quer assistir a um vídeo? Posso te recomendar alguns!";
+    if (msg.includes('notícias de tecnologia')) return "Aqui estão as últimas notícias sobre tecnologia: [link para um feed de tecnologia]";
+    if (msg.includes('compartilhar')) return "Você gostaria de compartilhar algo comigo? Posso ajudar!";
+    if (msg.includes('documento')) return "Você quer fazer upload ou verificar algum documento?";
+    if (msg.includes('link')) return "Aqui está o link solicitado: [insira o link].";
+    if (msg.includes('gostei')) return "Que bom que gostou! Como mais posso te ajudar?";
+    if (msg.includes('não gostei')) return "Sinto muito que não tenha gostado. Como posso melhorar?";
+    if (msg.includes('excluir conta')) return "Você tem certeza de que deseja excluir sua conta? Posso ajudar com o processo.";
+    if (msg.includes('criar conta')) return "Você quer criar uma nova conta? Posso te ajudar com isso!";
+    if (msg.includes('rede social')) return "Qual rede social você gostaria de saber mais?";
+    if (msg.includes('spotify')) return "Você quer ouvir algo no Spotify? Posso sugerir uma playlist!";
+    if (msg.includes('email de contato')) return "Você pode nos contatar pelo email: contato@exemplo.com.";
+    if (msg.includes('redefinir senha')) return "Eu posso te ajudar a redefinir sua senha. Você quer continuar?";
+    if (msg.includes('conta bloqueada')) return "Sua conta foi bloqueada? Eu posso ajudar a resolver isso.";
+    if (msg.includes('esqueci minha senha')) return "Não se preocupe! Posso te ajudar a recuperar sua senha.";
+    if (msg.includes('atualizar dados')) return "Você gostaria de atualizar suas informações pessoais?";
+    if (msg.includes('carregar mais')) return "Carregando mais informações... Aguarde um momento.";
+    if (msg.includes('ajustes de perfil')) return "Quer atualizar seu perfil? Posso te ajudar com isso!";
+    if (msg.includes('compra confirmada')) return "Sua compra foi confirmada com sucesso!";
+    if (msg.includes('cancelar compra')) return "Você deseja cancelar a compra? Eu posso ajudar com isso.";
+    if (msg.includes('dúvida')) return "Qual é a sua dúvida? Vou tentar te ajudar da melhor maneira!";
+    if (msg.includes('erro')) return "Parece que ocorreu um erro. Posso tentar corrigir isso para você!";
+    if (msg.includes('agendar')) return "Gostaria de agendar uma reunião ou compromisso?";
+    if (msg.includes('agradeço')) return "De nada! Se precisar de mais alguma coisa, estarei por aqui!";
+    if (msg.includes('livro')) return "Está procurando um bom livro para ler? Posso te recomendar alguns!";
+    if (msg.includes('filme')) return "Quer assistir a um bom filme? Posso sugerir alguns títulos!";
+    if (msg.includes('série')) return "Procurando uma boa série para maratonar? Tenho algumas sugestões!";
+    if (msg.includes('música')) return "Qual tipo de música você gosta? Posso sugerir algo!";
+    if (msg.includes('saudação')) return "Olá! Como posso te ajudar hoje?";
+    if (msg.includes('desconectar')) return "Você quer se desconectar da conta? Posso ajudar!";
+    if (msg.includes('feedback')) return "Gostaria de deixar um feedback? Sua opinião é muito importante para nós!";
+    if (msg.includes('dados pessoais')) return "Você quer atualizar seus dados pessoais? Eu posso te ajudar.";
+    if (msg.includes('documento necessário')) return "Precisa de algum documento específico? Posso ajudar a encontrá-lo!";
+    if (msg.includes('gerar relatório')) return "Eu posso gerar um relatório para você. O que você precisa no relatório?";
+    if (msg.includes('histórico de compras')) return "Você quer visualizar seu histórico de compras? Eu posso te ajudar!";
+    if (msg.includes('consultar saldo')) return "Quer consultar o saldo da sua conta? Vou verificar para você!";
+    if (msg.includes('status de pedido')) return "Você quer saber o status de um pedido? Me envie o número do pedido!";
+    if (msg.includes('informações de pagamento')) return "Você precisa de informações sobre um pagamento? Eu posso te ajudar!";
+    if (msg.includes('dúvida sobre produto')) return "Tem alguma dúvida sobre um produto? Posso ajudar com as especificações!";
+    if (msg.includes('preço de produto')) return "Você quer saber o preço de um produto? Eu posso consultar para você!";
+    if (msg.includes('recomendações de investimento')) return "Você quer recomendações de investimento? Posso sugerir opções de acordo com seu perfil!";
+    if (msg.includes('planos de investimento')) return "Eu tenho várias opções de planos de investimento. Quer ver mais detalhes?";
+    if (msg.includes('escolher plano')) return "Quer ajuda para escolher o melhor plano de investimento?";
+    if (msg.includes('resultado financeiro')) return "Você quer ver o seu resultado financeiro? Eu posso gerar um relatório!";
+    if (msg.includes('criar orçamento')) return "Quer criar um orçamento? Eu posso ajudar com isso!";
+    if (msg.includes('perguntas frequentes')) return "Aqui estão as perguntas frequentes: [link para FAQ]";
+    if (msg.includes('suporte técnico')) return "Você precisa de suporte técnico? Posso direcioná-lo para o time adequado!";
+    if (msg.includes('feedback do sistema')) return "Você gostaria de deixar um feedback sobre o sistema? Adoraríamos ouvir sua opinião!";
+    if (msg.includes('recarregar página')) return "Recarregando a página para atualizar as informações!";
+    if (msg.includes('solicitar suporte')) return "Você pode solicitar suporte clicando no botão 'Suporte' ou me dizendo o que precisa!";
+    if (msg.includes('opções de pagamento')) return "Quais opções de pagamento você deseja? Posso mostrar as disponíveis!";
+    if (msg.includes('tempo de entrega')) return "O tempo estimado de entrega é de X dias úteis. Posso verificar mais detalhes para você!";
+    if (msg.includes('opções de entrega')) return "Você quer saber as opções de entrega? Eu posso te ajudar!";
+    if (msg.includes('agendar reunião')) return "Você quer agendar uma reunião com nossa equipe? Eu posso organizar isso!";
+    if (msg.includes('avisos importantes')) return "Aqui estão os avisos importantes: [link ou lista de avisos]";
+    if (msg.includes('oi')) return "Saudações, portador da luz! Você faz parte de um dos Lantern Corps?";
+    if (msg.includes('lanterna verde')) return "Você é um Lantern Green? A vontade e a coragem são suas maiores forças!";
+    if (msg.includes('lanterna amarela')) return "Ah, você é do Sinestro Corps! O medo é o seu aliado!";
+    if (msg.includes('lanterna azul')) return "Você possui a esperança dos Lanternas Azuis! A fé é a chave!";
+    if (msg.includes('lanterna vermelha')) return "Bem-vindo ao Red Lantern Corps! A raiva é uma chama que nunca se apaga!";
+    if (msg.includes('lanterna roxa')) return "Você é do Star Sapphires! O amor é sua maior força!";
+    if (msg.includes('lanterna laranja')) return "Você é do Orange Lantern Corps, movido pela ganância!";
+    if (msg.includes('lanterna indigo')) return "Você é do Indigo Tribe, guiado pela compaixão! O perdão é sua força!";
+    if (msg.includes('lanterna preta')) return "Ah, você é do Black Lantern Corps. A morte é uma força constante!";
+    if (msg.includes('lanterna branca')) return "Bem-vindo ao White Lantern Corps! A vida é a sua luz!";
+    if (msg.includes('sinestro')) return "Sinestro, o mestre do medo! Você prefere ser temido ou ser um herói?";
+    if (msg.includes('green lantern')) return "O Lanterna Verde! Sua vontade pode mudar o universo. Qual é a sua missão?";
+    if (msg.includes('lanterna azul esperança')) return "Lanterna Azul! Com a esperança, podemos mudar até os piores destinos!";
+    if (msg.includes('lanterna vermelha raiva')) return "Lanterna Vermelho! A raiva te guia. O que te faz perder a cabeça?";
+    if (msg.includes('lanterna roxa amor')) return "Lanterna Roxa! O amor é a força mais poderosa do universo!";
+    if (msg.includes('lanterna indigo compaixão')) return "Indigo Tribe! A compaixão é a chave para a verdadeira força!";
+    if (msg.includes('lanterna preta morte')) return "Black Lantern Corps... A morte nunca para de chamar!";
+    if (msg.includes('lanterna branca vida')) return "White Lantern! Você é a luz da vida, a esperança de todos!";
+    if (msg.includes('corpo de lanternas')) return "Há muitas cores no espectro emocional. Qual cor do Lantern Corps você escolhe?";
+    if (msg.includes('spectrum emocional')) return "O espectro emocional é vasto e poderoso. Qual cor mais ressoa com você?";
+    if (msg.includes('espectro luminoso')) return "O Espectro Luminoso é a força que une os Lanterns! Você está pronto para fazer parte dele?";
+    if (msg.includes('lanterna verde poder')) return "O poder do Lanterna Verde vem da vontade. Qual é o seu maior desejo?";
+    if (msg.includes('lanterna amarela medo')) return "Medo é uma arma poderosa. Como você usaria o poder do Lanterna Amarelo?";
+    if (msg.includes('ajuda com uso do sistema')) return "Está com dificuldades para usar o sistema? Posso te guiar no processo!";
+    if (msg.includes('oi')) return "Fala, gamer! Pronto para relembrar os bons tempos dos anos 2000?";
+    if (msg.includes('jogo de 2000')) return "Nos anos 2000, jogos como 'Halo', 'The Sims', e 'Counter-Strike' dominaram o cenário! Qual era o seu favorito?";
+    if (msg.includes('counter-strike')) return "Ah, o Counter-Strike! O jogo que definiu as LAN parties e se tornou um dos maiores títulos de eSports. Você era do time CT ou Terrorista?";
+    if (msg.includes('halo')) return "'Halo' foi um dos maiores sucessos da era do Xbox! Master Chief e Cortana conquistaram o coração dos gamers com suas aventuras intergalácticas!";
+    if (msg.includes('the sims')) return "Em 'The Sims', você podia criar vidas e até destruir! Foi o jogo que fez a gente se apaixonar por simulação de vida e personalização.";
+    if (msg.includes('quake')) return "'Quake' foi o rei dos FPS nos anos 2000! Foi um dos jogos mais influentes que ajudou a popularizar o multiplayer online e até competições de eSports.";
+    if (msg.includes('need for speed')) return "'Need for Speed' nos anos 2000 foi uma febre, especialmente com 'Underground', onde o tuning de carros tomou os holofotes!";
+    if (msg.includes('diablo 2')) return "'Diablo II' foi um dos maiores RPGs de ação da época. O loot, as classes e o modo multiplayer online definiram uma geração!";
+    if (msg.includes('runescape')) return "'RuneScape'! O MMORPG que rodava no navegador e era possível explorar um vasto mundo, fazer quests e lutar contra monstros, tudo sem precisar de um PC top de linha!";
+    if (msg.includes('brazilian gamer 2000')) return "Os gamers brasileiros nos anos 2000 eram incríveis! A internet discada era um desafio, mas não impedia ninguém de se aventurar em jogos como 'Warcraft 3' e 'Tibia'.";
+    if (msg.includes('tibia')) return "'Tibia' era o MMORPG mais famoso da galera nos anos 2000! Quem nunca gastou horas caçando monstros ou se aventurando por essas terras pixeladas?";
+    if (msg.includes('guild wars')) return "'Guild Wars' foi um dos pioneiros em MMORPGs com foco em PvP! Lutas entre jogadores, sem mensalidade, e com um enredo marcante.";
+    if (msg.includes('internet discada')) return "A conexão com a internet nos anos 2000 era uma verdadeira experiência. Aqueles barulhos de conexão dial-up ainda são inesquecíveis!";
+    if (msg.includes('flash games')) return "Os jogos em Flash eram uma febre nos anos 2000! Jogos como 'Bloons' e 'Super Mario Bros Flash' eram diversão garantida nas horas vagas.";
+    if (msg.includes('consoles 2000')) return "Os consoles mais icônicos da época: PlayStation 2, Xbox original e o GameCube! Quais jogos você mais jogava nesses consoles?";
+    if (msg.includes('playstation 2')) return "'PlayStation 2' foi um dos consoles mais vendidos da história! Jogos como 'Grand Theft Auto: San Andreas' e 'Final Fantasy X' ficaram na memória de todos.";
+    if (msg.includes('mario 64')) return "'Super Mario 64'! Uma revolução no mundo dos jogos em 3D. Mario nunca foi tão ágil e tridimensional!";
+    if (msg.includes('internet cafè')) return "Ah, os famosos cybercafés! Todo gamer dos anos 2000 já passou uma tarde inteira no café da esquina jogando 'Warcraft 3' ou 'Counter-Strike' com os amigos.";
+    if (msg.includes('lan party')) return "'LAN Parties' eram o pico da diversão no começo dos anos 2000! Reunir a galera para jogar 'Counter-Strike', 'Warcraft 3' ou 'Age of Empires' na mesma rede era uma experiência épica!";
+    if (msg.includes('flashback gamer')) return "Nos anos 2000, o termo 'gamer' começava a se espalhar. A comunidade online estava crescendo e os torneios de eSports começaram a ganhar forma!";
+    if (msg.includes('quake live')) return "'Quake Live' foi um dos primeiros jogos a ser jogado em navegador com gráficos 3D! A febre do jogo de tiro nunca mais foi a mesma depois de 'Quake'.";
+    if (msg.includes('comunidade gamer 2000')) return "A comunidade gamer dos anos 2000 era muito mais unida. Falar sobre estratégias, trocas de dicas e fazer amigos online era um verdadeiro estilo de vida!";
+    if (msg.includes('jogo online anos 2000')) return "A primeira grande era dos jogos online foi nos anos 2000, onde títulos como 'Warcraft 3', 'StarCraft' e 'World of Warcraft' dominaram a cena!";
+    if (msg.includes('cs 1.6')) return "'Counter-Strike 1.6' foi um dos jogos mais jogados e amados pelos gamers dos anos 2000! Você ainda joga ou é nostalgia pura?";
+    if (msg.includes('tempo de resposta')) return "O tempo de resposta pode variar, mas vou tentar responder o mais rápido possível!";
+    if (msg.includes('oi')) return "E aí! Vamos reviver os memes mais icônicos dos anos 2000?";
+    if (msg.includes('meme 2000')) return "Os memes dos anos 2000 eram épicos! Que tal relembrar o 'All Your Base Are Belong To Us'?";
+    if (msg.includes('all your base')) return "'All Your Base Are Belong To Us'! Esse meme dominou os fóruns e ainda é um clássico!";
+    if (msg.includes('troll face')) return "O 'Trollface' é um dos memes mais icônicos de todos os tempos! Quem nunca usou essa carinha de troll para zoar alguém?";
+    if (msg.includes('numa boa')) return "'Numa boa, tu é foda!'. Esse meme brasileiro viralizou nas redes sociais e virou um bordão!";
+    if (msg.includes('rickroll')) return "'Never Gonna Give You Up'! Quem nunca foi 'Rickrolled' naqueles tempos de internet antiga?";
+    if (msg.includes('memes brasileiros')) return "Ah, os memes brasileiros! 'Merece' e 'Faz sentido' eram os preferidos da galera nos anos 2000!";
+    if (msg.includes('pedobear')) return "Pedobear! Um dos memes polêmicos da época, sempre invadindo fóruns com suas piadas estranhas!";
+    if (msg.includes('bad luck brian')) return "'Bad Luck Brian'! Esse meme era a personificação da pessoa que sempre tem azar nas situações mais simples!";
+    if (msg.includes('forever alone')) return "O 'Forever Alone' era o meme que todo mundo se identificava em momentos de solitude ou de frustração com o amor!";
+    if (msg.includes('rage guy')) return "O 'Rage Guy'! Aquele cara que se irrita com qualquer coisa e acaba soltando um 'FUUUUUU-' sempre que algo dá errado!";
+    if (msg.includes('y u no')) return "'Y U NO?' Esse meme era perfeito para expressar frustração com situações que simplesmente não faziam sentido!";
+    if (msg.includes('me gusta')) return "'Me gusta'! O meme que ficou famoso com aquele cara de expressão estranha e era usado para mostrar aprovação exagerada!";
+    if (msg.includes('derpina')) return "'Derpina'! A garota da 'Facepalm' que apareceu em vários memes zoando situações constrangedoras!";
+    if (msg.includes('epic win')) return "'Epic Win' era a frase que sempre vinha com situações absurdas ou vitoriosas, geralmente com imagens engraçadas!";
+    if (msg.includes('epic fail')) return "'Epic Fail'! Todo mundo já viu aquele meme de uma falha tão épica que você não pode evitar de rir!";
+    if (msg.includes('fórmula 1')) return "A Fórmula 1 teve muitos momentos épicos entre 2000 e 2025! De Schumacher a Verstappen, muita coisa aconteceu!";
+    if (msg.includes('michael schumacher')) return "Michael Schumacher, o lendário piloto, dominou a Fórmula 1 nos anos 2000, conquistando 5 títulos consecutivos de 2000 a 2004!";
+    if (msg.includes('kimi räikkönen')) return "Kimi Räikkönen, o famoso 'Iceman', teve uma carreira memorável, incluindo seu título mundial em 2007 com a Ferrari!";
+    if (msg.includes('sebastian vettel')) return "Sebastian Vettel, com sua dominância com a Red Bull, conquistou 4 títulos consecutivos entre 2010 e 2013!";
+    if (msg.includes('lewis hamilton')) return "Lewis Hamilton se tornou um dos maiores nomes da história da F1, com títulos mundiais e batalhas épicas com Vettel e Rosberg!";
+    if (msg.includes('fernando alonso')) return "Fernando Alonso, bicampeão mundial (2005 e 2006), marcou a F1 com sua habilidade e coragem, sempre competitivo!";
+    if (msg.includes('max verstappen')) return "Max Verstappen, o fenômeno da nova geração, se consolidou como uma estrela ao conquistar múltiplos títulos e se destacar com sua agressividade nas pistas!";
+    if (msg.includes('nico rosberg')) return "Nico Rosberg teve uma temporada inesquecível em 2016, conquistando o seu primeiro e único título mundial ao vencer Hamilton!";
+    if (msg.includes('ferrari')) return "A Ferrari foi uma força dominante nas décadas de 2000 e 2010, especialmente com Schumacher e mais tarde com Vettel!";
+    if (msg.includes('red bull racing')) return "Red Bull Racing dominou os anos 2010 com Vettel, e mais recentemente, com Max Verstappen se tornando uma potência na F1!";
+    if (msg.includes('mercedes')) return "Mercedes, com Hamilton e Rosberg, dominou a era híbrida a partir de 2014, conquistando campeonatos consecutivos!";
+    if (msg.includes('mclaren')) return "McLaren teve grandes momentos, especialmente no início dos anos 2000 com os pilotos Kimi Räikkönen e Fernando Alonso!";
+    if (msg.includes('GP do brasil')) return "O GP do Brasil sempre teve grandes corridas, e o épico título de 2008 de Lewis Hamilton foi marcado pela emoção no último trecho!";
+    if (msg.includes('GP de monaco')) return "O GP de Mônaco é um dos mais icônicos da Fórmula 1, conhecido pela sua pista difícil e a majestosa vitória de vários campeões, como Ayrton Senna!";
+    if (msg.includes('GP de canada')) return "O GP do Canadá, especialmente a corrida de 2011 com Jenson Button, ficou marcado por uma recuperação épica!";
+    if (msg.includes('ayrton senna')) return "Ayrton Senna foi um dos maiores pilotos de Fórmula 1 da história, conhecido por sua habilidade extraordinária e carisma!";
+    if (msg.includes('títulos de senna')) return "Ayrton Senna conquistou 3 títulos mundiais (1988, 1990, 1991) e é lembrado por suas vitórias épicas, especialmente nas condições mais difíceis!";
+    if (msg.includes('morte de senna')) return "A trágica morte de Ayrton Senna no GP de San Marino em 1994 foi um dos momentos mais tristes da história da Fórmula 1. Sua morte levou a mudanças significativas na segurança da F1.";
+    if (msg.includes('primeira vitória senna')) return "A primeira vitória de Ayrton Senna foi no GP de Portugal de 1985, em Estoril, com a Toleman, sendo um dos primeiros sinais de sua grande habilidade!";
+    if (msg.includes('gp de mônaco')) return "Senna foi imbatível em Mônaco, conquistando 6 vitórias na famosa pista de rua de Monte Carlo, incluindo a vitória memorável de 1990 com a McLaren!";
+    if (msg.includes('vitórias de senna')) return "Ayrton Senna conquistou 41 vitórias ao longo de sua carreira na Fórmula 1, sendo lembrado pela sua ousadia e habilidade em pistas de rua e chuva!";
+    if (msg.includes('senna e prost')) return "A rivalidade entre Ayrton Senna e Alain Prost foi um dos maiores capítulos da história da Fórmula 1, com os dois disputando intensamente os campeonatos nos anos 1980 e 1990.";
+    if (msg.includes('melhor volta senna')) return "Senna era famoso por sua habilidade em fazer as melhores voltas em corrida, especialmente quando o clima estava complicado, como no GP do Brasil de 1991!";
+    if (msg.includes('carreira de senna')) return "Ayrton Senna começou sua carreira na Fórmula 1 em 1984 com a Toleman, depois passou por equipes como Lotus, McLaren e Williams, onde conquistou seus títulos!";
+    if (msg.includes('senna e chuva')) return "Ayrton Senna era um mestre em corridas com chuva. Seu desempenho na chuva era insuperável, como no GP de Mônaco de 1984 e no GP do Brasil de 1991!";
+    if (msg.includes('heróis senna')) return "Ayrton Senna é um herói nacional no Brasil, simbolizando coragem, dedicação e amor pela velocidade. Ele é adorado não apenas pelos fãs de F1, mas também por sua humanidade e trabalho filantrópico.";
+    if (msg.includes('homenagens a senna')) return "Após sua morte, várias homenagens foram feitas a Ayrton Senna, incluindo tributos durante as corridas e a criação do Instituto Ayrton Senna, que continua seu trabalho de ajudar crianças e jovens no Brasil.";
+    if (msg.includes('melhor piloto de todos os tempos')) return "Ayrton Senna é frequentemente considerado um dos melhores pilotos de todos os tempos, com sua habilidade em condições extremas, sua mentalidade competitiva e seu legado imortal na Fórmula 1.";
+    if (msg.includes('ayrton senna 1994')) return "O ano de 1994 foi marcante para Senna, com a chegada ao Williams e sua tragédia no GP de San Marino, que deixou a F1 de luto.";
+    if (msg.includes('senna e mclaren')) return "Senna fez história na McLaren, onde conquistou 3 títulos mundiais (1988, 1990, 1991) e teve uma rivalidade épica com Alain Prost!";
+    if (msg.includes('senna em interlagos')) return "O GP do Brasil em Interlagos era uma das corridas mais esperadas da temporada, e Senna sempre foi um ícone em sua terra natal, com vitórias emocionantes e incontáveis momentos inesquecíveis!";
+    if (msg.includes('grande prêmio de san marino 1994')) return "O GP de San Marino em 1994 foi trágico, onde Ayrton Senna perdeu a vida após um acidente na curva Tamburello, marcando o fim de uma era e mudanças significativas na segurança da Fórmula 1.";
+    if (msg.includes('GP da alemanha 2019')) return "O GP da Alemanha em 2019 foi um dos mais loucos da história, com chuva e mudanças de liderança o tempo todo!";
+    if (msg.includes('GP da inglaterra 2008')) return "O GP da Inglaterra de 2008 foi espetacular, com Hamilton vencendo sob chuva, levando a vitória para o campeonato naquele ano!";
+    if (msg.includes('batalha hamilton e verstappen')) return "A batalha entre Hamilton e Verstappen em 2021 foi histórica, culminando em um final controverso no GP de Abu Dhabi!";
+    if (msg.includes('GP de abu dhabi 2021')) return "O GP de Abu Dhabi de 2021 foi um dos mais controversos e emocionantes da história, com Max Verstappen conquistando o título após uma batalha feroz com Hamilton!";
+    if (msg.includes('fórmula 1 2025')) return "A F1 de 2025 promete muito! Novos regulamentos e novas estrelas como Lando Norris e George Russell estão prontos para brilhar!";
+    if (msg.includes('novos regulamentos 2022')) return "Os regulamentos de 2022 trouxeram mudanças significativas, com novos carros e um foco maior em disputas de corrida mais equilibradas!";
+    if (msg.includes('sergio perez')) return "Sergio Perez, o piloto mexicano da Red Bull, tem mostrado seu talento e consistência, conquistando vitórias incríveis!";
+    if (msg.includes('daniel ricciardo')) return "Daniel Ricciardo é conhecido por suas vitórias e pela sua personalidade única! Ele sempre traz emoção para a pista!";
+    if (msg.includes('mick schumacher')) return "Mick Schumacher, filho de Michael Schumacher, está tentando seguir os passos de seu pai e trazer o nome da família de volta ao topo!";
+    if (msg.includes('gp da austrália')) return "O GP da Austrália é uma das primeiras corridas da temporada e tem uma história rica com momentos inesquecíveis!";
+    if (msg.includes('robert kubica')) return "Robert Kubica, após um retorno espetacular depois de um grave acidente, continua a impressionar na F1!";
+    if (msg.includes('fórmula 1 e a tecnologia')) return "A tecnologia da Fórmula 1, especialmente os motores híbridos e o foco em sustentabilidade, é um dos pilares que moldam o futuro do esporte!";
+    if (msg.includes('f1 2023')) return "A temporada de 2023 foi emocionante, com Verstappen continuando sua dominação, mas com alguns momentos inesperados nas corridas!";    
+    if (msg.includes('trollolol')) return "'Trololol'! O cara que canta e ri ao mesmo tempo, um clássico dos memes de vídeo dos anos 2000!";
+    if (msg.includes('karl pilkington')) return "Ah, Karl Pilkington! Ele era o cara que inspirava memes com seu jeito completamente sem filtro e suas visões malucas sobre o mundo!";
+    if (msg.includes('chuck norris')) return "'Chuck Norris Facts'! Esses memes sobre Chuck Norris eram tão exagerados e épicos que todo mundo amava repetir!";
+    if (msg.includes('fail whale')) return "A famosa 'Fail Whale' do Twitter, que sempre aparecia quando o site caía, virou um meme instantâneo!";
+    if (msg.includes('cebolinha')) return "'Cebolinha' do 'Turma da Mônica'! Ele ficou famoso na internet com memes sobre a forma que ele trocava o 'R' pelo 'L'.";
+    if (msg.includes('doge')) return "O Doge! O meme do cachorro Shiba Inu com uma expressão curiosa e legendas engraçadas era a estrela do humor visual na época!";
+    if (msg.includes('lolcats')) return "'LOLcats'! Aqueles gatos com legendas engraçadas, geralmente com frases como 'I Can Has Cheezburger?'!";
+    if (msg.includes('rickrolling')) return "Rickrolling! Aquela pegadinha onde você clicava em um link, achando que era algo, mas era o vídeo de 'Never Gonna Give You Up'. Sempre caíamos!";
+    if (msg.includes('keyboard cat')) return "'Keyboard Cat'! O gato tocando teclado com sua habilidade improvável se tornou um dos vídeos e memes mais adorados da época!";
+    if (msg.includes('caiu na net')) return "Quem nunca viu aquele meme do 'caiu na net' com algum vídeo ou foto completamente inusitada? Era viral na época!";
 
+    if (msg.includes('oi')) return "Olá! Como posso ajudar você hoje?";
+    if (msg.includes('dados')) return "Você quer analisar dados? Envie os dados ou escolha uma opção!";
+    if (msg.includes('jogo')) return "Você gosta de jogos? Tenho algumas recomendações de jogos multiplayer. Deseja ver?";
+    if (msg.includes('limpar dados')) return "Certo! Seus dados foram limpos e padronizados!";
+    if (msg.includes('normalizar texto')) return "Texto formatado para minúsculas e acentos removidos!";
+    if (msg.includes('validar email')) return "Verifiquei e sim, o email parece estar correto!";
+    if (msg.includes('gerar hash')) return "Senha protegida com hash SHA-256!";
+    if (msg.includes('analisar sentimento')) return "O sentimento do texto é positivo!";
+    if (msg.includes('detectar anomalias')) return "Detectei padrões incomuns nos seus dados!";
+    if (msg.includes('clima')) return "Digite sua cidade para que eu possa verificar a previsão do tempo!";
+    if (msg.includes('horário')) return "O horário atual é: " + new Date().toLocaleTimeString();
+    if (msg.includes('notícia')) return "Aqui estão as últimas notícias: [link para um feed de notícias]";
+    if (msg.includes('moeda')) return "Digite a moeda que deseja converter e eu fornecerei a taxa de câmbio!";
+    if (msg.includes('qual é o seu nome')) return "Eu sou um assistente virtual! Em que posso te ajudar?";
+    if (msg.includes('como você está')) return "Estou bem, obrigado! E você, como está?";
+    if (msg.includes('quem é você')) return "Eu sou um assistente criado para ajudar com várias tarefas. O que posso fazer por você?";
+    if (msg.includes('o que você faz')) return "Posso ajudar a analisar dados, fornecer informações sobre clima, e muito mais!";
+    if (msg.includes('ajuda')) return "Claro! O que você precisa? Estou aqui para ajudar!";
+    if (msg.includes('assistente virtual')) return "Sou um assistente digital e posso te ajudar com várias tarefas. Como posso te ajudar hoje?";
+    if (msg.includes('informações')) return "Você gostaria de mais informações sobre o quê?";
+    if (msg.includes('recomendação')) return "Em que área você gostaria de receber uma recomendação? Jogos, filmes, livros?";
+    if (msg.includes('calculadora')) return "Você quer fazer algum cálculo específico?";
+    if (msg.includes('vídeo')) return "Você quer assistir a um vídeo? Posso te recomendar alguns!";
+    if (msg.includes('notícias de tecnologia')) return "Aqui estão as últimas notícias sobre tecnologia: [link para um feed de tecnologia]";
+    if (msg.includes('compartilhar')) return "Você gostaria de compartilhar algo comigo? Posso ajudar!";
+    if (msg.includes('documento')) return "Você quer fazer upload ou verificar algum documento?";
+    if (msg.includes('link')) return "Aqui está o link solicitado: [insira o link].";
+    if (msg.includes('gostei')) return "Que bom que gostou! Como mais posso te ajudar?";
+    if (msg.includes('não gostei')) return "Sinto muito que não tenha gostado. Como posso melhorar?";
+    if (msg.includes('excluir conta')) return "Você tem certeza de que deseja excluir sua conta? Posso ajudar com o processo.";
+    if (msg.includes('criar conta')) return "Você quer criar uma nova conta? Posso te ajudar com isso!";
+    if (msg.includes('rede social')) return "Qual rede social você gostaria de saber mais?";
+    if (msg.includes('spotify')) return "Você quer ouvir algo no Spotify? Posso sugerir uma playlist!";
+    if (msg.includes('email de contato')) return "Você pode nos contatar pelo email: contato@exemplo.com.";
+    if (msg.includes('redefinir senha')) return "Eu posso te ajudar a redefinir sua senha. Você quer continuar?";
+    if (msg.includes('conta bloqueada')) return "Sua conta foi bloqueada? Eu posso ajudar a resolver isso.";
+    if (msg.includes('esqueci minha senha')) return "Não se preocupe! Posso te ajudar a recuperar sua senha.";
+    if (msg.includes('atualizar dados')) return "Você gostaria de atualizar suas informações pessoais?";
+    if (msg.includes('carregar mais')) return "Carregando mais informações... Aguarde um momento.";
+    if (msg.includes('ajustes de perfil')) return "Quer atualizar seu perfil? Posso te ajudar com isso!";
+    if (msg.includes('compra confirmada')) return "Sua compra foi confirmada com sucesso!";
+    if (msg.includes('cancelar compra')) return "Você deseja cancelar a compra? Eu posso ajudar com isso.";
+    if (msg.includes('dúvida')) return "Qual é a sua dúvida? Vou tentar te ajudar da melhor maneira!";
+    if (msg.includes('erro')) return "Parece que ocorreu um erro. Posso tentar corrigir isso para você!";
+    if (msg.includes('agendar')) return "Gostaria de agendar uma reunião ou compromisso?";
+    if (msg.includes('compartilhar dados')) return "Você quer compartilhar seus dados comigo? Vou garantir que tudo esteja seguro!";
+    if (msg.includes('tradução')) return "Você precisa traduzir algo? Posso ajudar com isso.";
+    function getRespostaPersonalizada(msg) {
+    msg = msg.toLowerCase();
+
+    if (msg.includes('oi')) return "Olá! Como posso ajudar você hoje?";
+    if (msg.includes('dados')) return "Você quer analisar dados? Envie os dados ou escolha uma opção!";
+    if (msg.includes('jogo')) return "Você gosta de jogos? Tenho algumas recomendações de jogos multiplayer. Deseja ver?";
+    if (msg.includes('limpar dados')) return "Certo! Seus dados foram limpos e padronizados!";
+    if (msg.includes('normalizar texto')) return "Texto formatado para minúsculas e acentos removidos!";
+    if (msg.includes('validar email')) return "Verifiquei e sim, o email parece estar correto!";
+    if (msg.includes('gerar hash')) return "Senha protegida com hash SHA-256!";
+    if (msg.includes('analisar sentimento')) return "O sentimento do texto é positivo!";
+    if (msg.includes('detectar anomalias')) return "Detectei padrões incomuns nos seus dados!";
+    if (msg.includes('clima')) return "Digite sua cidade para que eu possa verificar a previsão do tempo!";
+    if (msg.includes('horário')) return "O horário atual é: " + new Date().toLocaleTimeString();
+    if (msg.includes('notícia')) return "Aqui estão as últimas notícias: [link para um feed de notícias]";
+    if (msg.includes('moeda')) return "Digite a moeda que deseja converter e eu fornecerei a taxa de câmbio!";
+     if (msg.includes('oi')) return "Olá, Jedi! Pronto para explorar o universo geek?";
+    if (msg.includes('marvel')) return "Você é fã da Marvel? Posso falar sobre os Vingadores, X-Men e muito mais!";
+    if (msg.includes('dc')) return "Você prefere a DC? Podemos falar sobre Batman, Superman ou os Flash!";
+    if (msg.includes('star wars')) return "Que a Força esteja com você! Qual lado você escolhe, Jedi ou Sith?";
+    if (msg.includes('star trek')) return "Engajando motores a Warp 9! Vamos explorar o universo com a USS Enterprise!";
+    if (msg.includes('game of thrones')) return "Valar Morghulis! Quer saber mais sobre as famílias nobres ou os dragões de Daenerys?";
+    if (msg.includes('anime')) return "Você é fã de anime? Posso falar sobre Naruto, Dragon Ball e muitos outros!";
+    if (msg.includes('livros geeks')) return "Quer algumas sugestões de livros? Como 'O Senhor dos Anéis' ou 'Harry Potter'?";
+    if (msg.includes('gamer')) return "Você joga? Posso recomendar jogos incríveis como 'The Witcher', 'Zelda' e 'Minecraft'!";
+    if (msg.includes('harry potter')) return "Você é da Gryffindor ou de outra casa? Vamos conversar sobre feitiçaria!";
+    if (msg.includes('doctor who')) return "Gerando TARDIS... Pronto para viajar no tempo e espaço com o Doutor?";
+    if (msg.includes('lego')) return "Você adora LEGO? Podemos falar sobre todos os sets incríveis que eles criaram!";
+    if (msg.includes('xbox')) return "Xbox ou PlayStation? Qual é sua escolha para a próxima aventura?";
+    if (msg.includes('playstation')) return "PlayStation é top! Vamos falar sobre exclusivos como 'The Last of Us' ou 'Spider-Man'!";
+    if (msg.includes('retro games')) return "Você curte jogos retrô? Vamos falar sobre os clássicos do Super Nintendo e Sega!";
+    if (msg.includes('geek news')) return "Quer saber as últimas notícias geek? Aqui estão os tópicos mais quentes!";
+    if (msg.includes('cosplay')) return "Você faz cosplay? Ou só admira? Fale sobre seus personagens favoritos!";
+    if (msg.includes('tetris')) return "A peça em forma de T está caindo! Vamos jogar um pouco de Tetris?";
+    if (msg.includes('matrix')) return "Você é o escolhido? A Matrix está esperando por você!";
+    if (msg.includes('gollum')) return "Meu precioso! Vamos falar sobre a busca pelo Anel em 'O Senhor dos Anéis'";
+    if (msg.includes('dungeons and dragons')) return "Preparando dados de 20 lados! Vamos jogar uma campanha de D&D?";
+    if (msg.includes('pokemon')) return "Você é um mestre Pokémon? Qual é o seu Pokémon favorito?";
+    if (msg.includes('minecraft')) return "Cuidado com os Creepers! Vamos falar sobre tudo no mundo de Minecraft!";
+    if (msg.includes('fortnite')) return "Você está pronto para construir e lutar em Fortnite?";
+    if (msg.includes('vampiro')) return "Você é um vampiro ou caçador? Vamos falar sobre o universo de 'Vampiro: A Máscara'!";
+    if (msg.includes('simpsons')) return "D'oh! Vamos falar sobre o melhor desenho de todos os tempos, 'Os Simpsons'!";
+    if (msg.includes('rick and morty')) return "Wubba Lubba Dub Dub! Vamos falar sobre as viagens loucas de Rick e Morty!";
+    if (msg.includes('lego star wars')) return "Que tal construir o Millennium Falcon em LEGO? É um dos melhores sets!";
+    if (msg.includes('sherlock holmes')) return "Sherlock Holmes, o mestre da dedução! Quer saber mais sobre seus mistérios?";
+    if (msg.includes('hunger games')) return "Você se oferece como tributo? Vamos falar sobre os Jogos Vorazes!";
+    if (msg.includes('game of thrones personagens')) return "Qual personagem de Game of Thrones é o seu favorito? Jon Snow, Daenerys ou Tyrion?";
+    // Temas mencionados
+    if (msg.includes('api')) return "API (Interface de Programação de Aplicações) é um conjunto de definições e protocolos que permite que diferentes sistemas interajam entre si.";
+    if (msg.includes('protocolo tcp/ip')) return "O protocolo TCP/IP é um conjunto de regras que determina como os dados são transmitidos pela internet entre diferentes dispositivos.";
+    if (msg.includes('google')) return "O Google é um motor de busca que usa algoritmos complexos para indexar e classificar páginas web, fornecendo resultados relevantes para as buscas dos usuários.";
+    if (msg.includes('python')) return "Python é uma linguagem de programação de alto nível, fácil de aprender e muito utilizada para desenvolvimento web, ciência de dados e automação.";
+    if (msg.includes('virtualização de servidores')) return "A virtualização de servidores permite que um único servidor físico execute múltiplas instâncias de sistemas operacionais, maximizando o uso de recursos.";
+    if (msg.includes('inteligência artificial')) return "Inteligência artificial é o campo da ciência da computação que cria sistemas capazes de realizar tarefas que normalmente exigem inteligência humana, como aprendizado e tomada de decisões.";
+    if (msg.includes('aprendizado de máquina')) return "O aprendizado de máquina é uma subárea da inteligência artificial que envolve o treinamento de algoritmos para que eles aprendam a partir de dados e façam previsões.";
+    if (msg.includes('algoritmos de busca')) return "Algoritmos de busca são técnicas usadas para encontrar informações em grandes conjuntos de dados ou resolver problemas de otimização, como o algoritmo de Dijkstra ou busca binária.";
+    if (msg.includes('código-fonte')) return "Código-fonte é o conjunto de instruções escritas em uma linguagem de programação que define o funcionamento de um programa de computador.";
+    if (msg.includes('hacking social')) return "Hacking social é o uso de manipulação psicológica para obter informações confidenciais, como senhas ou dados pessoais, sem recorrer a técnicas de hacking tradicional.";
+    if (msg.includes('proteger computador contra vírus')) return "Para proteger seu computador contra vírus, use um antivírus atualizado, evite clicar em links suspeitos e mantenha seu sistema e aplicativos sempre atualizados.";
+    if (msg.includes('linux')) return "Linux é um sistema operacional de código aberto, baseado em Unix, conhecido por sua estabilidade, segurança e flexibilidade para servidores e dispositivos.";
+    if (msg.includes('computação em nuvem')) return "A computação em nuvem permite acessar e armazenar dados e aplicativos pela internet, sem a necessidade de recursos locais, oferecendo escalabilidade e flexibilidade.";
+    if (msg.includes('bitcoin')) return "Bitcoin é uma criptomoeda descentralizada, criada em 2009, que usa a tecnologia blockchain para registrar transações de forma segura e sem intermediários.";
+    if (msg.includes('ethereum')) return "Ethereum é uma plataforma blockchain descentralizada que permite a criação de contratos inteligentes e aplicativos descentralizados (dApps).";
+    if (msg.includes('smart contract')) return "Um smart contract (contrato inteligente) é um contrato autoexecutável, onde as condições e regras são definidas por código e são automaticamente executadas quando cumpridas.";
+    if (msg.includes('armazenamento em nuvem')) return "O armazenamento em nuvem permite armazenar dados em servidores remotos, acessíveis pela internet, permitindo o backup e a recuperação de dados de qualquer lugar.";
+    if (msg.includes('segurança da informação')) return "Segurança da informação é a prática de proteger dados e sistemas contra acesso não autorizado, roubo ou danos, garantindo confidencialidade, integridade e disponibilidade.";
+    if (msg.includes('internet das coisas')) return "A Internet das Coisas (IoT) refere-se à conexão de dispositivos físicos à internet para coletar e trocar dados, como eletrodomésticos, carros e sensores.";
+    if (msg.includes('front-end')) return "O front-end envolve o design e a interação do usuário, enquanto o back-end lida com o processamento de dados e a lógica de negócios no servidor!";
+    
+    // Respostas padrões
+    if (msg.includes('qual é o seu nome')) return "Eu sou um assistente virtual! Em que posso te ajudar?";
+    if (msg.includes('como você está')) return "Estou bem, obrigado! E você, como está?";
+    if (msg.includes('quem é você')) return "Eu sou um assistente criado para ajudar com várias tarefas. O que posso fazer por você?";
+    if (msg.includes('o que você faz')) return "Posso ajudar a analisar dados, fornecer informações sobre clima, e muito mais!";
+    if (msg.includes('ajuda')) return "Claro! O que você precisa? Estou aqui para ajudar!";
+    if (msg.includes('assistente virtual')) return "Sou um assistente digital e posso te ajudar com várias tarefas. Como posso te ajudar hoje?";
+    if (msg.includes('informações')) return "Você gostaria de mais informações sobre o quê?";
+    if (msg.includes('recomendação')) return "Em que área você gostaria de receber uma recomendação? Jogos, filmes, livros?";
+    if (msg.includes('calculadora')) return "Você quer fazer algum cálculo específico?";
+    if (msg.includes('vídeo')) return "Você quer assistir a um vídeo? Posso te recomendar alguns!";
+    if (msg.includes('notícias de tecnologia')) return "Aqui estão as últimas notícias sobre tecnologia: [link para um feed de tecnologia]";
+    if (msg.includes('compartilhar')) return "Você gostaria de compartilhar algo comigo? Posso ajudar!";
+    if (msg.includes('documento')) return "Você quer fazer upload ou verificar algum documento?";
+    if (msg.includes('link')) return "Aqui está o link solicitado: [insira o link].";
+    if (msg.includes('gostei')) return "Que bom que gostou! Como mais posso te ajudar?";
+    if (msg.includes('não gostei')) return "Sinto muito que não tenha gostado. Como posso melhorar?";
+    if (msg.includes('excluir conta')) return "Você tem certeza de que deseja excluir sua conta? Posso ajudar com o processo.";
+    if (msg.includes('criar conta')) return "Você quer criar uma nova conta? Posso te ajudar com isso!";
+    if (msg.includes('rede social')) return "Qual rede social você gostaria de saber mais?";
+    if (msg.includes('spotify')) return "Você quer ouvir algo no Spotify? Posso sugerir uma playlist!";
+    if (msg.includes('email de contato')) return "Você pode nos contatar pelo email: contato@exemplo.com.";
+    if (msg.includes('redefinir senha')) return "Eu posso te ajudar a redefinir sua senha. Você quer continuar?";
+    if (msg.includes('conta bloqueada')) return "Sua conta foi bloqueada? Eu posso ajudar a resolver isso.";
+    if (msg.includes('esqueci minha senha')) return "Não se preocupe! Posso te ajudar a recuperar sua senha.";
+    if (msg.includes('atualizar dados')) return "Você gostaria de atualizar suas informações pessoais?";
+    if (msg.includes('carregar mais')) return "Carregando mais informações... Aguarde um momento.";
+    if (msg.includes('ajustes de perfil')) return "Quer atualizar seu perfil? Posso te ajudar com isso!";
+    if (msg.includes('compra confirmada')) return "Sua compra foi confirmada com sucesso!";
+    if (msg.includes('cancelar compra')) return "Você deseja cancelar a compra? Eu posso ajudar com isso.";
+    if (msg.includes('dúvida')) return "Qual é a sua dúvida? Vou tentar te ajudar da melhor maneira!";
+    if (msg.includes('erro')) return "Parece que ocorreu um erro. Posso tentar corrigir isso para você!";
+    if (msg.includes('agendar')) return "Gostaria de agendar uma reunião ou compromisso?";
+}
+
+if (msg.includes('agradeço')) return "De nada! Se precisar de mais alguma coisa, estarei por aqui!";
+    if (msg.includes('livro')) return "Está procurando um bom livro para ler? Posso te recomendar alguns!";
+    if (msg.includes('filme')) return "Quer assistir a um bom filme? Posso sugerir alguns títulos!";
+    if (msg.includes('série')) return "Procurando uma boa série para maratonar? Tenho algumas sugestões!";
+    if (msg.includes('música')) return "Qual tipo de música você gosta? Posso sugerir algo!";
+    if (msg.includes('saudação')) return "Olá! Como posso te ajudar hoje?";
+    if (msg.includes('desconectar')) return "Você quer se desconectar da conta? Posso ajudar!";
+    if (msg.includes('feedback')) return "Gostaria de deixar um feedback? Sua opinião é muito importante para nós!";
+    if (msg.includes('dados pessoais')) return "Você quer atualizar seus dados pessoais? Eu posso te ajudar.";
+    if (msg.includes('documento necessário')) return "Precisa de algum documento específico? Posso ajudar a encontrá-lo!";
+    if (msg.includes('gerar relatório')) return "Eu posso gerar um relatório para você. O que você precisa no relatório?";
+    if (msg.includes('histórico de compras')) return "Você quer visualizar seu histórico de compras? Eu posso te ajudar!";
+    if (msg.includes('consultar saldo')) return "Quer consultar o saldo da sua conta? Vou verificar para você!";
+    if (msg.includes('status de pedido')) return "Você quer saber o status de um pedido? Me envie o número do pedido!";
+    if (msg.includes('informações de pagamento')) return "Você precisa de informações sobre um pagamento? Eu posso te ajudar!";
+    if (msg.includes('dúvida sobre produto')) return "Tem alguma dúvida sobre um produto? Posso ajudar com as especificações!";
+    if (msg.includes('preço de produto')) return "Você quer saber o preço de um produto? Eu posso consultar para você!";
+    if (msg.includes('recomendações de investimento')) return "Você quer recomendações de investimento? Posso sugerir opções de acordo com seu perfil!";
+    if (msg.includes('planos de investimento')) return "Eu tenho várias opções de planos de investimento. Quer ver mais detalhes?";
+    if (msg.includes('escolher plano')) return "Quer ajuda para escolher o melhor plano de investimento?";
+    if (msg.includes('resultado financeiro')) return "Você quer ver o seu resultado financeiro? Eu posso gerar um relatório!";
+    if (msg.includes('criar orçamento')) return "Quer criar um orçamento? Eu posso ajudar com isso!";
+    if (msg.includes('perguntas frequentes')) return "Aqui estão as perguntas frequentes: [link para FAQ]";
+    if (msg.includes('suporte técnico')) return "Você precisa de suporte técnico? Posso direcioná-lo para o time adequado!";
+    if (msg.includes('feedback do sistema')) return "Você gostaria de deixar um feedback sobre o sistema? Adoraríamos ouvir sua opinião!";
+    if (msg.includes('recarregar página')) return "Recarregando a página para atualizar as informações!";
+    if (msg.includes('solicitar suporte')) return "Você pode solicitar suporte clicando no botão 'Suporte' ou me dizendo o que precisa!";
+    if (msg.includes('opções de pagamento')) return "Quais opções de pagamento você deseja? Posso mostrar as disponíveis!";
+    if (msg.includes('tempo de entrega')) return "O tempo estimado de entrega é de X dias úteis. Posso verificar mais detalhes para você!";
+    if (msg.includes('opções de entrega')) return "Você quer saber as opções de entrega? Eu posso te ajudar!";
+    if (msg.includes('agendar reunião')) return "Você quer agendar uma reunião com nossa equipe? Eu posso organizar isso!";
+    if (msg.includes('avisos importantes')) return "Aqui estão os avisos importantes: [link ou lista de avisos]";
+    if (msg.includes('ajuda com uso do sistema')) return "Está com dificuldades para usar o sistema? Posso te guiar no processo!";
+    if (msg.includes('tempo de resposta')) return "O tempo de resposta pode variar, mas vou tentar responder o mais rápido possível!";
+}
+
+    // Quizzes
+    if (msg.includes('harry potter quiz')) {
+        return "Vamos testar seus conhecimentos sobre Harry Potter! 🎩⚡\n\n" +
+            "1️⃣ Qual é o nome completo de Dumbledore?\nA) Alvo Percival Wulfrico Brian Dumbledore\nB) Alvo Severo Dumbledore\nC) Alvo Merlin Dumbledore\nD) Alvo Godric Dumbledore\n\n" +
+            "2️⃣ Qual é o animal de estimação de Rony Weasley?\nA) Coruja\nB) Rato\nC) Sapo\nD) Cachorro\n\n" +
+            "3️⃣ Qual feitiço é usado para desarmar um oponente?\nA) Expelliarmus\nB) Avada Kedavra\nC) Lumos\nD) Crucio\n\n" +
+            "4️⃣ Quem traiu os pais de Harry Potter?\nA) Sirius Black\nB) Pedro Pettigrew\nC) Severo Snape\nD) Lúcio Malfoy\n\n" +
+            "5️⃣ Qual é o nome do poltergeist de Hogwarts?\nA) Pirraça\nB) Dobby\nC) Nick Quase Sem Cabeça\nD) Barão Sangrento\n\n" +
+            "6️⃣ Qual é o nome do elfo doméstico de Harry?\nA) Kreacher\nB) Dobby\nC) Winky\nD) Monstro\n\n" +
+            "7️⃣ Qual das Relíquias da Morte é um símbolo da imortalidade?\nA) Pedra da Ressurreição\nB) Capa da Invisibilidade\nC) Varinha das Varinhas\nD) Medalhão de Sonserina\n\n" +
+            "8️⃣ Em qual casa Luna Lovegood pertence?\nA) Grifinória\nB) Corvinal\nC) Lufa-Lufa\nD) Sonserina\n\n" +
+            "9️⃣ Qual é o nome do Patrono de Hermione?\nA) Cervo\nB) Lebre\nC) Lobo\nD) Lontra\n\n" +
+            "🔟 Qual foi o primeiro Horcrux destruído?\nA) Diário de Tom Riddle\nB) Anel de Marvolo Gaunt\nC) Medalhão de Sonserina\nD) Taça de Helga Lufa-Lufa\n\n" +
+            "Responda com o número e a letra da resposta correta! Exemplo: 1A, 2B...";
+    } else if (msg.includes('league of legends quiz')) {
+        return "Vamos ver se você é um verdadeiro Invocador! 🏆🎮\n\n" +
+            "1️⃣ Qual é o nome do criador de League of Legends?\nA) Riot Games\nB) Tencent\nC) Blizzard\nD) Valve\n\n" +
+            "2️⃣ Qual é o campeão conhecido como 'O Curandeiro de Zaun'?\nA) Soraka\nB) Singed\nC) Dr. Mundo\nD) Warwick\n\n" +
+            "3️⃣ Qual foi o primeiro campeão criado no LoL?\nA) Ryze\nB) Teemo\nC) Ashe\nD) Alistar\n\n" +
+            "4️⃣ Qual é o nome do Dragão que concede buffs específicos?\nA) Dragão Ancião\nB) Dragão Infernal\nC) Dragão Hextech\nD) Dragão das Nuvens\n\n" +
+            "5️⃣ Qual é a classe principal do campeão Thresh?\nA) Assassino\nB) Lutador\nC) Suporte\nD) Mago\n\n" +
+            "6️⃣ Qual é o nome do modo de jogo principal do LoL?\nA) ARAM\nB) Summoner’s Rift\nC) Twisted Treeline\nD) Nexus Blitz\n\n" +
+            "7️⃣ Quem é a rival de Caitlyn em Piltover?\nA) Vi\nB) Jinx\nC) Ekko\nD) Jayce\n\n" +
+            "8️⃣ Qual campeão é conhecido por sua habilidade 'R - Cataclismo'?\nA) Garen\nB) Jarvan IV\nC) Darius\nD) Riven\n\n" +
+            "9️⃣ Qual item concede escudo e roubo de vida para ADCs?\nA) Mata-Cráquens\nB) Gume do Infinito\nC) Arco-escudo Imortal\nD) Lâmina Fantasma de Youmuu\n\n" +
+            "🔟 Qual é o nome da skin lendária de Ezreal que o transforma em um explorador do futuro?\nA) Ezreal TPA\nB) Ezreal Pulsefire\nC) Ezreal Guardião Estelar\nD) Ezreal Frosted\n\n" +
+            "Responda com o número e a letra da resposta correta! Exemplo: 1A, 2B...";
+    }
+
+    // Se o comando não for reconhecido
+    return "Desculpe, não entendi sua mensagem. Tente novamente!";
+}
 
 </script>
-</body>
-</html>
 
+
+</body></html>
