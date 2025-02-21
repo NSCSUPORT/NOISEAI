@@ -89,6 +89,7 @@
             justify-content: space-between;
             margin-top: 10px;
             width: 100%;
+            gap: 10px;
         }
 
         input[type="text"] {
@@ -136,6 +137,8 @@
         .attach-btn {
             background-color: #FFC107;
             color: #000;
+            padding: 10px 12px;
+            border-radius: 10px;
         }
 
         .attach-btn:hover {
@@ -180,68 +183,101 @@
     <footer>
         <p>&copy; 2025 HoloFi. Todos os direitos reservados. Lucas Januário</p>
     </footer>
-
 <script src="processMessages.js"></script>
 <script src="kernal.js"></script>
 <script src="step2.js"></script>
-
 <script>
-    document.getElementById('file-input').addEventListener('change', function(event) {
-        let file = event.target.files[0];
-        if (file) {
-            let reader = new FileReader();
-            reader.onload = function(e) {
-                let data = new Uint8Array(e.target.result);
-                let workbook = XLSX.read(data, { type: 'array' });
-                let sheetName = workbook.SheetNames[0];
-                let sheet = workbook.Sheets[sheetName];
-                let jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+  document.getElementById('file-input').addEventListener('change', function(event) {
+    let file = event.target.files[0];
+    if (file) {
+        let reader = new FileReader();
+        reader.onload = function(e) {
+            let data = new Uint8Array(e.target.result);
+            let workbook = XLSX.read(data, { type: 'array' });
+            let sheetName = workbook.SheetNames[0];
+            let sheet = workbook.Sheets[sheetName];
+            let jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
 
-                let response = "📊 Arquivo carregado com sucesso! Exibindo primeiras linhas:\n";
-                jsonData.slice(0, 5).forEach(row => {
-                    response += JSON.stringify(row) + "\n";
-                });
+            let response = "📊 Arquivo carregado com sucesso! Exibindo primeiras linhas:\n";
+            jsonData.slice(0, 5).forEach(row => {
+                response += JSON.stringify(row) + "\n";
+            });
 
-                appendMessage(response, 'received');
-            };
-            reader.readAsArrayBuffer(file);
-        }
-    });
+            appendMessage(response, 'received');
+        };
+        reader.readAsArrayBuffer(file);
+    }
+});
 
-    function sendMessage() {
-        let input = document.getElementById('chat-input');
-        let messageText = input.value.trim();
-        if (!messageText) return;
+// Função para enviar mensagem
+function sendMessage() {
+    let input = document.getElementById('chat-input');
+    let messageText = input.value.trim();
+    if (!messageText) return;
 
-        appendMessage(messageText, 'sent');
+    appendMessage(messageText, 'sent');
+    input.value = '';
+
+    if (comandos[messageText]) {
+        setTimeout(() => {
+            appendMessage(comandos[messageText], 'received');
+        }, 500);
+    }
+}
+
+// Função para adicionar mensagens ao chat
+function appendMessage(text, type) {
+    let chatBox = document.getElementById('chat-box');
+    let message = document.createElement('div');
+    message.classList.add('message', type);
+    message.innerHTML = type === 'received' ? `<i class="fas fa-robot"></i> ${text}` : text;
+    chatBox.appendChild(message);
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+// Eventos do chat
+document.getElementById('send-btn').addEventListener('click', sendMessage);
+document.getElementById('chat-input').addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') sendMessage();
+});
+
+document.getElementById('clear-btn').addEventListener('click', function() {
+    document.getElementById('chat-box').innerHTML = '<div class="message received"><i class="fas fa-robot"></i> 👋 Olá! O que você deseja fazer? Use !GUIA para listar os comandos.</div>';
+});
+    // Function to speak the message
+function speakMessage(message) {
+    const speech = new SpeechSynthesisUtterance(message);
+    speech.lang = 'pt-BR';  // Set language to Brazilian Portuguese
+    speech.volume = 1;      // Full volume
+    speech.rate = 1;        // Normal speech rate
+    speech.pitch = 1;       // Normal pitch
+    speechSynthesis.speak(speech);
+}
+
+// Add event listener to the send button
+document.getElementById('send-btn').addEventListener('click', function() {
+    const input = document.getElementById('chat-input');
+    const message = input.value;
+    if (message) {
+        // Display the message in the chat
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message', 'sent');
+        messageDiv.textContent = message;
+        document.getElementById('chat-box').appendChild(messageDiv);
+
+        // Clear the input field
         input.value = '';
 
-        let response = processMessage(messageText);
-        if (response) {
-            setTimeout(() => {
-                appendMessage(response, 'received');
-            }, 500);
-        }
+        // Use the speak function to narrate the message
+        speakMessage(message);
     }
+});
 
-    function appendMessage(text, type) {
-        let chatBox = document.getElementById('chat-box');
-        let message = document.createElement('div');
-        message.classList.add('message', type);
-        message.innerHTML = type === 'received' ? `<i class="fas fa-robot"></i> ${text}` : text;
-        chatBox.appendChild(message);
-        chatBox.scrollTop = chatBox.scrollHeight;
-    }
-
-    document.getElementById('send-btn').addEventListener('click', sendMessage);
-    document.getElementById('chat-input').addEventListener('keypress', function(event) {
-        if (event.key === 'Enter') sendMessage();
-    });
-
-    document.getElementById('clear-btn').addEventListener('click', function() {
-        document.getElementById('chat-box').innerHTML = '<div class="message received"><i class="fas fa-robot"></i> 👋 Olá! O que você deseja fazer? Use !GUIA para listar os comandos.</div>';
-    });
-
+// Add event listener to the clear button
+document.getElementById('clear-btn').addEventListener('click', function() {
+    document.getElementById('chat-box').innerHTML = '';
+});
+    function processMessage(msg) {
     const commands = {
         '!GUIA': 'Lista de comandos disponíveis: !AJUDA, !DATA, !HORA, !RANDOM, !MOEDA',
         '!AJUDA': 'Comandos disponíveis: !GUIA, !DATA, !HORA, !RANDOM, !MOEDA',
@@ -249,33 +285,17 @@
         '!HORA': new Date().toLocaleTimeString(),
         '!RANDOM': Math.floor(Math.random() * 100),
         '!MOEDA': Math.random() < 0.5 ? 'Cara' : 'Coroa',
-        '!ALL': 'Aqui estão todos os comandos disponíveis:\n!GUIA, !AJUDA, !DATA, !HORA, !RANDOM, !MOEDA, !ALL\n\nAlém disso, se você digitar palavras-chave como "oi", "jogo", "dados", "clima", etc., receberei respostas personalizadas!'
+        '!lucas januario': "Lucas Januário do Nascimento é o fundador do HoloFi e da tecnologia HOLLOW ETHER, trabalhando com inovação em ativos digitais e blockchain!"
     };
 
-    // Function to process the message
-    function processMessage(msg) {
-        return commands[msg] || getRespostaPersonalizada(msg);
+    // Verificar comandos simples
+    if (commands[msg]) {
+        return commands[msg];
     }
 
-    // Placeholder function for customized responses based on keywords
-    function getRespostaPersonalizada(messageText) {
-        const personalizedResponses = {
-            'oi': 'Olá! Como posso ajudar você hoje?',
-            'jogo': 'Você quer jogar um jogo? Digite "dados" para jogar dados!',
-            'dados': 'Jogando dados... 🎲 O resultado é: ' + Math.floor(Math.random() * 6) + 1,
-            'clima': 'Desculpe, eu não consigo fornecer o clima no momento, mas posso ajudá-lo com outras perguntas!'
-        };
-        return personalizedResponses[messageText.toLowerCase()] || null;
-    }
+    // Respostas personalizadas baseadas em palavras-chave
+    // Quizzes
 
-    document.getElementById('send-btn').addEventListener('click', sendMessage);
-    document.getElementById('chat-input').addEventListener('keypress', function(event) {
-        if (event.key === 'Enter') sendMessage();
-    });
-
-    document.getElementById('clear-btn').addEventListener('click', function() {
-        document.getElementById('chat-box').innerHTML = '<div class="message received"><i class="fas fa-robot"></i> 👋 Olá! O que você deseja fazer? Use !GUIA para listar os comandos.</div>';
-    });
 // Função de respostas personalizadas com base em palavras-chave
 function getRespostaPersonalizada(msg) {
     msg = msg.toLowerCase();
