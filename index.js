@@ -1,37 +1,15 @@
-/const comandos = require('./comandos.js');
+// Comandos do bot
+const comandos = {
+    '!HORA': "⏰ A hora atual é: " + new Date().toLocaleTimeString(),
+    '!AJUDA': "Comandos disponíveis: !HORA, !LUCAS, !COMO, !FUNCAO, !ID, !AJUDA",
+    '!LUCAS': "Lucas Januário do Nascimento é o fundador do HoloFi e da tecnologia HOLLOW ETHER, trabalhando com inovação em ativos digitais e blockchain!",
+    '!COMO': "Eu uso inteligência artificial para entender e responder às suas perguntas. Sou alimentado por dados e posso realizar diversas funções!",
+    '!ID': "Não tenho idade, pois sou um assistente virtual! Estou sempre pronto para te ajudar.",
+    '!FUNCAO': "Minha função é ajudar você com informações, responder dúvidas, realizar comandos e fornecer suporte!"
+};
 
-// Classe Bot
-class Bot {
-    constructor(comandos) {
-        this.comandos = comandos;
-    }
-
-    // Método para verificar a mensagem
-    processarMensagem(msg) {
-        // Verifica se a mensagem contém algum dos comandos
-        for (const [comando, descricao] of Object.entries(this.comandos)) {
-            if (msg.includes(comando)) {
-                this.responderComando(comando);
-                return;
-            }
-        }
-
-        // Se nenhum comando for encontrado, responde com uma mensagem padrão
-        console.log("Comando não encontrado. Digite !AJUDA para ver a lista de comandos disponíveis.");
-    }
-
-    // Método para responder ao comando
-    responderComando(comando) {
-        console.log(`Comando: ${comando}`);
-        console.log(`Resposta: ${this.comandos[comando]}`);
-    }
-}
-
-// Instancia o bot
-const bot = new Bot(comandos);
-
-// Exemplo de mensagem que contém um comando
-const msg = '!HORA'; // Aqui você pode substituir pelo comando que deseja testar
+// Exporta os comandos
+module.exports = comandos;
 
 // Processa a mensagem
 bot.processarMensagem(msg);
