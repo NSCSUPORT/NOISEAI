@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
-    <style>
+      <style>
 body {
     background-color: #000;
     color: #fff;
@@ -210,6 +210,7 @@ footer {
     }
 });
 
+// Função para enviar mensagem
 function sendMessage() {
     let input = document.getElementById('chat-input');
     let messageText = input.value.trim();
@@ -218,15 +219,12 @@ function sendMessage() {
     appendMessage(messageText, 'sent');
     input.value = '';
 
-    // Process the message for commands
-    let response = processMessage(messageText);
-    if (response) {
+    if (comandos[messageText]) {
         setTimeout(() => {
-            appendMessage(response, 'received');
+            appendMessage(comandos[messageText], 'received');
         }, 500);
     }
 }
-
 
 // Função para adicionar mensagens ao chat
 function appendMessage(text, type) {
@@ -296,7 +294,6 @@ document.getElementById('clear-btn').addEventListener('click', function() {
         return commands[msg];
     }
 
-    
     // Respostas personalizadas baseadas em palavras-chave
     // Quizzes
     if (msg.includes('harry potter quiz')) {
@@ -338,7 +335,7 @@ document.getElementById('clear-btn').addEventListener('click', function() {
                 "tchau": "Até logo! Volte quando precisar!",
                 "adeus": "Adeus! Tenha um ótimo dia!",
                 "como posso estudar melhor": "Estudar melhor envolve técnicas de foco e organização. Me fale mais sobre seu método de estudo, e eu te dou algumas dicas!"
-          'o que você faz': "Eu sou um assistente virtual, posso ajudar com diversas tarefas como responder perguntas, analisar dados e mais!",
+             'o que você faz': "Eu sou um assistente virtual, posso ajudar com diversas tarefas como responder perguntas, analisar dados e mais!",
     'quem é lucas januário': "Lucas Januário do Nascimento é o fundador do HoloFi e da tecnologia HOLLOW ETHER, trabalhando com inovação em ativos digitais e blockchain!",
     'como você funciona': "Eu uso inteligência artificial para entender e responder às suas perguntas. Sou alimentado por dados e posso realizar diversas funções!",
     'qual é a sua idade': "Não tenho idade, pois sou um assistente virtual! Estou sempre pronto para te ajudar.",
@@ -683,7 +680,11 @@ document.getElementById('clear-btn').addEventListener('click', function() {
   'o que é a segurança da informação': "Segurança da informação é a prática de proteger dados e sistemas contra acesso não autorizado, roubo ou danos, garantindo confidencialidade, integridade e disponibilidade.",
   'o que é a Internet das Coisas (IoT)': "A Internet das Coisas (IoT) refere-se à conexão de dispositivos físicos à internet para coletar e trocar dados, como eletrodomésticos, carros e sensores.",
   "qual é a diferença entre front-end e back-end": "O front-end envolve o design e a interação do usuário, enquanto o back-end lida com o processamento de dados e a lógica de negócios no servidor!",
-   };
+};
+
+    // Se o comando não for reconhecido
+    return "Desculpe, não entendi sua mensagem. Tente novamente!";
+}
 
 
  document.getElementById('file-input').addEventListener('change', function(event) {
@@ -786,6 +787,41 @@ function appendMessage(text, type) {
     chatBox.appendChild(message);
     chatBox.scrollTop = chatBox.scrollHeight;
 }
+
+
+    // Quizzes
+    if (msg.includes('harry potter quiz')) {
+        return "Vamos testar seus conhecimentos sobre Harry Potter! 🎩⚡\n\n" +
+            "1️⃣ Qual é o nome completo de Dumbledore?\nA) Alvo Percival Wulfrico Brian Dumbledore\nB) Alvo Severo Dumbledore\nC) Alvo Merlin Dumbledore\nD) Alvo Godric Dumbledore\n\n" +
+            "2️⃣ Qual é o animal de estimação de Rony Weasley?\nA) Coruja\nB) Rato\nC) Sapo\nD) Cachorro\n\n" +
+            "3️⃣ Qual feitiço é usado para desarmar um oponente?\nA) Expelliarmus\nB) Avada Kedavra\nC) Lumos\nD) Crucio\n\n" +
+            "4️⃣ Quem traiu os pais de Harry Potter?\nA) Sirius Black\nB) Pedro Pettigrew\nC) Severo Snape\nD) Lúcio Malfoy\n\n" +
+            "5️⃣ Qual é o nome do poltergeist de Hogwarts?\nA) Pirraça\nB) Dobby\nC) Nick Quase Sem Cabeça\nD) Barão Sangrento\n\n" +
+            "6️⃣ Qual é o nome do elfo doméstico de Harry?\nA) Kreacher\nB) Dobby\nC) Winky\nD) Monstro\n\n" +
+            "7️⃣ Qual das Relíquias da Morte é um símbolo da imortalidade?\nA) Pedra da Ressurreição\nB) Capa da Invisibilidade\nC) Varinha das Varinhas\nD) Medalhão de Sonserina\n\n" +
+            "8️⃣ Em qual casa Luna Lovegood pertence?\nA) Grifinória\nB) Corvinal\nC) Lufa-Lufa\nD) Sonserina\n\n" +
+            "9️⃣ Qual é o nome do Patrono de Hermione?\nA) Cervo\nB) Lebre\nC) Lobo\nD) Lontra\n\n" +
+            "🔟 Qual foi o primeiro Horcrux destruído?\nA) Diário de Tom Riddle\nB) Anel de Marvolo Gaunt\nC) Medalhão de Sonserina\nD) Taça de Helga Lufa-Lufa\n\n" +
+            "Responda com o número e a letra da resposta correta! Exemplo: 1A, 2B...";
+    } else if (msg.includes('league of legends quiz')) {
+        return "Vamos ver se você é um verdadeiro Invocador! 🏆🎮\n\n" +
+            "1️⃣ Qual é o nome do criador de League of Legends?\nA) Riot Games\nB) Tencent\nC) Blizzard\nD) Valve\n\n" +
+            "2️⃣ Qual é o campeão conhecido como 'O Curandeiro de Zaun'?\nA) Soraka\nB) Singed\nC) Dr. Mundo\nD) Warwick\n\n" +
+            "3️⃣ Qual foi o primeiro campeão criado no LoL?\nA) Ryze\nB) Teemo\nC) Ashe\nD) Alistar\n\n" +
+            "4️⃣ Qual é o nome do Dragão que concede buffs específicos?\nA) Dragão Ancião\nB) Dragão Infernal\nC) Dragão Hextech\nD) Dragão das Nuvens\n\n" +
+            "5️⃣ Qual é a classe principal do campeão Thresh?\nA) Assassino\nB) Lutador\nC) Suporte\nD) Mago\n\n" +
+            "6️⃣ Qual é o nome do modo de jogo principal do LoL?\nA) ARAM\nB) Summoner’s Rift\nC) Twisted Treeline\nD) Nexus Blitz\n\n" +
+            "7️⃣ Quem é a rival de Caitlyn em Piltover?\nA) Vi\nB) Jinx\nC) Ekko\nD) Jayce\n\n" +
+            "8️⃣ Qual campeão é conhecido por sua habilidade 'R - Cataclismo'?\nA) Garen\nB) Jarvan IV\nC) Darius\nD) Riven\n\n" +
+            "9️⃣ Qual item concede escudo e roubo de vida para ADCs?\nA) Mata-Cráquens\nB) Gume do Infinito\nC) Arco-escudo Imortal\nD) Lâmina Fantasma de Youmuu\n\n" +
+            "🔟 Qual é o nome da skin lendária de Ezreal que o transforma em um explorador do futuro?\nA) Ezreal TPA\nB) Ezreal Pulsefire\nC) Ezreal Guardião Estelar\nD) Ezreal Frosted\n\n" +
+            "Responda com o número e a letra da resposta correta! Exemplo: 1A, 2B...";
+    }
+
+    // Se o comando não for reconhecido
+    return "Desculpe, não entendi sua mensagem. Tente novamente!";
+}
+
 </script>
 </body>
 </html>
