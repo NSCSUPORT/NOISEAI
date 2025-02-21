@@ -41,6 +41,12 @@ bot.processarMensagem(msg);
     if (msg.includes('como você funciona')) return "Eu uso inteligência artificial para entender e responder às suas perguntas. Sou alimentado por dados e posso realizar diversas funções!";
     if (msg.includes('qual é a sua idade')) return "Não tenho idade, pois sou um assistente virtual! Estou sempre pronto para te ajudar.";
     if (msg.includes('qual é a sua função')) return "Minha função é ajudar você com informações, responder dúvidas, realizar comandos e fornecer suporte!";
+
+    if (msg.includes('o que você faz')) return "Eu sou um assistente virtual, posso ajudar com diversas tarefas como responder perguntas, analisar dados e mais!";
+    if (msg.includes('quem é lucas januário')) return "Lucas Januário do Nascimento é o fundador do HoloFi e da tecnologia HOLLOW ETHER, trabalhando com inovação em ativos digitais e blockchain!";
+    if (msg.includes('como você funciona')) return "Eu uso inteligência artificial para entender e responder às suas perguntas. Sou alimentado por dados e posso realizar diversas funções!";
+    if (msg.includes('qual é a sua idade')) return "Não tenho idade, pois sou um assistente virtual! Estou sempre pronto para te ajudar.";
+    if (msg.includes('qual é a sua função')) return "Minha função é ajudar você com informações, responder dúvidas, realizar comandos e fornecer suporte!";
     if (msg.includes('onde você mora')) return "Eu não tenho um lugar físico, sou um programa que vive na nuvem, pronto para ajudar você a qualquer momento!";
     if (msg.includes('você pode me ajudar')) return "Sim, claro! Estou aqui para ajudar no que for preciso. Como posso te ajudar?";
     if (msg.includes('você é inteligente')) return "Eu fui projetado para ser o mais útil possível, usando tecnologia de inteligência artificial para ajudar em diversas tarefas!";
