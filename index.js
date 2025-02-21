@@ -1,3 +1,12 @@
+// Comandos do bot (index.js)
+module.exports = {
+    'o que você faz': "Eu sou um assistente virtual, posso ajudar com diversas tarefas como responder perguntas, analisar dados e mais!",
+    'quem é lucas januário': "Lucas Januário do Nascimento é o fundador do HoloFi e da tecnologia HOLLOW ETHER, trabalhando com inovação em ativos digitais e blockchain!",
+    'como você funciona': "Eu uso inteligência artificial para entender e responder às suas perguntas. Sou alimentado por dados e posso realizar diversas funções!",
+    'qual é a sua idade': "Não tenho idade, pois sou um assistente virtual! Estou sempre pronto para te ajudar.",
+    'qual é a sua função': "Minha função é ajudar você com informações, responder dúvidas, realizar comandos e fornecer suporte!",
+    // Adicione mais comandos conforme necessário
+};
 
 
     if (msg.includes('o que você faz')) return "Eu sou um assistente virtual, posso ajudar com diversas tarefas como responder perguntas, analisar dados e mais!";
