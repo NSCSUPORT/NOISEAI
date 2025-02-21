@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -188,7 +189,7 @@ footer {
 </footer>
 
 <script>
-document.getElementById('file-input').addEventListener('change', function(event) {
+  document.getElementById('file-input').addEventListener('change', function(event) {
     let file = event.target.files[0];
     if (file) {
         let reader = new FileReader();
@@ -236,71 +237,35 @@ function appendMessage(text, type) {
     chatBox.scrollTop = chatBox.scrollHeight;
 }
 
-// Função de síntese de fala
-function speakMessage(message) {
-    const speech = new SpeechSynthesisUtterance(message);
-    speech.lang = 'pt-BR';  // Define a linguagem como português do Brasil
-    speech.volume = 1;      // Volume máximo
-    speech.rate = 1;        // Velocidade normal da fala
-    speech.pitch = 1;       // Tom normal da voz
-    speechSynthesis.speak(speech);
-}
-
-// Adiciona event listener para o botão de enviar
-document.getElementById('send-btn').addEventListener('click', function() {
-    const input = document.getElementById('chat-input');
-    const message = input.value;
-    if (message) {
-        // Exibe a mensagem no chat
-        const messageDiv = document.createElement('div');
-        messageDiv.classList.add('message', 'sent');
-        messageDiv.textContent = message;
-        document.getElementById('chat-box').appendChild(messageDiv);
-
-        // Limpa o campo de entrada
-        input.value = '';
-
-        // Usa a função de fala para narrar a mensagem
-        speakMessage(message);
-    }
-});
-
-// Adiciona event listener para o botão de limpar
-document.getElementById('clear-btn').addEventListener('click', function() {
-    document.getElementById('chat-box').innerHTML = '';
-});
-
-// Função para comandos
-const comandos = {
-    "!GUIA": "Comandos disponíveis: !POS - Aplicar Proof of Stake, !SALDO - Ver saldo de investidores",
-    "!POS": "Aplicando Proof of Stake...",
-    // Adicione mais comandos conforme necessário
-};
-
-// Função para responder comandos específicos
-function getRespostaPersonalizada(messageText) {
-    if (messageText.includes("saldo de")) {
-        let investidor = messageText.replace("saldo de", "").trim();
-        let index = contract.investors.indexOf(investidor);
-        if (index !== -1) {
-            return `Saldo de ${investidor}: R$ ${contract.balances[index].toFixed(2)}`;
-        } else {
-            return `Investidor ${investidor} não encontrado.`;
-        }
-    }
-    return null;
-}
-
-// Funções para interação do chat
+// Eventos do chat
 document.getElementById('send-btn').addEventListener('click', sendMessage);
 document.getElementById('chat-input').addEventListener('keypress', function(event) {
     if (event.key === 'Enter') sendMessage();
 });
 
-// Função para exibir mensagem de boas-vindas ao iniciar o chat
 document.getElementById('clear-btn').addEventListener('click', function() {
     document.getElementById('chat-box').innerHTML = '<div class="message received"><i class="fas fa-robot"></i> 👋 Olá! O que você deseja fazer? Use !GUIA para listar os comandos.</div>';
 });
+    // Function to speak the message
+function speakMessage(message) {
+    const speech = new SpeechSynthesisUtterance(message);
+    speech.lang = 'pt-BR';  // Set language to Brazilian Portuguese
+    speech.volume = 1;      // Full volume
+    speech.rate = 1;        // Normal speech rate
+    speech.pitch = 1;       // Normal pitch
+    speechSynthesis.speak(speech);
+}
+
+// Add event listener to the send button
+document.getElementById('send-btn').addEventListener('click', function() {
+    const input = document.getElementById('chat-input');
+    const message = input.value;
+    if (message) {
+        // Display the message in the chat
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message', 'sent');
+        messageDiv.textContent = message;
+        document.getElementById('chat-box').appendChild(messageDiv);
 
         // Clear the input field
         input.value = '';
@@ -316,7 +281,7 @@ document.getElementById('clear-btn').addEventListener('click', function() {
 });
     function processMessage(msg) {
     const commands = {
-        '!GUIA': 'Lista de comandos disponíveis: !AJUDA, !DATA, !HORA, !RANDOM, !MOEDA' "!lanterna verde,
+        '!GUIA': 'Lista de comandos disponíveis: !AJUDA, !DATA, !HORA, !RANDOM, !MOEDA',
         '!AJUDA': 'Comandos disponíveis: !GUIA, !DATA, !HORA, !RANDOM, !MOEDA',
         '!DATA': new Date().toLocaleDateString(),
         '!HORA': new Date().toLocaleTimeString(),
