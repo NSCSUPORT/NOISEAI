@@ -273,16 +273,49 @@ document.getElementById('send-btn').addEventListener('click', function() {
 document.getElementById('clear-btn').addEventListener('click', function() {
     document.getElementById('chat-box').innerHTML = '';
 });
-    function processMessage(msg) {
+function processMessage(msg) {
     const commands = {
-        '!GUIA': 'Lista de comandos disponíveis: !AJUDA, !DATA, !HORA, !RANDOM, !MOEDA',
-        '!AJUDA': 'Comandos disponíveis: !GUIA, !DATA, !HORA, !RANDOM, !MOEDA',
+        '!GUIA': 'Lista de comandos disponíveis: !AJUDA, !DATA, !HORA, !RANDOM, !MOEDA, !COMANDS',
+        '!AJUDA': 'Comandos disponíveis: !GUIA, !DATA, !HORA, !RANDOM, !MOEDA, !COMANDS',
         '!DATA': new Date().toLocaleDateString(),
         '!HORA': new Date().toLocaleTimeString(),
         '!RANDOM': Math.floor(Math.random() * 100),
         '!MOEDA': Math.random() < 0.5 ? 'Cara' : 'Coroa',
-        '!lucas januario': "Lucas Januário do Nascimento é o fundador do HoloFi e da tecnologia HOLLOW ETHER, trabalhando com inovação em ativos digitais e blockchain!"
+        '!lucas januario': "Lucas Januário do Nascimento é o fundador do HoloFi e da tecnologia HOLLOW ETHER, trabalhando com inovação em ativos digitais e blockchain!",
+        
+        // The new !COMANDS command
+        '!COMANDS': function() {
+            const commandsList = `!GUIA: Lista de comandos disponíveis: !AJUDA, !DATA, !HORA, !RANDOM, !MOEDA\n
+                                !AJUDA: Comandos disponíveis: !GUIA, !DATA, !HORA, !RANDOM, !MOEDA\n
+                                !DATA: Exibe a data atual\n
+                                !HORA: Exibe a hora atual\n
+                                !RANDOM: Exibe um número aleatório entre 0 e 100\n
+                                !MOEDA: Exibe "Cara" ou "Coroa" aleatoriamente\n
+                                !lucas januario: Informa informações sobre Lucas Januário do Nascimento\n`;
+
+            // Create a Blob with the commands and generate a link to download it
+            const blob = new Blob([commandsList], { type: 'text/plain' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'COMANDS.TXT';
+            link.textContent = 'Clique aqui para baixar o arquivo COMANDS.TXT';
+
+            // Append the link to the document (it could be shown in a div, for example)
+            document.body.appendChild(link);
+        }
     };
+
+    // Execute the appropriate command based on the input message
+    if (commands[msg]) {
+        if (typeof commands[msg] === 'function') {
+            commands[msg](); // Call the function for !COMANDS
+        } else {
+            return commands[msg]; // Return the response for the other commands
+        }
+    } else {
+        return 'Comando não reconhecido!';
+    }
+}
 
     // Verificar comandos simples
     if (commands[msg]) {
