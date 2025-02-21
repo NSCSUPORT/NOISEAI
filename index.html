@@ -210,7 +210,6 @@ footer {
     }
 });
 
-// Função para enviar mensagem
 function sendMessage() {
     let input = document.getElementById('chat-input');
     let messageText = input.value.trim();
@@ -219,12 +218,15 @@ function sendMessage() {
     appendMessage(messageText, 'sent');
     input.value = '';
 
-    if (comandos[messageText]) {
+    // Process the message for commands
+    let response = processMessage(messageText);
+    if (response) {
         setTimeout(() => {
-            appendMessage(comandos[messageText], 'received');
+            appendMessage(response, 'received');
         }, 500);
     }
 }
+
 
 // Função para adicionar mensagens ao chat
 function appendMessage(text, type) {
