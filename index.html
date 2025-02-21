@@ -10,116 +10,146 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
       <style>
         body {
-            background-color: #000;
-            color: #fff;
-            font-family: 'Courier New', Courier, monospace;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            flex-direction: column;
-        }
+    background-color: #000;
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
 
-        .banner {
-            width: 100%;
-            max-width: 450px;
-        }
+.banner {
+    width: 100%;
+    max-width: 450px;
+}
 
-        .chat-container {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            height: 80vh;
-            width: 100%;
-            max-width: 450px;
-            padding: 20px;
-            border: 2px solid #4CAF50;
-            border-radius: 10px;
-            background-color: #1c1c1c;
-            box-shadow: 0 0 10px #4CAF50, 0 0 20px #4CAF50, 0 0 30px #4CAF50;
-            overflow: hidden;
-            animation: neon-pulse 1.5s infinite alternate;
-        }
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 80vh;
+    width: 100%;
+    max-width: 450px;
+    padding: 20px;
+    border: 2px solid #4CAF50;
+    border-radius: 10px;
+    background-color: #1c1c1c;
+    box-shadow: 0 0 10px #4CAF50, 0 0 20px #4CAF50, 0 0 30px #4CAF50;
+    overflow: hidden;
+    animation: neon-pulse 1.5s infinite alternate;
+}
 
-        @keyframes neon-pulse {
-            0% { box-shadow: 0 0 10px #4CAF50, 0 0 20px #4CAF50; }
-            100% { box-shadow: 0 0 15px #4CAF50, 0 0 30px #4CAF50; }
-        }
+@keyframes neon-pulse {
+    0% { box-shadow: 0 0 10px #4CAF50, 0 0 20px #4CAF50; }
+    100% { box-shadow: 0 0 15px #4CAF50, 0 0 30px #4CAF50; }
+}
 
-        .chat-box {
-            flex-grow: 1;
-            overflow-y: auto;
-            margin-bottom: 10px;
-            background-color: #333;
-            border-radius: 10px;
-            padding: 15px;
-            max-height: 60vh;
-        }
+.chat-box {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    background-color: #333;
+    border-radius: 10px;
+    padding: 15px;
+    max-height: 60vh;
+}
 
-        .message {
-            padding: 12px;
-            margin: 8px 0;
-            border-radius: 8px;
-            max-width: 75%;
-            display: flex;
-            align-items: center;
-            font-size: 14px;
-            word-wrap: break-word;
-        }
+.message {
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 8px;
+    max-width: 75%;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    word-wrap: break-word;
+}
 
-        .message.sent {
-            background-color: #4CAF50;
-            align-self: flex-end;
-            color: #000;
-        }
+.message.sent {
+    background-color: #4CAF50;
+    align-self: flex-end;
+    color: #000;
+}
 
-        .message.received {
-            background-color: #007BFF;
-            color: #000;
-            align-self: flex-start;
-        }
+.message.received {
+    background-color: #007BFF;
+    color: #000;
+    align-self: flex-start;
+}
 
-        .input-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: 10px;
-            width: 100%;
-        }
+.input-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    width: 100%;
+}
 
-        input[type="text"] {
-            flex-grow: 1;
-            padding: 12px;
-            border: 2px solid #333;
-            border-radius: 25px;
-            background-color: #333;
-            color: #fff;
-            font-size: 14px;
-            outline: none;
-        }
+input[type="text"] {
+    flex-grow: 1;
+    padding: 12px;
+    border: 2px solid #333;
+    border-radius: 25px;
+    background-color: #333;
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
 
-        .button {
-            padding: 10px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: bold;
-        }
+input[type="text"]:focus {
+    border-color: #4CAF50;
+}
 
-        .send-btn { background-color: #4CAF50; color: #fff; }
-        .clear-btn { background-color: #f44336; color: #fff; }
-        .attach-btn { background-color: #FFC107; color: #000; }
+.button {
+    padding: 10px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
 
-        footer {
-            width: 100%;
-            padding: 12px;
-            background: linear-gradient(45deg, #f0f000, #ff4500);
-            color: #000;
-            text-align: center;
-            font-size: 1rem;
-            font-weight: bold;
-        }
+.send-btn {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+.send-btn:hover {
+    background-color: #388E3C;
+}
+
+.clear-btn {
+    background-color: #f44336;
+    color: #fff;
+}
+
+.clear-btn:hover {
+    background-color: #d32f2f;
+}
+
+.attach-btn {
+    background-color: #FFC107;
+    color: #000;
+}
+
+.attach-btn:hover {
+    background-color: #FF9800;
+}
+
+footer {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(45deg, #f0f000, #ff4500);
+    color: #000;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
     </style>
 </head>
 <body>
