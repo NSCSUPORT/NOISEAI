@@ -121,6 +121,15 @@ document.addEventListener('DOMContentLoaded', () => {
         if (event.key === 'Enter') sendMessage();
     });
 });
+// processMessages.js
+function getRespostaPersonalizada(msg) {
+    // Implemente aqui a lógica de resposta personalizada
+    if (msg.includes("teste")) {
+        return "Esta é uma resposta para o teste.";
+    }
+    return "Comando não reconhecido.";
+}
+module.exports = { getRespostaPersonalizada };
 
 
   function getRespostaPersonalizada(msg) {
