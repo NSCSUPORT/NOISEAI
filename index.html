@@ -178,7 +178,7 @@ footer {
         <button class="button clear-btn" id="clear-btn"><i class="fas fa-trash-alt"></i></button>
     </div>
 </div>
-   <script src="processMessages.js"></script>
+ 
 <footer>
     <p>&copy; 2025 HoloFi. Todos os direitos reservados. Lucas Januário</p>
 </footer>
@@ -214,11 +214,8 @@ function sendMessage() {
     appendMessage(messageText, 'sent');
     input.value = '';
 
-    if (comandos[messageText]) {
-        setTimeout(() => {
-            appendMessage(comandos[messageText], 'received');
-        }, 500);
-    }
+    // Envia a mensagem para o backend ou executa comando
+    fetchComando(messageText);
 }
 
 // Função para adicionar mensagens ao chat
@@ -231,219 +228,54 @@ function appendMessage(text, type) {
     chatBox.scrollTop = chatBox.scrollHeight;
 }
 
-// Eventos do chat
-document.getElementById('send-btn').addEventListener('click', sendMessage);
-document.getElementById('chat-input').addEventListener('keypress', function(event) {
-    if (event.key === 'Enter') sendMessage();
-});
+// Função para processar os comandos
+function fetchComando(messageText) {
+    fetch('/processar-comando', {  // Supondo que você tenha um endpoint backend para processar comandos
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: messageText })
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Mostra a resposta recebida
+        appendMessage(data.response, 'received');
+    })
+    .catch(error => {
+        console.error('Erro ao processar comando:', error);
+        appendMessage('Erro ao processar comando. Tente novamente!', 'received');
+    });
+}
 
-document.getElementById('clear-btn').addEventListener('click', function() {
-    document.getElementById('chat-box').innerHTML = '<div class="message received"><i class="fas fa-robot"></i> 👋 Olá! O que você deseja fazer? Use !GUIA para listar os comandos.</div>';
-});
-    // Function to speak the message
+// Função para falar a mensagem
 function speakMessage(message) {
     const speech = new SpeechSynthesisUtterance(message);
-    speech.lang = 'pt-BR';  // Set language to Brazilian Portuguese
-    speech.volume = 1;      // Full volume
-    speech.rate = 1;        // Normal speech rate
-    speech.pitch = 1;       // Normal pitch
+    speech.lang = 'pt-BR';
+    speech.volume = 1;
+    speech.rate = 1;
+    speech.pitch = 1;
     speechSynthesis.speak(speech);
 }
 
-// Add event listener to the send button
+// Evento de clique do botão de envio
 document.getElementById('send-btn').addEventListener('click', function() {
     const input = document.getElementById('chat-input');
     const message = input.value;
     if (message) {
-        // Display the message in the chat
-        const messageDiv = document.createElement('div');
-        messageDiv.classList.add('message', 'sent');
-        messageDiv.textContent = message;
-        document.getElementById('chat-box').appendChild(messageDiv);
-
-        // Clear the input field
+        // Exibe a mensagem no chat
+        appendMessage(message, 'sent');
         input.value = '';
-
-        // Use the speak function to narrate the message
+        // Fala a mensagem
         speakMessage(message);
+        fetchComando(message);
     }
 });
 
-// Add event listener to the clear button
+// Evento de clique do botão de limpar
 document.getElementById('clear-btn').addEventListener('click', function() {
     document.getElementById('chat-box').innerHTML = '';
 });
-    function processMessage(msg) {
-    const commands = {
-        '!GUIA': 'Lista de comandos disponíveis: !AJUDA, !DATA, !HORA, !RANDOM, !MOEDA',
-        '!AJUDA': 'Comandos disponíveis: !GUIA, !DATA, !HORA, !RANDOM, !MOEDA',
-        '!DATA': new Date().toLocaleDateString(),
-        '!HORA': new Date().toLocaleTimeString(),
-        '!RANDOM': Math.floor(Math.random() * 100),
-        '!MOEDA': Math.random() < 0.5 ? 'Cara' : 'Coroa',
-        '!lucas januario': "Lucas Januário do Nascimento é o fundador do HoloFi e da tecnologia HOLLOW ETHER, trabalhando com inovação em ativos digitais e blockchain!"
-    };
-
-    // Verificar comandos simples
-    if (commands[msg]) {
-        return commands[msg];
-    }
-
-    // Respostas personalizadas baseadas em palavras-chave
-    // Quizzes
-    if (msg.includes('harry potter quiz')) {
-        return "Vamos testar seus conhecimentos sobre Harry Potter! 🎩⚡\n\n" +
-            "1️⃣ Qual é o nome completo de Dumbledore?\nA) Alvo Percival Wulfrico Brian Dumbledore\nB) Alvo Severo Dumbledore\nC) Alvo Merlin Dumbledore\nD) Alvo Godric Dumbledore\n\n" +
-            "2️⃣ Qual é o animal de estimação de Rony Weasley?\nA) Coruja\nB) Rato\nC) Sapo\nD) Cachorro\n\n" +
-            "3️⃣ Qual feitiço é usado para desarmar um oponente?\nA) Expelliarmus\nB) Avada Kedavra\nC) Lumos\nD) Crucio\n\n" +
-            "4️⃣ Quem traiu os pais de Harry Potter?\nA) Sirius Black\nB) Pedro Pettigrew\nC) Severo Snape\nD) Lúcio Malfoy\n\n" +
-            "5️⃣ Qual é o nome do poltergeist de Hogwarts?\nA) Pirraça\nB) Dobby\nC) Nick Quase Sem Cabeça\nD) Barão Sangrento\n\n" +
-            "6️⃣ Qual é o nome do elfo doméstico de Harry?\nA) Kreacher\nB) Dobby\nC) Winky\nD) Monstro\n\n" +
-            "7️⃣ Qual das Relíquias da Morte é um símbolo da imortalidade?\nA) Pedra da Ressurreição\nB) Capa da Invisibilidade\nC) Varinha das Varinhas\nD) Medalhão de Sonserina\n\n" +
-            "8️⃣ Em qual casa Luna Lovegood pertence?\nA) Grifinória\nB) Corvinal\nC) Lufa-Lufa\nD) Sonserina\n\n" +
-            "9️⃣ Qual é o nome do Patrono de Hermione?\nA) Cervo\nB) Lebre\nC) Lobo\nD) Lontra\n\n" +
-            "🔟 Qual foi o primeiro Horcrux destruído?\nA) Diário de Tom Riddle\nB) Anel de Marvolo Gaunt\nC) Medalhão de Sonserina\nD) Taça de Helga Lufa-Lufa\n\n" +
-            "Responda com o número e a letra da resposta correta! Exemplo: 1A, 2B...";
-    } else if (msg.includes('league of legends quiz')) {
-        return "Vamos ver se você é um verdadeiro Invocador! 🏆🎮\n\n" +
-            "1️⃣ Qual é o nome do criador de League of Legends?\nA) Riot Games\nB) Tencent\nC) Blizzard\nD) Valve\n\n" +
-            "2️⃣ Qual é o campeão conhecido como 'O Curandeiro de Zaun'?\nA) Soraka\nB) Singed\nC) Dr. Mundo\nD) Warwick\n\n" +
-            "3️⃣ Qual foi o primeiro campeão criado no LoL?\nA) Ryze\nB) Teemo\nC) Ashe\nD) Alistar\n\n" +
-            "4️⃣ Qual é o nome do Dragão que concede buffs específicos?\nA) Dragão Ancião\nB) Dragão Infernal\nC) Dragão Hextech\nD) Dragão das Nuvens\n\n" +
-            "5️⃣ Qual é a classe principal do campeão Thresh?\nA) Assassino\nB) Lutador\nC) Suporte\nD) Mago\n\n" +
-            "6️⃣ Qual é o nome do modo de jogo principal do LoL?\nA) ARAM\nB) Summoner’s Rift\nC) Twisted Treeline\nD) Nexus Blitz\n\n" +
-            "7️⃣ Quem é a rival de Caitlyn em Piltover?\nA) Vi\nB) Jinx\nC) Ekko\nD) Jayce\n\n" +
-            "8️⃣ Qual campeão é conhecido por sua habilidade 'R - Cataclismo'?\nA) Garen\nB) Jarvan IV\nC) Darius\nD) Riven\n\n" +
-            "9️⃣ Qual item concede escudo e roubo de vida para ADCs?\nA) Mata-Cráquens\nB) Gume do Infinito\nC) Arco-escudo Imortal\nD) Lâmina Fantasma de Youmuu\n\n" +
-            "🔟 Qual é o nome da skin lendária de Ezreal que o transforma em um explorador do futuro?\nA) Ezreal TPA\nB) Ezreal Pulsefire\nC) Ezreal Guardião Estelar\nD) Ezreal Frosted\n\n" +
-            "Responda com o número e a letra da resposta correta! Exemplo: 1A, 2B...";
-    } 
-         let responses = {
-                "oi": "Olá! Como posso ajudar você hoje?",
-                "bom dia": "Bom dia! Como você está?",
-                "boa tarde": "Boa tarde! Como posso ajudar?",
-                "boa noite": "Boa noite! Espero que tenha tido um bom dia!",
-                "tudo bem": "Tudo ótimo! E você, como está?",
-                "olá": "Oi! Como posso te ajudar?",
-                "como vai": "Estou bem, obrigado! E você?",
-                "e aí": "Oi! Como posso ajudar hoje?",
-                "tchau": "Até logo! Volte quando precisar!",
-                "adeus": "Adeus! Tenha um ótimo dia!",
-                "como posso estudar melhor": "Estudar melhor envolve técnicas de foco e organização. Me fale mais sobre seu método de estudo, e eu te dou algumas dicas!"
-            };
-
-    // Se o comando não for reconhecido
-    return "Desculpe, não entendi sua mensagem. Tente novamente!";
-}
-
-
- document.getElementById('file-input').addEventListener('change', function(event) {
-    let file = event.target.files[0];
-    if (file) {
-        let reader = new FileReader();
-        reader.onload = function(e) {
-            let data = new Uint8Array(e.target.result);
-            let workbook = XLSX.read(data, { type: 'array' });
-            let sheetName = workbook.SheetNames[0];
-            let sheet = workbook.Sheets[sheetName];
-            let jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
-
-            let response = "📊 Arquivo carregado com sucesso! Exibindo primeiras linhas:\n";
-            jsonData.slice(0, 5).forEach(row => {
-                response += JSON.stringify(row) + "\n";
-            });
-
-            appendMessage(response, 'received');
-        };
-        reader.readAsArrayBuffer(file);
-    }
-});
-
-// Função para enviar mensagem
-function sendMessage() {
-    let input = document.getElementById('chat-input');
-    let messageText = input.value.trim();
-    if (!messageText) return;
-
-    appendMessage(messageText, 'sent');
-    input.value = '';
-
-    if (comandos[messageText]) {
-        setTimeout(() => {
-            appendMessage(comandos[messageText], 'received');
-        }, 500);
-    }
-}
-
-// Função para adicionar mensagens ao chat
-function appendMessage(text, type) {
-    let chatBox = document.getElementById('chat-box');
-    let message = document.createElement('div');
-    message.classList.add('message', type);
-    message.innerHTML = type === 'received' ? `<i class="fas fa-robot"></i> ${text}` : text;
-    chatBox.appendChild(message);
-    chatBox.scrollTop = chatBox.scrollHeight;
-}
-
-// Eventos do chat
-document.getElementById('send-btn').addEventListener('click', sendMessage);
-document.getElementById('chat-input').addEventListener('keypress', function(event) {
-    if (event.key === 'Enter') sendMessage();
-});
-
-document.getElementById('clear-btn').addEventListener('click', function() {
-    document.getElementById('chat-box').innerHTML = '<div class="message received"><i class="fas fa-robot"></i> 👋 Olá! O que você deseja fazer? Use !GUIA para listar os comandos.</div>';
-});
-// Comandos do chat
-// comandos.js
-const comandos = {
-    '!GUIA': 'Lista de comandos disponíveis: !AJUDA, !DATA, !HORA, !RANDOM, !MOEDA, !ALL !LANTERNA VERDE !GITHUB ',
-    '!AJUDA': 'Comandos disponíveis: !GUIA, !DATA, !HORA, !RANDOM, !MOEDA, !ALL ENTER ON GIT HUB FOR ALL LIST ',
-    '!DATA': new Date().toLocaleDateString(),
-    '!HORA': new Date().toLocaleTimeString(),
-    '!RANDOM': Math.floor(Math.random() * 100),
-    '!MOEDA': Math.random() < 0.5 ? 'Cara' : 'Coroa',
-    '!ALL': 'Aqui estão todos os comandos disponíveis:\n!GUIA, !AJUDA, !DATA, !HORA, !RANDOM, !MOEDA, !ALL\n\nAlém disso, se você digitar palavras-chave como "oi", "jogo", "dados", "clima", etc., receberei respostas personalizadas!'
-};
-
-module.exports = comandos;
-
-
-// Função para enviar mensagem
-function sendMessage() {
-    let input = document.getElementById('chat-input');
-    let messageText = input.value.trim();
-    if (!messageText) return;
-
-    appendMessage(messageText, 'sent');
-    input.value = '';
-
-    if (comandos[messageText]) {
-        setTimeout(() => {
-            appendMessage(comandos[messageText], 'received');
-        }, 500);
-    } else {
-        let respostaPersonalizada = getRespostaPersonalizada(messageText);
-        if (respostaPersonalizada) {
-            setTimeout(() => {
-                appendMessage(respostaPersonalizada, 'received');
-            }, 500);
-        }
-    }
-}
-
-// Função para adicionar mensagens ao chat
-function appendMessage(text, type) {
-    let chatBox = document.getElementById('chat-box');
-    let message = document.createElement('div');
-    message.classList.add('message', type);
-    message.innerHTML = type === 'received' ? `<i class="fas fa-robot"></i> ${text}` : text;
-    chatBox.appendChild(message);
-    chatBox.scrollTop = chatBox.scrollHeight;
-}
-
-
 
 </script>
+
 </body>
 </html>
