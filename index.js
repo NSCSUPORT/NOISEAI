@@ -5,7 +5,6 @@ module.exports = {
     'como você funciona': "Eu uso inteligência artificial para entender e responder às suas perguntas. Sou alimentado por dados e posso realizar diversas funções!",
     'qual é a sua idade': "Não tenho idade, pois sou um assistente virtual! Estou sempre pronto para te ajudar.",
     'qual é a sua função': "Minha função é ajudar você com informações, responder dúvidas, realizar comandos e fornecer suporte!",
-    {
     "o que você faz": "Eu sou um assistente virtual, posso ajudar com diversas tarefas como responder perguntas, analisar dados e mais!",
     "quem é lucas januário": "Lucas Januário do Nascimento é o fundador do HoloFi e da tecnologia HOLLOW ETHER, trabalhando com inovação em ativos digitais e blockchain!",
     "como você funciona": "Eu uso inteligência artificial para entender e responder às suas perguntas. Sou alimentado por dados e posso realizar diversas funções!",
@@ -357,11 +356,7 @@ module.exports = {
   'como funciona o armazenamento em nuvem': "O armazenamento em nuvem permite armazenar dados em servidores remotos, acessíveis pela internet, permitindo o backup e a recuperação de dados de qualquer lugar.",
   'o que é a segurança da informação': "Segurança da informação é a prática de proteger dados e sistemas contra acesso não autorizado, roubo ou danos, garantindo confidencialidade, integridade e disponibilidade.",
   'o que é a Internet das Coisas (IoT)': "A Internet das Coisas (IoT) refere-se à conexão de dispositivos físicos à internet para coletar e trocar dados, como eletrodomésticos, carros e sensores.",
-  'o que é a computação quântica': "Computação quântica é uma área da computação que utiliza os princípios da mecânica quântica para resolver problemas complexos mais rapidamente do que os computadores tradicionais."
-}
-
-"qual é a diferença entre front-end e back-end": "O front-end envolve o design e a interação do usuário, enquanto o back-end lida com o processamento de dados e a lógica de negócios no servidor!",
-  //...c}
+  "qual é a diferença entre front-end e back-end": "O front-end envolve o design e a interação do usuário, enquanto o back-end lida com o processamento de dados e a lógica de negócios no servidor!",
 
     // Adicione mais comandos conforme necessário
 };
