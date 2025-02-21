@@ -273,62 +273,6 @@ document.getElementById('connect-setep2-btn').addEventListener('click', () => {
     };
 });
 
-// Função para enviar a mensagem
-function sendMessage() {
-    let input = document.getElementById('chat-input');
-    let messageText = input.value.trim();
-    if (!messageText) return;
-
-    appendMessage(messageText, 'sent');
-    input.value = '';
-
-    if (comandos[messageText]) {
-        setTimeout(() => {
-            appendMessage(comandos[messageText], 'received');
-        }, 500);
-    }
-}
-
-// Função para adicionar mensagens ao chat
-function appendMessage(text, type) {
-    let chatBox = document.getElementById('chat-box');
-    let message = document.createElement('div');
-    message.classList.add('message', type);
-    message.innerHTML = type === 'received' ? `<i class="fas fa-robot"></i> ${text}` : text;
-    chatBox.appendChild(message);
-    chatBox.scrollTop = chatBox.scrollHeight;
-}
-
-// Conecta ao kernel (kernel.js - porta 9090)
-document.getElementById('connect-kernel-btn').addEventListener('click', () => {
-  kernelSocket = new WebSocket('ws://localhost:9090');
-  kernelSocket.onopen = () => {
-    appendMessage('Conectado ao Kernel (9090)', 'received');
-  };
-  kernelSocket.onmessage = (e) => {
-    const data = JSON.parse(e.data);
-    appendMessage('Kernel: ' + data.response, 'received');
-  };
-  kernelSocket.onerror = (e) => {
-    appendMessage('Erro no Kernel: ' + e, 'received');
-  };
-});
-
-// Conecta ao setep2 (setep2.js - porta 9091)
-document.getElementById('connect-setep2-btn').addEventListener('click', () => {
-  setep2Socket = new WebSocket('ws://localhost:9091');
-  setep2Socket.onopen = () => {
-    appendMessage('Conectado ao Setep2 (9091)', 'received');
-  };
-  setep2Socket.onmessage = (e) => {
-    const data = JSON.parse(e.data);
-    appendMessage('Setep2: ' + data.response, 'received');
-  };
-  setep2Socket.onerror = (e) => {
-    appendMessage('Erro no Setep2: ' + e, 'received');
-  };
-});
-
 // Envia a mensagem para ambos os kernels (se conectados)
 document.getElementById('send-btn').addEventListener('click', sendMessage);
 document.getElementById('chat-input').addEventListener('keypress', function(event) {
@@ -339,6 +283,7 @@ document.getElementById('chat-input').addEventListener('keypress', function(even
 document.getElementById('clear-btn').addEventListener('click', function() {
     document.getElementById('chat-box').innerHTML = '<div class="message received"><i class="fas fa-robot"></i> 👋 Olá! O que você deseja fazer? Use !GUIA para listar os comandos.</div>';
 });
+
 
     // Respostas personalizadas baseadas em palavras-chave
     // Quizzes
