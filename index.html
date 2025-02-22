@@ -467,10 +467,7 @@ function getRespostaPersonalizada(msg) {
     if (msg.includes('horário')) return "O horário atual é: " + new Date().toLocaleTimeString();
     if (msg.includes('notícia')) return "Aqui estão as últimas notícias: [link para um feed de notícias]";
     if (msg.includes('moeda')) return "Digite a moeda que deseja converter e eu fornecerei a taxa de câmbio!";
-function getRespostaPersonalizada(msg) {
-    msg = msg.toLowerCase();
-  msg = msg.toLowerCase();
-     if (msg.includes('oi')) return "Olá! Como posso ajudar você hoje?";
+    if (msg.includes('oi')) return "Olá! Como posso ajudar você hoje?";
     if (msg.includes('dados')) return "Você quer analisar dados? Envie os dados ou escolha uma opção!";
     if (msg.includes('jogo')) return "Você gosta de jogos? Tenho algumas recomendações de jogos multiplayer. Deseja ver?";
     if (msg.includes('limpar dados')) return "Certo! Seus dados foram limpos e padronizados!";
@@ -733,9 +730,7 @@ if (msg.includes('agendamento')) return "Quer agendar um compromisso?";
 if (msg.includes('alarme')) return "Precisa de um lembrete? Posso ajudar!";
 if (msg.includes('despertador')) return "Precisa de ajuda para acordar na hora certa?";
 if (msg.includes('motivação')) return "Aqui está uma frase motivacional: 'O sucesso é a soma de pequenos esforços repetidos diariamente!'";
-
-
-    if (msg.includes('livros geeks')) return "Quer algumas sugestões de livros? Como 'O Senhor dos Anéis' ou 'Harry Potter'?";
+if (msg.includes('livros geeks')) return "Quer algumas sugestões de livros? Como 'O Senhor dos Anéis' ou 'Harry Potter'?";
     if (msg.includes('gamer')) return "Você joga? Posso recomendar jogos incríveis como 'The Witcher', 'Zelda' e 'Minecraft'!";
     if (msg.includes('harry potter')) return "Você é da Gryffindor ou de outra casa? Vamos conversar sobre feitiçaria!";
     if (msg.includes('doctor who')) return "Gerando TARDIS... Pronto para viajar no tempo e espaço com o Doutor?";
@@ -835,9 +830,8 @@ if (msg.includes('motivação')) return "Aqui está uma frase motivacional: 'O s
     if (msg.includes('memes')) return "Adora memes? Eu também! Me diga o tema e te envio um meme engraçado.";
     if (msg.includes('quadrinhos')) return "Você gosta de quadrinhos? Marvel ou DC? Ou prefere mangás?";
     if (msg.includes('anime')) return "Gosta de anime? Podemos falar sobre clássicos como Dragon Ball, Naruto e Attack on Titan!";
-    if (msg.includes('futuro da tecnologia')) return "O futuro da tecnologia promete IA avançada, computação quântica e muito mais!";
-    
-    if (msg.includes('livro')) return "Está procurando um bom livro para ler? Posso te recomendar alguns!";
+    if (msg.includes('futuro da tecnologia')) return "O futuro da tecnologia promete IA avançada, computação quântica e muito mais!"
+        if (msg.includes('livro')) return "Está procurando um bom livro para ler? Posso te recomendar alguns!";
     if (msg.includes('filme')) return "Quer assistir a um bom filme? Posso sugerir alguns títulos!";
     if (msg.includes('série')) return "Procurando uma boa série para maratonar? Tenho algumas sugestões!";
     if (msg.includes('música')) return "Qual tipo de música você gosta? Posso sugerir algo!";
@@ -1229,7 +1223,6 @@ if (msg.includes('validar dados')) return "Estou validando seus dados para garan
     if (msg.includes('sherlock holmes')) return "Sherlock Holmes, o mestre da dedução! Quer saber mais sobre seus mistérios?";
     if (msg.includes('hunger games')) return "Você se oferece como tributo? Vamos falar sobre os Jogos Vorazes!";
     if (msg.includes('game of thrones personagens')) return "Qual personagem de Game of Thrones é o seu favorito? Jon Snow, Daenerys ou Tyrion?";
-    // Temas mencionados
     if (msg.includes('api')) return "API (Interface de Programação de Aplicações) é um conjunto de definições e protocolos que permite que diferentes sistemas interajam entre si.";
     if (msg.includes('protocolo tcp/ip')) return "O protocolo TCP/IP é um conjunto de regras que determina como os dados são transmitidos pela internet entre diferentes dispositivos.";
     if (msg.includes('google')) return "O Google é um motor de busca que usa algoritmos complexos para indexar e classificar páginas web, fornecendo resultados relevantes para as buscas dos usuários.";
@@ -1314,8 +1307,6 @@ if (msg.includes('armazenamento em nuvem')) return "O armazenamento em nuvem per
 if (msg.includes('segurança da informação')) return "Segurança da informação é a prática de proteger dados e sistemas contra acesso não autorizado, roubo ou danos, garantindo confidencialidade, integridade e disponibilidade.";
 if (msg.includes('internet das coisas')) return "A Internet das Coisas (IoT) refere-se à conexão de dispositivos físicos à internet para coletar e trocar dados, como eletrodomésticos, carros e sensores.";
 if (msg.includes('front-end')) return "O front-end envolve o design e a interação do usuário, enquanto o back-end lida com o processamento de dados e a lógica de negócios no servidor!";
-
-    // Respostas padrões
     if (msg.includes('qual é o seu nome')) return "Eu sou um assistente virtual! Em que posso te ajudar?";
     if (msg.includes('como você está')) return "Estou bem, obrigado! E você, como está?";
     if (msg.includes('quem é você')) return "Eu sou um assistente criado para ajudar com várias tarefas. O que posso fazer por você?";
@@ -1348,7 +1339,6 @@ if (msg.includes('front-end')) return "O front-end envolve o design e a interaç
     if (msg.includes('dúvida')) return "Qual é a sua dúvida? Vou tentar te ajudar da melhor maneira!";
     if (msg.includes('erro')) return "Parece que ocorreu um erro. Posso tentar corrigir isso para você!";
     if (msg.includes('agendar')) return "Gostaria de agendar uma reunião ou compromisso?";
-
 if (msg.includes('agradeço')) return "De nada! Se precisar de mais alguma coisa, estarei por aqui!";
     if (msg.includes('livro')) return "Está procurando um bom livro para ler? Posso te recomendar alguns!";
     if (msg.includes('filme')) return "Quer assistir a um bom filme? Posso sugerir alguns títulos!";
@@ -1383,8 +1373,6 @@ if (msg.includes('agradeço')) return "De nada! Se precisar de mais alguma coisa
     if (msg.includes('avisos importantes')) return "Aqui estão os avisos importantes: [link ou lista de avisos]";
     if (msg.includes('ajuda com uso do sistema')) return "Está com dificuldades para usar o sistema? Posso te guiar no processo!";
     if (msg.includes('tempo de resposta')) return "O tempo de resposta pode variar, mas vou tentar responder o mais rápido possível!";}
-
-    // Quizzes
     if (msg.includes('harry potter quiz')) {
         return "Vamos testar seus conhecimentos sobre Harry Potter! 🎩⚡\n\n" +
             "1️⃣ Qual é o nome completo de Dumbledore?\nA) Alvo Percival Wulfrico Brian Dumbledore\nB) Alvo Severo Dumbledore\nC) Alvo Merlin Dumbledore\nD) Alvo Godric Dumbledore\n\n" +
