@@ -1122,6 +1122,22 @@ if (msg.includes('tudo certo')) return "Tudo certo por aqui! E você, tudo certo
 if (msg.includes('qual é a boa')) return "A boa é que estou aqui para te ajudar! O que você precisa?";
 if (msg.includes('e você')) return "Estou bem, obrigado! Como posso te ajudar hoje?";
 if (msg.includes('tudo ok')) return "Tudo ok! Como posso te ajudar?";
+    if (msg.includes('top 20 investimentos recomendados')) return "Aqui estão os 20 principais investimentos recomendados atualmente:\n\n" +
+    "1️⃣ Ações da Tesla\n2️⃣ Ações da Amazon\n3️⃣ Ações da Apple\n4️⃣ Ações do Facebook\n5️⃣ Ações do Google\n6️⃣ Criptomoedas (Bitcoin, Ethereum)\n7️⃣ Fundos Imobiliários (FIIs)\n8️⃣ Ouro\n9️⃣ Fundos de Ações\n🔟 Startups e empresas emergentes\n" +
+    "1️⃣1️⃣ Fundos Multimercado\n1️⃣2️⃣ ETFs de Tecnologia\n1️⃣3️⃣ Tesouro Direto\n1️⃣4️⃣ Fundos de Renda Fixa\n1️⃣5️⃣ ETFs de Mercado Global\n1️⃣6️⃣ Mercado Imobiliário\n1️⃣7️⃣ Fundos de Commodities\n1️⃣8️⃣ Mercado de Energia Renovável\n1️⃣9️⃣ Fundos de Infraestrutura\n2️⃣0️⃣ Ações de empresas no setor de saúde";
+
+if (msg.includes('investimentos mais rentáveis')) return "Os 20 investimentos mais rentáveis incluem:\n\n" +
+    "1️⃣ Ações da Tesla\n2️⃣ Ações da Amazon\n3️⃣ Ações da Apple\n4️⃣ Ações do Facebook\n5️⃣ Bitcoin\n6️⃣ Ethereum\n7️⃣ Fundos imobiliários (FIIs)\n8️⃣ Ouro\n9️⃣ Startups e empresas emergentes\n🔟 Fundos de Ações\n" +
+    "1️⃣1️⃣ Fundos Multimercado\n1️⃣2️⃣ ETFs de Tecnologia\n1️⃣3️⃣ Fundos de Renda Fixa\n1️⃣4️⃣ Tesouro Direto\n1️⃣5️⃣ ETFs de Mercado Global\n1️⃣6️⃣ Fundos de Infraestrutura\n1️⃣7️⃣ Mercado Imobiliário\n1️⃣8️⃣ Ações de empresas de saúde\n1️⃣9️⃣ Fundos de Commodities\n2️⃣0️⃣ Mercado de Energia Renovável";
+
+if (msg.includes('top 20 ativos de 2020')) return "Os 20 ativos que mais cresceram até 2020 incluem:\n\n" +
+    "1️⃣ Ações da Tesla\n2️⃣ Ações da Amazon\n3️⃣ Ações da Apple\n4️⃣ Ações do Facebook\n5️⃣ Bitcoin\n6️⃣ Ethereum\n7️⃣ Fundos imobiliários (FIIs)\n8️⃣ Mercado imobiliário\n9️⃣ Ouro\n🔟 Fundos de Ações\n" +
+    "1️⃣1️⃣ Startups e empresas emergentes\n1️⃣2️⃣ Fundos de Multimercado\n1️⃣3️⃣ Fundos de Tecnologia\n1️⃣4️⃣ Ações da Microsoft\n1️⃣5️⃣ ETFs de Mercado Global\n1️⃣6️⃣ Ações de empresas de saúde\n1️⃣7️⃣ Ações do Google\n1️⃣8️⃣ Fundos de Commodities\n1️⃣9️⃣ Renda fixa\n2️⃣0️⃣ Criptomoedas emergentes";
+
+if (msg.includes('top ativos mais rentáveis até 2020')) return "Os 20 ativos mais rentáveis até 2020 foram:\n\n" +
+    "1️⃣ Ações da Tesla\n2️⃣ Ações da Amazon\n3️⃣ Ações da Apple\n4️⃣ Bitcoin\n5️⃣ Ethereum\n6️⃣ Ouro\n7️⃣ Fundos imobiliários (FIIs)\n8️⃣ Startups de tecnologia\n9️⃣ Ações do Facebook\n🔟 Fundos de Ações\n" +
+    "1️⃣1️⃣ Fundos de Renda Fixa\n1️⃣2️⃣ Ações de empresas de saúde\n1️⃣3️⃣ ETFs de Mercado Global\n1️⃣4️⃣ Ações da Microsoft\n1️⃣5️⃣ Fundos Multimercado\n1️⃣6️⃣ Mercado imobiliário\n1️⃣7️⃣ Fundos de Infraestrutura\n1️⃣8️⃣ Criptomoedas alternativas\n1️⃣9️⃣ Fundos de Commodities\n2️⃣0️⃣ ETFs de Tecnologia";
+
 if (msg.includes('como está o dia')) return "O dia está ótimo! Como está o seu?";
 if (msg.includes('como vai você')) return "Estou bem, obrigado! Como vai você?";
 if (msg.includes('oi')) return "Oi! Que bom te ver por aqui! Como posso te ajudar hoje? Estou disponível para responder suas dúvidas ou te ajudar com qualquer outra coisa.";
@@ -1607,6 +1623,34 @@ else if (msg.includes('bug bounty quiz')) {
         "Responda com o número e a letra da resposta correta! Exemplo: 1A, 2B...";
 }
 
+else if (msg.includes('top 10 investimentos sugeridos para 2020 a 2026')) {
+    return "Quer saber quais são os melhores investimentos para o período de 2020 a 2026? 💸📈 Vamos testar seus conhecimentos sobre o mercado financeiro!\n\n" +
+        "1️⃣ Qual é o investimento mais recomendado para quem busca baixo risco e alta liquidez até 2026?\nA) Tesouro Direto\nB) Ações de startups\nC) Fundos imobiliários (FIIs)\nD) Criptomoedas\n\n" +
+        "2️⃣ Qual setor se espera ter um crescimento expressivo até 2026, atraindo muitos investimentos?\nA) Tecnologia e Inteligência Artificial\nB) Indústria automotiva\nC) Varejo tradicional\nD) Setor agrícola\n\n" +
+        "3️⃣ Qual dos seguintes tipos de fundo é ideal para quem busca rentabilidade em renda variável até 2026?\nA) Fundos de renda fixa\nB) Fundos multimercado\nC) Fundos de ações\nD) Fundos imobiliários\n\n" +
+        "4️⃣ Quais são as melhores opções de investimentos em ativos internacionais para o período até 2026?\nA) Investir em ações de empresas brasileiras\nB) Investir em títulos de dívida de países emergentes\nC) Investir em ETFs de mercados globais\nD) Investir em commodities como ouro\n\n" +
+        "5️⃣ Se você deseja investir no setor imobiliário com um bom retorno até 2026, qual a melhor opção?\nA) Compra de imóveis para aluguel\nB) Fundos imobiliários (FIIs)\nC) Participação em construtoras\nD) Investir em terrenos\n\n" +
+        "6️⃣ Qual é a principal vantagem de investir em criptomoedas até 2026?\nA) Alta volatilidade e potencial de ganhos rápidos\nB) Segurança e estabilidade no longo prazo\nC) Baixo risco de perdas\nD) Facilidade de resgatar o investimento a qualquer momento\n\n" +
+        "7️⃣ Para quem busca uma alternativa ao mercado tradicional de ações, qual é uma boa opção até 2026?\nA) Investir em startups e empresas emergentes\nB) Investir em imóveis em mercados em crescimento\nC) Investir em moedas digitais em ascensão\nD) Investir em fundos de renda fixa de baixo risco\n\n" +
+        "8️⃣ Qual tipo de investimento pode ser considerado o mais seguro para o longo prazo até 2026?\nA) Ações de grandes empresas\nB) Títulos públicos do governo\nC) Criptomoedas de baixo valor\nD) Fundos de pensão privados\n\n" +
+        "9️⃣ Quais investimentos apresentam maior risco, mas também podem gerar um retorno superior até 2026?\nA) Fundos imobiliários (FIIs)\nB) Criptomoedas\nC) Ações de empresas consolidadas\nD) Renda fixa\n\n" +
+        "🔟 Qual é a estratégia de diversificação de portfólio mais recomendada para 2020 a 2026?\nA) Focar apenas em ações de empresas de tecnologia\nB) Investir apenas em renda fixa\nC) Combinar investimentos de baixo, médio e alto risco, incluindo renda fixa e variável\nD) Investir exclusivamente em imóveis\n\n" +
+        "Responda com o número e a letra da resposta correta! Exemplo: 1A, 2B...";
+}
+else if (msg.includes('top ativos que mais cresceram até 2020')) {
+    return "Você sabe quais ativos foram os mais rentáveis e que mais cresceram até 2020? 💹💰 Vamos ver se você acompanha as melhores oportunidades de investimento!\n\n" +
+        "1️⃣ Qual foi o ativo que teve o maior crescimento no mercado de ações até 2020?\nA) Ações da Tesla\nB) Ações da Amazon\nC) Ações do Facebook\nD) Ações da Apple\n\n" +
+        "2️⃣ Qual criptomoeda teve um crescimento exponencial até 2020?\nA) Bitcoin\nB) Ethereum\nC) Ripple\nD) Litecoin\n\n" +
+        "3️⃣ Qual setor foi o maior responsável pelo crescimento das ações no mercado de tecnologia até 2020?\nA) Inteligência Artificial\nB) Redes sociais\nC) E-commerce\nD) Carros autônomos\n\n" +
+        "4️⃣ Qual ativo financeiro teve um bom desempenho em 2020, apesar da pandemia de COVID-19?\nA) Fundos imobiliários (FIIs)\nB) Títulos do Tesouro Direto\nC) Ações de empresas de tecnologia\nD) Ouro\n\n" +
+        "5️⃣ Qual das seguintes criptomoedas viu um aumento significativo de valor até 2020?\nA) Bitcoin\nB) Dogecoin\nC) Chainlink\nD) Ethereum\n\n" +
+        "6️⃣ Qual mercado emergente teve crescimento acelerado até 2020, atraindo muitos investidores?\nA) Mercado chinês\nB) Mercado de ações do Brasil\nC) Mercado indiano\nD) Mercado africano\n\n" +
+        "7️⃣ Qual ativo tradicional apresentou um crescimento sólido até 2020, especialmente no setor de commodities?\nA) Petróleo\nB) Ouro\nC) Gás natural\nD) Prata\n\n" +
+        "8️⃣ Quais foram os fundos imobiliários (FIIs) que mais cresceram até 2020?\nA) Fundos de shoppings\nB) Fundos de lajes corporativas\nC) Fundos de galpões logísticos\nD) Fundos de hospitais e educação\n\n" +
+        "9️⃣ Qual ativo no setor de saúde teve um grande crescimento até 2020?\nA) Ações da Pfizer\nB) Ações da Johnson & Johnson\nC) Ações da Moderna\nD) Ações da Novavax\n\n" +
+        "🔟 Qual foi o ativo mais rentável entre os ETFs (Exchange-Traded Funds) até 2020?\nA) ETFs de tecnologia\nB) ETFs de mercado emergente\nC) ETFs de ouro\nD) ETFs de dividendos\n\n" +
+        "Responda com o número e a letra da resposta correta! Exemplo: 1A, 2B...";
+}
 
     // Se o comando não for reconhecido
     return "Desculpe, não entendi sua mensagem. Tente novamente!";
