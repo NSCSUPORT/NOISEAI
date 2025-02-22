@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
@@ -187,9 +188,8 @@ footer {
 <div class="chat-container">
     <div class="chat-box" id="chat-box">
         <div class="message received" id="initial-message">👋 Olá! O que você deseja fazer? Use !GUIA para listar os comandos.</div>
-   <div class="message received">
-    <i class="fas fa-robot"></div>
-        <div class="input-container">
+ <div class="message received"><i class="fas fa-robot"></i> Desculpe, não entendi sua mensagem. Tente novamente!</div></div>
+    <div class="input-container">
         <input type="text" id="chat-input" placeholder="Digite sua mensagem...">
         <button class="button send-btn" id="send-btn"><i class="fas fa-paper-plane"></i></button>
         <div class="button attach-btn">
@@ -455,6 +455,22 @@ function appendMessage(text, type) {
 function getRespostaPersonalizada(msg) {
     msg = msg.toLowerCase();
     if (msg.includes('oi')) return "Olá! Como posso ajudar você hoje?";
+    if (msg.includes('dados')) return "Você quer analisar dados? Envie os dados ou escolha uma opção!";
+    if (msg.includes('jogo')) return "Você gosta de jogos? Tenho algumas recomendações de jogos multiplayer. Deseja ver?";
+    if (msg.includes('limpar dados')) return "Certo! Seus dados foram limpos e padronizados!";
+    if (msg.includes('normalizar texto')) return "Texto formatado para minúsculas e acentos removidos!";
+    if (msg.includes('validar email')) return "Verifiquei e sim, o email parece estar correto!";
+    if (msg.includes('gerar hash')) return "Senha protegida com hash SHA-256!";
+    if (msg.includes('analisar sentimento')) return "O sentimento do texto é positivo!";
+    if (msg.includes('detectar anomalias')) return "Detectei padrões incomuns nos seus dados!";
+    if (msg.includes('clima')) return "Digite sua cidade para que eu possa verificar a previsão do tempo!";
+    if (msg.includes('horário')) return "O horário atual é: " + new Date().toLocaleTimeString();
+    if (msg.includes('notícia')) return "Aqui estão as últimas notícias: [link para um feed de notícias]";
+    if (msg.includes('moeda')) return "Digite a moeda que deseja converter e eu fornecerei a taxa de câmbio!";
+function getRespostaPersonalizada(msg) {
+    msg = msg.toLowerCase();
+  msg = msg.toLowerCase();
+     if (msg.includes('oi')) return "Olá! Como posso ajudar você hoje?";
     if (msg.includes('dados')) return "Você quer analisar dados? Envie os dados ou escolha uma opção!";
     if (msg.includes('jogo')) return "Você gosta de jogos? Tenho algumas recomendações de jogos multiplayer. Deseja ver?";
     if (msg.includes('limpar dados')) return "Certo! Seus dados foram limpos e padronizados!";
@@ -1332,7 +1348,6 @@ if (msg.includes('front-end')) return "O front-end envolve o design e a interaç
     if (msg.includes('dúvida')) return "Qual é a sua dúvida? Vou tentar te ajudar da melhor maneira!";
     if (msg.includes('erro')) return "Parece que ocorreu um erro. Posso tentar corrigir isso para você!";
     if (msg.includes('agendar')) return "Gostaria de agendar uma reunião ou compromisso?";
-}
 
 if (msg.includes('agradeço')) return "De nada! Se precisar de mais alguma coisa, estarei por aqui!";
     if (msg.includes('livro')) return "Está procurando um bom livro para ler? Posso te recomendar alguns!";
@@ -1367,8 +1382,7 @@ if (msg.includes('agradeço')) return "De nada! Se precisar de mais alguma coisa
     if (msg.includes('agendar reunião')) return "Você quer agendar uma reunião com nossa equipe? Eu posso organizar isso!";
     if (msg.includes('avisos importantes')) return "Aqui estão os avisos importantes: [link ou lista de avisos]";
     if (msg.includes('ajuda com uso do sistema')) return "Está com dificuldades para usar o sistema? Posso te guiar no processo!";
-    if (msg.includes('tempo de resposta')) return "O tempo de resposta pode variar, mas vou tentar responder o mais rápido possível!";
-}
+    if (msg.includes('tempo de resposta')) return "O tempo de resposta pode variar, mas vou tentar responder o mais rápido possível!";}
 
     // Quizzes
     if (msg.includes('harry potter quiz')) {
