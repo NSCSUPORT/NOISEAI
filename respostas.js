@@ -2388,7 +2388,1928 @@ if (msg.includes('tempestade elétrica')) return "Parece que uma tempestade elé
 if (msg.includes('tempo nublado')) return "O tempo está nublado hoje, sem muito sol, mas sem chuva também. É aquele tipo de dia tranquilo. Gosta de dias assim ou prefere o sol?";
 if (msg.includes('quente')) return "Está bem quente! Cuidado para não se desidratar, é importante se manter hidratado em dias assim. Você tem alguma bebida favorita para esse calor?";
 if (msg.includes('frio')) return "Hoje está bem frio! Melhor pegar um cobertor ou uma bebida quente. Gosta de se manter aquecido ou prefere os dias mais frescos?";
+function responderMensagem(msg) {
+  msg = msg.toLowerCase(); // Para ignorar maiúsculas/minúsculas
 
+  if (msg.includes('como está o dia')) {
+    const respostas = [
+      "O dia está ótimo! Como está o seu?",
+      "O dia está lindo hoje! E o seu, como está indo?",
+      "O dia está perfeito por aqui! Como está o seu dia?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+  
+  if (msg.includes('como vai você')) {
+    const respostas = [
+      "Estou bem, obrigado! Como vai você?",
+      "Tudo ótimo comigo, valeu! E você, como vai?",
+      "Estou de boa, e você? Como vai hoje?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+  
+  if (msg.includes('oi')) {
+    const respostas = [
+      "Oi! Que bom te ver por aqui! Como posso te ajudar hoje? Estou disponível para responder suas dúvidas ou te ajudar com qualquer outra coisa.",
+      "Oi! Tudo bem contigo? Estou aqui pra ajudar com o que precisar!",
+      "Oi! Como você está? Se precisar de algo, é só me chamar!"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+  
+  if (msg.includes('olá')) {
+    const respostas = [
+      "Olá! Como vai? Se precisar de ajuda com algo ou quiser conversar sobre qualquer assunto, estou à disposição para bater um papo e tirar suas dúvidas.",
+      "Olá! Tudo ótimo por aqui! Como posso te ajudar hoje?",
+      "Olá! Que bom te encontrar! Se tiver dúvidas, estou aqui!"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+  
+  if (msg.includes('tudo bem')) {
+    const respostas = [
+      "Sim, tudo ótimo por aqui! E você, como está? Espero que esteja tendo um ótimo dia. Como posso te ajudar hoje?",
+      "Tudo bem comigo! E contigo, como está o dia?",
+      "Sim, tudo perfeito! E você, tudo bem? Precisa de algo?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+  
+  if (msg.includes('como vai')) {
+    const respostas = [
+      "Estou bem, obrigado por perguntar! Como você está? Se precisar de ajuda com algo ou quiser conversar, é só avisar. Estou aqui para o que precisar!",
+      "Tudo ótimo por aqui, valeu! E você, como vai?",
+      "Estou de boa, obrigado! Como você está hoje?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+  
+  if (msg.includes('como está')) {
+    const respostas = [
+      "Estou ótimo, obrigado por perguntar! E você, como está se sentindo? Se tiver qualquer dúvida ou questão, só me chamar que eu posso ajudar!",
+      "Tudo bem comigo, e contigo? Como está o seu dia?",
+      "Estou perfeito, valeu! E você, como está se sentindo?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+  
+  if (msg.includes('bem')) {
+    const respostas = [
+      "Que bom que você está bem! Se precisar de alguma coisa, estou aqui para te ajudar com o que você precisar. Como posso te ajudar hoje?",
+      "Ótimo saber que você está bem! Como posso te ajudar agora?",
+      "Fico feliz que você esteja bem! Precisa de algo hoje?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+  
+  if (msg.includes('oi tudo bem')) {
+    const respostas = [
+      "Oi! Tudo ótimo por aqui! E você, tudo bem? Se precisar de alguma coisa, estou aqui para ajudar e tirar todas as suas dúvidas.",
+      "Oi! Tudo bem comigo! E contigo, como está?",
+      "Oi! Tudo ótimo por aqui! E você, tudo bem hoje?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+  
+  if (msg.includes('olá tudo bem')) {
+    const respostas = [
+      "Olá! Tudo bem por aqui, espero que com você também! Caso precise de alguma ajuda ou tenha alguma dúvida, estou disponível para te auxiliar.",
+      "Olá! Tudo ótimo comigo! E contigo, tudo bem?",
+      "Olá! Tudo perfeito por aqui! E você, como está?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+  
+  if (msg.includes('e aí')) {
+    const respostas = [
+      "E aí! Tudo certo por aqui, e com você? Caso precise de alguma ajuda ou queira conversar sobre algo, estou à disposição para te atender.",
+      "E aí! Tudo bem comigo! E contigo, como está?",
+      "E aí! Tudo ótimo por aqui! Precisa de algo?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+  
+  if (msg.includes('oi oi')) {
+    const respostas = [
+      "Oi, oi! Como você está? Fico feliz em te ver por aqui, se precisar de alguma coisa ou tiver alguma dúvida, estarei por aqui para ajudar!",
+      "Oi, oi! Tudo bem contigo? Estou aqui pra ajudar!",
+      "Oi, oi! Como você está hoje? Se precisar, é só chamar!"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+  
+  if (msg.includes('como você está')) {
+    const respostas = [
+      "Estou bem, obrigado por perguntar! E você, como está? Caso queira conversar ou precise de alguma ajuda, estarei aqui à disposição para ajudar!",
+      "Tudo ótimo comigo, valeu! E você, como está?",
+      "Estou de boa, e você? Precisa de alguma coisa?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+  
+  if (msg.includes('tudo certo')) {
+    const respostas = [
+      "Tudo certo por aqui! E você, tudo certo? Se precisar de alguma coisa ou quiser conversar, estarei por aqui para ajudar no que for necessário.",
+      "Tudo ok comigo! E contigo, tudo certo?",
+      "Tudo perfeito por aqui! E você, como está?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+  
+  if (msg.includes('qual é a boa')) {
+    const respostas = [
+      "A boa é que estou aqui para te ajudar com o que você precisar! Caso queira saber mais sobre algo ou resolver alguma questão, posso te ajudar!",
+      "A boa é que o dia está ótimo! E contigo, qual é a boa?",
+      "A boa é estar aqui pra te ajudar! O que você precisa?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+  
+  if (msg.includes('e você')) {
+    const respostas = [
+      "Estou bem, obrigado! Como posso te ajudar hoje? Se precisar de alguma ajuda, tirar dúvidas ou resolver algo, estou à disposição para te ajudar!",
+      "Tudo ótimo comigo! E você, como está?",
+      "Estou de boa, valeu! E você, precisa de algo?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+  
+  if (msg.includes('tudo ok')) {
+    const respostas = [
+      "Tudo ok por aqui! E com você, tudo ok? Caso tenha alguma dúvida ou precise de ajuda, só avisar, estou pronto para ajudar!",
+      "Tudo bem comigo! E contigo, tudo ok?",
+      "Tudo perfeito por aqui! E você, está tudo ok?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+  
+  if (msg.includes('clima')) {
+    const respostas = [
+      "O clima está ótimo hoje! Está um dia perfeito para aproveitar ao ar livre. Você gosta de tempo ensolarado ou prefere um clima mais ameno?",
+      "O clima está uma delícia hoje! E você, curte esse tempo?",
+      "Clima perfeito por aqui! Você gosta de dias assim?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+  
+  if (msg.includes('tempo')) {
+    const respostas = [
+      "O tempo hoje está bastante agradável. Sem muitas nuvens, o sol brilha forte. Está gostando dessa mudança no clima ou preferia dias mais nublados?",
+      "O tempo está ótimo hoje! Você curte esse clima?",
+      "Tempo bom por aqui! Prefere sol ou um dia mais fresco?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+  
+  if (msg.includes('previsão do tempo')) {
+    const respostas = [
+      "A previsão do tempo para os próximos dias mostra que teremos dias ensolarados e quentes. Porém, é sempre bom ficar atento à possibilidade de chuvas esparsas. Você tem algum plano para os próximos dias?",
+      "A previsão diz sol e calor! Tem planos pro fim de semana?",
+      "Previsão de tempo bom pela frente! Você vai aproveitar?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+  
+  if (msg.includes('está frio')) {
+    const respostas = [
+      "Sim, está bem frio hoje! Melhor colocar aquele casaco ou uma blusa quente. Gosta de clima frio ou prefere algo mais quente?",
+      "Está friozinho, né? Você curte esse clima?",
+      "O frio chegou! Melhor se agasalhar. Gosta disso?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+  
+  if (msg.includes('está calor')) {
+    const respostas = [
+      "Está quente hoje, não é mesmo? Uma ótima oportunidade para ir à praia ou tomar um sorvete! Você prefere o calor ou o clima mais ameno?",
+      "Calor danado hoje! Gosta de dias assim?",
+      "Está quente pra caramba! Como você lida com isso?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+  
+  return "Não entendi direito, mas estou aqui pra ajudar! Como posso te ajudar hoje?";
+}
+
+// Teste da função
+console.log(responderMensagem("Oi tudo bem"));
+console.log(responderMensagem("Como está o dia"));
+console.log(responderMensagem("Clima"));function responderMensagem(msg) {
+  msg = msg.toLowerCase(); // Para ignorar maiúsculas/minúsculas
+
+  // Saudações básicas
+  if (msg.includes('como está o dia')) {
+    const respostas = [
+      "O dia está ótimo! Como está o seu?",
+      "O dia está lindo hoje! E o seu, como está?",
+      "Dia perfeito por aqui! Como está o seu?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+  
+  if (msg.includes('como vai você')) {
+    const respostas = [
+      "Estou bem, obrigado! Como vai você?",
+      "Tudo ótimo comigo! E você, como vai?",
+      "Estou de boa, valeu! Como você está?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+  
+  if (msg.includes('oi')) {
+    const respostas = [
+      "Oi! Que bom te ver por aqui! Como posso te ajudar hoje? Estou disponível para responder suas dúvidas ou te ajudar com qualquer outra coisa.",
+      "Oi! Tudo bem? Estou aqui pra ajudar com o que precisar!",
+      "Oi! Como você está hoje? Se precisar, é só me chamar!"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+  
+  if (msg.includes('olá')) {
+    const respostas = [
+      "Olá! Como vai? Se precisar de ajuda com algo ou quiser conversar sobre qualquer assunto, estou à disposição para bater um papo e tirar suas dúvidas.",
+      "Olá! Tudo ótimo por aqui! Como posso te ajudar?",
+      "Olá! Que bom te encontrar! Precisa de algo?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+  
+  if (msg.includes('tudo bem')) {
+    const respostas = [
+      "Sim, tudo ótimo por aqui! E você, como está? Espero que esteja tendo um ótimo dia. Como posso te ajudar hoje?",
+      "Tudo bem comigo! E contigo, como está?",
+      "Sim, tudo perfeito! E você, tudo bem?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  // Novas perguntas gerais
+  if (msg.includes('o que você acha')) {
+    const respostas = [
+      "Acho que depende do ponto de vista, mas estou curioso: o que você acha?",
+      "Hmm, eu diria que é uma questão interessante! Qual a sua opinião?",
+      "Penso que pode variar, mas me conta o que você acha disso!"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+  
+  if (msg.includes('qual sua opinião')) {
+    const respostas = [
+      "Minha opinião é que cada caso é um caso, mas qual a sua?",
+      "Eu diria que é algo a se pensar! O que você acha sobre isso?",
+      "Acho que depende bastante, mas me conta sua opinião!"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+  
+  if (msg.includes('o que fazer')) {
+    const respostas = [
+      "Depende do que você quer! Que tal me contar mais pra eu te ajudar?",
+      "Você pode tentar relaxar ou resolver algo legal! O que está pensando?",
+      "Hmm, o que você acha de começar com algo simples? Me diz mais!"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+  
+  if (msg.includes('estou cansado')) {
+    const respostas = [
+      "Poxa, descanso é sempre bom! Quer conversar pra relaxar um pouco?",
+      "Entendo, às vezes o dia pesa! Que tal tirar um tempo pra você?",
+      "Cansaço é osso, né? Quer uma dica pra relaxar ou só papear?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+  
+  if (msg.includes('estou feliz')) {
+    const respostas = [
+      "Que ótimo saber disso! O que te deixou feliz hoje?",
+      "Fico feliz por você! Quer compartilhar o motivo?",
+      "Alegria é contagiousa! Me conta mais sobre isso!"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  // Clima (mantendo alguns exemplos do original)
+  if (msg.includes('clima')) {
+    const respostas = [
+      "O clima está ótimo hoje! Está um dia perfeito para aproveitar ao ar livre. Você gosta de tempo ensolarado ou prefere um clima mais ameno?",
+      "Clima está uma delícia! Você curte dias assim?",
+      "O clima tá perfeito por aqui! E aí, gosta desse tempo?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+  
+  if (msg.includes('está frio')) {
+    const respostas = [
+      "Sim, está bem frio hoje! Melhor colocar aquele casaco ou uma blusa quente. Gosta de clima frio ou prefere algo mais quente?",
+      "Está friozinho, né? Você curte esse clima?",
+      "O frio chegou mesmo! Prefere se esquentar ou encarar?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+  
+  if (msg.includes('está calor')) {
+    const respostas = [
+      "Está quente hoje, não é mesmo? Uma ótima oportunidade para ir à praia ou tomar um sorvete! Você prefere o calor ou o clima mais ameno?",
+      "Calor danado hoje! Gosta de dias assim?",
+      "Está quente pra caramba! Como você lida com isso?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  // Modelo de cálculo básico
+  if (msg.includes('calcular') || msg.includes('quanto é')) {
+    // Extrair números e operação da mensagem (exemplo: "quanto é 5 + 3" ou "calcular 10 - 2")
+    const palavras = msg.split(' ');
+    let num1, num2, operacao;
+
+    for (let i = 0; i < palavras.length; i++) {
+      if (!isNaN(palavras[i])) {
+        if (!num1) num1 = parseFloat(palavras[i]);
+        else num2 = parseFloat(palavras[i]);
+      }
+      if (palavras[i] === '+' || palavras[i] === '-' || palavras[i] === '*' || palavras[i] === '/') {
+        operacao = palavras[i];
+      }
+    }
+
+    if (num1 !== undefined && num2 !== undefined && operacao) {
+      switch (operacao) {
+        case '+':
+          return `O resultado de ${num1} + ${num2} é ${num1 + num2}!`;
+        case '-':
+          return `O resultado de ${num1} - ${num2} é ${num1 - num2}!`;
+        case '*':
+          return `O resultado de ${num1} * ${num2} é ${num1 * num2}!`;
+        case '/':
+          return num2 === 0 
+            ? "Não dá pra dividir por zero, hein!" 
+            : `O resultado de ${num1} / ${num2} é ${num1 / num2}!`;
+        default:
+          return "Hmm, não entendi a operação. Pode mandar algo como 'quanto é 5 + 3'?";
+      }
+    }
+    return "Me manda os números e a operação, tipo 'calcular 5 + 3', que eu te ajudo!";
+  }
+
+  // Resposta padrão
+  return "Não entendi direito, mas estou aqui pra ajudar! Como posso te ajudar hoje?";
+}
+
+// Testes
+console.log(responderMensagem("Oi tudo bem"));
+console.log(responderMensagem("Está calor"));
+console.log(responderMensagem("Estou feliz"));
+console.log(responderMensagem("Quanto é 5 + 3"));
+console.log(responderMensagem("Calcular 10 - 4"));
+console.log(responderMensagem("Calcular 8 / 2"));
+console.log(responderMensagem("Quanto é 6 * 3"));function responderMensagem(msg) {
+  msg = msg.toLowerCase(); // Para ignorar maiúsculas/minúsculas
+
+  // Saudações básicas (mantendo algumas do seu modelo)
+  if (msg.includes('oi')) {
+    const respostas = [
+      "Oi! Que bom te ver por aqui! Como posso te ajudar hoje? Estou disponível para responder suas dúvidas ou te ajudar com qualquer outra coisa.",
+      "Oi! Tudo bem contigo? Estou aqui pra ajudar, inclusive com cálculos!",
+      "Oi! Como você está? Se precisar de algo ou de uma conta rápida, é só me chamar!"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+  
+  if (msg.includes('tudo bem')) {
+    const respostas = [
+      "Sim, tudo ótimo por aqui! E você, como está? Espero que esteja tendo um ótimo dia. Como posso te ajudar hoje?",
+      "Tudo bem comigo! E contigo? Quer fazer algum cálculo ou conversar?",
+      "Sim, tudo perfeito! E você, tudo bem? Posso te ajudar com alguma conta!"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+  
+  if (msg.includes('como está o dia')) {
+    const respostas = [
+      "O dia está ótimo! Como está o seu?",
+      "O dia está lindo hoje! E o seu, como está indo?",
+      "Dia perfeito por aqui! Como está o seu? Quer calcular algo?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  // Calculadora adaptada
+  if (msg.includes('calcular') || msg.includes('quanto é') || msg.includes('conta')) {
+    const palavras = msg.split(' ');
+    let num1, num2, operacao;
+
+    // Extrair números e operação
+    for (let i = 0; i < palavras.length; i++) {
+      if (!isNaN(palavras[i])) {
+        if (!num1) num1 = parseFloat(palavras[i]);
+        else num2 = parseFloat(palavras[i]);
+      }
+      if (['+', '-', '*', '/', '^', '%'].includes(palavras[i])) {
+        operacao = palavras[i];
+      }
+    }
+
+    if (num1 !== undefined && num2 !== undefined && operacao) {
+      switch (operacao) {
+        case '+': {
+          const respostas = [
+            `A soma de ${num1} + ${num2} é ${num1 + num2}!`,
+            `Somando ${num1} e ${num2}, dá ${num1 + num2}!`,
+            `O resultado de ${num1} + ${num2} é ${num1 + num2}, bem fácil!`
+          ];
+          return respostas[Math.floor(Math.random() * respostas.length)];
+        }
+        case '-': {
+          const respostas = [
+            `A subtração de ${num1} - ${num2} é ${num1 - num2}!`,
+            `${num1} menos ${num2} dá ${num1 - num2}!`,
+            `O resultado de ${num1} - ${num2} é ${num1 - num2}, tranquilo!`
+          ];
+          return respostas[Math.floor(Math.random() * respostas.length)];
+        }
+        case '*': {
+          const respostas = [
+            `A multiplicação de ${num1} * ${num2} é ${num1 * num2}!`,
+            `${num1} vezes ${num2} dá ${num1 * num2}!`,
+            `O resultado de ${num1} * ${num2} é ${num1 * num2}, rapidinho!`
+          ];
+          return respostas[Math.floor(Math.random() * respostas.length)];
+        }
+        case '/': {
+          if (num2 === 0) {
+            const respostas = [
+              "Não dá pra dividir por zero, hein! Tenta outra conta!",
+              "Divisão por zero? Isso não rola! Que tal outra operação?",
+              "Zero no denominador não funciona! Me dá outra conta pra calcular!"
+            ];
+            return respostas[Math.floor(Math.random() * respostas.length)];
+          }
+          const respostas = [
+            `A divisão de ${num1} / ${num2} é ${num1 / num2}!`,
+            `${num1} dividido por ${num2} dá ${num1 / num2}!`,
+            `O resultado de ${num1} / ${num2} é ${num1 / num2}, simples assim!`
+          ];
+          return respostas[Math.floor(Math.random() * respostas.length)];
+        }
+        case '^': {
+          const respostas = [
+            `${num1} elevado a ${num2} é ${Math.pow(num1, num2)}!`,
+            `A potência de ${num1} por ${num2} dá ${Math.pow(num1, num2)}!`,
+            `O resultado de ${num1} ^ ${num2} é ${Math.pow(num1, num2)}, olha só!`
+          ];
+          return respostas[Math.floor(Math.random() * respostas.length)];
+        }
+        case '%': {
+          const resultado = (num1 * num2) / 100;
+          const respostas = [
+            `${num2}% de ${num1} é ${resultado}!`,
+            `Calculando ${num2}% de ${num1}, dá ${resultado}!`,
+            `O resultado de ${num2}% de ${num1} é ${resultado}, fácil!`
+          ];
+          return respostas[Math.floor(Math.random() * respostas.length)];
+        }
+        default:
+          return "Hmm, não entendi a operação. Tenta algo como 'calcular 5 + 3' ou 'quanto é 10 * 2'!";
+      }
+    }
+    const respostas = [
+      "Me manda os números e a operação, tipo 'calcular 5 + 3', que eu resolvo!",
+      "Faltou algo na conta! Tenta 'quanto é 10 - 2' pra eu te ajudar!",
+      "Quero calcular pra você! Me diz tipo 'conta 4 * 5' que eu faço!"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  // Resposta padrão
+  const respostasPadrao = [
+    "Não entendi direito, mas estou aqui pra ajudar! Como posso te ajudar hoje?",
+    "Hmm, isso eu não sei responder, mas posso ajudar com contas ou conversar! O que você quer?",
+    "Parece que não peguei essa, mas estou pronto pra ajudar! Quer calcular algo ou papear?"
+  ];
+  return respostasPadrao[Math.floor(Math.random() * respostasPadrao.length)];
+}
+function responderMensagem(msg) {
+  msg = msg.toLowerCase(); // Para ignorar maiúsculas/minúsculas
+
+  // Saudações básicas (mantendo do seu modelo)
+  if (msg.includes('oi')) {
+    const respostas = [
+      "Oi! Que bom te ver por aqui! Como posso te ajudar hoje? Estou disponível para responder suas dúvidas ou te ajudar com qualquer outra coisa.",
+      "Oi! Tudo bem contigo? Estou aqui pra ajudar, inclusive com biologia!",
+      "Oi! Como você está? Se precisar de algo ou quiser saber sobre biologia, é só me chamar!"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  // 50 perguntas de biologia
+  if (msg.includes('o que é célula')) {
+    const respostas = [
+      "A célula é a unidade básica da vida! Tudo que é vivo tem células. Quer saber mais?",
+      "Célula é tipo o tijolo da vida, sabe? Todos os seres vivos são feitos delas!",
+      "É a menor unidade viva dos organismos! Curioso sobre como ela funciona?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é dna')) {
+    const respostas = [
+      "DNA é o material genético que carrega nossas instruções hereditárias! Incrível, né?",
+      "É o ácido desoxirribonucleico, basicamente o manual da vida! Quer saber mais?",
+      "DNA guarda todas as informações pra gente existir. Curte genética?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é mitose')) {
+    const respostas = [
+      "Mitose é o processo de divisão celular pra formar duas células iguais! Essencial pro crescimento!",
+      "É quando uma célula se divide em duas idênticas. Já ouviu falar de meiose?",
+      "Mitose é tipo a fotocópia da célula pra crescer ou reparar tecidos!"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é meiose')) {
+    const respostas = [
+      "Meiose é a divisão celular que cria gametas, como óvulos e espermatozoides!",
+      "É o processo pra formar células sexuais com metade dos cromossomos! Legal, né?",
+      "Meiose faz células reprodutivas. Quer saber como ela difere da mitose?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é fotossíntese')) {
+    const respostas = [
+      "Fotossíntese é como as plantas fazem comida usando luz solar, água e CO2!",
+      "É o processo que as plantas usam pra transformar luz em energia! Incrível, né?",
+      "Plantas pegam luz do sol e fazem glicose com isso. Quer saber mais detalhes?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é respiração celular')) {
+    const respostas = [
+      "Respiração celular é como as células transformam glicose em energia! Usa oxigênio!",
+      "É o processo que gera energia pras células usando comida e O2. Curioso?",
+      "Transforma nutrientes em ATP, a energia da célula! Quer mais detalhes?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é evolução')) {
+    const respostas = [
+      "Evolução é como as espécies mudam ao longo do tempo por seleção natural!",
+      "É o processo que explica a diversidade da vida. Darwin curtia isso!",
+      "Evolução é a adaptação dos seres vivos ao ambiente. Quer saber mais?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é seleção natural')) {
+    const respostas = [
+      "Seleção natural é quando os mais adaptados sobrevivem e passam seus genes!",
+      "É o mecanismo da evolução: quem se dá bem no ambiente segue em frente!",
+      "Os mais fortes ou adaptados sobrevivem. Quer exemplos disso?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é ecossistema')) {
+    const respostas = [
+      "Ecossistema é um lugar onde seres vivos interagem com o ambiente!",
+      "É tipo uma comunidade de organismos e tudo ao redor deles. Legal, né?",
+      "Ecossistema é a relação entre bichos, plantas e o meio. Curte ecologia?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é cadeia alimentar')) {
+    const respostas = [
+      "Cadeia alimentar mostra quem come quem na natureza! Começa com produtores!",
+      "É a sequência de alimentação: planta, herbívoro, predador. Simples, né?",
+      "Mostra como a energia passa de um ser vivo pro outro. Quer exemplos?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é um vírus')) {
+    const respostas = [
+      "Vírus é um agente minúsculo que infecta células pra se multiplicar!",
+      "Não é bem vivo fora de um hospedeiro, mas causa doenças. Curioso?",
+      "Vírus é um parasita microscópico que precisa de células pra viver!"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é bactéria')) {
+    const respostas = [
+      "Bactéria é um organismo unicelular que pode ser bom ou ruim pra gente!",
+      "São seres microscópicos, alguns ajudam, outros causam doença!",
+      "Bactérias são células simples, sem núcleo organizado. Quer saber mais?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é sistema nervoso')) {
+    const respostas = [
+      "Sistema nervoso controla tudo no corpo com cérebro, nervos e medula!",
+      "É como o chefe do corpo, manda sinais pra tudo funcionar. Incrível, né?",
+      "Comanda pensamentos, movimentos e sentidos. Quer detalhes?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é coração')) {
+    const respostas = [
+      "Coração é o músculo que bombeia sangue pro corpo todo! Vital!",
+      "É o motor do sistema circulatório, batendo sem parar. Curioso?",
+      "Coração mantém o sangue circulando. Quer saber como ele funciona?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é pulmão')) {
+    const respostas = [
+      "Pulmão é onde respiramos, pega oxigênio e solta CO2!",
+      "São os órgãos da respiração, trocam gases pra gente viver!",
+      "Pulmões nos mantêm vivos com cada respiração. Quer mais detalhes?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é sangue')) {
+    const respostas = [
+      "Sangue leva oxigênio e nutrientes pras células e tira o lixo!",
+      "É o líquido da vida, com células vermelhas, brancas e plasma!",
+      "Sangue circula pelo corpo todo, essencial pra tudo. Curioso?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é gene')) {
+    const respostas = [
+      "Gene é um pedaço de DNA que define características, como cor dos olhos!",
+      "É a unidade da hereditariedade, passa de pais pra filhos!",
+      "Genes são instruções genéticas no nosso DNA. Quer saber mais?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é mutação')) {
+    const respostas = [
+      "Mutação é uma mudança no DNA que pode alterar características!",
+      "É um erro no código genético, às vezes bom, às vezes ruim!",
+      "Mutações mexem no DNA e podem levar à evolução. Curioso?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é clonagem')) {
+    const respostas = [
+      "Clonagem é fazer uma cópia idêntica de um organismo ou célula!",
+      "É tipo duplicar geneticamente algo, como a ovelha Dolly!",
+      "Clonagem cria seres com o mesmo DNA. Quer saber como fazem?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é enzima')) {
+    const respostas = [
+      "Enzima é uma proteína que acelera reações químicas no corpo!",
+      "São como ajudantes que fazem processos vitais acontecerem rápido!",
+      "Enzimas catalisam reações, tipo digestão. Curte bioquímica?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é hormônio')) {
+    const respostas = [
+      "Hormônio é um mensageiro químico que regula funções do corpo!",
+      "São substâncias que controlam coisas como crescimento e humor!",
+      "Hormônios viajam pelo sangue pra dar ordens. Quer exemplos?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é tecido')) {
+    const respostas = [
+      "Tecido é um grupo de células que trabalha junto, como músculo ou pele!",
+      "São conjuntos de células com funções específicas no corpo!",
+      "Tecidos formam órgãos, tipo o tecido nervoso. Curioso?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é órgano')) {
+    const respostas = [
+      "Órgão é uma estrutura de tecidos que faz um trabalho, como o fígado!",
+      "São partes do corpo com funções específicas, tipo o coração!",
+      "Órgãos são formados por tecidos pra tarefas vitais. Quer saber mais?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é biologia')) {
+    const respostas = [
+      "Biologia é a ciência que estuda a vida e os seres vivos!",
+      "É tudo sobre como a vida funciona, de bactérias a baleias!",
+      "Biologia explora os mistérios dos organismos. Curte o tema?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é parasita')) {
+    const respostas = [
+      "Parasita é um organismo que vive às custas de outro, como um verme!",
+      "São seres que se beneficiam prejudicando o hospedeiro. Sinistro, né?",
+      "Parasitas roubam nutrientes de outros pra sobreviver. Quer exemplos?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é simbiose')) {
+    const respostas = [
+      "Simbiose é quando dois organismos vivem juntos e se ajudam!",
+      "É uma relação de ganha-ganha na natureza, tipo abelhas e flores!",
+      "Simbiose beneficia ambas as partes. Quer saber mais tipos?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  // ... (continua até 50, mas vou listar mais 25 pra chegar a 50)
+
+  if (msg.includes('o que é planta')) {
+    const respostas = [
+      "Planta é um ser vivo que faz fotossíntese e tem parede celular!",
+      "São organismos que produzem oxigênio pra gente respirar!",
+      "Plantas são a base da vida na Terra. Curte botânica?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é animal')) {
+    const respostas = [
+      "Animal é um ser vivo que se move e come outros organismos!",
+      "São organismos multicelulares que não fazem fotossíntese!",
+      "Animais são super diversos, de insetos a elefantes. Quer exemplos?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é fungo')) {
+    const respostas = [
+      "Fungo é um organismo que se alimenta decompondo matéria, como cogumelos!",
+      "Não fazem fotossíntese, vivem de restos orgânicos!",
+      "Fungos são tipo recicladores da natureza. Curioso?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é reino animal')) {
+    const respostas = [
+      "Reino Animal é o grupo de todos os animais, com várias espécies!",
+      "Inclui tudo que se move e come, como nós humanos!",
+      "Reino Animal é cheio de diversidade. Quer saber mais?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é reino vegetal')) {
+    const respostas = [
+      "Reino Vegetal é o grupo das plantas, que fazem fotossíntese!",
+      "São os produtores da natureza, como árvores e flores!",
+      "Reino Vegetal sustenta a vida com oxigênio. Curte plantas?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é protozoário')) {
+    const respostas = [
+      "Protozoário é um ser unicelular que vive em água ou como parasita!",
+      "São microorganismos que se movem, tipo a ameba!",
+      "Protozoários são seres simples, mas fascinantes. Quer saber mais?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é homeostase')) {
+    const respostas = [
+      "Homeostase é o equilíbrio que o corpo mantém pra funcionar bem!",
+      "É como o corpo se regula, tipo temperatura e açúcar no sangue!",
+      "Homeostase mantém a gente vivos e estáveis. Curioso?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é metabolismo')) {
+    const respostas = [
+      "Metabolismo é o conjunto de reações químicas que mantém a vida!",
+      "É como o corpo usa energia dos alimentos. Incrível, né?",
+      "Metabolismo transforma comida em energia. Quer detalhes?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é osmosis')) {
+    const respostas = [
+      "Osmose é a passagem de água por uma membrana pra equilibrar!",
+      "É como a água se move nas células pra manter tudo certinho!",
+      "Osmose ajuda as células a ficarem hidratadas. Curioso?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é difusão')) {
+    const respostas = [
+      "Difusão é quando moléculas se espalham do mais pro menos concentrado!",
+      "É um movimento natural, tipo perfume se espalhando no ar!",
+      "Difusão ajuda a distribuir coisas nas células. Quer saber mais?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é ribossomo')) {
+    const respostas = [
+      "Ribossomo é onde as células fazem proteínas a partir do RNA!",
+      "São como fábricas de proteína nas células. Incrível, né?",
+      "Ribossomos leem o RNA pra construir proteínas. Curte isso?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é mitocôndria')) {
+    const respostas = [
+      "Mitocôndria é a usina de energia da célula, produz ATP!",
+      "É onde a respiração celular acontece. Essencial pra vida!",
+      "Mitocôndrias são o motor das células. Quer saber mais?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é cloroplasto')) {
+    const respostas = [
+      "Cloroplasto é onde acontece a fotossíntese nas plantas!",
+      "É o organelo verde que usa luz pra fazer comida!",
+      "Cloroplastos dão cor às plantas e energia. Curioso?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é núcleo celular')) {
+    const respostas = [
+      "Núcleo é o centro de comando da célula, guarda o DNA!",
+      "É como o cérebro da célula, controla tudo!",
+      "Núcleo celular é onde tá o código genético. Quer detalhes?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é membrana celular')) {
+    const respostas = [
+      "Membrana celular é a barreira que protege e regula a célula!",
+      "É tipo a pele da célula, deixa entrar e sair o que precisa!",
+      "Membrana controla o tráfego da célula. Curioso?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é vacuolo')) {
+    const respostas = [
+      "Vacúolo é um espaço na célula que armazena água e nutrientes!",
+      "Nas plantas, ajuda a manter a forma e pressão. Legal, né?",
+      "Vacúolos são tipo depósitos celulares. Quer saber mais?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é citoplasma')) {
+    const respostas = [
+      "Citoplasma é o líquido dentro da célula onde tudo acontece!",
+      "É o recheio da célula, com organelas e substâncias!",
+      "Citoplasma é типа o ambiente interno da célula. Curioso?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é cromossomo')) {
+    const respostas = [
+      "Cromossomo é a estrutura que carrega os genes no núcleo!",
+      "São feitos de DNA enrolado, definem quem somos!",
+      "Cromossomos guardam nosso código genético. Quer mais?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é alelo')) {
+    const respostas = [
+      "Alelo é uma versão de um gene, como altura alta ou baixa!",
+      "São variações genéticas que herdamos. Interessante, né?",
+      "Alelos definem traços diferentes. Quer exemplos?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é fenótipo')) {
+    const respostas = [
+      "Fenótipo é o que a gente vê, como cor dos olhos ou cabelo!",
+      "É o resultado dos genes e do ambiente juntos!",
+      "Fenótipo são as características visíveis. Curioso?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é genótipo')) {
+    const respostas = [
+      "Genótipo é o conjunto de genes que a gente tem no DNA!",
+      "É o código genético por trás do fenótipo. Legal, né?",
+      "Genótipo é a base genética do que somos. Quer saber mais?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  // Resposta padrão
+  const respostasPadrao = [
+    "Não entendi direito, mas estou aqui pra ajudar! Quer perguntar algo de biologia?",
+    "Hmm, essa eu não sei, mas posso te ajudar com biologia! O que quer saber?",
+    "Não peguei essa, mas adoro biologia! Me manda uma dúvida que eu te ajudo!"
+  ];
+  return respostasPadrao[Math.floor(Math.random() * respostasPadrao.length)];
+}
+
+// Testes
+console.log(responderMensagem("Oi"));
+console.log(responderMensagem("O que é célula"));
+console.log(responderMensagem("O que é DNA"));
+console.log(responderMensagem("O que é fotossíntese"));
+console.log(responderMensagem("O que é mitocôndria"));function responderMensagem(msg) {
+  msg = msg.toLowerCase(); // Para ignorar maiúsculas/minúsculas
+
+  // Saudações básicas adaptadas ao tema
+  if (msg.includes('oi')) {
+    const respostas = [
+      "Oi! Bem-vindo ao espaço dos Lanternas Verdes! Como posso te ajudar hoje?",
+      "Oi! Tudo bem? Estou pronto pra explorar o cosmos contigo!",
+      "Oi! Que tal uma viagem espacial com o poder do anel? O que você quer saber?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('tudo bem')) {
+    const respostas = [
+      "Tudo ótimo aqui no Setor 2814! E contigo? Quer falar sobre os Lanternas?",
+      "Sim, tudo bem no espaço! E contigo? Vamos explorar o universo juntos?",
+      "Tudo perfeito na órbita de Oa! Como posso te ajudar com os Lanternas?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  // 50 perguntas sobre Lanternas Verdes e exploração espacial
+  if (msg.includes('quem são os lanternas verdes')) {
+    const respostas = [
+      "Os Lanternas Verdes são uma força policial intergaláctica que protege o universo com anéis de poder!",
+      "São heróis escolhidos pelos anéis pra patrulhar o espaço, como Hal Jordan e John Stewart!",
+      "Uma equipe cósmica que explora e defende os 3600 setores do universo. Quer saber mais?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é o anel de poder')) {
+    const respostas = [
+      "O anel de poder é uma arma alimentada por vontade, criada pelos Guardiões do Universo!",
+      "É um dispositivo que transforma pensamentos em constructs verdes pra explorar o espaço!",
+      "O anel dá poderes incríveis, como voar pelo cosmos e criar qualquer coisa. Curioso?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('quem criou os lanternas verdes')) {
+    const respostas = [
+      "Os Guardiões do Universo criaram o Corpo dos Lanternas Verdes pra manter a paz no espaço!",
+      "Foram os Guardiões, seres de Oa, que fizeram os anéis pra explorar e proteger o cosmos!",
+      "Os Guardiões de Oa são os fundadores, usando energia verde pra patrulhar o universo!"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é oa')) {
+    const respostas = [
+      "Oa é o planeta central do universo, base dos Lanternas Verdes e dos Guardiões!",
+      "É o quartel-general no coração do cosmos onde os anéis são forjados!",
+      "Oa é o hub espacial dos Lanternas, no centro dos 3600 setores. Quer visitar?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('quem é hal jordan')) {
+    const respostas = [
+      "Hal Jordan é o primeiro Lanterna Verde humano, um piloto que explora o Setor 2814!",
+      "Ele é um herói destemido que usa o anel pra viajar pelo espaço e lutar contra o mal!",
+      "Hal é o Lanterna mais famoso da Terra, enfrentando perigos cósmicos. Curte ele?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('quem é john stewart')) {
+    const respostas = [
+      "John Stewart é um Lanterna Verde arquiteto que protege o espaço e a Terra!",
+      "Ele é um humano valente, parceiro de Hal no Setor 2814. Gosta dele?",
+      "John explora o cosmos com seu anel, sendo um líder dos Lanternas!"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é um setor espacial')) {
+    const respostas = [
+      "Um setor espacial é uma divisão do universo patrulhada por dois Lanternas Verdes!",
+      "São 3600 setores no cosmos, cada um com seus desafios. O da Terra é o 2814!",
+      "Setores são áreas do espaço que os Lanternas exploram e defendem. Quer saber mais?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('como os lanternas voam no espaço')) {
+    const respostas = [
+      "Os anéis de poder criam campos de força e propulsionam os Lanternas pelo vácuo!",
+      "Com vontade, o anel os faz voar mais rápido que a luz entre planetas!",
+      "Eles usam o anel pra navegar o espaço como astronautas cósmicos. Incrível, né?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é a bateria central')) {
+    const respostas = [
+      "A Bateria Central em Oa é a fonte de energia verde que carrega todos os anéis!",
+      "É um reator gigante que dá poder aos Lanternas pra explorar o universo!",
+      "A Bateria canaliza a energia da vontade pra missões espaciais. Quer detalhes?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('quem é abin sur')) {
+    const respostas = [
+      "Abin Sur foi o Lanterna Verde que deu seu anel a Hal Jordan ao morrer na Terra!",
+      "Ele era um explorador espacial de Ungara, herói do Setor 2814!",
+      "Abin Sur caiu na Terra e escolheu Hal como sucessor. Triste, mas épico!"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é exploração espacial pros lanternas')) {
+    const respostas = [
+      "Exploração espacial pros Lanternas é patrulhar setores e conhecer novos mundos!",
+      "É usar o anel pra viajar entre estrelas e manter a paz no universo!",
+      "Significa descobrir planetas e enfrentar ameaças cósmicas. Curte a ideia?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('quem é sinestro')) {
+    const respostas = [
+      "Sinestro era um Lanterna Verde que virou vilão, usando um anel amarelo de medo!",
+      "Ele é o arqui-inimigo de Hal, explorando o espaço com seu próprio Corpo!",
+      "Sinestro traiu os Lanternas e agora ameaça o cosmos. Quer saber mais?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é o corpo de lanternas verdes')) {
+    const respostas = [
+      "O Corpo dos Lanternas Verdes é uma força de mais de 7200 membros pelo universo!",
+      "São os guardiões do espaço, escolhidos pelos anéis pra proteger os setores!",
+      "É uma equipe intergaláctica que explora e defende o cosmos. Incrível, né?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('como lanternas respiram no espaço')) {
+    const respostas = [
+      "O anel cria um campo com oxigênio pra eles respirarem no vácuo espacial!",
+      "Com o poder do anel, eles têm ar e proteção no espaço profundo!",
+      "O anel fornece tudo que precisam pra sobreviver entre as estrelas!"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é parallax')) {
+    const respostas = [
+      "Parallax é uma entidade do medo que já possuiu Hal Jordan e destruiu Lanternas!",
+      "É o inimigo cósmico que usa o poder amarelo contra o verde. Assustador!",
+      "Parallax é um monstro espacial que ameaça o universo. Quer detalhes?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('quem é kyle rayner')) {
+    const respostas = [
+      "Kyle Rayner é um Lanterna Verde artista que explorou o cosmos após Hal!",
+      "Ele foi o único Lanterna por um tempo, viajando pelo espaço com criatividade!",
+      "Kyle usa o anel de maneira única, enfrentando perigos espaciais. Gosta dele?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('quem é guy gardner')) {
+    const respostas = [
+      "Guy Gardner é um Lanterna Verde briguento que patrulha o espaço com atitude!",
+      "Ele é um herói da Terra, rival de Hal, explorando o Setor 2814!",
+      "Guy é durão e usa o anel pra missões cósmicas. Curte o estilo dele?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é a guarda de honra')) {
+    const respostas = [
+      "A Guarda de Honra é um grupo de elite dos Lanternas sem setor fixo!",
+      "São Lanternas que ajudam em qualquer parte do cosmos, como Kyle e Guy!",
+      "Eles exploram o universo livremente, apoiando outros Lanternas!"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('quem é kilowog')) {
+    const respostas = [
+      "Kilowog é o Lanterna instrutor que treina novatos em Oa!",
+      "Ele é um gigante forte que explora o espaço e ensina os Lanternas!",
+      "Kilowog vem de Bolovax Vik e é essencial pro Corpo. Curioso?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é mogo')) {
+    const respostas = [
+      "Mogo é um planeta vivo que também é um Lanterna Verde!",
+      "Ele explora o espaço como um mundo consciente, ajudando o Corpo!",
+      "Mogo é único: um Lanterna que é um planeta inteiro. Fascinante, né?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é o juramento dos lanternas')) {
+    const respostas = [
+      "O juramento é o lema dos Lanternas: 'No dia mais claro, na noite mais densa...'!",
+      "É o que dizem ao carregar o anel, prometendo proteger o cosmos!",
+      "Um誓言 que guia os Lanternas em suas missões espaciais. Quer recitar?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('como lanternas viajam mais rápido que a luz')) {
+    const respostas = [
+      "Os anéis criam túneis de energia verde pra superar a velocidade da luz!",
+      "Com vontade, eles dobram o espaço pra cruzar o universo rapidinho!",
+      "O anel os propeliu além da luz pras missões cósmicas. Incrível, né?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é o setor 2814')) {
+    const respostas = [
+      "Setor 2814 é a região espacial que inclui a Terra, patrulhada por Hal e John!",
+      "É o nosso setor no universo, cheio de aventuras dos Lanternas!",
+      "Inclui o Sistema Solar e é protegido pelos Lanternas da Terra!"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('quem é jessica cruz')) {
+    const respostas = [
+      "Jessica Cruz é uma Lanterna Verde que superou o medo pra explorar o espaço!",
+      "Ela é uma heroína da Terra que patrulha o Setor 2814 com Simon!",
+      "Jessica usa o anel com coragem, enfrentando perigos cósmicos!"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('quem é simon baz')) {
+    const respostas = [
+      "Simon Baz é um Lanterna Verde da Terra que explora o espaço com Jessica!",
+      "Ele ganhou o anel em um momento difícil e protege o Setor 2814!",
+      "Simon é um herói moderno que usa o anel pelo cosmos. Gosta dele?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é a noite mais densa')) {
+    const respostas = [
+      "A Noite Mais Densa é uma profecia de caos com Lanternas Negros no universo!",
+      "Foi um evento cósmico onde os mortos voltaram pra lutar. Sinistro!",
+      "Uma crise espacial que testou todos os Lanternas. Quer detalhes?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que são lanternas negros')) {
+    const respostas = [
+      "Lanternas Negros são mortos-vivos com anéis de morte, inimigos dos Verdes!",
+      "Eles exploram o cosmos trazendo destruição na Noite Mais Densa!",
+      "São o oposto da vida, caçando Lanternas pelo universo!"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é o espectro emocional')) {
+    const respostas = [
+      "O Espectro Emocional é as sete cores de energia que movem o universo!",
+      "Inclui verde da vontade, amarelo do medo, e mais, cada um com um Corpo!",
+      "São emoções que os Lanternas exploram no espaço. Quer saber todas?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('quem é atrocitus')) {
+    const respostas = [
+      "Atrocitus é o líder dos Lanternas Vermelhos, movido por raiva no cosmos!",
+      "Ele explora o espaço com ódio, inimigo dos Lanternas Verdes!",
+      "Criou o Corpo Vermelho pra vingar seu setor destruído. Sinistro!"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que são lanternas amarelos')) {
+    const respostas = [
+      "Lanternas Amarelos usam o poder do medo, liderados por Sinestro no espaço!",
+      "São rivais dos Verdes, explorando o cosmos com anéis amarelos!",
+      "O Corpo do Medo quer dominar o universo. Quer saber mais?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('quem é larfleeze')) {
+    const respostas = [
+      "Larfleeze é o único Lanterna Laranja, obcecado por ganância no espaço!",
+      "Ele explora o cosmos sozinho, guardando tudo com seu anel!",
+      "Larfleeze é o mestre da avareza, um Lanterna único. Curioso?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que são lanternas azuis')) {
+    const respostas = [
+      "Lanternas Azuis usam a esperança pra apoiar os Verdes no espaço!",
+      "São aliados que exploram o cosmos com anéis de energia azul!",
+      "O Corpo da Esperança ajuda em missões cósmicas. Gosta deles?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('quem é saint walker')) {
+    const respostas = [
+      "Saint Walker é o primeiro Lanterna Azul, trazendo esperança pelo universo!",
+      "Ele explora o espaço com fé, ajudando os Lanternas Verdes!",
+      "Walker é um pacifista cósmico com um anel azul. Curte ele?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é energia verde')) {
+    const respostas = [
+      "Energia verde é o poder da vontade, usado pelos Lanternas no espaço!",
+      "Vem da Bateria Central em Oa pra explorar e proteger o cosmos!",
+      "É a força que move os anéis dos Lanternas Verdes. Incrível, né?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é kryptonite verde')) {
+    const respostas = [
+      "Kryptonite verde não tem a ver com Lanternas, mas enfraquece kryptonianos!",
+      "É uma pedra espacial que afeta o Superman, não os anéis verdes!",
+      "Diferente da energia verde, kryptonite é um perigo pro Homem de Aço!"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('quem é alan scott')) {
+    const respostas = [
+      "Alan Scott é o primeiro Lanterna Verde da Terra, mas com um anel místico!",
+      "Ele não explora o espaço como os outros, focado na Terra!",
+      "Alan usa o poder do Coração Estelar, diferente do Corpo. Curioso?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é o coração estelar')) {
+    const respostas = [
+      "O Coração Estelar é a fonte mística do anel de Alan Scott, não espacial!",
+      "É uma energia verde mágica, diferente da usada no Corpo dos Lanternas!",
+      "Dá poderes a Alan sem conexão com Oa. Quer saber mais?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('quem é sojourner mullein')) {
+    const respostas = [
+      "Sojourner 'Jo' Mullein é uma Lanterna Verde explorando setores distantes!",
+      "Ela patrulha sozinha um planeta remoto com um anel especial!",
+      "Jo é uma heroína única no espaço longínquo. Gosta dela?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é o setor fantasma')) {
+    const respostas = [
+      "O Setor Fantasma é uma região misteriosa que os Lanternas exploram!",
+      "Foi perdido no espaço, cheio de segredos e desafios cósmicos!",
+      " Lanternas como Kyle já viajaram lá. Quer saber mais?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('quem é ch’p')) {
+    const respostas = [
+      "Ch’p é um Lanterna Verde esquilo que explora o espaço com coragem!",
+      "Ele vem de H’lven e patrulha seu setor com um anel pequeno!",
+      "Ch’p é um herói adorável no cosmos. Curte ele?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é o tempo dos lanternas')) {
+    const respostas = [
+      "O Tempo dos Lanternas é uma era de exploração e batalhas cósmicas!",
+      "Refere-se às aventuras dos Lanternas pelo universo ao longo dos anos!",
+      "É o legado de patrulhar o espaço com os anéis. Quer detalhes?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('quem é tomat-re')) {
+    const respostas = [
+      "Tomar-Re foi o Lanterna do Setor 2813, que incluía Krypton!",
+      "Ele tentou salvar Krypton, mas falhou antes de explorar mais o cosmos!",
+      "Tomar-Re é um herói trágico do espaço. Quer saber mais?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é a guerra dos lanternas')) {
+    const respostas = [
+      "A Guerra dos Lanternas foi um conflito cósmico entre os Corpos coloridos!",
+      "Envolveu todos os espectros emocionais lutando pelo universo!",
+      "Foi uma batalha espacial épica dos Lanternas. Curioso?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('quem é salaak')) {
+    const respostas = [
+      "Salaak é um Lanterna Verde administrador em Oa, gerindo o Corpo!",
+      "Ele explora pouco, mas organiza as missões espaciais dos Lanternas!",
+      "Salaak é o cérebro por trás das operações cósmicas. Gosta dele?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é o protocolo de oa')) {
+    const respostas = [
+      "O Protocolo de Oa são as regras que guiam os Lanternas no espaço!",
+      "São ordens dos Guardiões pra manter a ordem no universo!",
+      "Regem como os Lanternas patrulham os setores. Quer detalhes?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('quem é rot lop fan')) {
+    const respostas = [
+      "Rot Lop Fan é um Lanterna cego que usa som em vez de luz no espaço!",
+      "Ele explora o cosmos com um anel adaptado pra sua espécie!",
+      "Rot é o ‘Lanterna Sino’, único no Corpo. Curioso?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é o espaço profundo pros lanternas')) {
+    const respostas = [
+      "Espaço profundo é onde os Lanternas enfrentam os maiores desafios!",
+      "São as regiões mais escuras e distantes que eles exploram!",
+      "É o desconhecido do universo que os anéis iluminam. Gosta disso?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('quem é katma tui')) {
+    const respostas = [
+      "Katma Tui é uma Lanterna Verde de Korugar que explorou o espaço!",
+      "Ela foi mentora de John Stewart e lutou por justiça no cosmos!",
+      "Katma é uma heroína trágica do Corpo. Quer saber mais?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é a fronteira espacial')) {
+    const respostas = [
+      "A Fronteira Espacial é a borda dos setores conhecidos pelos Lanternas!",
+      "É onde eles exploram o desconhecido e enfrentam perigos novos!",
+      "Uma região selvagem do cosmos pra aventuras. Curte?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  // Resposta padrão
+  const respostasPadrao = [
+    "Não entendi, mas estou pronto pra falar de Lanternas e espaço! O que quer saber?",
+    "Hmm, essa eu não peguei, mas posso te ajudar com os Lanternas Verdes! Pergunta aí!",
+    "Não sei essa, mas o universo dos Lanternas é vasto! Me dá uma dúvida cósmica!"
+  ];
+  return respostasPadrao[Math.floor(Math.random() * respostasPadrao.length)];
+}
+function responderMensagem(msg) {
+  msg = msg.toLowerCase(); // Para ignorar maiúsculas/minúsculas
+
+  // Saudações básicas adaptadas ao tema
+  if (msg.includes('oi')) {
+    const respostas = [
+      "Oi! Que bom te ver! Vamos explorar as missões da NASA e SpaceX juntos?",
+      "Oi! Tudo bem? Estou pronto pra falar sobre voos espaciais incríveis!",
+      "Oi! Quer saber mais sobre as aventuras da NASA e SpaceX no cosmos?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('tudo bem')) {
+    const respostas = [
+      "Tudo ótimo por aqui, como na órbita da ISS! E contigo?",
+      "Tudo bem, como um lançamento perfeito da SpaceX! Quer falar de missões?",
+      "Sim, tudo ótimo! Vamos conversar sobre NASA e SpaceX?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  // 50 perguntas sobre missões da NASA e SpaceX
+  if (msg.includes('o que é crew dragon')) {
+    const respostas = [
+      "Crew Dragon é a nave da SpaceX que leva astronautas da NASA à ISS!",
+      "É uma espaçonave reutilizável da SpaceX pra missões tripuladas da NASA!",
+      "A Crew Dragon revolucionou os voos da NASA pro espaço. Curioso?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é demo-2')) {
+    const respostas = [
+      "Demo-2 foi o primeiro voo tripulado da Crew Dragon em maio de 2020!",
+      "Foi a missão da NASA com SpaceX que levou astronautas à ISS após anos!",
+      "Demo-2 marcou o retorno de lançamentos tripulados dos EUA. Legal, né?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é crew-1')) {
+    const respostas = [
+      "Crew-1 foi a primeira missão operacional da Crew Dragon pra NASA!",
+      "Levou 4 astronautas à ISS em novembro de 2020 com a SpaceX!",
+      "Foi o início das rotações regulares da NASA com a SpaceX. Quer mais?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é artemis')) {
+    const respostas = [
+      "Artemis é o programa da NASA pra voltar à Lua, com ajuda da SpaceX!",
+      "É a missão da NASA pra pousar humanos na Lua usando o Starship!",
+      "Artemis quer explorar a Lua e preparar pra Marte. Curioso?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é starship')) {
+    const respostas = [
+      "Starship é o foguete gigante da SpaceX pra missões da NASA e além!",
+      "É uma nave reutilizável que a NASA usará no Artemis pra Lua!",
+      "Starship da SpaceX quer levar humanos a Marte e à Lua. Incrível, né?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é falcon 9')) {
+    const respostas = [
+      "Falcon 9 é o foguete reutilizável da SpaceX que lança missões da NASA!",
+      "É o cavalo de batalha da SpaceX pra levar cargas e astronautas pro espaço!",
+      "Falcon 9 da SpaceX é essencial pras missões da NASA. Quer saber mais?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é crs')) {
+    const respostas = [
+      "CRS é o programa da NASA de reabastecimento da ISS com a SpaceX!",
+      "São as missões Commercial Resupply Services, feitas com o Dragon!",
+      "CRS leva suprimentos pra ISS com a SpaceX pra NASA. Curioso?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é crs-31')) {
+    const respostas = [
+      "CRS-31 foi a 31ª missão da SpaceX pra NASA, lançada em novembro de 2024!",
+      "Levou mais de 6 mil libras de carga pra ISS pra NASA!",
+      "CRS-31 da SpaceX entregou experimentos científicos pra NASA. Legal, né?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é dart')) {
+    const respostas = [
+      "DART é uma missão da NASA pra testar defesa planetária com a SpaceX!",
+      "Foi lançada pelo Falcon 9 em 2021 pra colidir com um asteroide!",
+      "DART da NASA quer mudar a órbita de asteroides. Fascinante, né?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é starlink')) {
+    const respostas = [
+      "Starlink é a constelação de satélites da SpaceX, mas colabora com a NASA!",
+      "São milhares de satélites pra internet, lançados pelo Falcon 9!",
+      "Starlink da SpaceX às vezes leva cargas da NASA. Quer saber mais?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é crew-9')) {
+    const respostas = [
+      "Crew-9 é a nona missão tripulada da SpaceX pra NASA, lançada em 2024!",
+      "Levou astronautas como Nick Hague pra ISS com o Dragon!",
+      "Crew-9 da NASA com SpaceX explora ciência na órbita. Curioso?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é artemis i')) {
+    const respostas = [
+      "Artemis I foi um voo não tripulado da NASA em 2022, testando o SLS!",
+      "Não usou SpaceX diretamente, mas pavimentou o caminho pro Starship!",
+      "Artemis I da NASA orbitou a Lua pra futuras missões. Incrível, né?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é crew-10')) {
+    const respostas = [
+      "Crew-10 é a próxima missão da NASA com SpaceX, prevista pra 2025!",
+      "Vai levar astronautas como Anne McClain à ISS com o Dragon!",
+      "Crew-10 da SpaceX pra NASA continua as rotações. Quer detalhes?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é spherex')) {
+    const respostas = [
+      "SPHEREx é uma missão da NASA lançada pelo Falcon 9 pra mapear o universo!",
+      "Vai estudar galáxias e estrelas em infravermelho, com SpaceX em 2025!",
+      "SPHEREx da NASA explora o cosmos com ajuda da SpaceX. Curioso?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é punch')) {
+    const respostas = [
+      "PUNCH é uma missão da NASA com SpaceX pra estudar o Sol em 3D!",
+      "Usa 4 satélites lançados pelo Falcon 9 pra ver o vento solar!",
+      "PUNCH da NASA com SpaceX observa o Sol. Interessante, né?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é lunar trailblazer')) {
+    const respostas = [
+      "Lunar Trailblazer é uma missão da NASA pra achar água na Lua!",
+      "Vai ser lançada pelo Falcon 9 da SpaceX em 2025!",
+      "Ajuda o Artemis da NASA com exploração lunar. Quer saber mais?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é neo surveyor')) {
+    const respostas = [
+      "NEO Surveyor é uma missão da NASA pra caçar asteroides perigosos!",
+      "Será lançada pelo Falcon 9 da SpaceX em 2027!",
+      "NEO protege a Terra com ajuda da SpaceX. Fascinante, né?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é iss')) {
+    const respostas = [
+      "A ISS é a Estação Espacial Internacional, lar de missões NASA-SpaceX!",
+      "É um laboratório em órbita onde a Crew Dragon leva astronautas!",
+      "A ISS une NASA e SpaceX pra ciência no espaço. Curioso?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é cots')) {
+    const respostas = [
+      "COTS foi o programa da NASA que contratou a SpaceX pra voos à ISS!",
+      "Commercial Orbital Transportation Services começou com o Dragon!",
+      "COTS da NASA abriu caminho pra SpaceX no espaço. Legal, né?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é crew-2')) {
+    const respostas = [
+      "Crew-2 foi a segunda missão tripulada da SpaceX pra NASA, em 2021!",
+      "Levou 4 astronautas à ISS com o Dragon reutilizável!",
+      "Crew-2 da NASA com SpaceX avançou a exploração. Quer mais?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é crew-3')) {
+    const respostas = [
+      "Crew-3 foi a terceira missão da NASA com SpaceX, lançada em 2021!",
+      "Levou astronautas pra uma estadia de 6 meses na ISS!",
+      "Crew-3 da SpaceX pra NASA foi um sucesso. Curioso?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é crew-4')) {
+    const respostas = [
+      "Crew-4 da NASA com SpaceX foi lançada em 2022 pra ISS!",
+      "Levou astronautas como Kjell Lindgren pro espaço!",
+      "Crew-4 explorou ciência na órbita com o Dragon. Legal, né?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é crew-5')) {
+    const respostas = [
+      "Crew-5 foi a quinta missão tripulada da SpaceX pra NASA, em 2022!",
+      "Levou uma tripulação diversa à ISS com o Dragon!",
+      "Crew-5 da NASA avançou os estudos espaciais. Quer saber mais?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é crew-6')) {
+    const respostas = [
+      "Crew-6 da NASA com SpaceX foi lançada em 2023 pra ISS!",
+      "Levou astronautas pra experimentos na estação orbital!",
+      "Crew-6 continuou a parceria NASA-SpaceX. Curioso?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é crew-7')) {
+    const respostas = [
+      "Crew-7 foi a sétima missão da SpaceX pra NASA, lançada em 2023!",
+      "Levou 4 astronautas pra ISS com o Falcon 9 e Dragon!",
+      "Crew-7 da NASA explorou o espaço com sucesso. Quer mais?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é crew-8')) {
+    const respostas = [
+      "Crew-8 da NASA com SpaceX foi lançada em 2024, durando 235 dias!",
+      "Levou astronautas como Matthew Dominick pra ISS!",
+      "Crew-8 avançou a ciência na órbita. Interessante, né?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é falcon heavy')) {
+    const respostas = [
+      "Falcon Heavy é o foguete mais poderoso da SpaceX, usado pela NASA!",
+      "É feito de 3 Falcon 9 juntos pra missões pesadas ao espaço!",
+      "Falcon Heavy leva cargas grandes da NASA. Quer detalhes?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é artemis ii')) {
+    const respostas = [
+      "Artemis II será o primeiro voo tripulado da NASA à Lua, com SpaceX!",
+      "Vai orbitar a Lua em 2025, testando sistemas pro futuro!",
+      "Artemis II da NASA prepara o terreno pro Starship. Curioso?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é artemis iii')) {
+    const respostas = [
+      "Artemis III da NASA vai pousar humanos na Lua com o Starship da SpaceX!",
+      "Prevista pra 2026, será o retorno à superfície lunar!",
+      "Artemis III une NASA e SpaceX pra história. Legal, né?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é dragon')) {
+    const respostas = [
+      "Dragon é a nave da SpaceX pras missões de carga e tripulação da NASA!",
+      "Tem versões pra suprimentos e astronautas pra ISS!",
+      "Dragon da SpaceX é essencial pra NASA. Quer saber mais?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é crs-1')) {
+    const respostas = [
+      "CRS-1 foi a primeira missão de carga da SpaceX pra NASA, em 2012!",
+      "Levou suprimentos à ISS com o Dragon, mas teve falha secundária!",
+      "CRS-1 abriu o caminho pra NASA e SpaceX. Curioso?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é crs-7')) {
+    const respostas = [
+      "CRS-7 foi uma missão da SpaceX pra NASA que falhou em 2015!",
+      "O Falcon 9 explodiu no lançamento, perdendo carga pra ISS!",
+      "CRS-7 ensinou lições valiosas pra NASA e SpaceX. Quer mais?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é osiris-rex')) {
+    const respostas = [
+      "OSIRIS-REx é uma missão da NASA pra coletar amostras de asteroide!",
+      "Não usou SpaceX, mas foi lançada em 2016 com sucesso!",
+      "OSIRIS-REx da NASA explora o espaço profundo. Curioso?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é gateway')) {
+    const respostas = [
+      "Gateway é a estação lunar da NASA pro programa Artemis!",
+      "A SpaceX vai ajudar com suprimentos via Dragon pra Gateway!",
+      "Gateway da NASA será um hub espacial com SpaceX. Legal, né?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é cctcap')) {
+    const respostas = [
+      "CCtCap é o contrato da NASA com a SpaceX pra voos tripulados!",
+      "Fez a Crew Dragon voar astronautas como na Demo-2!",
+      "CCtCap da NASA firmou a SpaceX no espaço. Quer detalhes?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é clps')) {
+    const respostas = [
+      "CLPS é o programa da NASA pra pousos lunares comerciais!",
+      "A SpaceX pode lançar cargas CLPS com o Falcon 9!",
+      "CLPS une NASA e SpaceX pra Lua. Interessante, né?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é nova-c')) {
+    const respostas = [
+      "Nova-C é um módulo lunar da Intuitive Machines pra NASA!",
+      "Foi lançado pelo Falcon 9 da SpaceX em missões CLPS!",
+      "Nova-C explora a Lua com NASA e SpaceX. Curioso?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é pace')) {
+    const respostas = [
+      "PACE é uma missão da NASA pra estudar oceanos e clima!",
+      "Foi lançada pelo Falcon 9 da SpaceX em 2024!",
+      "PACE da NASA observa a Terra com SpaceX. Quer mais?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é goce')) {
+    const respostas = [
+      "Você quis dizer GOES? São satélites da NOAA lançados pela SpaceX!",
+      "GOES-R e outros monitoram o clima com ajuda da NASA!",
+      "SpaceX lança esses satélites pra NASA e NOAA. Curioso?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é spp')) {
+    const respostas = [
+      "SPP é a Solar Probe Plus, agora Parker Solar Probe da NASA!",
+      "Não usou SpaceX, mas explora o Sol desde 2018!",
+      "SPP da NASA é uma missão solar épica. Quer detalhes?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é inspire')) {
+    const respostas = [
+      "INSPIRE não é uma missão única, mas várias da NASA com SpaceX!",
+      "São projetos pequenos como CubeSats lançados pelo Falcon 9!",
+      "INSPIRE da NASA explora com ajuda da SpaceX. Legal, né?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é exomars')) {
+    const respostas = [
+      "ExoMars é uma missão da ESA, não diretamente NASA ou SpaceX!",
+      "Explora Marte, mas a SpaceX não lançou essa!",
+      "ExoMars é parceira da NASA em Marte. Quer mais?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é tessi')) {
+    const respostas = [
+      "Você quis dizer TESS? É um telescópio da NASA lançado pela SpaceX!",
+      "TESS busca exoplanetas com o Falcon 9 desde 2018!",
+      "TESS da NASA com SpaceX explora o cosmos. Curioso?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é psyche')) {
+    const respostas = [
+      "Psyche é uma missão da NASA pra estudar um asteroide metálico!",
+      "Foi lançada pelo Falcon Heavy da SpaceX em 2023!",
+      "Psyche explora o espaço profundo com NASA e SpaceX. Legal, né?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é europa clipper')) {
+    const respostas = [
+      "Europa Clipper é uma missão da NASA pra estudar a lua de Júpiter!",
+      "Será lançada pelo Falcon Heavy da SpaceX em 2024!",
+      "Europa Clipper da NASA com SpaceX é épica. Quer saber mais?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é imap')) {
+    const respostas = [
+      "IMAP é uma missão da NASA pra estudar o vento solar!",
+      "Vai ser lançada pelo Falcon 9 da SpaceX em 2025!",
+      "IMAP une NASA e SpaceX pra ciência solar. Curioso?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é swot')) {
+    const respostas = [
+      "SWOT é uma missão da NASA pra medir água na Terra!",
+      "Foi lançada pelo Falcon 9 da SpaceX em 2022!",
+      "SWOT da NASA com SpaceX ajuda o planeta. Legal, né?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é x-59')) {
+    const respostas = [
+      "X-59 é um avião supersônico da NASA, não usa SpaceX!",
+      "Testa voos silenciosos, mas não é uma missão espacial!",
+      "X-59 da NASA é sobre aviação, não cosmos. Quer mais?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  if (msg.includes('o que é commercial crew')) {
+    const respostas = [
+      "Commercial Crew é o programa da NASA com SpaceX pra voos tripulados!",
+      "Usa a Crew Dragon pra levar astronautas à ISS desde 2020!",
+      "Commercial Crew da NASA com SpaceX mudou o jogo. Curioso?"
+    ];
+    return respostas[Math.floor(Math.random() * respostas.length)];
+  }
+
+  // Resposta padrão
+  const respostasPadrao = [
+    "Não entendi, mas posso te contar sobre missões da NASA e SpaceX! O que quer saber?",
+    "Hmm, essa eu não sei, mas adoro falar de espaço! Pergunta sobre NASA ou SpaceX!",
+    "Não peguei essa, mas o universo da NASA e SpaceX é vasto! Me dá uma dúvida!"
+  ];
+  return respostasPadrao[Math.floor(Math.random() * respostasPadrao.length)];
+}
+
+// Testes
+console.log(responderMensagem("Oi"));
+console.log(responderMensagem("O que é Crew Dragon"));
+console.log(responderMensagem("O que é Artemis"));
+console.log(responderMensagem("O que é DART"));
+console.log(responderMensagem("O que é Falcon 9"));
+// Testes
+console.log(responderMensagem("Oi"));
+console.log(responderMensagem("Quem são os Lanternas Verdes"));
+console.log(responderMensagem("O que é o anel de poder"));
+console.log(responderMensagem("Quem é Hal Jordan"));
+console.log(responderMensagem("O que é exploração espacial pros Lanternas"));
+// Testes
+console.log(responderMensagem("Oi"));
+console.log(responderMensagem("Tudo bem"));
+console.log(responderMensagem("Calcular 5 + 3"));
+console.log(responderMensagem("Quanto é 10 - 4"));
+console.log(responderMensagem("Conta 6 * 2"));
+console.log(responderMensagem("Calcular 8 / 2"));
+console.log(responderMensagem("Quanto é 2 ^ 3"));
+console.log(responderMensagem("Calcular 50 % 20"));
+console.log(responderMensagem("Calcular 10 / 0"));
 if (msg.includes('agradeço')) return "De nada! Se precisar de mais alguma coisa, estarei por aqui!";
     if (msg.includes('livro')) return "Está procurando um bom livro para ler? Posso te recomendar alguns!";
     if (msg.includes('filme')) return "Quer assistir a um bom filme? Posso sugerir alguns títulos!";
