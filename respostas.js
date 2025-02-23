@@ -2388,373 +2388,210 @@ if (msg.includes('tempestade elétrica')) return "Parece que uma tempestade elé
 if (msg.includes('tempo nublado')) return "O tempo está nublado hoje, sem muito sol, mas sem chuva também. É aquele tipo de dia tranquilo. Gosta de dias assim ou prefere o sol?";
 if (msg.includes('quente')) return "Está bem quente! Cuidado para não se desidratar, é importante se manter hidratado em dias assim. Você tem alguma bebida favorita para esse calor?";
 if (msg.includes('frio')) return "Hoje está bem frio! Melhor pegar um cobertor ou uma bebida quente. Gosta de se manter aquecido ou prefere os dias mais frescos?";
-function responderMensagem(msg) {
-  msg = msg.toLowerCase(); // Para ignorar maiúsculas/minúsculas
+{
+  "responderMensagem": function(msg) {
+    msg = msg.toLowerCase();
 
-  if (msg.includes('como está o dia')) {
-    const respostas = [
-      "O dia está ótimo! Como está o seu?",
-      "O dia está lindo hoje! E o seu, como está indo?",
-      "O dia está perfeito por aqui! Como está o seu dia?"
-    ];
-    return respostas[Math.floor(Math.random() * respostas.length)];
-  }
-  
-  if (msg.includes('como vai você')) {
-    const respostas = [
-      "Estou bem, obrigado! Como vai você?",
-      "Tudo ótimo comigo, valeu! E você, como vai?",
-      "Estou de boa, e você? Como vai hoje?"
-    ];
-    return respostas[Math.floor(Math.random() * respostas.length)];
-  }
-  
-  if (msg.includes('oi')) {
-    const respostas = [
-      "Oi! Que bom te ver por aqui! Como posso te ajudar hoje? Estou disponível para responder suas dúvidas ou te ajudar com qualquer outra coisa.",
-      "Oi! Tudo bem contigo? Estou aqui pra ajudar com o que precisar!",
-      "Oi! Como você está? Se precisar de algo, é só me chamar!"
-    ];
-    return respostas[Math.floor(Math.random() * respostas.length)];
-  }
-  
-  if (msg.includes('olá')) {
-    const respostas = [
-      "Olá! Como vai? Se precisar de ajuda com algo ou quiser conversar sobre qualquer assunto, estou à disposição para bater um papo e tirar suas dúvidas.",
-      "Olá! Tudo ótimo por aqui! Como posso te ajudar hoje?",
-      "Olá! Que bom te encontrar! Se tiver dúvidas, estou aqui!"
-    ];
-    return respostas[Math.floor(Math.random() * respostas.length)];
-  }
-  
-  if (msg.includes('tudo bem')) {
-    const respostas = [
-      "Sim, tudo ótimo por aqui! E você, como está? Espero que esteja tendo um ótimo dia. Como posso te ajudar hoje?",
-      "Tudo bem comigo! E contigo, como está o dia?",
-      "Sim, tudo perfeito! E você, tudo bem? Precisa de algo?"
-    ];
-    return respostas[Math.floor(Math.random() * respostas.length)];
-  }
-  
-  if (msg.includes('como vai')) {
-    const respostas = [
-      "Estou bem, obrigado por perguntar! Como você está? Se precisar de ajuda com algo ou quiser conversar, é só avisar. Estou aqui para o que precisar!",
-      "Tudo ótimo por aqui, valeu! E você, como vai?",
-      "Estou de boa, obrigado! Como você está hoje?"
-    ];
-    return respostas[Math.floor(Math.random() * respostas.length)];
-  }
-  
-  if (msg.includes('como está')) {
-    const respostas = [
-      "Estou ótimo, obrigado por perguntar! E você, como está se sentindo? Se tiver qualquer dúvida ou questão, só me chamar que eu posso ajudar!",
-      "Tudo bem comigo, e contigo? Como está o seu dia?",
-      "Estou perfeito, valeu! E você, como está se sentindo?"
-    ];
-    return respostas[Math.floor(Math.random() * respostas.length)];
-  }
-  
-  if (msg.includes('bem')) {
-    const respostas = [
-      "Que bom que você está bem! Se precisar de alguma coisa, estou aqui para te ajudar com o que você precisar. Como posso te ajudar hoje?",
-      "Ótimo saber que você está bem! Como posso te ajudar agora?",
-      "Fico feliz que você esteja bem! Precisa de algo hoje?"
-    ];
-    return respostas[Math.floor(Math.random() * respostas.length)];
-  }
-  
-  if (msg.includes('oi tudo bem')) {
-    const respostas = [
-      "Oi! Tudo ótimo por aqui! E você, tudo bem? Se precisar de alguma coisa, estou aqui para ajudar e tirar todas as suas dúvidas.",
-      "Oi! Tudo bem comigo! E contigo, como está?",
-      "Oi! Tudo ótimo por aqui! E você, tudo bem hoje?"
-    ];
-    return respostas[Math.floor(Math.random() * respostas.length)];
-  }
-  
-  if (msg.includes('olá tudo bem')) {
-    const respostas = [
-      "Olá! Tudo bem por aqui, espero que com você também! Caso precise de alguma ajuda ou tenha alguma dúvida, estou disponível para te auxiliar.",
-      "Olá! Tudo ótimo comigo! E contigo, tudo bem?",
-      "Olá! Tudo perfeito por aqui! E você, como está?"
-    ];
-    return respostas[Math.floor(Math.random() * respostas.length)];
-  }
-  
-  if (msg.includes('e aí')) {
-    const respostas = [
-      "E aí! Tudo certo por aqui, e com você? Caso precise de alguma ajuda ou queira conversar sobre algo, estou à disposição para te atender.",
-      "E aí! Tudo bem comigo! E contigo, como está?",
-      "E aí! Tudo ótimo por aqui! Precisa de algo?"
-    ];
-    return respostas[Math.floor(Math.random() * respostas.length)];
-  }
-  
-  if (msg.includes('oi oi')) {
-    const respostas = [
-      "Oi, oi! Como você está? Fico feliz em te ver por aqui, se precisar de alguma coisa ou tiver alguma dúvida, estarei por aqui para ajudar!",
-      "Oi, oi! Tudo bem contigo? Estou aqui pra ajudar!",
-      "Oi, oi! Como você está hoje? Se precisar, é só chamar!"
-    ];
-    return respostas[Math.floor(Math.random() * respostas.length)];
-  }
-  
-  if (msg.includes('como você está')) {
-    const respostas = [
-      "Estou bem, obrigado por perguntar! E você, como está? Caso queira conversar ou precise de alguma ajuda, estarei aqui à disposição para ajudar!",
-      "Tudo ótimo comigo, valeu! E você, como está?",
-      "Estou de boa, e você? Precisa de alguma coisa?"
-    ];
-    return respostas[Math.floor(Math.random() * respostas.length)];
-  }
-  
-  if (msg.includes('tudo certo')) {
-    const respostas = [
-      "Tudo certo por aqui! E você, tudo certo? Se precisar de alguma coisa ou quiser conversar, estarei por aqui para ajudar no que for necessário.",
-      "Tudo ok comigo! E contigo, tudo certo?",
-      "Tudo perfeito por aqui! E você, como está?"
-    ];
-    return respostas[Math.floor(Math.random() * respostas.length)];
-  }
-  
-  if (msg.includes('qual é a boa')) {
-    const respostas = [
-      "A boa é que estou aqui para te ajudar com o que você precisar! Caso queira saber mais sobre algo ou resolver alguma questão, posso te ajudar!",
-      "A boa é que o dia está ótimo! E contigo, qual é a boa?",
-      "A boa é estar aqui pra te ajudar! O que você precisa?"
-    ];
-    return respostas[Math.floor(Math.random() * respostas.length)];
-  }
-  
-  if (msg.includes('e você')) {
-    const respostas = [
-      "Estou bem, obrigado! Como posso te ajudar hoje? Se precisar de alguma ajuda, tirar dúvidas ou resolver algo, estou à disposição para te ajudar!",
-      "Tudo ótimo comigo! E você, como está?",
-      "Estou de boa, valeu! E você, precisa de algo?"
-    ];
-    return respostas[Math.floor(Math.random() * respostas.length)];
-  }
-  
-  if (msg.includes('tudo ok')) {
-    const respostas = [
-      "Tudo ok por aqui! E com você, tudo ok? Caso tenha alguma dúvida ou precise de ajuda, só avisar, estou pronto para ajudar!",
-      "Tudo bem comigo! E contigo, tudo ok?",
-      "Tudo perfeito por aqui! E você, está tudo ok?"
-    ];
-    return respostas[Math.floor(Math.random() * respostas.length)];
-  }
-  
-  if (msg.includes('clima')) {
-    const respostas = [
-      "O clima está ótimo hoje! Está um dia perfeito para aproveitar ao ar livre. Você gosta de tempo ensolarado ou prefere um clima mais ameno?",
-      "O clima está uma delícia hoje! E você, curte esse tempo?",
-      "Clima perfeito por aqui! Você gosta de dias assim?"
-    ];
-    return respostas[Math.floor(Math.random() * respostas.length)];
-  }
-  
-  if (msg.includes('tempo')) {
-    const respostas = [
-      "O tempo hoje está bastante agradável. Sem muitas nuvens, o sol brilha forte. Está gostando dessa mudança no clima ou preferia dias mais nublados?",
-      "O tempo está ótimo hoje! Você curte esse clima?",
-      "Tempo bom por aqui! Prefere sol ou um dia mais fresco?"
-    ];
-    return respostas[Math.floor(Math.random() * respostas.length)];
-  }
-  
-  if (msg.includes('previsão do tempo')) {
-    const respostas = [
-      "A previsão do tempo para os próximos dias mostra que teremos dias ensolarados e quentes. Porém, é sempre bom ficar atento à possibilidade de chuvas esparsas. Você tem algum plano para os próximos dias?",
-      "A previsão diz sol e calor! Tem planos pro fim de semana?",
-      "Previsão de tempo bom pela frente! Você vai aproveitar?"
-    ];
-    return respostas[Math.floor(Math.random() * respostas.length)];
-  }
-  
-  if (msg.includes('está frio')) {
-    const respostas = [
-      "Sim, está bem frio hoje! Melhor colocar aquele casaco ou uma blusa quente. Gosta de clima frio ou prefere algo mais quente?",
-      "Está friozinho, né? Você curte esse clima?",
-      "O frio chegou! Melhor se agasalhar. Gosta disso?"
-    ];
-    return respostas[Math.floor(Math.random() * respostas.length)];
-  }
-  
-  if (msg.includes('está calor')) {
-    const respostas = [
-      "Está quente hoje, não é mesmo? Uma ótima oportunidade para ir à praia ou tomar um sorvete! Você prefere o calor ou o clima mais ameno?",
-      "Calor danado hoje! Gosta de dias assim?",
-      "Está quente pra caramba! Como você lida com isso?"
-    ];
-    return respostas[Math.floor(Math.random() * respostas.length)];
-  }
-  
-  return "Não entendi direito, mas estou aqui pra ajudar! Como posso te ajudar hoje?";
-}
-
-// Teste da função
-console.log(responderMensagem("Oi tudo bem"));
-console.log(responderMensagem("Como está o dia"));
-console.log(responderMensagem("Clima"));function responderMensagem(msg) {
-  msg = msg.toLowerCase(); // Para ignorar maiúsculas/minúsculas
-
-  // Saudações básicas
-  if (msg.includes('como está o dia')) {
-    const respostas = [
-      "O dia está ótimo! Como está o seu?",
-      "O dia está lindo hoje! E o seu, como está?",
-      "Dia perfeito por aqui! Como está o seu?"
-    ];
-    return respostas[Math.floor(Math.random() * respostas.length)];
-  }
-  
-  if (msg.includes('como vai você')) {
-    const respostas = [
-      "Estou bem, obrigado! Como vai você?",
-      "Tudo ótimo comigo! E você, como vai?",
-      "Estou de boa, valeu! Como você está?"
-    ];
-    return respostas[Math.floor(Math.random() * respostas.length)];
-  }
-  
-  if (msg.includes('oi')) {
-    const respostas = [
-      "Oi! Que bom te ver por aqui! Como posso te ajudar hoje? Estou disponível para responder suas dúvidas ou te ajudar com qualquer outra coisa.",
-      "Oi! Tudo bem? Estou aqui pra ajudar com o que precisar!",
-      "Oi! Como você está hoje? Se precisar, é só me chamar!"
-    ];
-    return respostas[Math.floor(Math.random() * respostas.length)];
-  }
-  
-  if (msg.includes('olá')) {
-    const respostas = [
-      "Olá! Como vai? Se precisar de ajuda com algo ou quiser conversar sobre qualquer assunto, estou à disposição para bater um papo e tirar suas dúvidas.",
-      "Olá! Tudo ótimo por aqui! Como posso te ajudar?",
-      "Olá! Que bom te encontrar! Precisa de algo?"
-    ];
-    return respostas[Math.floor(Math.random() * respostas.length)];
-  }
-  
-  if (msg.includes('tudo bem')) {
-    const respostas = [
-      "Sim, tudo ótimo por aqui! E você, como está? Espero que esteja tendo um ótimo dia. Como posso te ajudar hoje?",
-      "Tudo bem comigo! E contigo, como está?",
-      "Sim, tudo perfeito! E você, tudo bem?"
-    ];
-    return respostas[Math.floor(Math.random() * respostas.length)];
-  }
-
-  // Novas perguntas gerais
-  if (msg.includes('o que você acha')) {
-    const respostas = [
-      "Acho que depende do ponto de vista, mas estou curioso: o que você acha?",
-      "Hmm, eu diria que é uma questão interessante! Qual a sua opinião?",
-      "Penso que pode variar, mas me conta o que você acha disso!"
-    ];
-    return respostas[Math.floor(Math.random() * respostas.length)];
-  }
-  
-  if (msg.includes('qual sua opinião')) {
-    const respostas = [
-      "Minha opinião é que cada caso é um caso, mas qual a sua?",
-      "Eu diria que é algo a se pensar! O que você acha sobre isso?",
-      "Acho que depende bastante, mas me conta sua opinião!"
-    ];
-    return respostas[Math.floor(Math.random() * respostas.length)];
-  }
-  
-  if (msg.includes('o que fazer')) {
-    const respostas = [
-      "Depende do que você quer! Que tal me contar mais pra eu te ajudar?",
-      "Você pode tentar relaxar ou resolver algo legal! O que está pensando?",
-      "Hmm, o que você acha de começar com algo simples? Me diz mais!"
-    ];
-    return respostas[Math.floor(Math.random() * respostas.length)];
-  }
-  
-  if (msg.includes('estou cansado')) {
-    const respostas = [
-      "Poxa, descanso é sempre bom! Quer conversar pra relaxar um pouco?",
-      "Entendo, às vezes o dia pesa! Que tal tirar um tempo pra você?",
-      "Cansaço é osso, né? Quer uma dica pra relaxar ou só papear?"
-    ];
-    return respostas[Math.floor(Math.random() * respostas.length)];
-  }
-  
-  if (msg.includes('estou feliz')) {
-    const respostas = [
-      "Que ótimo saber disso! O que te deixou feliz hoje?",
-      "Fico feliz por você! Quer compartilhar o motivo?",
-      "Alegria é contagiousa! Me conta mais sobre isso!"
-    ];
-    return respostas[Math.floor(Math.random() * respostas.length)];
-  }
-
-  // Clima (mantendo alguns exemplos do original)
-  if (msg.includes('clima')) {
-    const respostas = [
-      "O clima está ótimo hoje! Está um dia perfeito para aproveitar ao ar livre. Você gosta de tempo ensolarado ou prefere um clima mais ameno?",
-      "Clima está uma delícia! Você curte dias assim?",
-      "O clima tá perfeito por aqui! E aí, gosta desse tempo?"
-    ];
-    return respostas[Math.floor(Math.random() * respostas.length)];
-  }
-  
-  if (msg.includes('está frio')) {
-    const respostas = [
-      "Sim, está bem frio hoje! Melhor colocar aquele casaco ou uma blusa quente. Gosta de clima frio ou prefere algo mais quente?",
-      "Está friozinho, né? Você curte esse clima?",
-      "O frio chegou mesmo! Prefere se esquentar ou encarar?"
-    ];
-    return respostas[Math.floor(Math.random() * respostas.length)];
-  }
-  
-  if (msg.includes('está calor')) {
-    const respostas = [
-      "Está quente hoje, não é mesmo? Uma ótima oportunidade para ir à praia ou tomar um sorvete! Você prefere o calor ou o clima mais ameno?",
-      "Calor danado hoje! Gosta de dias assim?",
-      "Está quente pra caramba! Como você lida com isso?"
-    ];
-    return respostas[Math.floor(Math.random() * respostas.length)];
-  }
-
-  // Modelo de cálculo básico
-  if (msg.includes('calcular') || msg.includes('quanto é')) {
-    // Extrair números e operação da mensagem (exemplo: "quanto é 5 + 3" ou "calcular 10 - 2")
-    const palavras = msg.split(' ');
-    let num1, num2, operacao;
-
-    for (let i = 0; i < palavras.length; i++) {
-      if (!isNaN(palavras[i])) {
-        if (!num1) num1 = parseFloat(palavras[i]);
-        else num2 = parseFloat(palavras[i]);
-      }
-      if (palavras[i] === '+' || palavras[i] === '-' || palavras[i] === '*' || palavras[i] === '/') {
-        operacao = palavras[i];
-      }
+    if (msg.includes('como está o dia')) {
+      const respostas = [
+        "O dia está ótimo! Como está o seu?",
+        "O dia está lindo hoje! E o seu, como está?",
+        "Dia perfeito por aqui! Como está o seu?"
+      ];
+      return respostas[Math.floor(Math.random() * respostas.length)];
     }
 
-    if (num1 !== undefined && num2 !== undefined && operacao) {
-      switch (operacao) {
-        case '+':
-          return `O resultado de ${num1} + ${num2} é ${num1 + num2}!`;
-        case '-':
-          return `O resultado de ${num1} - ${num2} é ${num1 - num2}!`;
-        case '*':
-          return `O resultado de ${num1} * ${num2} é ${num1 * num2}!`;
-        case '/':
-          return num2 === 0 
-            ? "Não dá pra dividir por zero, hein!" 
-            : `O resultado de ${num1} / ${num2} é ${num1 / num2}!`;
-        default:
-          return "Hmm, não entendi a operação. Pode mandar algo como 'quanto é 5 + 3'?";
-      }
+    if (msg.includes('como vai você')) {
+      const respostas = [
+        "Estou bem, obrigado! Como vai você?",
+        "Tudo ótimo comigo! E você, como vai?",
+        "Estou de boa, valeu! Como você está?"
+      ];
+      return respostas[Math.floor(Math.random() * respostas.length)];
     }
-    return "Me manda os números e a operação, tipo 'calcular 5 + 3', que eu te ajudo!";
-  }
 
-  // Resposta padrão
-  return "Não entendi direito, mas estou aqui pra ajudar! Como posso te ajudar hoje?";
+    if (msg.includes('oi')) {
+      const respostas = [
+        "Oi! Que bom te ver por aqui! Como posso te ajudar hoje? Estou disponível para responder suas dúvidas ou te ajudar com qualquer outra coisa.",
+        "Oi! Tudo bem? Estou aqui pra ajudar com o que precisar!",
+        "Oi! Como você está hoje? Se precisar, é só me chamar!"
+      ];
+      return respostas[Math.floor(Math.random() * respostas.length)];
+    }
+
+    if (msg.includes('olá')) {
+      const respostas = [
+        "Olá! Como vai? Se precisar de ajuda com algo ou quiser conversar sobre qualquer assunto, estou à disposição para bater um papo e tirar suas dúvidas.",
+        "Olá! Tudo ótimo por aqui! Como posso te ajudar?",
+        "Olá! Que bom te encontrar! Precisa de algo?"
+      ];
+      return respostas[Math.floor(Math.random() * respostas.length)];
+    }
+
+    if (msg.includes('tudo bem')) {
+      const respostas = [
+        "Sim, tudo ótimo por aqui! E você, como está? Espero que esteja tendo um ótimo dia. Como posso te ajudar hoje?",
+        "Tudo bem comigo! E contigo, como está?",
+        "Sim, tudo perfeito! E você, tudo bem?"
+      ];
+      return respostas[Math.floor(Math.random() * respostas.length)];
+    }
+
+    if (msg.includes('como vai')) {
+      const respostas = [
+        "Estou bem, obrigado por perguntar! Como você está? Se precisar de ajuda com algo ou quiser conversar, é só avisar. Estou aqui para o que precisar!",
+        "Tudo ótimo por aqui, valeu! E você, como vai?",
+        "Estou de boa, obrigado! Como você está hoje?"
+      ];
+      return respostas[Math.floor(Math.random() * respostas.length)];
+    }
+
+    if (msg.includes('como está')) {
+      const respostas = [
+        "Estou ótimo, obrigado por perguntar! E você, como está se sentindo? Se tiver qualquer dúvida ou questão, só me chamar que eu posso ajudar!",
+        "Tudo bem comigo, e contigo? Como está o seu dia?",
+        "Estou perfeito, valeu! E você, como está se sentindo?"
+      ];
+      return respostas[Math.floor(Math.random() * respostas.length)];
+    }
+
+    if (msg.includes('bem')) {
+      const respostas = [
+        "Que bom que você está bem! Se precisar de alguma coisa, estou aqui para te ajudar com o que você precisar. Como posso te ajudar hoje?",
+        "Ótimo saber que você está bem! Como posso te ajudar agora?",
+        "Fico feliz que você esteja bem! Precisa de algo hoje?"
+      ];
+      return respostas[Math.floor(Math.random() * respostas.length)];
+    }
+
+    if (msg.includes('oi tudo bem')) {
+      const respostas = [
+        "Oi! Tudo ótimo por aqui! E você, tudo bem? Se precisar de alguma coisa, estou aqui para ajudar e tirar todas as suas dúvidas.",
+        "Oi! Tudo bem comigo! E contigo, como está?",
+        "Oi! Tudo ótimo por aqui! E você, tudo bem hoje?"
+      ];
+      return respostas[Math.floor(Math.random() * respostas.length)];
+    }
+
+    if (msg.includes('olá tudo bem')) {
+      const respostas = [
+        "Olá! Tudo bem por aqui, espero que com você também! Caso precise de alguma ajuda ou tenha alguma dúvida, estou disponível para te auxiliar.",
+        "Olá! Tudo ótimo comigo! E contigo, tudo bem?",
+        "Olá! Tudo perfeito por aqui! E você, como está?"
+      ];
+      return respostas[Math.floor(Math.random() * respostas.length)];
+    }
+
+    if (msg.includes('e aí')) {
+      const respostas = [
+        "E aí! Tudo certo por aqui, e com você? Caso precise de alguma ajuda ou queira conversar sobre algo, estou à disposição para te atender.",
+        "E aí! Tudo bem comigo! E contigo, como está?",
+        "E aí! Tudo ótimo por aqui! Precisa de algo?"
+      ];
+      return respostas[Math.floor(Math.random() * respostas.length)];
+    }
+
+    if (msg.includes('oi oi')) {
+      const respostas = [
+        "Oi, oi! Como você está? Fico feliz em te ver por aqui, se precisar de alguma coisa ou tiver alguma dúvida, estarei por aqui para ajudar!",
+        "Oi, oi! Tudo bem contigo? Estou aqui pra ajudar!",
+        "Oi, oi! Como você está hoje? Se precisar, é só chamar!"
+      ];
+      return respostas[Math.floor(Math.random() * respostas.length)];
+    }
+
+    if (msg.includes('como você está')) {
+      const respostas = [
+        "Estou bem, obrigado por perguntar! E você, como está? Caso queira conversar ou precise de alguma ajuda, estarei aqui à disposição para ajudar!",
+        "Tudo ótimo comigo, valeu! E você, como está?",
+        "Estou de boa, e você? Precisa de alguma coisa?"
+      ];
+      return respostas[Math.floor(Math.random() * respostas.length)];
+    }
+
+    if (msg.includes('tudo certo')) {
+      const respostas = [
+        "Tudo certo por aqui! E você, tudo certo? Se precisar de alguma coisa ou quiser conversar, estarei por aqui para ajudar no que for necessário.",
+        "Tudo ok comigo! E contigo, tudo certo?",
+        "Tudo perfeito por aqui! E você, como está?"
+      ];
+      return respostas[Math.floor(Math.random() * respostas.length)];
+    }
+
+    if (msg.includes('qual é a boa')) {
+      const respostas = [
+        "A boa é que estou aqui para te ajudar com o que você precisar! Caso queira saber mais sobre algo ou resolver alguma questão, posso te ajudar!",
+        "A boa é que o dia está ótimo! E contigo, qual é a boa?",
+        "A boa é estar aqui pra te ajudar! O que você precisa?"
+      ];
+      return respostas[Math.floor(Math.random() * respostas.length)];
+    }
+
+    if (msg.includes('e você')) {
+      const respostas = [
+        "Estou bem, obrigado! Como posso te ajudar hoje? Se precisar de alguma ajuda, tirar dúvidas ou resolver algo, estou à disposição para te ajudar!",
+        "Tudo ótimo comigo! E você, como está?",
+        "Estou de boa, valeu! E você, precisa de algo?"
+      ];
+      return respostas[Math.floor(Math.random() * respostas.length)];
+    }
+
+    if (msg.includes('tudo ok')) {
+      const respostas = [
+        "Tudo ok por aqui! E com você, tudo ok? Caso tenha alguma dúvida ou precise de ajuda, só avisar, estou pronto para ajudar!",
+        "Tudo bem comigo! E contigo, tudo ok?",
+        "Tudo perfeito por aqui! E você, está tudo ok?"
+      ];
+      return respostas[Math.floor(Math.random() * respostas.length)];
+    }
+
+    if (msg.includes('clima')) {
+      const respostas = [
+        "O clima está ótimo hoje! Está um dia perfeito para aproveitar ao ar livre. Você gosta de tempo ensolarado ou prefere um clima mais ameno?",
+        "O clima está uma delícia hoje! E você, curte esse tempo?",
+        "Clima perfeito por aqui! Você gosta de dias assim?"
+      ];
+      return respostas[Math.floor(Math.random() * respostas.length)];
+    }
+
+    if (msg.includes('tempo')) {
+      const respostas = [
+        "O tempo hoje está bastante agradável. Sem muitas nuvens, o sol brilha forte. Está gostando dessa mudança no clima ou preferia dias mais nublados?",
+        "O tempo está ótimo hoje! Você curte esse clima?",
+        "Tempo bom por aqui! Prefere sol ou um dia mais fresco?"
+      ];
+      return respostas[Math.floor(Math.random() * respostas.length)];
+    }
+
+    if (msg.includes('previsão do tempo')) {
+      const respostas = [
+        "A previsão do tempo para os próximos dias mostra que teremos dias ensolarados e quentes. Porém, é sempre bom ficar atento à possibilidade de chuvas esparsas. Você tem algum plano para os próximos dias?",
+        "A previsão diz sol e calor! Tem planos pro fim de semana?",
+        "Previsão de tempo bom pela frente! Você vai aproveitar?"
+      ];
+      return respostas[Math.floor(Math.random() * respostas.length)];
+    }
+
+    if (msg.includes('está frio')) {
+      const respostas = [
+        "Sim, está bem frio hoje! Melhor colocar aquele casaco ou uma blusa quente. Gosta de clima frio ou prefere algo mais quente?",
+        "Está friozinho, né? Você curte esse clima?",
+        "O frio chegou! Melhor se agasalhar. Gosta disso?"
+      ];
+      return respostas[Math.floor(Math.random() * respostas.length)];
+    }
+
+    if (msg.includes('está calor')) {
+      const respostas = [
+        "Está quente hoje, não é mesmo? Uma ótima oportunidade para ir à praia ou tomar um sorvete! Você prefere o calor ou o clima mais ameno?",
+        "Calor danado hoje! Gosta de dias assim?",
+        "Está quente pra caramba! Como você lida com isso?"
+      ];
+      return respostas[Math.floor(Math.random() * respostas.length)];
+    }
+
+    return "Desculpe, não entendi sua mensagem. Poderia reformular?";
+  }
 }
 
 // Testes
@@ -2768,6 +2605,7 @@ console.log(responderMensagem("Quanto é 6 * 3"));function responderMensagem(msg
   msg = msg.toLowerCase(); // Para ignorar maiúsculas/minúsculas
 
   // Saudações básicas (mantendo algumas do seu modelo)
+ function responderMensagem(msg) {
   if (msg.includes('oi')) {
     const respostas = [
       "Oi! Que bom te ver por aqui! Como posso te ajudar hoje? Estou disponível para responder suas dúvidas ou te ajudar com qualquer outra coisa.",
@@ -2874,6 +2712,12 @@ console.log(responderMensagem("Quanto é 6 * 3"));function responderMensagem(msg
           return "Hmm, não entendi a operação. Tenta algo como 'calcular 5 + 3' ou 'quanto é 10 * 2'!";
       }
     }
+    return "Parece que faltaram números ou operações. Tenta algo como 'quanto é 5 + 3'?";
+  }
+
+  return "Desculpe, não entendi sua mensagem. Poderia reformular?";
+}
+
     const respostas = [
       "Me manda os números e a operação, tipo 'calcular 5 + 3', que eu resolvo!",
       "Faltou algo na conta! Tenta 'quanto é 10 - 2' pra eu te ajudar!",
