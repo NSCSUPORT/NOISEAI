@@ -1695,21 +1695,11 @@ else if (msg.includes('top ativos que mais cresceram até 2020')) {
     return "Desculpe, não entendi sua mensagem. Tente novamente!";
 }
 const fs = require('fs');
+const path = require('path');
 
 // Função para carregar e interpretar o arquivo de respostas
 function carregarRespostas(caminhoArquivo) {
-    const conteudo = fs.readFileSync(caminhoArquivo, 'utf-8');
-    const linhas = conteudo.split('\n');
-    const respostas = [];
-
-    linhas.forEach(linha => {
-
-        const match = linha.match(/if \(msg\.includes\('(.+?)'\)\) return "(.+?)";/);
-        if (match) {
-            respostas.push({ chave: match[1], resposta: match[2] });
-        }
-    });
-
+    const respostas = require(caminhoArquivo); // Carrega o arquivo .js como módulo
     return respostas;
 }
 
@@ -1724,7 +1714,7 @@ function processarMensagem(mensagem, respostas) {
 }
 
 // Exemplo de uso
-const caminhoArquivo = 'respostas.txt'; // Substitua pelo caminho do seu arquivo
+const caminhoArquivo = path.join(__dirname, 'respostas.js'); // Substitua pelo caminho do seu arquivo .js
 const respostas = carregarRespostas(caminhoArquivo);
 
 // Testando com um exemplo de entrada
@@ -1732,6 +1722,7 @@ const mensagemUsuario = "Oi, tudo bem?".toLowerCase();
 const resposta = processarMensagem(mensagemUsuario, respostas);
 console.log("Usuário: " + mensagemUsuario);
 console.log("Chatbot: " + resposta);
+
 
 </script>
 
