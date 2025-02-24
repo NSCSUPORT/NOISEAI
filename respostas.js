@@ -1,4 +1,4 @@
-module.exports = [
+export const respostas = {
 if (msg.includes('agradeço')) return "De nada! Se precisar de mais alguma coisa, estarei por aqui!";
     if (msg.includes('livro')) return "Está procurando um bom livro para ler? Posso te recomendar alguns!";
     if (msg.includes('filme')) return "Quer assistir a um bom filme? Posso sugerir alguns títulos!";
