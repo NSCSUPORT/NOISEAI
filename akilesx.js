@@ -94,7 +94,7 @@ class DarkHoloFiEngine {
 }
 
 // Função principal para teste
-function main() {
+async function main() {
     const engine = new DarkHoloFiEngine("someAuthenticationAddress");
 
     // Adiciona planos de processamento de redes neurais
@@ -119,6 +119,7 @@ function main() {
     // Autentica uma mensagem
     engine.authenticateMessage("someMessageHash");
 }
+
 const Web3 = require('web3');
 
 // URL do seu Infura Project ID (substitua com seu próprio ID)
@@ -127,7 +128,7 @@ const infuraMainnetURL = 'https://mainnet.infura.io/v3/YOUR_INFURA_PROJECT_ID';
 // Função para verificar o número do bloco atual para uma dada instância Web3
 async function checkBlockNumber(coreID, rpcURL) {
     const web3 = new Web3(rpcURL);
-    
+
     try {
         const blockNumber = await web3.eth.getBlockNumber();
         console.log(`Core ${coreID} - Número do bloco atual: ${blockNumber}`);
@@ -159,6 +160,8 @@ async function startHoloSeaCores() {
 
 // Inicia os núcleos HoloSea para Mainnet
 startHoloSeaCores();
+
+// Conexão com o PostgreSQL
 const { Client } = require('pg'); // Biblioteca para conectar ao PostgreSQL
 
 // Função para conectar ao PostgreSQL
@@ -170,7 +173,7 @@ async function connectToDatabase() {
         password: 'sua_senha',
         port: 5432,
     });
-    
+
     try {
         await client.connect(); // Estabelece a conexão
         console.log('Conexão com o banco de dados bem-sucedida!');
@@ -232,6 +235,5 @@ async function runDataLake() {
 // Executa a função principal
 runDataLake();
 
-
-// Chamada da função principal
+// Chamada da função principal do Dark HoloFi
 main();
