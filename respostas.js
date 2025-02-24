@@ -11,7 +11,7 @@ if (msg.includes('informações')) return "Você gostaria de mais informações 
 if (msg.includes('recomendação')) return "Em que área você gostaria de receber uma recomendação? Jogos, filmes, livros?";
 if (msg.includes('tudo bem')) return "Tudo ótimo por aqui, e contigo? Como posso te ajudar hoje?";
 if (msg.includes('obrigado') || msg.includes('valeu') || msg.includes('grato')) return "Por nada! Sempre bom ajudar. Precisa de mais alguma coisa?";
-if (msg.includes('quem é você')) return "Eu sou o Grok, seu ajudante virtual! Criado pela xAI para te dar uma mãozinha!";
+if (msg.includes('quem é você')) return "Eu sou o NOISE, seu ajudante virtual! Criado pela xAI para te dar uma mãozinha!";
 if (msg.includes('como funciona')) return "É simples! Me diga o que você quer saber ou fazer, e eu te ajudo passo a passo!";
 if (msg.includes('o que você faz')) return "Posso ajudar com quase tudo: dúvidas, recomendações, explicações... É só perguntar!";
 if (msg.includes('tchau') || msg.includes('até logo') || msg.includes('adeus')) return "Até mais! Se precisar de mim, é só chamar!";
