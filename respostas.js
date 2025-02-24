@@ -42,6 +42,228 @@ if (msg.includes('não entendi')) return "Tranquilo, vou explicar de novo! O que
 if (msg.includes('que horas')) return "Quer saber a hora? Me diz onde você está que eu te falo!";
 if (msg.includes('clima')) return "Quer saber o clima de hoje? Me diz a cidade que eu te conto!";
 if (msg.includes('o que comer')) return "Tá com fome? Que tal uma sugestão de comida rápida ou algo pra cozinhar?";
+// Respostas sobre Tecnologia
+if (msg.includes('como funciona um aplicativo')) return "Um aplicativo é um programa que roda no seu dispositivo, usando códigos para realizar tarefas específicas, como jogos ou mensagens.";
+if (msg.includes('o que é memória RAM')) return "É a memória temporária do computador que armazena dados enquanto você usa programas, ajudando na velocidade.";
+if (msg.includes('qual o melhor laptop para trabalho')) return "Depende do seu orçamento e necessidade! Para tarefas pesadas, prefira um com bom processador e bastante RAM.";
+if (msg.includes('como evitar vírus no celular')) return "Não baixe apps de fontes desconhecidas e mantenha o sistema atualizado.";
+if (msg.includes('o que é armazenamento em nuvem')) return "É guardar arquivos em servidores online, acessíveis de qualquer lugar com internet.";
+if (msg.includes('como funciona o Wi-Fi')) return "O Wi-Fi transmite dados por ondas de rádio entre seu roteador e dispositivos.";
+if (msg.includes('o que é inteligência artificial')) return "É quando máquinas simulam pensamento humano para resolver problemas ou responder perguntas.";
+if (msg.includes('como economizar bateria no smartphone')) return "Diminua o brilho da tela, feche apps em segundo plano e desative funções como GPS quando não usar.";
+if (msg.includes('o que é um sistema operacional')) return "É o software que gerencia o computador ou celular, como Windows ou Android.";
+if (msg.includes('como faço backup dos meus arquivos')) return "Salve cópias em um HD externo ou na nuvem, como Google Drive ou Dropbox.";
+
+// Respostas sobre Saúde
+if (msg.includes('como fortalecer os ossos')) return "Consuma alimentos ricos em cálcio, como leite, e pratique exercícios como caminhada.";
+if (msg.includes('o que é bom para imunidade')) return "Vitamina C de frutas como laranja e uma boa noite de sono ajudam bastante!";
+if (msg.includes('como evitar dor nas costas')) return "Mantenha uma boa postura e faça alongamentos regularmente.";
+if (msg.includes('como melhorar a concentração')) return "Evite distrações, durma bem e experimente técnicas como a meditação.";
+if (msg.includes('qual o melhor exercício para o coração')) return "Atividades como corrida ou bicicleta fortalecem o coração e melhoram a circulação.";
+if (msg.includes('como prevenir gripes')) return "Lave as mãos com frequência e evite contato próximo com pessoas doentes.";
+if (msg.includes('o que é uma dieta equilibrada')) return "É comer de tudo um pouco: proteínas, carboidratos, gorduras boas e muitas frutas e verduras.";
+if (msg.includes('como lidar com ansiedade')) return "Respire fundo, pratique atividades relaxantes e, se precisar, procure ajuda profissional.";
+if (msg.includes('quanto tempo devo dormir por noite')) return "O ideal é entre 7 e 9 horas, dependendo da sua idade e rotina.";
+if (msg.includes('como cuidar da pele')) return "Use protetor solar, hidrate-se e evite produtos muito agressivos.";// Respostas sobre Tecnologia
+if (msg.includes('o que é um servidor')) return "Um servidor é um computador poderoso que armazena e distribui dados para outros dispositivos.";
+if (msg.includes('como funciona o bluetooth')) return "O Bluetooth usa ondas de rádio para conectar dispositivos próximos, como fones e celulares.";
+if (msg.includes('qual o melhor antivírus')) return "Depende do sistema! Opções como Kaspersky ou Bitdefender são bem recomendadas.";
+if (msg.includes('o que é criptografia')) return "É uma técnica para codificar dados e protegê-los de acesso não autorizado.";
+if (msg.includes('como limpar meu computador')) return "Apague arquivos desnecessários, desinstale programas que não usa e use um limpador como o CCleaner.";
+if (msg.includes('o que é 5G')) return "É a quinta geração de redes móveis, mais rápida e com maior capacidade que o 4G.";
+if (msg.includes('como configurar um roteador')) return "Acesse o painel dele pelo navegador, siga o manual e defina uma senha forte.";
+if (msg.includes('o que é um algoritmo')) return "É um conjunto de instruções que resolve um problema ou executa uma tarefa.";
+if (msg.includes('como aumentar a velocidade da internet')) return "Aproxime-se do roteador, evite muitos dispositivos conectados ao mesmo tempo ou troque o plano.";
+if (msg.includes('o que é realidade virtual')) return "É uma tecnologia que cria ambientes digitais imersivos usando óculos ou headsets.";
+
+// Respostas sobre Saúde
+if (msg.includes('como prevenir cáries')) return "Escove os dentes duas vezes ao dia e evite excesso de açúcar.";
+if (msg.includes('o que é bom para dor de cabeça')) return "Hidrate-se, descanse e, se precisar, use um analgésico leve.";
+if (msg.includes('como melhorar a postura')) return "Sente-se reto, ajuste a altura da cadeira e fortaleça os músculos das costas.";
+if (msg.includes('o que é hipertensão')) return "É a pressão alta no sangue, que pode ser controlada com dieta e exercícios.";
+if (msg.includes('como cuidar dos olhos')) return "Descanse a vista a cada hora de tela e use óculos com filtro de luz azul se necessário.";
+if (msg.includes('qual o melhor jeito de perder peso')) return "Combine uma dieta balanceada com exercícios regulares, mas consulte um profissional.";
+if (msg.includes('como evitar alergias')) return "Mantenha a casa limpa, evite poeira e fique atento a gatilhos como pólen.";
+if (msg.includes('o que é vitamina D')) return "É essencial para ossos e imunidade, e você consegue pelo sol ou alimentos como peixes.";
+if (msg.includes('como tratar resfriado')) return "Descanse, beba bastante líquido e use remédios para aliviar os sintomas.";
+if (msg.includes('como ter mais disposição')) return "Faça refeições leves, mexa-se durante o dia e durma bem à noite.";// Redes Sociais e Tecnologia
+if (msg.includes('como ficar famoso no TikTok')) return "Crie vídeos originais, use trends e poste com consistência!";
+if (msg.includes('o que é um NFT')) return "É um item digital único, como arte ou música, registrado em blockchain.";
+if (msg.includes('como fazer um reels viral')) return "Use áudios populares, edite bem e aposte em algo engraçado ou criativo.";
+if (msg.includes('o que significa FOMO')) return "Fear of Missing Out, ou medo de ficar por fora do que tá rolando.";
+if (msg.includes('como proteger minha conta no Instagram')) return "Use senha forte, ative autenticação em dois fatores e não clique em links estranhos.";
+
+// Cultura Pop
+if (msg.includes('quem é o melhor rapper atual')) return "Depende do gosto! Nomes como Travis Scott e Kendrick Lamar tão bombando.";
+if (msg.includes('o que é K-pop')) return "É pop coreano, com grupos como BTS e BLACKPINK cheios de coreografias e fãs.";
+if (msg.includes('qual o melhor filme da Marvel')) return "Muitos curtem Vingadores: Ultimato, mas depende do seu vibe!";
+if (msg.includes('o que é um stan')) return "É um fã hardcore, tipo alguém que defende o ídolo com tudo.";
+if (msg.includes('como assistir séries de graça')) return "Plataformas como YouTube têm episódios grátis, mas cuidado com sites piratas.";
+
+// Estilo de Vida
+if (msg.includes('como ser mais sustentável')) return "Reduza plástico, recicle e prefira produtos reutilizáveis.";
+if (msg.includes('o que é moda Y2K')) return "É o estilo dos anos 2000, com brilho, cores pastel e vibes retrô.";
+if (msg.includes('como customizar roupas')) return "Use tinta, patches ou corte pra dar seu toque pessoal.";
+if (msg.includes('qual a melhor marca de tênis')) return "Nike e Adidas são hypes, mas veja o que cabe no bolso!";
+if (msg.includes('como fazer um skincare básico')) return "Lave o rosto, use hidratante e protetor solar todo dia.";
+
+// Educação e Trabalho
+if (msg.includes('vale a pena fazer faculdade')) return "Depende do seu objetivo! Alguns jobs pedem, outros valorizam experiência.";
+if (msg.includes('como ganhar dinheiro online')) return "Tente freelas, vendas no Mercado Livre ou criar conteúdo.";
+if (msg.includes('o que é um estágio remoto')) return "É trabalhar de casa pra uma empresa, geralmente com horários flexíveis.";
+if (msg.includes('como estudar pro ENEM')) return "Faça simulados, revise redação e foque em humanas e exatas.";
+if (msg.includes('o que é um curso técnico')) return "É uma formação rápida e prática pra entrar logo no mercado.";
+
+// Saúde Mental e Tendências
+if (msg.includes('como lidar com ansiedade')) return "Respire fundo, fale com alguém e tire um tempo pra você.";
+if (msg.includes('o que é burnout')) return "É um esgotamento por estresse, comum em quem trabalha ou estuda muito.";
+if (msg.includes('como meditar')) return "Sente-se num lugar quieto, feche os olhos e foque na respiração.";
+if (msg.includes('o que é self-care')) return "É cuidar de si mesmo, tipo descansar ou fazer algo que te deixa feliz.";
+if (msg.includes('como ser mais produtivo')) return "Use listas, evite multitarefa e dê pausas pra recarregar.";
+
+// Outros
+if (msg.includes('o que é um meme')) return "É uma piada ou imagem engraçada que viraliza na internet.";
+if (msg.includes('como editar fotos pro Instagram')) return "Apps como VSCO ou Lightroom ajudam a dar aquele toque profissa.";
+if (msg.includes('o que significa shippar')) return "É torcer por um casal, real ou fictício, tipo em séries.";
+if (msg.includes('como começar um podcast')) return "Escolha um tema, grave com um bom microfone e publique no Spotify.";
+if (msg.includes('o que é um hype')) return "É algo que tá super em alta, tipo uma música ou tendência.";
+if (msg.includes('como dançar como no TikTok')) return "Treine os passos no espelho e siga tutoriais dos criadores.";
+if (msg.includes('o que é um challenge')) return "É um desafio viral, como dançar ou fazer algo diferente online.";
+if (msg.includes('como economizar dinheiro')) return "Guarde um pouco todo mês e corte gastos desnecessários.";
+if (msg.includes('o que é veganismo')) return "É não consumir nada de origem animal, por ética ou saúde.";
+if (msg.includes('como fazer amigos online')) return "Participe de grupos ou jogos e puxe papo com quem tem seus interesses.";
+if (msg.includes('o que é um influencer')) return "É alguém que influencia outros nas redes, geralmente com muitos seguidores.";
+if (msg.includes('como usar filtros no Snapchat')) return "Abra o app, deslize pras opções e escolha o que curtir.";
+if (msg.includes('o que é um moodboard')) return "É uma colagem de ideias ou inspirações, tipo fotos e cores.";
+if (msg.includes('como organizar o quarto')) return "Doe o que não usa, use caixas e deixe tudo no seu lugar.";
+if (msg.includes('o que é um e-sport')) return "É competição de videogame, como LOL ou Free Fire, com prêmios.";
+if (msg.includes('como aprender inglês sozinho')) return "Use apps como Duolingo, veja séries e pratique falando.";
+if (msg.includes('o que é um aesthetic')) return "É um estilo visual ou vibe, tipo cottagecore ou cyberpunk.";
+if (msg.includes('como gravar um stories bom')) return "Fale claro, use luz boa e adicione stickers pra engajar.";
+if (msg.includes('o que é um collab')) return "É uma parceria entre creators ou marcas pra algo legal.";
+if (msg.includes('como ter mais followers')) return "Poste regularmente, use hashtags e interaja com quem te segue.";
+if (msg.includes('o que é cancelamento')) return "É quando alguém é criticado online por algo errado que fez.";
+if (msg.includes('como criar um canal no YouTube')) return "Faça uma conta, grave algo simples e capriche no título.";
+if (msg.includes('o que é um trend')) return "É uma moda ou onda que tá rolando nas redes agora.";// Redes Sociais e Tecnologia
+if (msg.includes('o que é um tweet viral')) return "É um post no X que bomba com muitos likes e retweets.";
+if (msg.includes('como usar o WhatsApp pra vender')) return "Crie um catálogo, divulgue pros contatos e responda rápido.";
+if (msg.includes('o que é um deepfake')) return "É um vídeo falso feito com IA, trocando rostos ou vozes.";
+if (msg.includes('como criar um site simples')) return "Use plataformas como Wix ou WordPress e personalize um template.";
+if (msg.includes('o que é um QR code')) return "É um código que você escaneia com o celular pra abrir links ou infos.";
+
+// Cultura Pop
+if (msg.includes('quem é Olivia Rodrigo')) return "É uma cantora pop famosa por hits como 'drivers license'.";
+if (msg.includes('o que é um cosplay')) return "É se fantasiar de personagens de jogos, filmes ou animes.";
+if (msg.includes('qual o melhor festival de música')) return "Coachella ou Lollapalooza são vibes incríveis pra Gen Z!";
+if (msg.includes('o que é um fandom')) return "É a comunidade de fãs de algo, como uma banda ou série.";
+if (msg.includes('qual jogo mobile mais jogado')) return "Hoje, PUBG Mobile e Among Us ainda têm bastante hype.";
+
+// Estilo de Vida
+if (msg.includes('como fazer um bullet journal')) return "Use um caderno, crie layouts e anote tarefas com estilo.";
+if (msg.includes('o que é streetwear')) return "É um estilo urbano com tênis, moletons oversized e marcas hypadas.";
+if (msg.includes('como viajar gastando pouco')) return "Planeje antes, use hostels e procure passagens em promoção.";
+if (msg.includes('o que é um piercing aesthetic')) return "É um piercing que combina com seu estilo, tipo no nariz ou orelha.";
+if (msg.includes('como fazer um café instagramável')) return "Use leite pra latte art e tire foto com fundo clean.";
+
+// Educação e Trabalho
+if (msg.includes('como aprender programação')) return "Comece com Python em sites como Codecademy ou YouTube.";
+if (msg.includes('o que é um side hustle')) return "É um trampo extra pra ganhar grana, tipo vender artesanato.";
+if (msg.includes('como trabalhar com redes sociais')) return "Estude marketing digital e pratique gerenciando páginas.";
+if (msg.includes('o que é um portfólio online')) return "É um site com seus projetos pra mostrar pras empresas.";
+if (msg.includes('como negociar um salário')) return "Pesquise a média do mercado e mostre seu valor com confiança.";
+
+// Saúde Mental e Tendências
+if (msg.includes('como superar um término')) return "Dê tempo a si mesmo, saia com amigos e evite stalkear.";
+if (msg.includes('o que é gatilho emocional')) return "É algo que te lembra de um trauma ou te deixa desconfortável.";
+if (msg.includes('como fazer detox digital')) return "Desconecte por um dia, desligue notificações e foque em você.";
+if (msg.includes('o que é positividade tóxica')) return "É forçar estar bem o tempo todo, ignorando sentimentos reais.";
+if (msg.includes('como criar uma rotina saudável')) return "Planeje horários pra dormir, comer e se mexer todo dia.";
+
+// Outros
+if (msg.includes('o que é um glitch')) return "É um erro ou bug, tipo em jogos ou apps, que às vezes vira meme.";
+if (msg.includes('como fazer slime')) return "Misture cola, bicarbonato e solução de lente pra criar a massa.";
+if (msg.includes('o que é um unboxing')) return "É abrir um produto novo na frente da câmera pra mostrar.";
+if (msg.includes('como participar de um giveaway')) return "Siga as regras do post, curta e marque amigos se pedirem.";
+if (msg.includes('o que é um life hack')) return "É uma dica prática pra facilitar a vida, tipo organizar cabos.";
+if (msg.includes('como gravar um ASMR')) return "Use um microfone bom e grave sons suaves, como sussurros.";
+if (msg.includes('o que é um mood')) return "É o clima ou sentimento que você tá vivendo no momento.";
+if (msg.includes('como fazer um tutorial no YouTube')) return "Explique passo a passo, filme em boa luz e edite bem.";
+if (msg.includes('o que é um binge-watch')) return "É maratonar uma série inteira sem parar.";
+if (msg.includes('como criar um grupo no Telegram')) return "Abra o app, clique em novo grupo e adicione seus contatos.";
+if (msg.includes('o que é um flex')) return "É se exibir de forma descontraída, tipo mostrar algo que conseguiu.";
+if (msg.includes('como usar o Pinterest')) return "Crie pastas, salve ideias e busque inspiração pra tudo.";
+if (msg.includes('o que é um glow up')) return "É uma transformação pra melhor, tipo no visual ou na vida.";
+if (msg.includes('como fazer um vision board')) return "Recorte imagens de metas, cole num painel e visualize seus sonhos.";
+if (msg.includes('o que é um dueto no TikTok')) return "É gravar um vídeo ao lado de outro, tipo reagindo ou cantando junto.";
+if (msg.includes('como ser mais criativo')) return "Teste coisas novas, anote ideias e saia da zona de conforto.";
+if (msg.includes('o que é um troll')) return "É alguém que provoca ou zoa outros online, às vezes só pela graça.";
+if (msg.includes('como usar o Spotify')) return "Crie playlists, siga artistas e ouça offline se for premium.";
+if (msg.includes('o que é upcycling')) return "É transformar algo velho em algo novo e útil, tipo customizar.";
+if (msg.includes('como fazer um challenge próprio')) return "Invente uma ideia, grave e lance com uma hashtag única.";
+if (msg.includes('o que é um avatar digital')) return "É sua versão virtual, tipo em jogos ou apps como Bitmoji.";
+if (msg.includes('como lidar com o tédio')) return "Tente um hobby, assista algo novo ou saia pra dar um rolê.";
+if (msg.includes('o que é um drop')) return "É o lançamento de algo hypado, como uma música ou coleção.";
+if (msg.includes('como ser mais organizado')) return "Use agendas, apps como Notion e tire 10 minutos pra arrumar tudo.";// Cultura Pop dos Anos 90
+if (msg.includes('qual o melhor filme dos anos 90')) return "Clássicos como Titanic e Pulp Fiction são inesquecíveis!";
+if (msg.includes('quem era o rei do pop nos anos 90')) return "Michael Jackson ainda reinava, com hits como 'Black or White'.";
+if (msg.includes('o que era o Tamagotchi')) return "Era um bichinho virtual num chaveiro que você cuidava ou ele 'morria'.";
+if (msg.includes('qual a melhor boy band dos anos 90')) return "Backstreet Boys e NSYNC dividiam os corações da galera!";
+if (msg.includes('o que era MTV nos anos 90')) return "Era o canal dos clipes, com VJs e programas como o Disk MTV.";
+
+// Tecnologia dos Anos 90
+if (msg.includes('o que era um pager')) return "Era um aparelhinho que recebia mensagens curtas antes dos celulares.";
+if (msg.includes('como funcionava o ICQ')) return "Era um chat online com aquele sonzinho 'uh-oh' pra mensagens.";
+if (msg.includes('o que era um disquete')) return "Era um quadradinho pra salvar arquivos, com uns 1,44 MB só.";
+if (msg.includes('como era jogar no Windows 95')) return "Campo Minado e Paciência eram os reis do PC da época!";
+if (msg.includes('o que era o Walkman')) return "Era um toca-fitas portátil pra ouvir música com fone.";
+
+// Estilo de Vida dos Anos 90
+if (msg.includes('o que era moda nos anos 90')) return "Calça larga, camisa xadrez e tênis All Star eram o vibe.";
+if (msg.includes('como era ir à locadora')) return "Você alugava VHS, escolhia na prateleira e torcia pra não estar rebobinado.";
+if (msg.includes('o que era um rollerblade')) return "Eram patins inline, febre pra quem curtia um rolê radical.";
+if (msg.includes('como fazer um penteado dos anos 90')) return "Use gel pra cabelo arrepiado ou faça trancinhas estilosas.";
+if (msg.includes('o que era um Game Boy')) return "Era o portátil da Nintendo pra jogar Pokémon ou Tetris.";
+
+// Educação e Trabalho dos Anos 90
+if (msg.includes('como estudar nos anos 90')) return "Era tudo no lápis, caderno e livros da biblioteca.";
+if (msg.includes('o que era um fax')) return "Era uma máquina pra enviar documentos por telefone.";
+if (msg.includes('como arrumar emprego nos anos 90')) return "Você entregava currículo impresso e lia classificados no jornal.";
+if (msg.includes('o que era um estágio nos anos 90')) return "Era tirar Xerox e fazer cafezinho enquanto aprendia algo.";
+if (msg.includes('como aprender inglês nos anos 90')) return "Com cursos presenciais ou fitas cassete da Cultura Inglesa.";
+
+// Nostalgia e Tendências
+if (msg.includes('o que era um fliperama')) return "Era uma máquina de arcade em bares pra jogar Street Fighter.";
+if (msg.includes('como era assistir TV nos anos 90')) return "Era esperar o horário do programa, sem streaming ou controle remoto pra alguns.";
+if (msg.includes('o que era o Chapolin no SBT')) return "Era o herói atrapalhado que todo mundo amava nas tardes!";
+if (msg.includes('como jogar stop nos anos 90')) return "Pegava papel, caneta e gritava categorias como nome e fruta.";
+if (msg.includes('o que era um Tazo')) return "Eram discos dos salgadinhos que você batia pra virar e colecionar.";
+
+// Outros
+if (msg.includes('o que era o Super Nintendo')) return "Era o console dos anos 90 com jogos como Super Mario World.";
+if (msg.includes('como gravar uma fita cassete')) return "Colocava no rádio, apertava REC e torcia pra ninguém falar.";
+if (msg.includes('o que era um CD pirata')) return "Era um disco gravado com músicas pra vender mais barato.";
+if (msg.includes('como era o som do modem')) return "Era aquele barulho chiado enquanto conectava na internet.";
+if (msg.includes('o que era um patinete dos anos 90')) return "Era básico, só duas rodas e um guidão, sem motor elétrico.";
+if (msg.includes('como fazer um mixtape')) return "Escolha músicas, grave numa fita e decore a capa com caneta.";
+if (msg.includes('o que era o Dragon Ball Z')) return "Era o anime épico com Goku e lutas que paravam o recreio.";
+if (msg.includes('como usar um mapa de papel')) return "Desdobrava, achava a rua e torcia pra não se perder.";
+if (msg.includes('o que era o Top 10 da MTV')) return "Era a contagem dos clipes mais votados da semana.";
+if (msg.includes('como jogar War nos anos 90')) return "Era o jogo de tabuleiro das guerras mundiais, com amigos.";
+if (msg.includes('o que era um discman')) return "Era um toca-CDs portátil, mas pulava se você mexesse muito.";
+if (msg.includes('como era o recreio dos anos 90')) return "Era jogar bola, trocar figurinhas e comer lanche da cantina.";
+if (msg.includes('o que era o Windows 98')) return "Era o sistema do PC com o Clippy e aquele som de inicialização.";
+if (msg.includes('como fazer um scrapbook dos anos 90')) return "Colava fotos, ingressos e escrevia com canetas coloridas.";
+if (msg.includes('o que era o Pokémon na TV')) return "Era o desenho do Ash capturando monstrinhos, febre total.";
+if (msg.includes('como tirar foto nos anos 90')) return "Usava câmera de filme, levava pra revelar e rezava pra sair boa.";
+if (msg.includes('o que era o Festival de Videoclipes')) return "Era tipo um Oscar dos clipes na MTV, com votação da galera.";
+if (msg.includes('como comprar roupa nos anos 90')) return "Ia na loja, provava e levava se o dinheiro desse.";
+if (msg.includes('o que era um Furby')) return "Era um bichinho eletrônico que 'falava' e assustava à noite.";
+if (msg.includes('como jogar videogame alugado')) return "Alugava o cartucho na locadora e corria pra zerar no fim de semana.";
+if (msg.includes('o que era o Castelo Rá-Tim-Bum')) return "Era o programa infantil com Nino e o rato falante, puro amor.";
+if (msg.includes('como fazer um desenho no Paint')) return "Abria o programa, usava o pincel e salvava em bitmap.";
+if (msg.includes('o que era o Bebê Virtual')) return "Era um chaveirinho com um bebê que chorava pra você cuidar.";
+if (msg.includes('como era o som do MSN')) return "Era aquele 'tlim' quando alguém entrava ou mandava mensagem.";
+if (msg.includes('como era o som do MSN')) return "Era aquele 'tlim' quando alguém entrava ou mandava mensagem.";
 
 // Gestão de Pedidos e Compras
 if (msg.includes('consultar saldo')) return "Quer consultar o saldo da sua conta? Vou verificar para você!";
@@ -120,7 +342,56 @@ if (msg.includes('dungeons and dragons')) return "Dungeons & Dragons é pura ave
 if (msg.includes('matrix')) return "Matrix revolucionou o sci-fi. Você tomaria a pílula vermelha ou a azul?";
 if (msg.includes('naruto')) return "Naruto é pura determinação! Você prefere o Team 7 ou os vilões da Akatsuki?";
 if (msg.includes('dragon ball')) return "Dragon Ball é um clássico! Qual transformação você acha mais épica, Super Saiyajin ou Ultra Instinct?";
-
+if (msg.includes('qual o melhor filme de 2000')) return "Gladiador é épico, com Russell Crowe mandando ver!";
+if (msg.includes('o que é O Senhor dos Anéis')) return "É a trilogia de 2001-2003 baseada em Tolkien, com hobbits e anéis.";
+if (msg.includes('quem dirigiu Batman Begins')) return "Christopher Nolan, começando a trilogia do Cavaleiro das Trevas em 2005.";
+if (msg.includes('qual o melhor Harry Potter')) return "Muitos amam 'Prisioneiro de Azkaban' de 2004, mas é gosto pessoal!";
+if (msg.includes('o que era Shrek')) return "Era a animação de 2001 que zoava contos de fadas com um ogro.";
+if (msg.includes('como é Avatar de 2009')) return "É o filme 3D de James Cameron sobre Pandora e os Na’vi.";
+if (msg.includes('qual o melhor filme de super-heróis dos 2000')) return "Homem-Aranha 2 de 2004 ou O Cavaleiro das Trevas de 2008 são tops!";
+if (msg.includes('o que é Crepúsculo')) return "É o romance vampiro de 2008 que dividiu o mundo entre Team Edward e Jacob.";
+if (msg.includes('quem é o vilão de Piratas do Caribe')) return "Capitão Barbosa no primeiro de 2003, mas o Davy Jones depois rouba a cena.";
+if (msg.includes('o que era Matrix Reloaded')) return "É a sequência de 2003, com mais ação e efeitos alucinantes.";
+if (msg.includes('qual o melhor filme de animação dos 2000')) return "Procurando Nemo de 2003 ou Os Incríveis de 2004 são clássicos!";
+if (msg.includes('o que é Donnie Darko')) return "É o cult de 2001 com Jake Gyllenhaal e um coelho assustador.";
+if (msg.includes('como é O Diário da Princesa')) return "É a comédia teen de 2001 com Anne Hathaway virando realeza.";
+if (msg.includes('quem ganhou Oscar em 2003')) return "O Retorno do Rei levou 11 estatuetas, limpando tudo!";
+if (msg.includes('o que é Kill Bill')) return "É o filme de vingança de Tarantino, com Uma Thurman em 2003-2004.";
+if (msg.includes('qual o melhor filme de comédia dos 2000')) return "Superbad de 2007 ou Quem Vai Ficar com Mary de 2000 são hilários!";
+if (msg.includes('o que é 300')) return "É o épico de 2006 sobre Esparta, com 'This is Sparta!' gritado por aí.";
+if (msg.includes('como é Wall-E')) return "É a animação de 2008 da Pixar sobre um robôzinho apaixonado.";
+if (msg.includes('quem é o diretor de A Origem')) return "Christopher Nolan, que lançou esse mindfuck em 2010.";
+if (msg.includes('o que é Jogos Vorazes')) return "Não é dessa década, mas o hype começou com o livro em 2008!";
+if (msg.includes('qual o melhor filme de terror dos 2000')) return "O Chamado de 2002 ou Atividade Paranormal de 2007 dão medo até hoje.";
+if (msg.includes('o que é Madagascar')) return "É a animação de 2005 com um leão, zebra e amigos fugindo do zoológico.";
+if (msg.includes('como é O Código Da Vinci')) return "É o thriller de 2006 baseado no livro, com Tom Hanks desvendando mistérios.";
+if (msg.includes('quem主演了 Velozes e Furiosos')) return "Vin Diesel e Paul Walker, começando a franquia em 2001.";
+if (msg.includes('o que é Brilho Eterno de uma Mente sem Lembranças')) return "É o drama romântico de 2004 com Jim Carrey apagando memórias.";
+if (msg.includes('qual o melhor filme de ação dos 2000')) return "Gladiador ou O Bourne Supremacy de 2004 são pura adrenalina!";
+if (msg.includes('o que é Kung Fu Panda')) return "É a animação de 2008 com Jack Black como um panda lutador.";
+if (msg.includes('como é O Fabuloso Destino de Amélie Poulain')) return "É o filme francês de 2001, cheio de cores e magia.";
+if (msg.includes('quem é o vilão de Homem de Ferro')) return "Obadiah Stane, enfrentando Tony Stark em 2008.";
+if (msg.includes('o que é A Era do Gelo')) return "É a animação de 2002 com um mamute, preguiça e tigre dentes-de-sabre.";
+if (msg.includes('qual o melhor filme musical dos 2000')) return "Moulin Rouge de 2001 ou High School Musical de 2006 têm fãs!";
+if (msg.includes('o que é Bastardos Inglórios')) return "É o filme de Tarantino de 2009 com Brad Pitt caçando nazistas.";
+if (msg.includes('como é Up - Altas Aventuras')) return "É a animação de 2009 da Pixar que faz todo mundo chorar.";
+if (msg.includes('quem dirigiu X-Men')) return "Bryan Singer, lançando o primeiro em 2000.";
+if (msg.includes('o que é As Crônicas de Nárnia')) return "É a fantasia de 2005 com leões, bruxas e um guarda-roupa mágico.";
+if (msg.includes('qual o melhor filme de ficção científica dos 2000')) return "Minority Report de 2002 ou A Origem de 2010 são incríveis!";
+if (msg.includes('o que é Escola de Rock')) return "É a comédia de 2003 com Jack Black ensinando rock pras crianças.";
+if (msg.includes('como é O Tigre e o Dragão')) return "É o filme de artes marciais de 2000, cheio de voos e lutas.";
+if (msg.includes('quem é a estrela de Missão Impossível 3')) return "Tom Cruise, pulando em ação em 2006.";
+if (msg.includes('o que é Ratatouille')) return "É a animação de 2007 sobre um rato chef em Paris.";
+if (msg.includes('qual o melhor filme de drama dos 2000')) return "Réquiem para um Sonho de 2000 ou Menina de Ouro de 2004 são pesados!";
+if (msg.includes('o que é Transformers')) return "É o filme de 2007 com robôs gigantes de Michael Bay.";
+if (msg.includes('como é O Diabo Veste Prada')) return "É a comédia de 2006 com Meryl Streep mandando no mundo da moda.";
+if (msg.includes('quem ganhou Oscar em 2007')) return "Os Infiltrados de Scorsese levou Melhor Filme!";
+if (msg.includes('o que é Juno')) return "É a comédia indie de 2007 sobre uma grávida adolescente.";
+if (msg.includes('qual o melhor filme de fantasia dos 2000')) return "O Senhor dos Anéis ou Harry Potter disputam o topo!";
+if (msg.includes('o que é Toy Story 3')) return "É o filme de 2010 que acabou com as lágrimas de todo mundo.";
+if (msg.includes('como é O Hospedeiro')) return "É o filme sul-coreano de 2006 com um monstro no rio.";
+if (msg.includes('quem é o protagonista de Eu, Robô')) return "Will Smith, caçando robôs rebeldes em 2004.";
+if (msg.includes('o que é Cidade de Deus')) return "É o filme brasileiro de 2002 que mostrou o mundo das favelas.";
 // Fórmula 1
 if (msg.includes('ayrton senna')) return "Ayrton Senna foi um dos maiores pilotos de Fórmula 1 da história, conhecido por sua habilidade extraordinária e carisma!";
 if (msg.includes('lewis hamilton')) return "Lewis Hamilton se tornou um dos maiores nomes da história da F1, com títulos mundiais e batalhas épicas com Vettel e Rosberg!";
