@@ -1,3 +1,7 @@
+const akiles = require('./akilesx.js');
+
+console.log(akiles.nome);  // Saída: Akiles
+console.log(akiles.idade); // Saída: 30
 export const akiles = {
     push: function(msg) {
 if (msg.includes('agradeço')) return "De nada! Se precisar de mais alguma coisa, estarei por aqui!";
