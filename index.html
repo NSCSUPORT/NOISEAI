@@ -1730,7 +1730,121 @@ const mensagemUsuario = "Oi, tudo bem?".toLowerCase();
 const resposta = processarMensagem(mensagemUsuario, respostas);
 console.log("Usuário: " + mensagemUsuario);
 console.log("Chatbot: " + resposta);
+    class AkilesStack {
+        constructor() {
+            this.stack = [];
+        }
 
+        // Adiciona um elemento à pilha
+        push(element) {
+            this.stack.push(element);
+            this.optimize();
+        }
+
+        // Remove o último elemento
+        pop() {
+            return this.stack.pop();
+        }
+
+        // Retorna o topo da pilha sem removê-lo
+        peek() {
+            return this.stack[this.stack.length - 1];
+        }
+
+        // Verifica se a pilha está vazia
+        isEmpty() {
+            return this.stack.length === 0;
+        }
+
+        // Retorna a pilha como uma cópia
+        getStack() {
+            return [...this.stack];
+        }
+
+        // Organiza e otimiza a pilha
+        optimize() {
+            if (typeof this.stack[0] === 'string') {
+                this.stack.sort((a, b) => a.localeCompare(b));
+            } else {
+                this.stack.sort((a, b) => a - b);
+            }
+        }
+
+        // Converte a pilha em uma árvore binária balanceada
+        toBinaryTree() {
+            return this.createBinaryTree(this.stack);
+        }
+
+        // Cria a árvore binária a partir de um array ordenado
+        createBinaryTree(sortedArray) {
+            if (sortedArray.length === 0) return null;
+
+            let mid = Math.floor(sortedArray.length / 2);
+            return {
+                value: sortedArray[mid],
+                left: this.createBinaryTree(sortedArray.slice(0, mid)),
+                right: this.createBinaryTree(sortedArray.slice(mid + 1))
+            };
+        }
+
+        // Exporta a pilha como um arquivo JSON otimizado
+        exportAsJson() {
+            return JSON.stringify(this.toBinaryTree(), null, 2);
+        }
+
+        // Método para processar a mensagem com a palavra "agradeço"
+        processMessage(msg) {
+            if (msg.includes('agradeço')) {
+                return 'Mensagem agradecida!';
+            }
+            return 'Mensagem normal.';
+        }
+    }
+
+    let akiles = new AkilesStack();
+
+    function processCode() {
+        const code = document.getElementById("stackCode").value;
+
+        if (!code) {
+            alert("Please enter JavaScript code.");
+            return;
+        }
+
+        try {
+            const parsedData = JSON.parse(code);
+
+            if (!Array.isArray(parsedData)) {
+                alert("Please enter a valid array.");
+                return;
+            }
+
+            akiles = new AkilesStack();
+            parsedData.forEach(element => akiles.push(element));  // Adiciona os elementos à pilha
+            processTree();
+        } catch (error) {
+            alert("Error processing the code. Ensure it is a valid array.");
+        }
+    }
+
+    function processTree() {
+        let binaryTree = akiles.toBinaryTree();
+        document.getElementById("output").textContent = JSON.stringify(binaryTree, null, 2);
+    }
+
+    function downloadFile() {
+        const binaryTreeJson = akiles.exportAsJson();
+        const blob = new Blob([binaryTreeJson], { type: "application/json" });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = "optimized_stack.json";
+        link.click();
+    }
+
+    // Exemplo de uso do método processMessage
+    const testMessage = "Muito obrigado, agradeço pela ajuda!";
+    const response = akiles.processMessage(testMessage);
+    console.log(response);  // Saída: "Mensagem agradecida!"
 
 </script>
 
