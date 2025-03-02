@@ -7,6 +7,20 @@ class NeuralNetworkPlan {
         this.computationalPower = computationalPower; // Poder de computação (ex: flops, epochs, etc.)
         this.slots = slots; // Slots disponíveis para processamento
     }
+
+    // Método para criptografar informações sensíveis
+    encryptData() {
+        // Simulação de criptografia com base no planName
+        this.planName = btoa(this.planName); // Codifica o nome do plano em Base64
+        this.neuralNetworkType = btoa(this.neuralNetworkType);
+    }
+
+    // Método para descriptografar informações sensíveis
+    decryptData() {
+        // Simulação de descriptografia
+        this.planName = atob(this.planName); // Decodifica o nome do plano de Base64
+        this.neuralNetworkType = atob(this.neuralNetworkType);
+    }
 }
 
 // Classe para representar um investimento no plano de rede neural
@@ -15,6 +29,18 @@ class NeuralNetworkInvestment {
         this.planName = planName;
         this.amount = amount;
         this.investorAddress = investorAddress;
+    }
+
+    // Método para criptografar informações sensíveis
+    encryptData() {
+        this.planName = btoa(this.planName); // Codifica o nome do plano em Base64
+        this.investorAddress = btoa(this.investorAddress);
+    }
+
+    // Método para descriptografar informações sensíveis
+    decryptData() {
+        this.planName = atob(this.planName); // Decodifica o nome do plano de Base64
+        this.investorAddress = atob(this.investorAddress);
     }
 }
 
@@ -35,6 +61,7 @@ class DarkHoloFiEngine {
             return;
         }
         const plan = new NeuralNetworkPlan(planName, neuralNetworkType, initialInvestment, computationalPower, slots);
+        plan.encryptData(); // Criptografa os dados sensíveis
         this.plans.push(plan);
         console.log(`Plano '${planName}' de processamento de rede neural adicionado com sucesso!`);
     }
@@ -53,6 +80,7 @@ class DarkHoloFiEngine {
         }
 
         const investment = new NeuralNetworkInvestment(plan.planName, amount, investorAddress);
+        investment.encryptData(); // Criptografa os dados sensíveis
         this.investments.push(investment);
         console.log(`Investimento de ${amount} concluído com sucesso no plano '${plan.planName}'!`);
     }
@@ -79,12 +107,16 @@ class DarkHoloFiEngine {
 
         console.log("\nPlanos de Processamento de Rede Neural:");
         this.plans.forEach(plan => {
+            plan.decryptData(); // Descriptografa os dados sensíveis antes de exibir
             console.log(`- ${plan.planName}, Tipo de Rede Neural: ${plan.neuralNetworkType}, Poder de Computação: ${plan.computationalPower}, Slots Disponíveis: ${plan.slots}`);
+            plan.encryptData(); // Recriptografa os dados após exibição
         });
 
         console.log("\nInvestimentos realizados:");
         this.investments.forEach(investment => {
+            investment.decryptData(); // Descriptografa os dados sensíveis antes de exibir
             console.log(`- Plano: ${investment.planName}, Investimento: ${investment.amount}, Endereço do Investidor: ${investment.investorAddress}`);
+            investment.encryptData(); // Recriptografa os dados após exibição
         });
 
         console.log("\nModelos de Redes Neurais Processados:");
