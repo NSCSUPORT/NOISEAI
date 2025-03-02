@@ -25,6 +25,7 @@ class DarkHoloFiEngine {
         this.investments = [];
         this.authenticationContractAddress = authenticationContractAddress;
         this.neuralNetworkModels = []; // Modelos de rede neural que serão processados na cadeia
+        this.publicDictionaries = [];  // Dicionários públicos
     }
 
     // Função para adicionar um plano de processamento de rede neural
@@ -91,6 +92,39 @@ class DarkHoloFiEngine {
             console.log(`- Modelo: ${JSON.stringify(model)}`);
         });
     }
+
+    // Função para adicionar um dicionário público
+    addPublicDictionary(dictionary) {
+        this.publicDictionaries.push(dictionary);
+        console.log(`Dicionário público '${dictionary.name}' adicionado com sucesso!`);
+    }
+
+    // Função para gerar frases a partir de simbiose entre tópicos e dicionários públicos
+    generateSymbioticPhrase(topic) {
+        let phrase = `Gerando frase para o tópico '${topic}':\n`;
+
+        // Busca por dicionários públicos que contenham tópicos relacionados
+        this.publicDictionaries.forEach(dictionary => {
+            const relevantWords = dictionary.words.filter(word => word.includes(topic));
+            if (relevantWords.length > 0) {
+                phrase += `- Do dicionário '${dictionary.name}': ${relevantWords.join(', ')}\n`;
+            }
+        });
+
+        if (phrase === `Gerando frase para o tópico '${topic}':\n`) {
+            phrase += "Nenhuma correspondência encontrada nos dicionários públicos.";
+        }
+
+        console.log(phrase);
+    }
+}
+
+// Classe para representar um dicionário público
+class PublicDictionary {
+    constructor(name, words) {
+        this.name = name;
+        this.words = words;  // Lista de palavras associadas ao dicionário
+    }
 }
 
 // Função principal para teste
@@ -116,124 +150,18 @@ async function main() {
     // Exibe o status atual
     engine.displayStatus();
 
-    // Autentica uma mensagem
-    engine.authenticateMessage("someMessageHash");
+    // Adiciona dicionários públicos
+    const dictionary1 = new PublicDictionary("Tecnologia", ["rede", "computação", "algoritmo", "processamento", "modelo"]);
+    const dictionary2 = new PublicDictionary("Saúde", ["cura", "tratamento", "doença", "sintoma", "medicamento"]);
+    
+    engine.addPublicDictionary(dictionary1);
+    engine.addPublicDictionary(dictionary2);
+
+    // Gera frases a partir de tópicos e dicionários públicos
+    engine.generateSymbioticPhrase("rede");
+    engine.generateSymbioticPhrase("cura");
+    engine.generateSymbioticPhrase("economia");
 }
 
-const Web3 = require('web3');
-
-// URL do seu Infura Project ID (substitua com seu próprio ID)
-const infuraMainnetURL = 'https://mainnet.infura.io/v3/YOUR_INFURA_PROJECT_ID';
-
-// Função para verificar o número do bloco atual para uma dada instância Web3
-async function checkBlockNumber(coreID, rpcURL) {
-    const web3 = new Web3(rpcURL);
-
-    try {
-        const blockNumber = await web3.eth.getBlockNumber();
-        console.log(`Core ${coreID} - Número do bloco atual: ${blockNumber}`);
-    } catch (error) {
-        console.error(`Core ${coreID} - Erro ao buscar o número do bloco: ${error.message}`);
-    }
-}
-
-// Função para iniciar todos os núcleos (3 núcleos HoloSea para Mainnet)
-async function startHoloSeaCores() {
-    const rpcURLs = [
-        infuraMainnetURL, // Core 1
-        infuraMainnetURL, // Core 2
-        infuraMainnetURL  // Core 3
-    ];
-
-    const promises = rpcURLs.map((rpcURL, index) => {
-        return checkBlockNumber(index + 1, rpcURL);
-    });
-
-    try {
-        // Aguarda todas as promessas (requisições assíncronas) terminarem
-        await Promise.all(promises);
-        console.log("Todos os núcleos terminaram de verificar os números dos blocos.");
-    } catch (error) {
-        console.error("Erro ao processar um ou mais núcleos:", error.message);
-    }
-}
-
-// Inicia os núcleos HoloSea para Mainnet
-startHoloSeaCores();
-
-// Conexão com o PostgreSQL
-const { Client } = require('pg'); // Biblioteca para conectar ao PostgreSQL
-
-// Função para conectar ao PostgreSQL
-async function connectToDatabase() {
-    const client = new Client({
-        user: 'seu_usuario',
-        host: 'localhost',
-        database: 'seu_banco',
-        password: 'sua_senha',
-        port: 5432,
-    });
-
-    try {
-        await client.connect(); // Estabelece a conexão
-        console.log('Conexão com o banco de dados bem-sucedida!');
-        return client;
-    } catch (error) {
-        console.error('Erro ao conectar com o banco de dados', error);
-        throw error;
-    }
-}
-
-// Função para obter todas as planilhas
-async function getAllPlanilhas(client) {
-    try {
-        const res = await client.query('SELECT * FROM planilhas ORDER BY data_criacao DESC');
-        return res.rows;
-    } catch (error) {
-        console.error('Erro ao recuperar as planilhas', error);
-        throw error;
-    }
-}
-
-// Função para buscar uma planilha pelo nome
-async function getPlanilhaByName(client, nome) {
-    try {
-        const res = await client.query('SELECT * FROM planilhas WHERE nome = $1', [nome]);
-        return res.rows[0]; // Retorna o primeiro item encontrado
-    } catch (error) {
-        console.error('Erro ao buscar planilha pelo nome', error);
-        throw error;
-    }
-}
-
-// Função principal para execução
-async function runDataLake() {
-    const client = await connectToDatabase();
-
-    try {
-        // Recupera todas as planilhas
-        const planilhas = await getAllPlanilhas(client);
-        console.log('Planilhas Recuperadas:');
-        planilhas.forEach(planilha => {
-            console.log(`Planilha: ${planilha.nome}, Criada em: ${planilha.data_criacao}`);
-        });
-
-        // Busca uma planilha específica pelo nome
-        const vendasPlanilha = await getPlanilhaByName(client, 'Vendas Q1');
-        if (vendasPlanilha) {
-            console.log(`Planilha encontrada: ${vendasPlanilha.nome}`);
-        } else {
-            console.log('Planilha não encontrada.');
-        }
-    } catch (error) {
-        console.error('Erro durante a execução do DataLake', error);
-    } finally {
-        await client.end(); // Fecha a conexão ao final
-    }
-}
-
-// Executa a função principal
-runDataLake();
-
-// Chamada da função principal do Dark HoloFi
+// Chama a função principal para execução
 main();
