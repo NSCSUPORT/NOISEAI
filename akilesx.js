@@ -2,24 +2,53 @@
 class NeuralNetworkPlan {
     constructor(planName, neuralNetworkType, initialInvestment, computationalPower, slots) {
         this.planName = planName;
-        this.neuralNetworkType = neuralNetworkType; // Tipo da rede neural (ex: CNN, RNN, etc.)
+        this.neuralNetworkType = neuralNetworkType;
         this.initialInvestment = initialInvestment;
-        this.computationalPower = computationalPower; // Poder de computação (ex: flops, epochs, etc.)
-        this.slots = slots; // Slots disponíveis para processamento
+        this.computationalPower = computationalPower;
+        this.slots = slots;
     }
 
     // Método para criptografar informações sensíveis
     encryptData() {
-        // Simulação de criptografia com base no planName
-        this.planName = btoa(this.planName); // Codifica o nome do plano em Base64
+        this.planName = btoa(this.planName);
         this.neuralNetworkType = btoa(this.neuralNetworkType);
     }
 
     // Método para descriptografar informações sensíveis
     decryptData() {
-        // Simulação de descriptografia
-        this.planName = atob(this.planName); // Decodifica o nome do plano de Base64
+        this.planName = atob(this.planName);
         this.neuralNetworkType = atob(this.neuralNetworkType);
+    }
+
+    // Método para armazenar o plano no cookie (simulação de banco de dados)
+    saveToCookie() {
+        const encryptedData = JSON.stringify({
+            planName: this.planName,
+            neuralNetworkType: this.neuralNetworkType,
+            initialInvestment: this.initialInvestment,
+            computationalPower: this.computationalPower,
+            slots: this.slots
+        });
+        document.cookie = `neuralNetworkPlan=${btoa(encryptedData)}; path=/`;
+    }
+
+    // Método para carregar o plano de rede neural do cookie
+    static loadFromCookie() {
+        const cookies = document.cookie.split('; ');
+        for (let cookie of cookies) {
+            if (cookie.startsWith('neuralNetworkPlan=')) {
+                const encryptedData = atob(cookie.split('=')[1]);
+                const planData = JSON.parse(encryptedData);
+                return new NeuralNetworkPlan(
+                    atob(planData.planName),
+                    atob(planData.neuralNetworkType),
+                    planData.initialInvestment,
+                    planData.computationalPower,
+                    planData.slots
+                );
+            }
+        }
+        return null;  // Caso não encontre o plano
     }
 }
 
@@ -33,137 +62,107 @@ class NeuralNetworkInvestment {
 
     // Método para criptografar informações sensíveis
     encryptData() {
-        this.planName = btoa(this.planName); // Codifica o nome do plano em Base64
+        this.planName = btoa(this.planName);
         this.investorAddress = btoa(this.investorAddress);
     }
 
     // Método para descriptografar informações sensíveis
     decryptData() {
-        this.planName = atob(this.planName); // Decodifica o nome do plano de Base64
+        this.planName = atob(this.planName);
         this.investorAddress = atob(this.investorAddress);
+    }
+
+    // Método para armazenar o investimento no cookie
+    saveToCookie() {
+        const encryptedData = JSON.stringify({
+            planName: this.planName,
+            amount: this.amount,
+            investorAddress: this.investorAddress
+        });
+        document.cookie = `neuralNetworkInvestment=${btoa(encryptedData)}; path=/`;
+    }
+
+    // Método para carregar o investimento do cookie
+    static loadFromCookie() {
+        const cookies = document.cookie.split('; ');
+        for (let cookie of cookies) {
+            if (cookie.startsWith('neuralNetworkInvestment=')) {
+                const encryptedData = atob(cookie.split('=')[1]);
+                const investmentData = JSON.parse(encryptedData);
+                return new NeuralNetworkInvestment(
+                    atob(investmentData.planName),
+                    investmentData.amount,
+                    atob(investmentData.investorAddress)
+                );
+            }
+        }
+        return null;  // Caso não encontre o investimento
     }
 }
 
-// Classe para o mecanismo Dark HoloFi
+// Função para simular um mecanismo "Dark Data Base"
 class DarkHoloFiEngine {
     constructor(authenticationContractAddress) {
-        this.plans = [];
-        this.investments = [];
         this.authenticationContractAddress = authenticationContractAddress;
-        this.neuralNetworkModels = []; // Modelos de rede neural que serão processados na cadeia
+        this.neuralNetworkModels = [];  // Modelos de rede neural que serão processados na cadeia
         this.publicDictionaries = [];  // Dicionários públicos
     }
 
     // Função para adicionar um plano de processamento de rede neural
     addPlan(planName, neuralNetworkType, initialInvestment, computationalPower, slots) {
-        if (this.plans.length >= 100) {
-            console.log("Erro: Número máximo de planos de processamento atingido.");
-            return;
-        }
         const plan = new NeuralNetworkPlan(planName, neuralNetworkType, initialInvestment, computationalPower, slots);
-        plan.encryptData(); // Criptografa os dados sensíveis
-        this.plans.push(plan);
-        console.log(`Plano '${planName}' de processamento de rede neural adicionado com sucesso!`);
+        plan.encryptData();
+        plan.saveToCookie();  // Salva no cookie (simulação do Dark Data Base)
+        console.log(`Plano '${planName}' adicionado e armazenado no Dark Data Base!`);
     }
 
     // Função para investir em um plano de rede neural
     invest(planName, amount, investorAddress) {
-        const plan = this.plans.find(p => p.planName === planName);
-        if (!plan) {
-            console.log(`Erro: Plano de processamento não encontrado: ${planName}`);
-            return;
-        }
-
-        if (this.investments.length >= 100) {
-            console.log("Erro: Número máximo de investimentos atingido.");
-            return;
-        }
-
-        const investment = new NeuralNetworkInvestment(plan.planName, amount, investorAddress);
-        investment.encryptData(); // Criptografa os dados sensíveis
-        this.investments.push(investment);
-        console.log(`Investimento de ${amount} concluído com sucesso no plano '${plan.planName}'!`);
+        const investment = new NeuralNetworkInvestment(planName, amount, investorAddress);
+        investment.encryptData();
+        investment.saveToCookie();  // Salva no cookie (simulação do Dark Data Base)
+        console.log(`Investimento de ${amount} realizado no plano '${planName}'!`);
     }
 
     // Função para processar um modelo de rede neural na cadeia
     processNeuralNetwork(modelData) {
-        // Simula o processamento de rede neural na cadeia usando Dark HoloFi
         console.log(`Processando rede neural com os dados: ${JSON.stringify(modelData)}`);
-        // Após processamento, o modelo será adicionado à lista de modelos
         this.neuralNetworkModels.push(modelData);
         console.log("Modelo de rede neural processado com sucesso!");
     }
 
-    // Função para autenticar uma mensagem
-    authenticateMessage(messageHash) {
-        // Simula a lógica de autenticação da mensagem
-        console.log(`Mensagem '${messageHash}' autenticada com sucesso!`);
-    }
-
-    // Função para exibir o estado atual dos planos e investimentos
+    // Função para exibir o estado atual (dados armazenados)
     displayStatus() {
         console.log("\nStatus do Mecanismo Dark HoloFi:");
-        console.log(`Endereço do contrato de autenticação: ${this.authenticationContractAddress}`);
 
-        console.log("\nPlanos de Processamento de Rede Neural:");
-        this.plans.forEach(plan => {
-            plan.decryptData(); // Descriptografa os dados sensíveis antes de exibir
-            console.log(`- ${plan.planName}, Tipo de Rede Neural: ${plan.neuralNetworkType}, Poder de Computação: ${plan.computationalPower}, Slots Disponíveis: ${plan.slots}`);
-            plan.encryptData(); // Recriptografa os dados após exibição
-        });
+        const plan = NeuralNetworkPlan.loadFromCookie();
+        if (plan) {
+            plan.decryptData();
+            console.log(`Plano de Rede Neural: ${plan.planName}, Tipo: ${plan.neuralNetworkType}, Poder de Computação: ${plan.computationalPower}, Slots: ${plan.slots}`);
+        } else {
+            console.log("Nenhum plano encontrado.");
+        }
 
-        console.log("\nInvestimentos realizados:");
-        this.investments.forEach(investment => {
-            investment.decryptData(); // Descriptografa os dados sensíveis antes de exibir
-            console.log(`- Plano: ${investment.planName}, Investimento: ${investment.amount}, Endereço do Investidor: ${investment.investorAddress}`);
-            investment.encryptData(); // Recriptografa os dados após exibição
-        });
+        const investment = NeuralNetworkInvestment.loadFromCookie();
+        if (investment) {
+            investment.decryptData();
+            console.log(`Investimento: Plano ${investment.planName}, Quantia: ${investment.amount}, Endereço do Investidor: ${investment.investorAddress}`);
+        } else {
+            console.log("Nenhum investimento encontrado.");
+        }
 
         console.log("\nModelos de Redes Neurais Processados:");
         this.neuralNetworkModels.forEach(model => {
             console.log(`- Modelo: ${JSON.stringify(model)}`);
         });
     }
-
-    // Função para adicionar um dicionário público
-    addPublicDictionary(dictionary) {
-        this.publicDictionaries.push(dictionary);
-        console.log(`Dicionário público '${dictionary.name}' adicionado com sucesso!`);
-    }
-
-    // Função para gerar frases a partir de simbiose entre tópicos e dicionários públicos
-    generateSymbioticPhrase(topic) {
-        let phrase = `Gerando frase para o tópico '${topic}':\n`;
-
-        // Busca por dicionários públicos que contenham tópicos relacionados
-        this.publicDictionaries.forEach(dictionary => {
-            const relevantWords = dictionary.words.filter(word => word.includes(topic));
-            if (relevantWords.length > 0) {
-                phrase += `- Do dicionário '${dictionary.name}': ${relevantWords.join(', ')}\n`;
-            }
-        });
-
-        if (phrase === `Gerando frase para o tópico '${topic}':\n`) {
-            phrase += "Nenhuma correspondência encontrada nos dicionários públicos.";
-        }
-
-        console.log(phrase);
-    }
 }
 
-// Classe para representar um dicionário público
-class PublicDictionary {
-    constructor(name, words) {
-        this.name = name;
-        this.words = words;  // Lista de palavras associadas ao dicionário
-    }
-}
-
-// Função principal para teste
+// Função para teste
 async function main() {
     const engine = new DarkHoloFiEngine("someAuthenticationAddress");
 
-    // Adiciona planos de processamento de redes neurais
+    // Adiciona planos de processamento
     engine.addPlan("Plano CNN", "CNN", 1000, "16 GFLOPS", 5);
     engine.addPlan("Plano RNN", "RNN", 1500, "20 GFLOPS", 10);
 
@@ -171,7 +170,7 @@ async function main() {
     engine.invest("Plano CNN", 500, "Investor1Address");
     engine.invest("Plano RNN", 1000, "Investor2Address");
 
-    // Processa um modelo de rede neural na cadeia
+    // Processa um modelo de rede neural
     engine.processNeuralNetwork({
         modelName: "Modelo de Reconhecimento de Imagem",
         type: "CNN",
@@ -181,19 +180,7 @@ async function main() {
 
     // Exibe o status atual
     engine.displayStatus();
-
-    // Adiciona dicionários públicos
-    const dictionary1 = new PublicDictionary("Tecnologia", ["rede", "computação", "algoritmo", "processamento", "modelo"]);
-    const dictionary2 = new PublicDictionary("Saúde", ["cura", "tratamento", "doença", "sintoma", "medicamento"]);
-    
-    engine.addPublicDictionary(dictionary1);
-    engine.addPublicDictionary(dictionary2);
-
-    // Gera frases a partir de tópicos e dicionários públicos
-    engine.generateSymbioticPhrase("rede");
-    engine.generateSymbioticPhrase("cura");
-    engine.generateSymbioticPhrase("economia");
 }
 
-// Chama a função principal para execução
+// Executa a função principal
 main();
